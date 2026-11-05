@@ -1,0 +1,15 @@
+{
+  "format_version": "browser-capture-v1",
+  "captured_at_utc": "2026-11-05T16:36:57.679204+00:00",
+  "scope": "Actual Streamlit UI / SIMULATION / scripted offline fixtures",
+  "browser_errors": [],
+  "human_decision_recorded": false,
+  "live_oidc_tested": false,
+  "assets": {
+    "parallel-plan.png": "3e73baac313ced088c05adf1a9fd7bbdcb110455bd3b673a5663102d2541e410",
+    "intermediate-conflict.png": "0f05155d21271df4605feee2b8acd33c8ab4aac9eff7b2d62a815eefbbe6e6de",
+    "guarded-recovery.png": "1199228c59d974f1df03c7ffc9a4078639bb34aed335489d500dcf1f48bfe3cb",
+    "human-review.png": "f78e431268a00d836ea5ae01ed41fa95afbc1bbfc14f407ff3a02a8e04267d66",
+    "demo.webm": "5c702d682db844078706d63adf39a66fcb18cd8f5bbd00aa4f778035c1a05a96"
+  }
+}

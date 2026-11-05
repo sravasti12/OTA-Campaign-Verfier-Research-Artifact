@@ -1,24 +1,47 @@
 # OTA Campaign Verifier
 
-A portfolio simulation for software-defined vehicle update campaigns. Phase 1
-provides deterministic input validation and version compatibility checking.
-Phase 2 adds parallel Z3 scheduling, nominal plan replay, and traceable conflicts.
-Phase 3 adds deterministic A/B fault simulation, recovery search, and invariant evidence.
-Phase 4 adds evidence-linked document extraction, independent review, and evaluation.
-Phase 5 adds checkpointed orchestration, advisory explanation, and local human review.
-Phase 6 adds guarded trial boot and evidence-backed recovery-policy comparison.
-Phase 7 adds an optional durable SQLite workspace, restart recovery, transactional
-review decisions, versioned evidence, and revision differences.
-Phase 8 adds a frozen benchmark corpus, extraction metrics, bounded independent
-schedule enumeration, reproducible reports, and an offline CI matrix.
-Phase 9 adds explicit policy selection and policy-specific versioned human review.
-Phase 10 adds optional single-host OIDC shared review, server roles, authenticated
-provenance, explicit migration, verified backup/restore, and read-only archiving.
-Results apply only to modeled states and assumptions; no vehicle integration or
-certification evidence is produced.
+A **software-defined vehicle OTA campaign simulation** that checks the path to
+an update, including intermediate versions and fault recovery.
 
-The engineering question is: can a campaign reach a compatible final state while
-passing through incompatible intermediate or recovery states?
+A campaign can end with compatible versions yet have no compatible activation
+order. It can also have a feasible nominal schedule but fail to recover after a
+boot fault. This project makes those differences visible before a human reviews
+the simulated proposal.
+
+LLMs extract requirements, check extraction faithfulness, and explain evidence.
+**Compatibility, parallel planning, fault injection, recovery, and invariants are
+deterministic code.** They run and are tested without model services.
+
+![Guarded recovery comparison with retained baseline violations](docs/assets/guarded-recovery.png)
+
+*Actual Streamlit UI using scripted synthetic responses. The guarded example
+passes its modeled sweep while baseline failures stay visible; human review is
+still pending. This is not live-model accuracy, vehicle validation, or
+certification evidence.*
+
+[Three-minute demo](docs/demo_walkthrough.md) ? [Screen recording](docs/assets/demo.webm) ?
+[Architecture](docs/architecture.md) ? [Release validation](docs/phase11.md)
+
+## What the demonstrations prove under the model
+
+| Scenario | Measured result | Why it matters |
+| --- | --- | --- |
+| Parallel update | Six ECU-minutes of writing in four simulated minutes, with every activation compatible | Writes overlap while activation dependencies remain enforced. |
+| Intermediate-version trap | Final versions compatible; no feasible activation order; two source-linked conflicting rules | Checking the destination alone misses the problem. |
+| Guarded recovery | Baseline violations retained; guarded policy passes 48 cases, including 6 confirmation cases | Policy improvements remain separate from baseline evidence and human approval. |
+
+The frozen reference benchmark matches all 11 labeled deterministic campaigns
+and covers 252 core fault cases. Its 12 extraction fixtures yield 8 ready and 4
+required-abstention outcomes. These are regression checks using supplied answers,
+not measured model performance. See the [recorded local evidence](docs/release-evidence.json).
+
+**Local verification:** 548 tests passed on Windows/Python 3.14.4, with 14
+upstream/cache warnings. The JUnit digest and counts are retained in the release
+summary.
+
+**Release status:** local evidence and the browser demo are validated. Remote
+Windows/Linux CI and real OIDC login/role/logout checks remain pending because
+those services are not configured. No public deployment is claimed.
 
 ## Setup and tests
 
@@ -32,8 +55,8 @@ python -m venv .venv
 
 The workspace verification uses Python 3.14.4. Python 3.11 has not been exercised
 here. After dependency installation, all tests and planning run offline without
-LLM services, environment variables, or credentials. `.env.example` reserves
-future provider configuration; `.env` is ignored.
+LLM services, environment variables, or credentials. `.env.example` documents
+optional provider configuration; `.env` is ignored.
 
 Run just the Phase 2 tests:
 
@@ -531,3 +554,22 @@ Follow [Phase 10 setup, maintenance commands, and limits](docs/phase10.md).
 Login and UI authorization are tested with mocked verified identities; an actual
 identity-provider login and network deployment have not been exercised. The
 checked-in server stays on loopback. No further numbered phases are planned.
+
+
+## Phase 11: release validation and portfolio evidence
+
+Generate a new offline release evidence pack:
+
+```powershell
+.\.venv\Scripts\python -m ota_verifier.release_validation --output runs/my-release
+```
+
+It contains the three demo review bundles, the fixture benchmark, verified
+migration/backup/restore artifacts, receipt-reuse checks, and an artifact hash
+index. Proposals remain awaiting human review. External CI and live OIDC gates
+remain explicitly pending, as agreed for this milestone.
+
+[Phase 11](docs/phase11.md) documents verification, remaining setup, and release
+criteria. [Architecture](docs/architecture.md) explains the model boundaries;
+[the demo walkthrough](docs/demo_walkthrough.md) includes the presentation script
+and instructions for regenerating the real browser screenshots and recording.

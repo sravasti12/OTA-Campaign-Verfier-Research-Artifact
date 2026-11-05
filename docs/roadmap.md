@@ -1,7 +1,8 @@
-# Roadmap after Phase 10
+# Roadmap after Phase 11
 
-Phase 10 is implemented for the user-selected single-host scope. No further
-numbered phases are planned; external identity-provider setup and network
+Phases 1?10 are implemented. Phase 11 adds local release validation and portfolio
+evidence; remote CI and live OIDC gates remain pending by user choice. No further
+numbered implementation phases are planned; external identity-provider setup and network
 deployment remain operator configuration, not validated deployment claims. It gives the portfolio
 project a complete local simulation workflow from source evidence through
 planning, fault investigation, retained results, and human review. Further phases
@@ -69,3 +70,13 @@ claimed as exercised. Shared mode remains optional for the local portfolio demo.
 
 All phases remain simulation work. A richer simulator, more tests, or a recorded
 approval does not establish behavior on real vehicles or regulatory certification.
+
+
+## Phase 11 ? release validation and portfolio evidence
+
+Local deliverables include reproducible demo bundles, restart/backup/restore
+rehearsal, architecture documentation, genuine browser screenshots and recording,
+and a release-oriented README. The user confirmed GitHub and OIDC are not
+configured and requested setup documentation with those checks left pending.
+See [Phase 11 evidence and release gates](phase11.md). No remote CI result or
+live identity-provider result is claimed.
