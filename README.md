@@ -12,6 +12,8 @@ review decisions, versioned evidence, and revision differences.
 Phase 8 adds a frozen benchmark corpus, extraction metrics, bounded independent
 schedule enumeration, reproducible reports, and an offline CI matrix.
 Phase 9 adds explicit policy selection and policy-specific versioned human review.
+Phase 10 adds optional single-host OIDC shared review, server roles, authenticated
+provenance, explicit migration, verified backup/restore, and read-only archiving.
 Results apply only to modeled states and assumptions; no vehicle integration or
 certification evidence is produced.
 
@@ -467,7 +469,8 @@ transactionally. Reviewer identities remain self-reported in this local tool.
 See [Phase 7 usage and recovery rules](docs/phase7.md). Phase 7 completes the
 current local portfolio milestone. [The next-phase roadmap](docs/roadmap.md)
 records completed evaluation/reproducibility and explicit policy selection.
-Optional shared-review hardening is the only remaining planned phase.
+The single-host shared-review and operational-hardening phase is now implemented;
+no further numbered phases are planned.
 
 
 ## Phase 8: reproducible benchmark evidence
@@ -507,6 +510,24 @@ policy or changing trial options requires a new revision and invalidates the
 prior decision's applicability. Missing permissions, regressions, unknowns, and
 incomplete selected-policy coverage still block approval.
 
-See [Phase 9 review rules and API](docs/phase9.md). One planned phase remains:
-**Phase 10, optional shared-review and operational hardening**. The current local
-simulation workflow is complete without that deployment-focused extension.
+See [Phase 9 review rules and API](docs/phase9.md). Optional shared review and
+operational controls are described in Phase 10 below.
+
+
+## Phase 10: optional shared review and operational controls
+
+Local mode remains the default offline demo. Optional single-host shared mode
+uses Streamlit OIDC login and an operator-controlled issuer/subject allowlist.
+Reader, analyst, reviewer, and admin roles are enforced at the service boundary;
+reviewer identity and provenance commit atomically with the human decision.
+Shared mode requires a deliberate schema migration and protected configuration.
+
+Verified SQLite backup/restore includes WAL commits, revisions, review history,
+authentication metadata, and checkpoints. Reviewed runs can be archived read-only
+without deleting evidence. Portable exports have content identifiers; authenticated
+exports retain provenance separately from historical self-reported identities.
+
+Follow [Phase 10 setup, maintenance commands, and limits](docs/phase10.md).
+Login and UI authorization are tested with mocked verified identities; an actual
+identity-provider login and network deployment have not been exercised. The
+checked-in server stays on loopback. No further numbered phases are planned.

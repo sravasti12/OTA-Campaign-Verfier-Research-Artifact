@@ -14,9 +14,11 @@ ota-plan = "ota_verifier.cli:main"
 ota-extract = "ota_verifier.documents_cli:main"
 ota-eval = "ota_verifier.evaluation:main"
 ota-benchmark = "ota_verifier.benchmark.runner:main"
+ota-workspace = "ota_verifier.persistence.operations:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=8,<10"]
+shared = ["streamlit[auth]>=1.50,<2"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

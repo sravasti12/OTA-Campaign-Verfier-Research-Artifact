@@ -1,6 +1,8 @@
-# Roadmap after Phase 9
+# Roadmap after Phase 10
 
-Phase 9 is the latest implemented milestone. Only optional Phase 10 remains. It gives the portfolio
+Phase 10 is implemented for the user-selected single-host scope. No further
+numbered phases are planned; external identity-provider setup and network
+deployment remain operator configuration, not validated deployment claims. It gives the portfolio
 project a complete local simulation workflow from source evidence through
 planning, fault investigation, retained results, and human review. Further phases
 are optional improvements, not claims of completed capabilities. Implement one
@@ -61,7 +63,9 @@ and recovery documentation only for infrastructure actually exercised.
 
 Done when unauthorized/stale decisions are rejected, migrations preserve prior
 evidence, backups restore verified runs, and concurrent review behavior is
-covered by integration tests. Keep this optional for a local portfolio demo.
+covered by integration tests. Implemented single-host controls and limits are
+documented in [Phase 10](phase10.md). Live OIDC and network deployment are not
+claimed as exercised. Shared mode remains optional for the local portfolio demo.
 
 All phases remain simulation work. A richer simulator, more tests, or a recorded
 approval does not establish behavior on real vehicles or regulatory certification.

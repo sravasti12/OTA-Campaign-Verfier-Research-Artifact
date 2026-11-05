@@ -15,7 +15,7 @@ CODE_FILES = ('graph.py', 'workflow_models.py', 'models.py', 'planner.py', 'simu
     'simulation_models.py', 'evidence.py', 'llm/models.py', 'llm/client.py', 'llm/extractor.py',
     'llm/verifier.py', 'llm/explainer.py', 'llm/pipeline.py', 'llm/evidence.py',
     'llm/explanation_models.py', 'persistence/models.py', 'persistence/versions.py',
-    'persistence/locks.py', 'persistence/diff.py', 'persistence/service.py', 'persistence/store.py', 'persistence/receipts.py', 'persistence/recipes.py')
+    'access.py', 'shared.py', 'shared_review.py', 'persistence/schema.py', 'persistence/operations.py', 'persistence/locks.py', 'persistence/diff.py', 'persistence/service.py', 'persistence/store.py', 'persistence/receipts.py', 'persistence/recipes.py')
 
 
 def current_manifest() -> VersionManifest:
@@ -24,7 +24,7 @@ def current_manifest() -> VersionManifest:
     hashes = {name: content_hash((root / name).read_text(encoding='utf-8-sig')) for name in CODE_FILES}
     packages = []
     for name in ('ota-verifier', 'pydantic', 'z3-solver', 'langgraph', 'langgraph-checkpoint',
-                 'langgraph-checkpoint-sqlite', 'streamlit'):
+                 'langgraph-checkpoint-sqlite', 'streamlit', 'Authlib'):
         try:
             installed = version(name)
         except PackageNotFoundError:

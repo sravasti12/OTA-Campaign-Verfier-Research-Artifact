@@ -6,6 +6,9 @@ import pandas as pd
 from pydantic import ValidationError
 import streamlit as st
 from .graph import WorkflowService
+from .shared import SharedWorkflowService
+from .shared_review import shared_gate
+from .persistence.operations import export_id
 from .persistence.service import PersistentWorkflowService
 from .persistence.store import RunNotReady, StorageError
 from .persistence.locks import WorkspaceBusy
@@ -108,7 +111,12 @@ def _controls() -> tuple[WorkflowInput | None, bool, str]:
                 if policy == 'Guarded trial boot policy' else PolicySelection(id='baseline-v1') if policy == 'Baseline policy' else None))
     except (ValueError, ValidationError):
         st.error('The draft request is invalid. Correct the JSON and inventory before analyzing.')
-    analyze = st.button('Analyze revision', type='primary', key='analyze', disabled=incoming is None)
+    current_service = st.session_state.workflow_service
+    archived = (isinstance(current_service, PersistentWorkflowService) and 'active_run_id' in st.session_state
+                and current_service.archive_info(st.session_state.active_run_id) is not None)
+    if archived:
+        st.info('This reviewed run is archived. Its evidence is available for reading and export.')
+    analyze = st.button('Analyze revision', type='primary', key='analyze', disabled=incoming is None or archived or isinstance(st.session_state.workflow_service, SharedWorkflowService) and not st.session_state.workflow_service.allowed('analyze'))
     return incoming, analyze, st.session_state.fixture_example
 
 
@@ -259,16 +267,24 @@ def _review(bundle: ReviewBundle, current: bool) -> None:
         decision = bundle.current_decision
         st.success(REVIEW_LABELS[bundle.review_state]) if bundle.review_state == 'approved' else st.info(REVIEW_LABELS[bundle.review_state])
         st.text(f'{decision.submission.reviewer}: {decision.submission.reason}')
-        st.caption(f'Recorded at {decision.recorded_at_utc}. Reviewer identity is recorded as entered.')
+        service = st.session_state.workflow_service
+        verified = isinstance(service, PersistentWorkflowService) and any(
+            record.revision == bundle.revision for record in service.review_authentication(bundle.run_id, bundle.revision))
+        st.caption(f'Recorded at {decision.recorded_at_utc}. ' + ('Identity recorded through OIDC-authenticated review.' if verified else 'Reviewer identity was self-reported.'))
     else:
         labels = decision_labels(bundle)
         if 'Approve simulation proposal' not in labels:
             st.info('This evidence cannot receive approval. You can record review with findings or reject the proposal.')
         with st.form(f'review_form_{bundle.revision}'):
             action = st.selectbox('Decision', labels, key=f'decision_{bundle.revision}')
-            reviewer = st.text_input('Reviewer', key=f'reviewer_{bundle.revision}')
+            shared_service = st.session_state.workflow_service
+            if isinstance(shared_service, SharedWorkflowService):
+                reviewer = shared_service.account().identity
+                st.caption('Authenticated reviewer: ' + reviewer)
+            else:
+                reviewer = st.text_input('Reviewer', key=f'reviewer_{bundle.revision}')
             reason = st.text_area('Decision reason', key=f'reason_{bundle.revision}')
-            submitted = st.form_submit_button('Record decision', disabled=not current)
+            submitted = st.form_submit_button('Record decision', disabled=not current or isinstance(shared_service, SharedWorkflowService) and not shared_service.allowed('review'))
         if submitted:
             values = {'Approve simulation proposal': 'approve', 'Reject proposal': 'reject',
                       'Review with findings': 'review_with_findings'}
@@ -293,6 +309,8 @@ def _review(bundle: ReviewBundle, current: bool) -> None:
 def main() -> None:
     """Render a local review workspace; all expensive work requires explicit submission."""
     st.set_page_config(page_title='OTA Campaign Verifier', page_icon='🚗', layout='wide')
+    if not shared_gate():
+        return
     _initialize()
     st.title('OTA Campaign Verifier')
     st.caption('SIMULATION  /  Source evidence → deterministic analysis → human review')
@@ -319,12 +337,15 @@ def main() -> None:
         st.error(f'Saved evidence could not be opened: {error}')
         return
     current = inputs_current(bundle, incoming)
+    archived = isinstance(service, PersistentWorkflowService) and service.archive_info(bundle.run_id) is not None
     columns = st.columns(3)
     columns[0].metric(('Selected policy: ' + bundle.snapshot.artifacts.input.selected_policy.id) if bundle.snapshot.artifacts.input.selected_policy is not None else 'Baseline analysis' if bundle.snapshot.artifacts.comparison else 'Analysis', ANALYSIS_LABELS[bundle.snapshot.artifacts.status])
     columns[1].metric('Human decision', REVIEW_LABELS[bundle.review_state] if current else 'Draft changed')
     columns[2].metric('Revision', bundle.revision)
     if not current:
         st.warning('Unanalyzed changes are not covered by the displayed results or any prior approval.')
+    if isinstance(service, SharedWorkflowService):
+        st.code(export_id(service.export(bundle.run_id)), language=None)
     st.download_button('Download analyzed review bundle', data=(service.export(bundle.run_id).model_dump_json(indent=2) if isinstance(service, PersistentWorkflowService) else bundle.model_dump_json(indent=2)),
         file_name=f'ota-review-{bundle.run_id}-r{bundle.revision}.json', mime='application/json', key='download_bundle')
     if isinstance(service, PersistentWorkflowService):
@@ -338,4 +359,4 @@ def main() -> None:
         render_boot_comparison(bundle)
         _faults(bundle)
     with review:
-        _review(bundle, current)
+        _review(bundle, current and not archived)

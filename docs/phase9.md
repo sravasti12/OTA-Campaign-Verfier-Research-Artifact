@@ -1,4 +1,4 @@
-﻿# Phase 9: explicit campaign policy selection
+# Phase 9: explicit campaign policy selection
 
 This phase addresses a review problem: a better result under a different boot
 policy must not be mistaken for approval of the original campaign assumptions.
@@ -132,5 +132,5 @@ limits, durable resumption, manifests, and interactive review transitions. All
 model responses are labeled fixtures; no live provider calls are needed.
 
 This remains a simulation with no vehicle integration or certification evidence.
-Phase 10, shared-review and operational hardening, is the only remaining planned
-phase and is optional for a local portfolio project.
+Phase 10 now implements optional single-host shared review and operational
+controls; see [Phase 10](phase10.md). No additional numbered phases are planned.

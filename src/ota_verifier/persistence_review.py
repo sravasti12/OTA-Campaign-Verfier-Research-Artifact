@@ -8,6 +8,8 @@ from .persistence.store import StorageError
 from .persistence.locks import WorkspaceBusy
 from .workflow_examples import EXAMPLES, example_input
 from .workflow_models import WorkflowInput
+from .shared import SharedWorkflowService
+from .persistence.operations import export_id
 
 
 def _load_input(incoming: WorkflowInput) -> None:
@@ -34,8 +36,9 @@ def _load_input(incoming: WorkflowInput) -> None:
 def render_library() -> None:
     """Open an explicit durable workspace; browsing never invokes an LLM."""
     with st.sidebar.expander('Persistent run library'):
-        st.text_input('SQLite workspace path', value='.ota_state/reviews.sqlite', key='database_path')
-        if st.button('Open SQLite workspace', key='open_database'):
+        shared = isinstance(st.session_state.workflow_service, SharedWorkflowService)
+        st.text_input('SQLite workspace path', value='.ota_state/reviews.sqlite', key='database_path', disabled=shared)
+        if st.button('Open SQLite workspace', key='open_database', disabled=shared) and not shared:
             try:
                 service = PersistentWorkflowService(Path(st.session_state.database_path))
                 previous = st.session_state.workflow_service
@@ -48,7 +51,8 @@ def render_library() -> None:
         if not isinstance(service, PersistentWorkflowService):
             st.caption('Default storage is in memory. Open SQLite to retain future analyses and decisions across restarts. Existing memory runs remain in this session.')
             return
-        st.caption(f'Local SQLite: {service.path}. Reviewer names are self-reported.')
+        st.caption('Server-selected shared workspace. Roles are enforced for every operation.' if shared
+                   else f'Local SQLite: {service.path}. Reviewer names are self-reported.')
         runs = service.list_runs()
         if not runs:
             st.info('No durable runs yet. Analyze to create one.')
@@ -57,8 +61,7 @@ def render_library() -> None:
             format_func=lambda identifier: next(f'{run.campaign_id} / r{run.revision} / {run.status}' for run in runs if run.run_id == identifier))
         if st.button('Open saved run', key='open_saved_run'):
             try:
-                row = service.store.revision(selected)
-                _load_input(WorkflowInput.model_validate_json(row['input_json']))
+                _load_input(service.workflow_input(selected))
                 st.session_state.active_run_id = selected
             except (StorageError, WorkspaceBusy, ValueError) as error:
                 st.error(str(error))
@@ -71,7 +74,7 @@ def render_pending(service: PersistentWorkflowService, run_id: str) -> None:
     st.caption('Resume continues committed work. If a provider call is uncertain, inspect the saved evidence and explicitly analyze a new revision to retry.')
     st.download_button('Download interrupted evidence', json.dumps(partial, indent=2),
         file_name=f'ota-interrupted-{run_id}.json', mime='application/json')
-    if st.button('Resume saved analysis', key='resume_analysis', disabled=partial['status'] == 'uncertain'):
+    if st.button('Resume saved analysis', key='resume_analysis', disabled=partial['status'] == 'uncertain' or isinstance(service, SharedWorkflowService) and not service.allowed('analyze')):
         try:
             service.resume(run_id)
             st.rerun()
@@ -89,6 +92,7 @@ def render_history(service: PersistentWorkflowService, run_id: str) -> None:
             return
         selected = st.selectbox('Historical revision', ready, key=f'history_{run_id}')
         envelope = service.export(run_id, selected)
+        st.code(export_id(envelope), language=None)
         st.json(envelope.versions.model_dump(mode='json'), expanded=False)
         st.download_button('Download versioned historical evidence', envelope.model_dump_json(indent=2),
             file_name=f'ota-persistent-{run_id}-r{selected}.json', mime='application/json')

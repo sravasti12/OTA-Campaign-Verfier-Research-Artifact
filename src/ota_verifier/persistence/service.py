@@ -14,7 +14,7 @@ from ..llm.evidence import canonical_json, content_hash
 from ..llm.models import Purpose
 from ..workflow_models import ReviewBundle, ReviewDecision, ReviewSnapshot, ReviewSubmission, WorkflowInput, snapshot_hash
 from .locks import execution_lock
-from .models import PersistentBundle, RunSummary, VersionManifest
+from .models import PersistentBundle, RunSummary, VersionManifest, ReviewAuthentication
 from .recipes import ClientRecipe, capture_recipe, materialize_role
 from .receipts import ReceiptClient
 from .store import RunNotReady, RunStore, StorageError, StorageVersionError, UncertainModelCall
@@ -98,7 +98,7 @@ class PersistentWorkflowService:
 
     def _manifest(self, incoming: WorkflowInput) -> VersionManifest:
         """Record the actual evidence schema while retaining runtime fingerprints."""
-        manifest = current_manifest()
+        manifest = current_manifest().model_copy(update={'storage_schema': self.store.schema_version})
         if incoming.selected_policy is None:
             return manifest.model_copy(update={'bundle_schema': 'review-bundle-v1', 'workflow_rules': 'workflow-v1'})
         return manifest
@@ -213,6 +213,7 @@ class PersistentWorkflowService:
     def resume(self, run_id: str) -> ReviewBundle:
         """Continue from committed analysis; ready reviews require no credentials or replay."""
         with execution_lock(self.lock_path, self.lock_timeout):
+            self.store.assert_writable(run_id)
             row = self.store.revision(run_id)
             if row['status'] != 'ready':
                 self._drive(run_id, row['revision'])
@@ -221,6 +222,7 @@ class PersistentWorkflowService:
     def review(self, submission: ReviewSubmission) -> ReviewBundle:
         """Run the review gate with a transactional, cross-process decision recorder."""
         with execution_lock(self.lock_path, self.lock_timeout):
+            self.store.assert_writable(submission.run_id)
             bundle = self.get(submission.run_id)
             if submission.revision != bundle.revision or submission.snapshot_hash != bundle.snapshot_hash:
                 raise StorageError('Review is stale; inspect the latest revision')
@@ -255,8 +257,10 @@ class PersistentWorkflowService:
     def export(self, run_id: str, revision: int | None = None) -> PersistentBundle:
         """Export versions and full review evidence as a validated portable envelope."""
         row = self.store.revision(run_id, revision)
-        return PersistentBundle(versions=VersionManifest.model_validate_json(row['versions_json']),
-                                review=self._bundle(run_id, row['revision']))
+        authentication = self.review_authentication(run_id, row['revision'])
+        return PersistentBundle(format_version='persistent-review-v2' if authentication else 'persistent-review-v1',
+            versions=VersionManifest.model_validate_json(row['versions_json']),
+            review=self._bundle(run_id, row['revision']), review_authentication=authentication)
 
     def partial_evidence(self, run_id: str) -> dict[str, Any]:
         """Expose committed checkpoint evidence for interrupted runs without granting review."""
@@ -264,3 +268,28 @@ class PersistentWorkflowService:
         values = self.graph.get_state(self._config(run_id)).values
         return {'run_id': run_id, 'revision': row['revision'], 'status': row['status'], 'message': row['message'],
                 'versions': json.loads(row['versions_json']), 'checkpoint': values}
+
+
+    def workflow_input(self, run_id: str) -> WorkflowInput:
+        """Read immutable inputs for restoring a saved editor draft."""
+        return WorkflowInput.model_validate_json(self.store.revision(run_id)['input_json'])
+
+
+    def review_authentication(self, run_id: str, revision: int) -> tuple[ReviewAuthentication, ...]:
+        """Read OIDC provenance separately from historical self-reported reviews."""
+        if self.store.schema_version != 2:
+            return ()
+        with self.store.connect() as connection:
+            records = connection.execute('SELECT * FROM ota_review_auth WHERE run_id=? AND revision<=? ORDER BY revision',
+                (run_id, revision)).fetchall()
+        return tuple(ReviewAuthentication(run_id=run_id, revision=record['revision'],
+            **json.loads(record['identity_json']), roles=tuple(json.loads(record['roles_json'])),
+            recorded_at_utc=record['recorded_at']) for record in records)
+
+    def archive_info(self, run_id: str) -> dict[str, Any] | None:
+        """Read a retention marker without changing or hiding its evidence."""
+        if self.store.schema_version != 2:
+            return None
+        with self.store.connect() as connection:
+            row = connection.execute('SELECT * FROM ota_retention WHERE run_id=?', (run_id,)).fetchone()
+        return dict(row) if row else None

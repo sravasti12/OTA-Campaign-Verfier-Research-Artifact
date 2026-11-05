@@ -9,6 +9,7 @@ from ..llm.evidence import content_hash
 from ..workflow_models import ReviewDecision, ReviewSnapshot, ReviewSubmission, WorkflowInput, approval_eligible, snapshot_hash
 from .models import RunSummary, VersionManifest
 from .recipes import ClientRecipe
+from .schema import REQUIRED_V2
 
 
 class StorageError(RuntimeError):
@@ -70,8 +71,10 @@ class RunStore:
                 raise StorageVersionError('Existing database is not an OTA review workspace')
             if 'ota_meta' in tables:
                 row = connection.execute('SELECT schema_version FROM ota_meta WHERE id=1').fetchone()
-                if row is None or row[0] != 1:
+                if row is None or row[0] not in (1, 2):
                     raise StorageVersionError('Unsupported workspace schema version; explicit migration is required')
+            if 'ota_meta' in tables and row[0] == 2 and not REQUIRED_V2 <= tables:
+                raise StorageVersionError('Operational schema tables are missing; restore a verified backup')
             connection.execute('PRAGMA journal_mode=WAL')
             connection.execute('BEGIN IMMEDIATE')
             try:
@@ -79,12 +82,25 @@ class RunStore:
                     connection.execute(statement)
                 connection.execute('INSERT OR IGNORE INTO ota_meta VALUES (1,1)')
                 row = connection.execute('SELECT schema_version FROM ota_meta WHERE id=1').fetchone()
-                if row[0] != 1:
+                if row[0] not in (1, 2):
                     raise StorageVersionError('Unsupported workspace schema version')
                 connection.commit()
             except BaseException:
                 connection.rollback()
                 raise
+
+    @property
+    def schema_version(self) -> int:
+        """Read the current schema without triggering an implicit migration."""
+        with self.connect() as connection:
+            return int(connection.execute('SELECT schema_version FROM ota_meta WHERE id=1').fetchone()[0])
+
+    def assert_writable(self, run_id: str) -> None:
+        """Archived evidence remains readable but cannot be revised or reviewed."""
+        with self.connect() as connection:
+            if self.schema_version == 2 and connection.execute(
+                    'SELECT 1 FROM ota_retention WHERE run_id=?', (run_id,)).fetchone():
+                raise StorageError('Run is archived; its retained evidence is read-only')
 
     @contextmanager
     def connect(self) -> Iterator[sqlite3.Connection]:
@@ -113,6 +129,7 @@ class RunStore:
     def allocate(self, run_id: str, incoming: WorkflowInput, recipe: ClientRecipe,
                  versions: VersionManifest, *, revise: bool = False) -> int:
         """Create an immutable revision and advance the current revision atomically."""
+        self.assert_writable(run_id)
         with self.transaction() as connection:
             row = connection.execute('SELECT current_revision FROM ota_runs WHERE run_id=?', (run_id,)).fetchone()
             if revise and row is None:
@@ -189,8 +206,12 @@ class RunStore:
                                       (run_id, through_revision)).fetchall()
         return tuple(ReviewDecision.model_validate_json(row[0]) for row in rows)
 
-    def record_decision(self, submission: ReviewSubmission, snapshot: ReviewSnapshot) -> ReviewDecision:
+    def record_decision(self, submission: ReviewSubmission, snapshot: ReviewSnapshot,
+                        *, identity_json: str | None = None, roles_json: str | None = None) -> ReviewDecision:
         """CAS current revision/hash and commit one idempotent decision in one transaction."""
+        self.assert_writable(submission.run_id)
+        if identity_json is not None and (self.schema_version != 2 or submission.reviewer != identity_json or roles_json is None):
+            raise StorageError('Authenticated decisions require operational schema and matching identity')
         with self.transaction() as connection:
             current = connection.execute('SELECT current_revision FROM ota_runs WHERE run_id=?', (submission.run_id,)).fetchone()
             row = connection.execute('SELECT status,snapshot_hash,snapshot_json FROM ota_revisions WHERE run_id=? AND revision=?',
@@ -215,6 +236,9 @@ class RunStore:
             connection.execute('INSERT INTO ota_decisions VALUES (?,?,?,?,?)',
                 (submission.run_id, submission.revision, submission.idempotency_key,
                  submission.model_dump_json(), decision.model_dump_json()))
+            if identity_json is not None:
+                connection.execute('INSERT INTO ota_review_auth VALUES (?,?,?,?,?)',
+                    (submission.run_id, submission.revision, identity_json, roles_json, decision.recorded_at_utc))
             return decision
 
     def receipt(self, thread_id: str, purpose: str, fingerprint: str) -> dict[str, Any] | None:

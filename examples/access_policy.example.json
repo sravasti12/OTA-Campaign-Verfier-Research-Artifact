@@ -1,0 +1,13 @@
+﻿{
+  "format_version": "access-policy-v1",
+  "database_path": "reviews.sqlite",
+  "max_session_seconds": 3600,
+  "accounts": [
+    {
+      "issuer": "https://YOUR-ISSUER.example",
+      "subject": "YOUR-IMMUTABLE-OIDC-SUBJECT",
+      "roles": ["reader"],
+      "enabled": false
+    }
+  ]
+}
