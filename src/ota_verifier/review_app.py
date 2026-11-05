@@ -67,15 +67,23 @@ def _workspace_ready() -> bool:
     return False
 
 
+def _load_selected_example() -> None:
+    """Replace the draft before widgets render; retain analysis options and evidence."""
+    label = st.session_state.example_campaign
+    name = EXAMPLE_LABELS[label]
+    request, _ = example_input(name)
+    st.session_state.fixture_example = name
+    st.session_state.request_json = request.model_dump_json(indent=2)
+    st.session_state.example_load_notice = label
+
+
 def _controls() -> tuple[WorkflowInput | None, bool, str]:
     with st.sidebar:
         st.subheader('Campaign workspace')
         mode = st.radio('Response source', ['Offline fixtures', 'Configured provider'], key='response_source')
-        example = st.selectbox('Example campaign', list(EXAMPLE_LABELS), key='example_campaign')
-        if st.button('Load example', key='load_example'):
-            st.session_state.fixture_example = EXAMPLE_LABELS[example]
-            request, _ = example_input(st.session_state.fixture_example)
-            st.session_state.request_json = request.model_dump_json(indent=2)
+        st.selectbox('Example campaign', list(EXAMPLE_LABELS), key='example_campaign')
+        st.button('Load example', key='load_example', on_click=_load_selected_example)
+        st.caption('Load replaces source documents and inventory. Your selected policy and analysis limits stay unchanged.')
         st.caption('Offline fixtures use canned responses. Configured providers run only when you analyze.')
         unlimited = st.checkbox('Unlimited write channels', value=False, key='unlimited')
         parallel = st.number_input('Concurrent write limit', min_value=1, max_value=64, value=2, key='parallel', disabled=unlimited)
@@ -95,7 +103,10 @@ def _controls() -> tuple[WorkflowInput | None, bool, str]:
             st.caption('Simulation only. Runs and review decisions are saved in the selected local SQLite workspace.')
         else:
             st.caption('Simulation only. Sessions live in memory. Open the persistent library to save future runs across restarts.')
-    with st.expander('Edit source documents and inventory', expanded='active_run_id' not in st.session_state):
+    loaded = st.session_state.pop('example_load_notice', None)
+    if loaded is not None:
+        st.success(f'Loaded example: {loaded}. Source JSON updated; select Analyze revision to recompute results.')
+    with st.expander('Edit source documents and inventory', expanded=loaded is not None or 'active_run_id' not in st.session_state):
         st.text_area('Source-only request JSON', height=270, key='request_json')
         st.caption('Edits change the draft only. Analyze explicitly to create a new reviewed revision.')
     incoming: WorkflowInput | None = None
