@@ -22,22 +22,19 @@ certification evidence.*
 [Three-minute demo](docs/demo_walkthrough.md) ? [Screen recording](docs/assets/demo.webm) ?
 [Architecture](docs/architecture.md) ? [Release validation](docs/phase11.md)
 
-## Free hosted demo ? deployment pending
+## Live demo
 
-[Open Streamlit Community Cloud deployment setup](https://share.streamlit.io/)
+[Open OTA Campaign Verifier](https://ota-campaign-verifier.streamlit.app/)
 
-The public demo is prepared for repository `sravasti12/OTA-Campaign-Verifier`,
-branch `main`, entrypoint **`app/public_demo.py`**, with Python **3.14** and the
-root `requirements.txt`. Publish the prepared files through your Git workflow,
-then sign in to Community Cloud and deploy. No API keys are needed.
+The URL responds with HTTP 200; interactive live-browser verification is pending.
 
-**Live app link:** not available yet. The actual platform-assigned URL will be
-added after deployment succeeds; no guessed URL is advertised as a live app.
-See the [step-by-step free deployment guide](docs/deploy_free.md).
+Hosted on Streamlit Community Cloud. The public demo runs real deterministic
+analysis on synthetic fixtures; no API keys are needed. Provider configuration
+and server-filesystem controls are omitted, and review records are session-only
+simulation records.
 
-The public page runs real deterministic analysis on synthetic fixtures. It omits
-provider configuration and server-filesystem controls; review records are
-session-only simulation records.
+See the [free deployment and maintenance guide](docs/deploy_free.md) for setup.
+The public fixture demo does not validate the separate shared-mode OIDC setup.
 
 ## What the demonstrations prove under the model
 
@@ -58,7 +55,8 @@ summary.
 
 **Release status:** local evidence and the browser demo are validated. Remote
 Windows/Linux CI and real OIDC login/role/logout checks remain pending because
-those services are not configured. No public deployment is claimed.
+those services are not configured. The hosted fixture demo is linked above;
+its availability does not establish passing remote CI or shared-mode OIDC checks.
 
 ## Setup and tests
 
