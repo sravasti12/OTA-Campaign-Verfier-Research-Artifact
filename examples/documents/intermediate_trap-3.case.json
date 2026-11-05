@@ -1,0 +1,205 @@
+{
+  "id": "intermediate_trap-3",
+  "scenario": "intermediate_trap",
+  "request": {
+    "campaign": {
+      "id": "intermediate_trap-3",
+      "ecus": [
+        {
+          "id": "gateway",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 3.0
+        },
+        {
+          "id": "brake",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 1.0
+        },
+        {
+          "id": "infotainment",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 4.0
+        }
+      ],
+      "initial_state": {
+        "ecus": [
+          {
+            "ecu_id": "gateway",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "brake",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "infotainment",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          }
+        ],
+        "battery_percent": 80.0,
+        "ignition": "off"
+      },
+      "constraints": [],
+      "downgrade_authorizations": []
+    },
+    "documents": [
+      {
+        "id": "release-3",
+        "text": "Synthetic release record 3.\n\nDisplay theme and log wording were refreshed.\n\nWhen brake runs >=2, gateway must run >=2.\n\nWhen gateway runs >=2, brake must run >=2."
+      },
+      {
+        "id": "guide-3",
+        "text": "Synthetic ECU installation guide.\n\nRetain these notes with the campaign record."
+      }
+    ]
+  },
+  "truth_campaign": {
+    "id": "intermediate_trap-3",
+    "ecus": [
+      {
+        "id": "gateway",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 3.0
+      },
+      {
+        "id": "brake",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 1.0
+      },
+      {
+        "id": "infotainment",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 4.0
+      }
+    ],
+    "initial_state": {
+      "ecus": [
+        {
+          "ecu_id": "gateway",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "brake",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "infotainment",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        }
+      ],
+      "battery_percent": 80.0,
+      "ignition": "off"
+    },
+    "constraints": [
+      {
+        "id": "brake-needs-gateway",
+        "source_document_id": "release-3",
+        "source_text": "When brake runs >=2, gateway must run >=2.",
+        "type": "requires",
+        "ecu": "brake",
+        "version_spec": ">=2",
+        "needs": "gateway",
+        "needs_version_spec": ">=2"
+      },
+      {
+        "id": "gateway-needs-brake",
+        "source_document_id": "release-3",
+        "source_text": "When gateway runs >=2, brake must run >=2.",
+        "type": "requires",
+        "ecu": "gateway",
+        "version_spec": ">=2",
+        "needs": "brake",
+        "needs_version_spec": ">=2"
+      }
+    ],
+    "downgrade_authorizations": []
+  },
+  "expected_blocked": false,
+  "reference_draft": {
+    "constraints": [
+      {
+        "constraint": {
+          "id": "brake-needs-gateway",
+          "source_document_id": "release-3",
+          "source_text": "When brake runs >=2, gateway must run >=2.",
+          "type": "requires",
+          "ecu": "brake",
+          "version_spec": ">=2",
+          "needs": "gateway",
+          "needs_version_spec": ">=2"
+        },
+        "evidence": {
+          "document_id": "release-3",
+          "start_char": 76,
+          "end_char": 118
+        }
+      },
+      {
+        "constraint": {
+          "id": "gateway-needs-brake",
+          "source_document_id": "release-3",
+          "source_text": "When gateway runs >=2, brake must run >=2.",
+          "type": "requires",
+          "ecu": "gateway",
+          "version_spec": ">=2",
+          "needs": "brake",
+          "needs_version_spec": ">=2"
+        },
+        "evidence": {
+          "document_id": "release-3",
+          "start_char": 120,
+          "end_char": 162
+        }
+      }
+    ],
+    "issues": []
+  },
+  "reference_verdict": {
+    "faithful": true,
+    "reviewed_constraint_ids": [
+      "brake-needs-gateway",
+      "gateway-needs-brake"
+    ],
+    "reviewed_document_ids": [
+      "release-3",
+      "guide-3"
+    ],
+    "issues": []
+  }
+}

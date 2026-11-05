@@ -1,0 +1,197 @@
+{
+  "id": "order_conflict-2",
+  "scenario": "order_conflict",
+  "request": {
+    "campaign": {
+      "id": "order_conflict-2",
+      "ecus": [
+        {
+          "id": "gateway",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 3.0
+        },
+        {
+          "id": "brake",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 1.0
+        },
+        {
+          "id": "infotainment",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 2.0
+        }
+      ],
+      "initial_state": {
+        "ecus": [
+          {
+            "ecu_id": "gateway",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "brake",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "infotainment",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          }
+        ],
+        "battery_percent": 80.0,
+        "ignition": "off"
+      },
+      "constraints": [],
+      "downgrade_authorizations": []
+    },
+    "documents": [
+      {
+        "id": "release-2",
+        "text": "Synthetic release record 2.\nDisplay theme and log wording were refreshed.\ngateway must finish flashing and activate before brake starts flashing.\nbrake must finish flashing and activate before gateway starts flashing."
+      },
+      {
+        "id": "guide-2",
+        "text": "Synthetic ECU installation guide.\nRetain these notes with the campaign record."
+      }
+    ]
+  },
+  "truth_campaign": {
+    "id": "order_conflict-2",
+    "ecus": [
+      {
+        "id": "gateway",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 3.0
+      },
+      {
+        "id": "brake",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 1.0
+      },
+      {
+        "id": "infotainment",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 2.0
+      }
+    ],
+    "initial_state": {
+      "ecus": [
+        {
+          "ecu_id": "gateway",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "brake",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "infotainment",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        }
+      ],
+      "battery_percent": 80.0,
+      "ignition": "off"
+    },
+    "constraints": [
+      {
+        "id": "gateway-first",
+        "source_document_id": "release-2",
+        "source_text": "gateway must finish flashing and activate before brake starts flashing.",
+        "type": "order",
+        "before": "gateway",
+        "after": "brake"
+      },
+      {
+        "id": "brake-first",
+        "source_document_id": "release-2",
+        "source_text": "brake must finish flashing and activate before gateway starts flashing.",
+        "type": "order",
+        "before": "brake",
+        "after": "gateway"
+      }
+    ],
+    "downgrade_authorizations": []
+  },
+  "expected_blocked": false,
+  "reference_draft": {
+    "constraints": [
+      {
+        "constraint": {
+          "id": "gateway-first",
+          "source_document_id": "release-2",
+          "source_text": "gateway must finish flashing and activate before brake starts flashing.",
+          "type": "order",
+          "before": "gateway",
+          "after": "brake"
+        },
+        "evidence": {
+          "document_id": "release-2",
+          "start_char": 74,
+          "end_char": 145
+        }
+      },
+      {
+        "constraint": {
+          "id": "brake-first",
+          "source_document_id": "release-2",
+          "source_text": "brake must finish flashing and activate before gateway starts flashing.",
+          "type": "order",
+          "before": "brake",
+          "after": "gateway"
+        },
+        "evidence": {
+          "document_id": "release-2",
+          "start_char": 146,
+          "end_char": 217
+        }
+      }
+    ],
+    "issues": []
+  },
+  "reference_verdict": {
+    "faithful": true,
+    "reviewed_constraint_ids": [
+      "gateway-first",
+      "brake-first"
+    ],
+    "reviewed_document_ids": [
+      "release-2",
+      "guide-2"
+    ],
+    "issues": []
+  }
+}

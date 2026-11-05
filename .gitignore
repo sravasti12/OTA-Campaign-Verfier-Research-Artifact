@@ -1,0 +1,29 @@
+.env
+.venv/
+__pycache__/
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+test_temp/
+runs/
+.ota_state/
+# Local secrets
+.env.*
+!.env.example
+
+# Python tooling
+.mypy_cache/
+.ruff_cache/
+.pyright/
+.coverage
+htmlcov/
+
+# Local Streamlit secrets
+.streamlit/secrets.toml
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

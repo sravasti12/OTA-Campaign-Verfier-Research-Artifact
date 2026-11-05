@@ -1,0 +1,62 @@
+{
+  "campaign": {
+    "id": "benchmark",
+    "ecus": [
+      {
+        "id": "gateway",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 3
+      },
+      {
+        "id": "brake",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 3
+      }
+    ],
+    "initial_state": {
+      "ecus": [
+        {
+          "ecu_id": "gateway",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": {
+            "version": "1",
+            "valid": true
+          },
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "brake",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": {
+            "version": "1",
+            "valid": true
+          },
+          "active_slot": "A"
+        }
+      ],
+      "battery_percent": 80,
+      "ignition": "off"
+    },
+    "constraints": [
+      {
+        "type": "requires",
+        "id": "unknown-peer",
+        "source_document_id": "release-2",
+        "source_text": "brake >=2 requires missing >=2.",
+        "ecu": "brake",
+        "version_spec": ">=2",
+        "needs": "missing",
+        "needs_version_spec": ">=2"
+      }
+    ]
+  },
+  "expected_validation_error": "Unknown ECU reference"
+}

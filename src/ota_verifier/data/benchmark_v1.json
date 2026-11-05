@@ -1,0 +1,3260 @@
+{
+  "version": "ota-benchmark-v1",
+  "seed": 42,
+  "development": [
+    {
+      "id": "clear-42",
+      "scenario": "clear",
+      "request": {
+        "campaign": {
+          "id": "clear-42",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 4.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "release-42",
+            "text": "Synthetic release record 42.\nDisplay theme and log wording were refreshed.\nWhen brake runs >=2, gateway must run >=2."
+          },
+          {
+            "id": "guide-42",
+            "text": "Synthetic ECU installation guide.\nRetain these notes with the campaign record.\nDo not flash gateway and brake at the same time.\nFlashing gateway requires ignition off and battery at least 30 percent."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "clear-42",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 4.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "brake-needs-gateway",
+            "source_document_id": "release-42",
+            "source_text": "When brake runs >=2, gateway must run >=2.",
+            "type": "requires",
+            "ecu": "brake",
+            "version_spec": ">=2",
+            "needs": "gateway",
+            "needs_version_spec": ">=2"
+          },
+          {
+            "id": "shared-channel",
+            "source_document_id": "guide-42",
+            "source_text": "Do not flash gateway and brake at the same time.",
+            "type": "mutex",
+            "ecus": [
+              "gateway",
+              "brake"
+            ]
+          },
+          {
+            "id": "parked-charged",
+            "source_document_id": "guide-42",
+            "source_text": "Flashing gateway requires ignition off and battery at least 30 percent.",
+            "type": "precondition",
+            "ecu": "gateway",
+            "ignition": "off",
+            "minimum_battery_percent": 30.0
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": false,
+      "reference_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "brake-needs-gateway",
+              "source_document_id": "release-42",
+              "source_text": "When brake runs >=2, gateway must run >=2.",
+              "type": "requires",
+              "ecu": "brake",
+              "version_spec": ">=2",
+              "needs": "gateway",
+              "needs_version_spec": ">=2"
+            },
+            "evidence": {
+              "document_id": "release-42",
+              "start_char": 75,
+              "end_char": 117
+            }
+          },
+          {
+            "constraint": {
+              "id": "shared-channel",
+              "source_document_id": "guide-42",
+              "source_text": "Do not flash gateway and brake at the same time.",
+              "type": "mutex",
+              "ecus": [
+                "gateway",
+                "brake"
+              ]
+            },
+            "evidence": {
+              "document_id": "guide-42",
+              "start_char": 79,
+              "end_char": 127
+            }
+          },
+          {
+            "constraint": {
+              "id": "parked-charged",
+              "source_document_id": "guide-42",
+              "source_text": "Flashing gateway requires ignition off and battery at least 30 percent.",
+              "type": "precondition",
+              "ecu": "gateway",
+              "ignition": "off",
+              "minimum_battery_percent": 30.0
+            },
+            "evidence": {
+              "document_id": "guide-42",
+              "start_char": 128,
+              "end_char": 199
+            }
+          }
+        ],
+        "issues": []
+      },
+      "reference_verdict": {
+        "faithful": true,
+        "reviewed_constraint_ids": [
+          "brake-needs-gateway",
+          "shared-channel",
+          "parked-charged"
+        ],
+        "reviewed_document_ids": [
+          "release-42",
+          "guide-42"
+        ],
+        "issues": []
+      }
+    },
+    {
+      "id": "dependency_only-43",
+      "scenario": "dependency_only",
+      "request": {
+        "campaign": {
+          "id": "dependency_only-43",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 4.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "release-43",
+            "text": "Synthetic release record 43.\n\nDisplay theme and log wording were refreshed.\n\nWhen brake runs >=2, gateway must run >=2."
+          },
+          {
+            "id": "guide-43",
+            "text": "Synthetic ECU installation guide.\n\nRetain these notes with the campaign record."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "dependency_only-43",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 4.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "brake-needs-gateway",
+            "source_document_id": "release-43",
+            "source_text": "When brake runs >=2, gateway must run >=2.",
+            "type": "requires",
+            "ecu": "brake",
+            "version_spec": ">=2",
+            "needs": "gateway",
+            "needs_version_spec": ">=2"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": false,
+      "reference_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "brake-needs-gateway",
+              "source_document_id": "release-43",
+              "source_text": "When brake runs >=2, gateway must run >=2.",
+              "type": "requires",
+              "ecu": "brake",
+              "version_spec": ">=2",
+              "needs": "gateway",
+              "needs_version_spec": ">=2"
+            },
+            "evidence": {
+              "document_id": "release-43",
+              "start_char": 77,
+              "end_char": 119
+            }
+          }
+        ],
+        "issues": []
+      },
+      "reference_verdict": {
+        "faithful": true,
+        "reviewed_constraint_ids": [
+          "brake-needs-gateway"
+        ],
+        "reviewed_document_ids": [
+          "release-43",
+          "guide-43"
+        ],
+        "issues": []
+      }
+    },
+    {
+      "id": "order_conflict-44",
+      "scenario": "order_conflict",
+      "request": {
+        "campaign": {
+          "id": "order_conflict-44",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 4.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "release-44",
+            "text": "Synthetic release record 44.\n\nDisplay theme and log wording were refreshed.\n\ngateway must finish flashing and activate before brake starts flashing.\n\nbrake must finish flashing and activate before gateway starts flashing."
+          },
+          {
+            "id": "guide-44",
+            "text": "Synthetic ECU installation guide.\n\nRetain these notes with the campaign record."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "order_conflict-44",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 4.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "gateway-first",
+            "source_document_id": "release-44",
+            "source_text": "gateway must finish flashing and activate before brake starts flashing.",
+            "type": "order",
+            "before": "gateway",
+            "after": "brake"
+          },
+          {
+            "id": "brake-first",
+            "source_document_id": "release-44",
+            "source_text": "brake must finish flashing and activate before gateway starts flashing.",
+            "type": "order",
+            "before": "brake",
+            "after": "gateway"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": false,
+      "reference_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "gateway-first",
+              "source_document_id": "release-44",
+              "source_text": "gateway must finish flashing and activate before brake starts flashing.",
+              "type": "order",
+              "before": "gateway",
+              "after": "brake"
+            },
+            "evidence": {
+              "document_id": "release-44",
+              "start_char": 77,
+              "end_char": 148
+            }
+          },
+          {
+            "constraint": {
+              "id": "brake-first",
+              "source_document_id": "release-44",
+              "source_text": "brake must finish flashing and activate before gateway starts flashing.",
+              "type": "order",
+              "before": "brake",
+              "after": "gateway"
+            },
+            "evidence": {
+              "document_id": "release-44",
+              "start_char": 150,
+              "end_char": 221
+            }
+          }
+        ],
+        "issues": []
+      },
+      "reference_verdict": {
+        "faithful": true,
+        "reviewed_constraint_ids": [
+          "gateway-first",
+          "brake-first"
+        ],
+        "reviewed_document_ids": [
+          "release-44",
+          "guide-44"
+        ],
+        "issues": []
+      }
+    },
+    {
+      "id": "intermediate_trap-45",
+      "scenario": "intermediate_trap",
+      "request": {
+        "campaign": {
+          "id": "intermediate_trap-45",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "release-45",
+            "text": "Synthetic release record 45.\n\nDisplay theme and log wording were refreshed.\n\nbrake at versions >=2 requires gateway at versions >=2.\n\ngateway at versions >=2 requires brake at versions >=2."
+          },
+          {
+            "id": "guide-45",
+            "text": "Synthetic ECU installation guide.\n\nRetain these notes with the campaign record."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "intermediate_trap-45",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "brake-needs-gateway",
+            "source_document_id": "release-45",
+            "source_text": "brake at versions >=2 requires gateway at versions >=2.",
+            "type": "requires",
+            "ecu": "brake",
+            "version_spec": ">=2",
+            "needs": "gateway",
+            "needs_version_spec": ">=2"
+          },
+          {
+            "id": "gateway-needs-brake",
+            "source_document_id": "release-45",
+            "source_text": "gateway at versions >=2 requires brake at versions >=2.",
+            "type": "requires",
+            "ecu": "gateway",
+            "version_spec": ">=2",
+            "needs": "brake",
+            "needs_version_spec": ">=2"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": false,
+      "reference_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "brake-needs-gateway",
+              "source_document_id": "release-45",
+              "source_text": "brake at versions >=2 requires gateway at versions >=2.",
+              "type": "requires",
+              "ecu": "brake",
+              "version_spec": ">=2",
+              "needs": "gateway",
+              "needs_version_spec": ">=2"
+            },
+            "evidence": {
+              "document_id": "release-45",
+              "start_char": 77,
+              "end_char": 132
+            }
+          },
+          {
+            "constraint": {
+              "id": "gateway-needs-brake",
+              "source_document_id": "release-45",
+              "source_text": "gateway at versions >=2 requires brake at versions >=2.",
+              "type": "requires",
+              "ecu": "gateway",
+              "version_spec": ">=2",
+              "needs": "brake",
+              "needs_version_spec": ">=2"
+            },
+            "evidence": {
+              "document_id": "release-45",
+              "start_char": 134,
+              "end_char": 189
+            }
+          }
+        ],
+        "issues": []
+      },
+      "reference_verdict": {
+        "faithful": true,
+        "reviewed_constraint_ids": [
+          "brake-needs-gateway",
+          "gateway-needs-brake"
+        ],
+        "reviewed_document_ids": [
+          "release-45",
+          "guide-45"
+        ],
+        "issues": []
+      }
+    },
+    {
+      "id": "ambiguous-46",
+      "scenario": "ambiguous",
+      "request": {
+        "campaign": {
+          "id": "ambiguous-46",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "release-46",
+            "text": "Synthetic release record 46.\nDisplay theme and log wording were refreshed.\nUpdate gateway first where required."
+          },
+          {
+            "id": "guide-46",
+            "text": "Synthetic ECU installation guide.\nRetain these notes with the campaign record."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "ambiguous-46",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "intended-gateway-first",
+            "source_document_id": "release-46",
+            "source_text": "Update gateway first where required.",
+            "type": "order",
+            "before": "gateway",
+            "after": "brake"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": true,
+      "reference_draft": {
+        "constraints": [],
+        "issues": [
+          {
+            "kind": "ambiguous_requirement",
+            "evidence": {
+              "document_id": "release-46",
+              "start_char": 75,
+              "end_char": 111
+            },
+            "source_text": "Update gateway first where required.",
+            "message": "Clarify the intended order"
+          }
+        ]
+      },
+      "reference_verdict": {
+        "faithful": false,
+        "reviewed_constraint_ids": [],
+        "reviewed_document_ids": [
+          "release-46",
+          "guide-46"
+        ],
+        "issues": [
+          {
+            "kind": "ambiguous_requirement",
+            "constraint_id": null,
+            "evidence": {
+              "document_id": "release-46",
+              "start_char": 75,
+              "end_char": 111
+            },
+            "source_text": "Update gateway first where required.",
+            "message": "Clarify the intended order"
+          }
+        ]
+      }
+    },
+    {
+      "id": "unsupported-47",
+      "scenario": "unsupported",
+      "request": {
+        "campaign": {
+          "id": "unsupported-47",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 2.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "release-47",
+            "text": "Synthetic release record 47.\n\nDisplay theme and log wording were refreshed."
+          },
+          {
+            "id": "guide-47",
+            "text": "Synthetic ECU installation guide.\n\nRetain these notes with the campaign record.\n\nFlashing gateway requires a reliable garage Wi-Fi connection."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "unsupported-47",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": true,
+      "reference_draft": {
+        "constraints": [],
+        "issues": [
+          {
+            "kind": "unsupported_requirement",
+            "evidence": {
+              "document_id": "guide-47",
+              "start_char": 81,
+              "end_char": 142
+            },
+            "source_text": "Flashing gateway requires a reliable garage Wi-Fi connection.",
+            "message": "Wi-Fi is outside the supported precondition model"
+          }
+        ]
+      },
+      "reference_verdict": {
+        "faithful": false,
+        "reviewed_constraint_ids": [],
+        "reviewed_document_ids": [
+          "release-47",
+          "guide-47"
+        ],
+        "issues": [
+          {
+            "kind": "unsupported_requirement",
+            "constraint_id": null,
+            "evidence": {
+              "document_id": "guide-47",
+              "start_char": 81,
+              "end_char": 142
+            },
+            "source_text": "Flashing gateway requires a reliable garage Wi-Fi connection.",
+            "message": "Wi-Fi is outside the supported precondition model"
+          }
+        ]
+      }
+    }
+  ],
+  "heldout": [
+    {
+      "id": "heldout-clear-142",
+      "scenario": "clear",
+      "request": {
+        "campaign": {
+          "id": "clear-142",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "heldout-142",
+            "text": "Held-out simulation wording.\nCosmetic log changes only.\nA brake image matching >=2 may run only if gateway matches >=2.\nThe flash-write windows for gateway and brake shall be disjoint.\nBefore starting gateway: ignition must be off; battery charge must be no less than 30%."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "clear-142",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "brake-needs-gateway",
+            "source_document_id": "heldout-142",
+            "source_text": "A brake image matching >=2 may run only if gateway matches >=2.",
+            "type": "requires",
+            "ecu": "brake",
+            "version_spec": ">=2",
+            "needs": "gateway",
+            "needs_version_spec": ">=2"
+          },
+          {
+            "id": "shared-channel",
+            "source_document_id": "heldout-142",
+            "source_text": "The flash-write windows for gateway and brake shall be disjoint.",
+            "type": "mutex",
+            "ecus": [
+              "gateway",
+              "brake"
+            ]
+          },
+          {
+            "id": "parked-charged",
+            "source_document_id": "heldout-142",
+            "source_text": "Before starting gateway: ignition must be off; battery charge must be no less than 30%.",
+            "type": "precondition",
+            "ecu": "gateway",
+            "ignition": "off",
+            "minimum_battery_percent": 30.0
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": false,
+      "reference_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "brake-needs-gateway",
+              "source_document_id": "heldout-142",
+              "source_text": "A brake image matching >=2 may run only if gateway matches >=2.",
+              "type": "requires",
+              "ecu": "brake",
+              "version_spec": ">=2",
+              "needs": "gateway",
+              "needs_version_spec": ">=2"
+            },
+            "evidence": {
+              "document_id": "heldout-142",
+              "start_char": 56,
+              "end_char": 119
+            }
+          },
+          {
+            "constraint": {
+              "id": "shared-channel",
+              "source_document_id": "heldout-142",
+              "source_text": "The flash-write windows for gateway and brake shall be disjoint.",
+              "type": "mutex",
+              "ecus": [
+                "gateway",
+                "brake"
+              ]
+            },
+            "evidence": {
+              "document_id": "heldout-142",
+              "start_char": 120,
+              "end_char": 184
+            }
+          },
+          {
+            "constraint": {
+              "id": "parked-charged",
+              "source_document_id": "heldout-142",
+              "source_text": "Before starting gateway: ignition must be off; battery charge must be no less than 30%.",
+              "type": "precondition",
+              "ecu": "gateway",
+              "ignition": "off",
+              "minimum_battery_percent": 30.0
+            },
+            "evidence": {
+              "document_id": "heldout-142",
+              "start_char": 185,
+              "end_char": 272
+            }
+          }
+        ],
+        "issues": []
+      },
+      "reference_verdict": {
+        "faithful": true,
+        "reviewed_constraint_ids": [
+          "brake-needs-gateway",
+          "shared-channel",
+          "parked-charged"
+        ],
+        "reviewed_document_ids": [
+          "heldout-142"
+        ],
+        "issues": []
+      }
+    },
+    {
+      "id": "heldout-dependency_only-143",
+      "scenario": "dependency_only",
+      "request": {
+        "campaign": {
+          "id": "dependency_only-143",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 2.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "heldout-143",
+            "text": "Held-out simulation wording.\nCosmetic log changes only.\nA brake image matching >=2 may run only if gateway matches >=2."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "dependency_only-143",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "brake-needs-gateway",
+            "source_document_id": "heldout-143",
+            "source_text": "A brake image matching >=2 may run only if gateway matches >=2.",
+            "type": "requires",
+            "ecu": "brake",
+            "version_spec": ">=2",
+            "needs": "gateway",
+            "needs_version_spec": ">=2"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": false,
+      "reference_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "brake-needs-gateway",
+              "source_document_id": "heldout-143",
+              "source_text": "A brake image matching >=2 may run only if gateway matches >=2.",
+              "type": "requires",
+              "ecu": "brake",
+              "version_spec": ">=2",
+              "needs": "gateway",
+              "needs_version_spec": ">=2"
+            },
+            "evidence": {
+              "document_id": "heldout-143",
+              "start_char": 56,
+              "end_char": 119
+            }
+          }
+        ],
+        "issues": []
+      },
+      "reference_verdict": {
+        "faithful": true,
+        "reviewed_constraint_ids": [
+          "brake-needs-gateway"
+        ],
+        "reviewed_document_ids": [
+          "heldout-143"
+        ],
+        "issues": []
+      }
+    },
+    {
+      "id": "heldout-order_conflict-144",
+      "scenario": "order_conflict",
+      "request": {
+        "campaign": {
+          "id": "order_conflict-144",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 2.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "heldout-144",
+            "text": "Held-out simulation wording.\nCosmetic log changes only.\nStarting brake is permitted only once gateway has completed its write and activation.\nStarting gateway is permitted only once brake has completed its write and activation."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "order_conflict-144",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "gateway-first",
+            "source_document_id": "heldout-144",
+            "source_text": "Starting brake is permitted only once gateway has completed its write and activation.",
+            "type": "order",
+            "before": "gateway",
+            "after": "brake"
+          },
+          {
+            "id": "brake-first",
+            "source_document_id": "heldout-144",
+            "source_text": "Starting gateway is permitted only once brake has completed its write and activation.",
+            "type": "order",
+            "before": "brake",
+            "after": "gateway"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": false,
+      "reference_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "gateway-first",
+              "source_document_id": "heldout-144",
+              "source_text": "Starting brake is permitted only once gateway has completed its write and activation.",
+              "type": "order",
+              "before": "gateway",
+              "after": "brake"
+            },
+            "evidence": {
+              "document_id": "heldout-144",
+              "start_char": 56,
+              "end_char": 141
+            }
+          },
+          {
+            "constraint": {
+              "id": "brake-first",
+              "source_document_id": "heldout-144",
+              "source_text": "Starting gateway is permitted only once brake has completed its write and activation.",
+              "type": "order",
+              "before": "brake",
+              "after": "gateway"
+            },
+            "evidence": {
+              "document_id": "heldout-144",
+              "start_char": 142,
+              "end_char": 227
+            }
+          }
+        ],
+        "issues": []
+      },
+      "reference_verdict": {
+        "faithful": true,
+        "reviewed_constraint_ids": [
+          "gateway-first",
+          "brake-first"
+        ],
+        "reviewed_document_ids": [
+          "heldout-144"
+        ],
+        "issues": []
+      }
+    },
+    {
+      "id": "heldout-intermediate_trap-145",
+      "scenario": "intermediate_trap",
+      "request": {
+        "campaign": {
+          "id": "intermediate_trap-145",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 2.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "heldout-145",
+            "text": "Held-out simulation wording.\nCosmetic log changes only.\nA brake image matching >=2 may run only if gateway matches >=2.\nA gateway image matching >=2 may run only if brake matches >=2."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "intermediate_trap-145",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "brake-needs-gateway",
+            "source_document_id": "heldout-145",
+            "source_text": "A brake image matching >=2 may run only if gateway matches >=2.",
+            "type": "requires",
+            "ecu": "brake",
+            "version_spec": ">=2",
+            "needs": "gateway",
+            "needs_version_spec": ">=2"
+          },
+          {
+            "id": "gateway-needs-brake",
+            "source_document_id": "heldout-145",
+            "source_text": "A gateway image matching >=2 may run only if brake matches >=2.",
+            "type": "requires",
+            "ecu": "gateway",
+            "version_spec": ">=2",
+            "needs": "brake",
+            "needs_version_spec": ">=2"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": false,
+      "reference_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "brake-needs-gateway",
+              "source_document_id": "heldout-145",
+              "source_text": "A brake image matching >=2 may run only if gateway matches >=2.",
+              "type": "requires",
+              "ecu": "brake",
+              "version_spec": ">=2",
+              "needs": "gateway",
+              "needs_version_spec": ">=2"
+            },
+            "evidence": {
+              "document_id": "heldout-145",
+              "start_char": 56,
+              "end_char": 119
+            }
+          },
+          {
+            "constraint": {
+              "id": "gateway-needs-brake",
+              "source_document_id": "heldout-145",
+              "source_text": "A gateway image matching >=2 may run only if brake matches >=2.",
+              "type": "requires",
+              "ecu": "gateway",
+              "version_spec": ">=2",
+              "needs": "brake",
+              "needs_version_spec": ">=2"
+            },
+            "evidence": {
+              "document_id": "heldout-145",
+              "start_char": 120,
+              "end_char": 183
+            }
+          }
+        ],
+        "issues": []
+      },
+      "reference_verdict": {
+        "faithful": true,
+        "reviewed_constraint_ids": [
+          "brake-needs-gateway",
+          "gateway-needs-brake"
+        ],
+        "reviewed_document_ids": [
+          "heldout-145"
+        ],
+        "issues": []
+      }
+    },
+    {
+      "id": "heldout-ambiguous-146",
+      "scenario": "ambiguous",
+      "request": {
+        "campaign": {
+          "id": "ambiguous-146",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 2.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "heldout-146",
+            "text": "Held-out simulation wording.\nCosmetic log changes only.\nPrefer doing gateway earlier when appropriate."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "ambiguous-146",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "intended-gateway-first",
+            "source_document_id": "heldout-146",
+            "source_text": "Prefer doing gateway earlier when appropriate.",
+            "type": "order",
+            "before": "gateway",
+            "after": "brake"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": true,
+      "reference_draft": {
+        "constraints": [],
+        "issues": [
+          {
+            "kind": "ambiguous_requirement",
+            "evidence": {
+              "document_id": "heldout-146",
+              "start_char": 56,
+              "end_char": 102
+            },
+            "source_text": "Prefer doing gateway earlier when appropriate.",
+            "message": "Clarify the intended order"
+          }
+        ]
+      },
+      "reference_verdict": {
+        "faithful": false,
+        "reviewed_constraint_ids": [],
+        "reviewed_document_ids": [
+          "heldout-146"
+        ],
+        "issues": [
+          {
+            "kind": "ambiguous_requirement",
+            "constraint_id": null,
+            "evidence": {
+              "document_id": "heldout-146",
+              "start_char": 56,
+              "end_char": 102
+            },
+            "source_text": "Prefer doing gateway earlier when appropriate.",
+            "message": "Clarify the intended order"
+          }
+        ]
+      }
+    },
+    {
+      "id": "heldout-unsupported-147",
+      "scenario": "unsupported",
+      "request": {
+        "campaign": {
+          "id": "unsupported-147",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 4.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "heldout-147",
+            "text": "Held-out simulation wording.\nCosmetic log changes only.\nDo not begin the gateway write without an available garage Wi-Fi link."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "unsupported-147",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 4.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": true,
+      "reference_draft": {
+        "constraints": [],
+        "issues": [
+          {
+            "kind": "unsupported_requirement",
+            "evidence": {
+              "document_id": "heldout-147",
+              "start_char": 56,
+              "end_char": 126
+            },
+            "source_text": "Do not begin the gateway write without an available garage Wi-Fi link.",
+            "message": "Wi-Fi is outside the supported precondition model"
+          }
+        ]
+      },
+      "reference_verdict": {
+        "faithful": false,
+        "reviewed_constraint_ids": [],
+        "reviewed_document_ids": [
+          "heldout-147"
+        ],
+        "issues": [
+          {
+            "kind": "unsupported_requirement",
+            "constraint_id": null,
+            "evidence": {
+              "document_id": "heldout-147",
+              "start_char": 56,
+              "end_char": 126
+            },
+            "source_text": "Do not begin the gateway write without an available garage Wi-Fi link.",
+            "message": "Wi-Fi is outside the supported precondition model"
+          }
+        ]
+      }
+    }
+  ],
+  "core": [
+    {
+      "id": "core-parallel",
+      "tags": [
+        "parallel",
+        "compatible_intermediate"
+      ],
+      "campaign": {
+        "id": "core-parallel",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "b-needs-a",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "requires",
+            "ecu": "b",
+            "version_spec": ">=2",
+            "needs": "a",
+            "needs_version_spec": ">=2"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "options": {
+        "max_parallel": 2,
+        "deadline_ms": null,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "feasible",
+      "expected_makespan_ms": 180000,
+      "expected_baseline": "violations",
+      "expected_rollback_unavailable": true
+    },
+    {
+      "id": "core-serial",
+      "tags": [
+        "concurrency_limit"
+      ],
+      "campaign": {
+        "id": "core-serial",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "b-needs-a",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "requires",
+            "ecu": "b",
+            "version_spec": ">=2",
+            "needs": "a",
+            "needs_version_spec": ">=2"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "options": {
+        "max_parallel": 1,
+        "deadline_ms": null,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "feasible",
+      "expected_makespan_ms": 300000,
+      "expected_baseline": "violations",
+      "expected_rollback_unavailable": true
+    },
+    {
+      "id": "core-deadline",
+      "tags": [
+        "deadline",
+        "infeasible"
+      ],
+      "campaign": {
+        "id": "core-deadline",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "b-needs-a",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "requires",
+            "ecu": "b",
+            "version_spec": ">=2",
+            "needs": "a",
+            "needs_version_spec": ">=2"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "options": {
+        "max_parallel": 2,
+        "deadline_ms": 120000,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "infeasible",
+      "expected_makespan_ms": null,
+      "expected_baseline": "not_run",
+      "expected_rollback_unavailable": false
+    },
+    {
+      "id": "core-intermediate-trap",
+      "tags": [
+        "dependency_cycle",
+        "incompatible_intermediate",
+        "infeasible"
+      ],
+      "campaign": {
+        "id": "core-intermediate-trap",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "b-needs-a",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "requires",
+            "ecu": "b",
+            "version_spec": ">=2",
+            "needs": "a",
+            "needs_version_spec": ">=2"
+          },
+          {
+            "id": "a-needs-b",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "requires",
+            "ecu": "a",
+            "version_spec": ">=2",
+            "needs": "b",
+            "needs_version_spec": ">=2"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "options": {
+        "max_parallel": 2,
+        "deadline_ms": null,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "infeasible",
+      "expected_makespan_ms": null,
+      "expected_baseline": "not_run",
+      "expected_rollback_unavailable": false
+    },
+    {
+      "id": "core-stable-cycle",
+      "tags": [
+        "dependency_cycle",
+        "compatible_intermediate"
+      ],
+      "campaign": {
+        "id": "core-stable-cycle",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "stable-a",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "requires",
+            "ecu": "a",
+            "version_spec": ">=1",
+            "needs": "b",
+            "needs_version_spec": ">=1"
+          },
+          {
+            "id": "stable-b",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "requires",
+            "ecu": "b",
+            "version_spec": ">=1",
+            "needs": "a",
+            "needs_version_spec": ">=1"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "options": {
+        "max_parallel": 2,
+        "deadline_ms": null,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "feasible",
+      "expected_makespan_ms": 180000,
+      "expected_baseline": "violations",
+      "expected_rollback_unavailable": true
+    },
+    {
+      "id": "core-order-cycle",
+      "tags": [
+        "order_cycle",
+        "infeasible"
+      ],
+      "campaign": {
+        "id": "core-order-cycle",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "a-first",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "order",
+            "before": "a",
+            "after": "b"
+          },
+          {
+            "id": "b-first",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "order",
+            "before": "b",
+            "after": "a"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "options": {
+        "max_parallel": 2,
+        "deadline_ms": null,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "infeasible",
+      "expected_makespan_ms": null,
+      "expected_baseline": "not_run",
+      "expected_rollback_unavailable": false
+    },
+    {
+      "id": "core-mutex",
+      "tags": [
+        "mutex"
+      ],
+      "campaign": {
+        "id": "core-mutex",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "channel",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "mutex",
+            "ecus": [
+              "a",
+              "c"
+            ]
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "options": {
+        "max_parallel": 2,
+        "deadline_ms": null,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "feasible",
+      "expected_makespan_ms": 240000,
+      "expected_baseline": "violations",
+      "expected_rollback_unavailable": true
+    },
+    {
+      "id": "core-precondition",
+      "tags": [
+        "precondition",
+        "infeasible"
+      ],
+      "campaign": {
+        "id": "core-precondition",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 10.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "charge",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "precondition",
+            "ecu": "a",
+            "ignition": "off",
+            "minimum_battery_percent": 30.0
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "options": {
+        "max_parallel": 2,
+        "deadline_ms": null,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "infeasible",
+      "expected_makespan_ms": null,
+      "expected_baseline": "not_run",
+      "expected_rollback_unavailable": false
+    },
+    {
+      "id": "core-rollback-trap",
+      "tags": [
+        "rollback_trap",
+        "unauthorized_rollback"
+      ],
+      "campaign": {
+        "id": "core-rollback-trap",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "b-needs-a",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "requires",
+            "ecu": "b",
+            "version_spec": ">=2",
+            "needs": "a",
+            "needs_version_spec": ">=2"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "options": {
+        "max_parallel": 2,
+        "deadline_ms": null,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "feasible",
+      "expected_makespan_ms": 180000,
+      "expected_baseline": "violations",
+      "expected_rollback_unavailable": true
+    },
+    {
+      "id": "core-authorized-recovery",
+      "tags": [
+        "authorized_rollback",
+        "baseline_boot_failure"
+      ],
+      "campaign": {
+        "id": "core-authorized-recovery",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "b-needs-a",
+            "source_document_id": "core-spec",
+            "source_text": "Explicit synthetic ground-truth constraint.",
+            "type": "requires",
+            "ecu": "b",
+            "version_spec": ">=2",
+            "needs": "a",
+            "needs_version_spec": ">=2"
+          }
+        ],
+        "downgrade_authorizations": [
+          {
+            "ecu_id": "a",
+            "version": "1",
+            "authorized_by": "synthetic-label",
+            "reason": "Explicit original-version recovery permission"
+          },
+          {
+            "ecu_id": "b",
+            "version": "1",
+            "authorized_by": "synthetic-label",
+            "reason": "Explicit original-version recovery permission"
+          },
+          {
+            "ecu_id": "c",
+            "version": "1",
+            "authorized_by": "synthetic-label",
+            "reason": "Explicit original-version recovery permission"
+          }
+        ]
+      },
+      "options": {
+        "max_parallel": 2,
+        "deadline_ms": null,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "feasible",
+      "expected_makespan_ms": 180000,
+      "expected_baseline": "violations",
+      "expected_rollback_unavailable": false
+    },
+    {
+      "id": "core-no-updates",
+      "tags": [
+        "zero_fault_coverage"
+      ],
+      "campaign": {
+        "id": "core-no-updates",
+        "ecus": [
+          {
+            "id": "a",
+            "current_version": "1",
+            "target_version": "1",
+            "flash_minutes": 2.0
+          },
+          {
+            "id": "b",
+            "current_version": "1",
+            "target_version": "1",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "c",
+            "current_version": "1",
+            "target_version": "1",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "a",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "b",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "c",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [],
+        "downgrade_authorizations": []
+      },
+      "options": {
+        "max_parallel": 2,
+        "deadline_ms": null,
+        "timeout_ms": 10000
+      },
+      "expected_planning": "feasible",
+      "expected_makespan_ms": 0,
+      "expected_baseline": "passed",
+      "expected_rollback_unavailable": false
+    }
+  ]
+}

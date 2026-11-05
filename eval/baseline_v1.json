@@ -1,0 +1,272 @@
+{
+  "format_version": "benchmark-baseline-v1",
+  "corpus_version": "ota-benchmark-v1",
+  "corpus_sha256": "7a8a5008b3005a870f377b0bf7ea536c51b48dfc6a9a3419ed167f770d713ff1",
+  "mode": "fixtures",
+  "profile": "reference",
+  "split": "all",
+  "core": [
+    {
+      "case_id": "core-parallel",
+      "tags": [
+        "parallel",
+        "compatible_intermediate"
+      ],
+      "planning_status": "feasible",
+      "makespan_ms": 180000,
+      "oracle_makespan_ms": 180000,
+      "baseline_assessment": "violations",
+      "fault_cases": 42,
+      "expected_fault_cases": 42,
+      "rollback_unavailable_cases": 28,
+      "findings": [
+        "invalid_active_image",
+        "rollback_unavailable"
+      ],
+      "checks_passed": true
+    },
+    {
+      "case_id": "core-serial",
+      "tags": [
+        "concurrency_limit"
+      ],
+      "planning_status": "feasible",
+      "makespan_ms": 300000,
+      "oracle_makespan_ms": 300000,
+      "baseline_assessment": "violations",
+      "fault_cases": 42,
+      "expected_fault_cases": 42,
+      "rollback_unavailable_cases": 32,
+      "findings": [
+        "invalid_active_image",
+        "rollback_unavailable"
+      ],
+      "checks_passed": true
+    },
+    {
+      "case_id": "core-deadline",
+      "tags": [
+        "deadline",
+        "infeasible"
+      ],
+      "planning_status": "infeasible",
+      "makespan_ms": null,
+      "oracle_makespan_ms": null,
+      "baseline_assessment": "not_run",
+      "fault_cases": 0,
+      "expected_fault_cases": 0,
+      "rollback_unavailable_cases": 0,
+      "findings": [],
+      "checks_passed": true
+    },
+    {
+      "case_id": "core-intermediate-trap",
+      "tags": [
+        "dependency_cycle",
+        "incompatible_intermediate",
+        "infeasible"
+      ],
+      "planning_status": "infeasible",
+      "makespan_ms": null,
+      "oracle_makespan_ms": null,
+      "baseline_assessment": "not_run",
+      "fault_cases": 0,
+      "expected_fault_cases": 0,
+      "rollback_unavailable_cases": 0,
+      "findings": [],
+      "checks_passed": true
+    },
+    {
+      "case_id": "core-stable-cycle",
+      "tags": [
+        "dependency_cycle",
+        "compatible_intermediate"
+      ],
+      "planning_status": "feasible",
+      "makespan_ms": 180000,
+      "oracle_makespan_ms": 180000,
+      "baseline_assessment": "violations",
+      "fault_cases": 42,
+      "expected_fault_cases": 42,
+      "rollback_unavailable_cases": 30,
+      "findings": [
+        "invalid_active_image",
+        "rollback_unavailable"
+      ],
+      "checks_passed": true
+    },
+    {
+      "case_id": "core-order-cycle",
+      "tags": [
+        "order_cycle",
+        "infeasible"
+      ],
+      "planning_status": "infeasible",
+      "makespan_ms": null,
+      "oracle_makespan_ms": null,
+      "baseline_assessment": "not_run",
+      "fault_cases": 0,
+      "expected_fault_cases": 0,
+      "rollback_unavailable_cases": 0,
+      "findings": [],
+      "checks_passed": true
+    },
+    {
+      "case_id": "core-mutex",
+      "tags": [
+        "mutex"
+      ],
+      "planning_status": "feasible",
+      "makespan_ms": 240000,
+      "oracle_makespan_ms": 240000,
+      "baseline_assessment": "violations",
+      "fault_cases": 42,
+      "expected_fault_cases": 42,
+      "rollback_unavailable_cases": 30,
+      "findings": [
+        "invalid_active_image",
+        "rollback_unavailable"
+      ],
+      "checks_passed": true
+    },
+    {
+      "case_id": "core-precondition",
+      "tags": [
+        "precondition",
+        "infeasible"
+      ],
+      "planning_status": "infeasible",
+      "makespan_ms": null,
+      "oracle_makespan_ms": null,
+      "baseline_assessment": "not_run",
+      "fault_cases": 0,
+      "expected_fault_cases": 0,
+      "rollback_unavailable_cases": 0,
+      "findings": [],
+      "checks_passed": true
+    },
+    {
+      "case_id": "core-rollback-trap",
+      "tags": [
+        "rollback_trap",
+        "unauthorized_rollback"
+      ],
+      "planning_status": "feasible",
+      "makespan_ms": 180000,
+      "oracle_makespan_ms": 180000,
+      "baseline_assessment": "violations",
+      "fault_cases": 42,
+      "expected_fault_cases": 42,
+      "rollback_unavailable_cases": 28,
+      "findings": [
+        "invalid_active_image",
+        "rollback_unavailable"
+      ],
+      "checks_passed": true
+    },
+    {
+      "case_id": "core-authorized-recovery",
+      "tags": [
+        "authorized_rollback",
+        "baseline_boot_failure"
+      ],
+      "planning_status": "feasible",
+      "makespan_ms": 180000,
+      "oracle_makespan_ms": 180000,
+      "baseline_assessment": "violations",
+      "fault_cases": 42,
+      "expected_fault_cases": 42,
+      "rollback_unavailable_cases": 0,
+      "findings": [
+        "invalid_active_image"
+      ],
+      "checks_passed": true
+    },
+    {
+      "case_id": "core-no-updates",
+      "tags": [
+        "zero_fault_coverage"
+      ],
+      "planning_status": "feasible",
+      "makespan_ms": 0,
+      "oracle_makespan_ms": 0,
+      "baseline_assessment": "passed",
+      "fault_cases": 0,
+      "expected_fault_cases": 0,
+      "rollback_unavailable_cases": 0,
+      "findings": [],
+      "checks_passed": true
+    }
+  ],
+  "metrics": {
+    "per_constraint_type": {
+      "requires": {
+        "true_positives": 8,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "mutex": {
+        "true_positives": 2,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "precondition": {
+        "true_positives": 2,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "order": {
+        "true_positives": 4,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    "evidence_span_accuracy": {
+      "numerator": 16,
+      "denominator": 16,
+      "value": 1.0
+    },
+    "evidence_span_precision": {
+      "numerator": 16,
+      "denominator": 16,
+      "value": 1.0
+    },
+    "evidence_span_recall": {
+      "numerator": 16,
+      "denominator": 16,
+      "value": 1.0
+    },
+    "schema_rejection": {
+      "numerator": 0,
+      "denominator": 12,
+      "value": 0.0
+    },
+    "missing_extraction_responses": 0,
+    "faithfulness_false_acceptance": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "unsupported_or_ambiguous_acceptance": {
+      "numerator": 0,
+      "denominator": 4,
+      "value": 0.0
+    },
+    "valid_case_blocking": {
+      "numerator": 0,
+      "denominator": 8,
+      "value": 0.0
+    }
+  },
+  "extraction_ready": 8,
+  "extraction_blocked": 4,
+  "note": "Scripted regression baseline, not live-model accuracy. Runtime, latency and exact solver internals are not pinned."
+}

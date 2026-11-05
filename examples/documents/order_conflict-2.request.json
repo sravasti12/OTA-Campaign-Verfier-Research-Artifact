@@ -1,0 +1,70 @@
+{
+  "campaign": {
+    "id": "order_conflict-2",
+    "ecus": [
+      {
+        "id": "gateway",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 3.0
+      },
+      {
+        "id": "brake",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 1.0
+      },
+      {
+        "id": "infotainment",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 2.0
+      }
+    ],
+    "initial_state": {
+      "ecus": [
+        {
+          "ecu_id": "gateway",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "brake",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "infotainment",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        }
+      ],
+      "battery_percent": 80.0,
+      "ignition": "off"
+    },
+    "constraints": [],
+    "downgrade_authorizations": []
+  },
+  "documents": [
+    {
+      "id": "release-2",
+      "text": "Synthetic release record 2.\nDisplay theme and log wording were refreshed.\ngateway must finish flashing and activate before brake starts flashing.\nbrake must finish flashing and activate before gateway starts flashing."
+    },
+    {
+      "id": "guide-2",
+      "text": "Synthetic ECU installation guide.\nRetain these notes with the campaign record."
+    }
+  ]
+}

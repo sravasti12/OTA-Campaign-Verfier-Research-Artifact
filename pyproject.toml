@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ota-verifier"
+version = "0.1.0"
+description = "Deterministic OTA campaign simulation"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2,<3", "z3-solver>=4.13,<5", "python-dotenv>=1,<2", "langgraph>=1,<2", "streamlit>=1.50,<2", "langgraph-checkpoint-sqlite>=3.1.3,<4"]
+
+[project.scripts]
+ota-plan = "ota_verifier.cli:main"
+ota-extract = "ota_verifier.documents_cli:main"
+ota-eval = "ota_verifier.evaluation:main"
+ota-benchmark = "ota_verifier.benchmark.runner:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "--basetemp=test_temp"
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+
+[tool.setuptools.package-data]
+"ota_verifier.data" = ["benchmark_v1.json"]

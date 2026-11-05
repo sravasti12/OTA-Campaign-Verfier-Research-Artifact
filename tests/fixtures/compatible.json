@@ -1,0 +1,154 @@
+{
+  "campaign": {
+    "id": "benchmark",
+    "ecus": [
+      {
+        "id": "gateway",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 3
+      },
+      {
+        "id": "brake",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 3
+      }
+    ],
+    "initial_state": {
+      "ecus": [
+        {
+          "ecu_id": "gateway",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": {
+            "version": "1",
+            "valid": true
+          },
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "brake",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": {
+            "version": "1",
+            "valid": true
+          },
+          "active_slot": "A"
+        }
+      ],
+      "battery_percent": 80,
+      "ignition": "off"
+    },
+    "constraints": []
+  },
+  "states": [
+    {
+      "name": "initial",
+      "state": {
+        "ecus": [
+          {
+            "ecu_id": "gateway",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": {
+              "version": "1",
+              "valid": true
+            },
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "brake",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": {
+              "version": "1",
+              "valid": true
+            },
+            "active_slot": "A"
+          }
+        ],
+        "battery_percent": 80,
+        "ignition": "off"
+      },
+      "expected_constraint_ids": []
+    },
+    {
+      "name": "gateway_updated",
+      "state": {
+        "ecus": [
+          {
+            "ecu_id": "gateway",
+            "slot_a": {
+              "version": "2",
+              "valid": true
+            },
+            "slot_b": {
+              "version": "1",
+              "valid": true
+            },
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "brake",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": {
+              "version": "1",
+              "valid": true
+            },
+            "active_slot": "A"
+          }
+        ],
+        "battery_percent": 80,
+        "ignition": "off"
+      },
+      "expected_constraint_ids": []
+    },
+    {
+      "name": "target",
+      "state": {
+        "ecus": [
+          {
+            "ecu_id": "gateway",
+            "slot_a": {
+              "version": "2",
+              "valid": true
+            },
+            "slot_b": {
+              "version": "1",
+              "valid": true
+            },
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "brake",
+            "slot_a": {
+              "version": "2",
+              "valid": true
+            },
+            "slot_b": {
+              "version": "1",
+              "valid": true
+            },
+            "active_slot": "A"
+          }
+        ],
+        "battery_percent": 80,
+        "ignition": "off"
+      },
+      "expected_constraint_ids": []
+    }
+  ]
+}

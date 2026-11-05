@@ -1,0 +1,34 @@
+{
+  "id": "parallel-simulation-demo",
+  "ecus": [
+    {"id": "gateway", "current_version": "1", "target_version": "2", "flash_minutes": 3},
+    {"id": "brake", "current_version": "1", "target_version": "2", "flash_minutes": 2},
+    {"id": "infotainment", "current_version": "1", "target_version": "2", "flash_minutes": 4}
+  ],
+  "initial_state": {
+    "ecus": [
+      {"ecu_id": "gateway", "slot_a": {"version": "1", "valid": true}, "slot_b": null, "active_slot": "A"},
+      {"ecu_id": "brake", "slot_a": {"version": "1", "valid": true}, "slot_b": null, "active_slot": "A"},
+      {"ecu_id": "infotainment", "slot_a": {"version": "1", "valid": true}, "slot_b": null, "active_slot": "A"}
+    ],
+    "battery_percent": 80,
+    "ignition": "off"
+  },
+  "constraints": [
+    {
+      "type": "requires", "id": "brake-needs-gateway", "source_document_id": "demo-release-2",
+      "source_text": "Brake version 2 or later requires gateway version 2 or later.",
+      "ecu": "brake", "version_spec": ">=2", "needs": "gateway", "needs_version_spec": ">=2"
+    },
+    {
+      "type": "mutex", "id": "shared-flash-channel", "source_document_id": "demo-ecu-guide",
+      "source_text": "Gateway and brake must not be flashed at the same time.",
+      "ecus": ["gateway", "brake"]
+    },
+    {
+      "type": "precondition", "id": "gateway-environment", "source_document_id": "demo-ecu-guide",
+      "source_text": "Gateway flashing needs ignition off and at least 30 percent battery.",
+      "ecu": "gateway", "ignition": "off", "minimum_battery_percent": 30
+    }
+  ]
+}

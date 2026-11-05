@@ -1,0 +1,169 @@
+{
+  "id": "unsupported-5",
+  "scenario": "unsupported",
+  "request": {
+    "campaign": {
+      "id": "unsupported-5",
+      "ecus": [
+        {
+          "id": "gateway",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 3.0
+        },
+        {
+          "id": "brake",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 1.0
+        },
+        {
+          "id": "infotainment",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 3.0
+        }
+      ],
+      "initial_state": {
+        "ecus": [
+          {
+            "ecu_id": "gateway",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "brake",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "infotainment",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          }
+        ],
+        "battery_percent": 80.0,
+        "ignition": "off"
+      },
+      "constraints": [],
+      "downgrade_authorizations": []
+    },
+    "documents": [
+      {
+        "id": "release-5",
+        "text": "Synthetic release record 5.\n  Display theme and log wording were refreshed."
+      },
+      {
+        "id": "guide-5",
+        "text": "Synthetic ECU installation guide.\n  Retain these notes with the campaign record.\n  Flashing gateway requires a reliable garage Wi-Fi connection."
+      }
+    ]
+  },
+  "truth_campaign": {
+    "id": "unsupported-5",
+    "ecus": [
+      {
+        "id": "gateway",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 3.0
+      },
+      {
+        "id": "brake",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 1.0
+      },
+      {
+        "id": "infotainment",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 3.0
+      }
+    ],
+    "initial_state": {
+      "ecus": [
+        {
+          "ecu_id": "gateway",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "brake",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "infotainment",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        }
+      ],
+      "battery_percent": 80.0,
+      "ignition": "off"
+    },
+    "constraints": [],
+    "downgrade_authorizations": []
+  },
+  "expected_blocked": true,
+  "reference_draft": {
+    "constraints": [],
+    "issues": [
+      {
+        "kind": "unsupported_requirement",
+        "evidence": {
+          "document_id": "guide-5",
+          "start_char": 83,
+          "end_char": 144
+        },
+        "source_text": "Flashing gateway requires a reliable garage Wi-Fi connection.",
+        "message": "Wi-Fi is outside the supported precondition model"
+      }
+    ]
+  },
+  "reference_verdict": {
+    "faithful": false,
+    "reviewed_constraint_ids": [],
+    "reviewed_document_ids": [
+      "release-5",
+      "guide-5"
+    ],
+    "issues": [
+      {
+        "kind": "unsupported_requirement",
+        "constraint_id": null,
+        "evidence": {
+          "document_id": "guide-5",
+          "start_char": 83,
+          "end_char": 144
+        },
+        "source_text": "Flashing gateway requires a reliable garage Wi-Fi connection.",
+        "message": "Wi-Fi is outside the supported precondition model"
+      }
+    ]
+  }
+}

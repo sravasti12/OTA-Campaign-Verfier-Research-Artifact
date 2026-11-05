@@ -1,0 +1,177 @@
+{
+  "id": "dependency_only-1",
+  "scenario": "dependency_only",
+  "request": {
+    "campaign": {
+      "id": "dependency_only-1",
+      "ecus": [
+        {
+          "id": "gateway",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 3.0
+        },
+        {
+          "id": "brake",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 1.0
+        },
+        {
+          "id": "infotainment",
+          "current_version": "1",
+          "target_version": "2",
+          "flash_minutes": 2.0
+        }
+      ],
+      "initial_state": {
+        "ecus": [
+          {
+            "ecu_id": "gateway",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "brake",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          },
+          {
+            "ecu_id": "infotainment",
+            "slot_a": {
+              "version": "1",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          }
+        ],
+        "battery_percent": 80.0,
+        "ignition": "off"
+      },
+      "constraints": [],
+      "downgrade_authorizations": []
+    },
+    "documents": [
+      {
+        "id": "release-1",
+        "text": "Synthetic release record 1.\n  Display theme and log wording were refreshed.\n  When brake runs >=2, gateway must run >=2."
+      },
+      {
+        "id": "guide-1",
+        "text": "Synthetic ECU installation guide.\n  Retain these notes with the campaign record."
+      }
+    ]
+  },
+  "truth_campaign": {
+    "id": "dependency_only-1",
+    "ecus": [
+      {
+        "id": "gateway",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 3.0
+      },
+      {
+        "id": "brake",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 1.0
+      },
+      {
+        "id": "infotainment",
+        "current_version": "1",
+        "target_version": "2",
+        "flash_minutes": 2.0
+      }
+    ],
+    "initial_state": {
+      "ecus": [
+        {
+          "ecu_id": "gateway",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "brake",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        },
+        {
+          "ecu_id": "infotainment",
+          "slot_a": {
+            "version": "1",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        }
+      ],
+      "battery_percent": 80.0,
+      "ignition": "off"
+    },
+    "constraints": [
+      {
+        "id": "brake-needs-gateway",
+        "source_document_id": "release-1",
+        "source_text": "When brake runs >=2, gateway must run >=2.",
+        "type": "requires",
+        "ecu": "brake",
+        "version_spec": ">=2",
+        "needs": "gateway",
+        "needs_version_spec": ">=2"
+      }
+    ],
+    "downgrade_authorizations": []
+  },
+  "expected_blocked": false,
+  "reference_draft": {
+    "constraints": [
+      {
+        "constraint": {
+          "id": "brake-needs-gateway",
+          "source_document_id": "release-1",
+          "source_text": "When brake runs >=2, gateway must run >=2.",
+          "type": "requires",
+          "ecu": "brake",
+          "version_spec": ">=2",
+          "needs": "gateway",
+          "needs_version_spec": ">=2"
+        },
+        "evidence": {
+          "document_id": "release-1",
+          "start_char": 78,
+          "end_char": 120
+        }
+      }
+    ],
+    "issues": []
+  },
+  "reference_verdict": {
+    "faithful": true,
+    "reviewed_constraint_ids": [
+      "brake-needs-gateway"
+    ],
+    "reviewed_document_ids": [
+      "release-1",
+      "guide-1"
+    ],
+    "issues": []
+  }
+}
