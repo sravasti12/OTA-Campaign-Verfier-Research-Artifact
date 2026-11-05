@@ -22,6 +22,23 @@ certification evidence.*
 [Three-minute demo](docs/demo_walkthrough.md) ? [Screen recording](docs/assets/demo.webm) ?
 [Architecture](docs/architecture.md) ? [Release validation](docs/phase11.md)
 
+## Free hosted demo ? deployment pending
+
+[Open Streamlit Community Cloud deployment setup](https://share.streamlit.io/)
+
+The public demo is prepared for repository `sravasti12/OTA-Campaign-Verifier`,
+branch `main`, entrypoint **`app/public_demo.py`**, with Python **3.14** and the
+root `requirements.txt`. Publish the prepared files through your Git workflow,
+then sign in to Community Cloud and deploy. No API keys are needed.
+
+**Live app link:** not available yet. The actual platform-assigned URL will be
+added after deployment succeeds; no guessed URL is advertised as a live app.
+See the [step-by-step free deployment guide](docs/deploy_free.md).
+
+The public page runs real deterministic analysis on synthetic fixtures. It omits
+provider configuration and server-filesystem controls; review records are
+session-only simulation records.
+
 ## What the demonstrations prove under the model
 
 | Scenario | Measured result | Why it matters |

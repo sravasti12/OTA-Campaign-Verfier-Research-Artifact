@@ -1,0 +1,2 @@
+# Install this local src-layout package and its declared runtime dependencies.
+-e .
