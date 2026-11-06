@@ -24,7 +24,7 @@ SEED = 42
 SMOKE_TESTS = ('tests/test_research_corpus.py', 'tests/test_run_all.py', 'tests/test_invariants.py',
                'tests/test_recovery.py', 'tests/test_simulator.py')
 TLC_SUMMARY = re.compile(r'([\d,]+) states generated, ([\d,]+) distinct states found')
-EXPERIMENTS = {'e0_small_campaign': ROOT / 'experiments' / 'e0_small_campaign.py'}
+EXPERIMENTS = {name: ROOT / 'experiments' / f'{name}.py' for name in ('e0_small_campaign', 'e3_scaling')}
 
 
 @dataclass
