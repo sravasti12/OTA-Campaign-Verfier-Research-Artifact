@@ -1,0 +1,2 @@
+# Raw evidence is hashed in its manifest, so git must not rewrite its line endings.
+results/raw/** -text

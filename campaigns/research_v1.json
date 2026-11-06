@@ -1,0 +1,986 @@
+{
+  "campaigns": [
+    {
+      "also_known_as": [
+        "core-rollback-trap"
+      ],
+      "case": {
+        "campaign": {
+          "constraints": [
+            {
+              "ecu": "b",
+              "id": "b-needs-a",
+              "needs": "a",
+              "needs_version_spec": ">=2",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "requires",
+              "version_spec": ">=2"
+            }
+          ],
+          "downgrade_authorizations": [],
+          "ecus": [
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "a",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 1.0,
+              "id": "b",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "c",
+              "target_version": "2"
+            }
+          ],
+          "id": "core-parallel",
+          "initial_state": {
+            "battery_percent": 80.0,
+            "ecus": [
+              {
+                "active_slot": "A",
+                "ecu_id": "a",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "b",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "c",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              }
+            ],
+            "ignition": "off"
+          }
+        },
+        "expected_baseline": "violations",
+        "expected_makespan_ms": 180000,
+        "expected_planning": "feasible",
+        "expected_rollback_unavailable": true,
+        "id": "core-parallel",
+        "options": {
+          "deadline_ms": null,
+          "max_parallel": 2,
+          "timeout_ms": 10000
+        },
+        "tags": [
+          "parallel",
+          "compatible_intermediate"
+        ]
+      },
+      "fingerprint": "812d582e8c4e559177b6a5397a4619ff1d30921e50bc0ee1596554ff96995502",
+      "id": "core-parallel",
+      "tags": [
+        "compatible_intermediate",
+        "parallel",
+        "rollback_trap",
+        "unauthorized_rollback"
+      ]
+    },
+    {
+      "also_known_as": [],
+      "case": {
+        "campaign": {
+          "constraints": [
+            {
+              "ecu": "b",
+              "id": "b-needs-a",
+              "needs": "a",
+              "needs_version_spec": ">=2",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "requires",
+              "version_spec": ">=2"
+            }
+          ],
+          "downgrade_authorizations": [],
+          "ecus": [
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "a",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 1.0,
+              "id": "b",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "c",
+              "target_version": "2"
+            }
+          ],
+          "id": "core-serial",
+          "initial_state": {
+            "battery_percent": 80.0,
+            "ecus": [
+              {
+                "active_slot": "A",
+                "ecu_id": "a",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "b",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "c",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              }
+            ],
+            "ignition": "off"
+          }
+        },
+        "expected_baseline": "violations",
+        "expected_makespan_ms": 300000,
+        "expected_planning": "feasible",
+        "expected_rollback_unavailable": true,
+        "id": "core-serial",
+        "options": {
+          "deadline_ms": null,
+          "max_parallel": 1,
+          "timeout_ms": 10000
+        },
+        "tags": [
+          "concurrency_limit"
+        ]
+      },
+      "fingerprint": "661817275f5ffb0ed74130e8c0343f2d7f795a1ca8fcf51538fb3a4b5e83fb8c",
+      "id": "core-serial",
+      "tags": [
+        "concurrency_limit"
+      ]
+    },
+    {
+      "also_known_as": [],
+      "case": {
+        "campaign": {
+          "constraints": [
+            {
+              "ecu": "b",
+              "id": "b-needs-a",
+              "needs": "a",
+              "needs_version_spec": ">=2",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "requires",
+              "version_spec": ">=2"
+            }
+          ],
+          "downgrade_authorizations": [],
+          "ecus": [
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "a",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 1.0,
+              "id": "b",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "c",
+              "target_version": "2"
+            }
+          ],
+          "id": "core-deadline",
+          "initial_state": {
+            "battery_percent": 80.0,
+            "ecus": [
+              {
+                "active_slot": "A",
+                "ecu_id": "a",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "b",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "c",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              }
+            ],
+            "ignition": "off"
+          }
+        },
+        "expected_baseline": "not_run",
+        "expected_makespan_ms": null,
+        "expected_planning": "infeasible",
+        "expected_rollback_unavailable": false,
+        "id": "core-deadline",
+        "options": {
+          "deadline_ms": 120000,
+          "max_parallel": 2,
+          "timeout_ms": 10000
+        },
+        "tags": [
+          "deadline",
+          "infeasible"
+        ]
+      },
+      "fingerprint": "358e3ab6a9bc564d23be30507e9f9621d306a471451a446cebe18e5ea02b1a09",
+      "id": "core-deadline",
+      "tags": [
+        "deadline",
+        "infeasible"
+      ]
+    },
+    {
+      "also_known_as": [],
+      "case": {
+        "campaign": {
+          "constraints": [
+            {
+              "ecu": "b",
+              "id": "b-needs-a",
+              "needs": "a",
+              "needs_version_spec": ">=2",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "requires",
+              "version_spec": ">=2"
+            },
+            {
+              "ecu": "a",
+              "id": "a-needs-b",
+              "needs": "b",
+              "needs_version_spec": ">=2",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "requires",
+              "version_spec": ">=2"
+            }
+          ],
+          "downgrade_authorizations": [],
+          "ecus": [
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "a",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 1.0,
+              "id": "b",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "c",
+              "target_version": "2"
+            }
+          ],
+          "id": "core-intermediate-trap",
+          "initial_state": {
+            "battery_percent": 80.0,
+            "ecus": [
+              {
+                "active_slot": "A",
+                "ecu_id": "a",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "b",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "c",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              }
+            ],
+            "ignition": "off"
+          }
+        },
+        "expected_baseline": "not_run",
+        "expected_makespan_ms": null,
+        "expected_planning": "infeasible",
+        "expected_rollback_unavailable": false,
+        "id": "core-intermediate-trap",
+        "options": {
+          "deadline_ms": null,
+          "max_parallel": 2,
+          "timeout_ms": 10000
+        },
+        "tags": [
+          "dependency_cycle",
+          "incompatible_intermediate",
+          "infeasible"
+        ]
+      },
+      "fingerprint": "9716c333604ff790340ee27575b6ade9c072664356ffc0d628c1f862126b9e5f",
+      "id": "core-intermediate-trap",
+      "tags": [
+        "dependency_cycle",
+        "incompatible_intermediate",
+        "infeasible"
+      ]
+    },
+    {
+      "also_known_as": [],
+      "case": {
+        "campaign": {
+          "constraints": [
+            {
+              "ecu": "a",
+              "id": "stable-a",
+              "needs": "b",
+              "needs_version_spec": ">=1",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "requires",
+              "version_spec": ">=1"
+            },
+            {
+              "ecu": "b",
+              "id": "stable-b",
+              "needs": "a",
+              "needs_version_spec": ">=1",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "requires",
+              "version_spec": ">=1"
+            }
+          ],
+          "downgrade_authorizations": [],
+          "ecus": [
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "a",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 1.0,
+              "id": "b",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "c",
+              "target_version": "2"
+            }
+          ],
+          "id": "core-stable-cycle",
+          "initial_state": {
+            "battery_percent": 80.0,
+            "ecus": [
+              {
+                "active_slot": "A",
+                "ecu_id": "a",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "b",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "c",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              }
+            ],
+            "ignition": "off"
+          }
+        },
+        "expected_baseline": "violations",
+        "expected_makespan_ms": 180000,
+        "expected_planning": "feasible",
+        "expected_rollback_unavailable": true,
+        "id": "core-stable-cycle",
+        "options": {
+          "deadline_ms": null,
+          "max_parallel": 2,
+          "timeout_ms": 10000
+        },
+        "tags": [
+          "dependency_cycle",
+          "compatible_intermediate"
+        ]
+      },
+      "fingerprint": "9e49e7e7b6e4a7b7f1e9f30762d1f2ae7bac850b177de1fa98231135b42c4f18",
+      "id": "core-stable-cycle",
+      "tags": [
+        "compatible_intermediate",
+        "dependency_cycle"
+      ]
+    },
+    {
+      "also_known_as": [],
+      "case": {
+        "campaign": {
+          "constraints": [
+            {
+              "after": "b",
+              "before": "a",
+              "id": "a-first",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "order"
+            },
+            {
+              "after": "a",
+              "before": "b",
+              "id": "b-first",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "order"
+            }
+          ],
+          "downgrade_authorizations": [],
+          "ecus": [
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "a",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 1.0,
+              "id": "b",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "c",
+              "target_version": "2"
+            }
+          ],
+          "id": "core-order-cycle",
+          "initial_state": {
+            "battery_percent": 80.0,
+            "ecus": [
+              {
+                "active_slot": "A",
+                "ecu_id": "a",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "b",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "c",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              }
+            ],
+            "ignition": "off"
+          }
+        },
+        "expected_baseline": "not_run",
+        "expected_makespan_ms": null,
+        "expected_planning": "infeasible",
+        "expected_rollback_unavailable": false,
+        "id": "core-order-cycle",
+        "options": {
+          "deadline_ms": null,
+          "max_parallel": 2,
+          "timeout_ms": 10000
+        },
+        "tags": [
+          "order_cycle",
+          "infeasible"
+        ]
+      },
+      "fingerprint": "76feef854d1543cfa56b3191eb5e64180db220cce14ecc98cfc67e5c770daead",
+      "id": "core-order-cycle",
+      "tags": [
+        "infeasible",
+        "order_cycle"
+      ]
+    },
+    {
+      "also_known_as": [],
+      "case": {
+        "campaign": {
+          "constraints": [
+            {
+              "ecus": [
+                "a",
+                "c"
+              ],
+              "id": "channel",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "mutex"
+            }
+          ],
+          "downgrade_authorizations": [],
+          "ecus": [
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "a",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 1.0,
+              "id": "b",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "c",
+              "target_version": "2"
+            }
+          ],
+          "id": "core-mutex",
+          "initial_state": {
+            "battery_percent": 80.0,
+            "ecus": [
+              {
+                "active_slot": "A",
+                "ecu_id": "a",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "b",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "c",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              }
+            ],
+            "ignition": "off"
+          }
+        },
+        "expected_baseline": "violations",
+        "expected_makespan_ms": 240000,
+        "expected_planning": "feasible",
+        "expected_rollback_unavailable": true,
+        "id": "core-mutex",
+        "options": {
+          "deadline_ms": null,
+          "max_parallel": 2,
+          "timeout_ms": 10000
+        },
+        "tags": [
+          "mutex"
+        ]
+      },
+      "fingerprint": "82e0e364746dac5f3b1173a1f66f490510caa5c3be14f9dabb04bc535ef31a6b",
+      "id": "core-mutex",
+      "tags": [
+        "mutex"
+      ]
+    },
+    {
+      "also_known_as": [],
+      "case": {
+        "campaign": {
+          "constraints": [
+            {
+              "ecu": "a",
+              "id": "charge",
+              "ignition": "off",
+              "minimum_battery_percent": 30.0,
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "precondition"
+            }
+          ],
+          "downgrade_authorizations": [],
+          "ecus": [
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "a",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 1.0,
+              "id": "b",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "c",
+              "target_version": "2"
+            }
+          ],
+          "id": "core-precondition",
+          "initial_state": {
+            "battery_percent": 10.0,
+            "ecus": [
+              {
+                "active_slot": "A",
+                "ecu_id": "a",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "b",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "c",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              }
+            ],
+            "ignition": "off"
+          }
+        },
+        "expected_baseline": "not_run",
+        "expected_makespan_ms": null,
+        "expected_planning": "infeasible",
+        "expected_rollback_unavailable": false,
+        "id": "core-precondition",
+        "options": {
+          "deadline_ms": null,
+          "max_parallel": 2,
+          "timeout_ms": 10000
+        },
+        "tags": [
+          "precondition",
+          "infeasible"
+        ]
+      },
+      "fingerprint": "2a51cd58441f58e21078aee1fdd01089bd894f74720ce041b7d3ee4dc8d0cb49",
+      "id": "core-precondition",
+      "tags": [
+        "infeasible",
+        "precondition"
+      ]
+    },
+    {
+      "also_known_as": [],
+      "case": {
+        "campaign": {
+          "constraints": [
+            {
+              "ecu": "b",
+              "id": "b-needs-a",
+              "needs": "a",
+              "needs_version_spec": ">=2",
+              "source_document_id": "core-spec",
+              "source_text": "Explicit synthetic ground-truth constraint.",
+              "type": "requires",
+              "version_spec": ">=2"
+            }
+          ],
+          "downgrade_authorizations": [
+            {
+              "authorized_by": "synthetic-label",
+              "ecu_id": "a",
+              "reason": "Explicit original-version recovery permission",
+              "version": "1"
+            },
+            {
+              "authorized_by": "synthetic-label",
+              "ecu_id": "b",
+              "reason": "Explicit original-version recovery permission",
+              "version": "1"
+            },
+            {
+              "authorized_by": "synthetic-label",
+              "ecu_id": "c",
+              "reason": "Explicit original-version recovery permission",
+              "version": "1"
+            }
+          ],
+          "ecus": [
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "a",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 1.0,
+              "id": "b",
+              "target_version": "2"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "c",
+              "target_version": "2"
+            }
+          ],
+          "id": "core-authorized-recovery",
+          "initial_state": {
+            "battery_percent": 80.0,
+            "ecus": [
+              {
+                "active_slot": "A",
+                "ecu_id": "a",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "b",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "c",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              }
+            ],
+            "ignition": "off"
+          }
+        },
+        "expected_baseline": "violations",
+        "expected_makespan_ms": 180000,
+        "expected_planning": "feasible",
+        "expected_rollback_unavailable": false,
+        "id": "core-authorized-recovery",
+        "options": {
+          "deadline_ms": null,
+          "max_parallel": 2,
+          "timeout_ms": 10000
+        },
+        "tags": [
+          "authorized_rollback",
+          "baseline_boot_failure"
+        ]
+      },
+      "fingerprint": "b12111cba7905e7524cb2ee52bb95dc2013673605d5ba07566bfcb029f56a660",
+      "id": "core-authorized-recovery",
+      "tags": [
+        "authorized_rollback",
+        "baseline_boot_failure"
+      ]
+    },
+    {
+      "also_known_as": [],
+      "case": {
+        "campaign": {
+          "constraints": [],
+          "downgrade_authorizations": [],
+          "ecus": [
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "a",
+              "target_version": "1"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 1.0,
+              "id": "b",
+              "target_version": "1"
+            },
+            {
+              "current_version": "1",
+              "flash_minutes": 2.0,
+              "id": "c",
+              "target_version": "1"
+            }
+          ],
+          "id": "core-no-updates",
+          "initial_state": {
+            "battery_percent": 80.0,
+            "ecus": [
+              {
+                "active_slot": "A",
+                "ecu_id": "a",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "b",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              },
+              {
+                "active_slot": "A",
+                "ecu_id": "c",
+                "slot_a": {
+                  "valid": true,
+                  "version": "1"
+                },
+                "slot_b": null
+              }
+            ],
+            "ignition": "off"
+          }
+        },
+        "expected_baseline": "passed",
+        "expected_makespan_ms": 0,
+        "expected_planning": "feasible",
+        "expected_rollback_unavailable": false,
+        "id": "core-no-updates",
+        "options": {
+          "deadline_ms": null,
+          "max_parallel": 2,
+          "timeout_ms": 10000
+        },
+        "tags": [
+          "zero_fault_coverage"
+        ]
+      },
+      "fingerprint": "6a64f00713f4c4a42534bf4c43f9ac8a9c75e0c8bc304b64f961b8ff78201b12",
+      "id": "core-no-updates",
+      "tags": [
+        "zero_fault_coverage"
+      ]
+    }
+  ],
+  "removed": [
+    {
+      "duplicate_of": "core-parallel",
+      "id": "core-rollback-trap"
+    }
+  ],
+  "source_corpus": "ota-benchmark-v1",
+  "source_sha256": "7a8a5008b3005a870f377b0bf7ea536c51b48dfc6a9a3419ed167f770d713ff1",
+  "version": "ota-research-v1"
+}

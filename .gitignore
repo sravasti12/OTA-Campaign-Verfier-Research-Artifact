@@ -28,3 +28,7 @@ htmlcov/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Research artifacts: fetched tools and throwaway smoke runs are not results
+tools/bin/
+results/raw/smoke/

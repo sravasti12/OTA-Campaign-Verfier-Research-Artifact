@@ -69,13 +69,17 @@ counts and metrics. Tests compare new reports against it. Measured locally:
 | Measurement | Reference fixture result |
 | --- | --- |
 | Core cases matching labels and exhaustive oracle | 11 / 11 |
-| Core injected cases / expected injected cases | 252 / 252 |
+| Core injected cases / expected injected cases | 252 / 252 (not all independent; see note below) |
 | Extraction cases ready / expected blocked | 8 / 4 |
 | Per-type semantic precision and recall | 1.0 for each of four types |
 | Exact evidence-span accuracy, precision, recall | 1.0 |
 | Schema rejection | 0 / 12 extraction responses |
 | Ambiguous or unsupported acceptance | 0 / 4 cases |
 | Faithfulness false acceptance | Undefined: no reviewed bad drafts in the reference profile |
+
+`core-parallel` and `core-rollback-trap` are the same campaign under two names, so 42 of the 252
+cases repeat others. The frozen corpus is kept as it is for regression; research experiments use
+the de-duplicated [`campaigns/research_v1.json`](../campaigns/README.md).
 
 These are harness regression results using supplied answers, **not live-model
 accuracy measurements**. Negative profiles intentionally show worse outcomes.

@@ -66,6 +66,10 @@ Do not quote any of these in the paper without regenerating them.
 
 ### 1.4 Problems found that affect the paper
 
+Status after week 1: items 1, 2, 3, 6 and 7 are addressed in the repo. Item 1 stays open until a
+push shows CI passing on GitHub. Items 4 and 5 remain open; they are handled by per-property
+reporting and the week 8 campaign generator.
+
 1. **CI has never run.** `.github/workflows/ci.yml` sits in the parent folder, outside the git root
    (`ota_verifier/`), so it is not in the GitHub repo. Its `working-directory: ota_verifier` would
    also be wrong once moved.
@@ -137,7 +141,7 @@ Observed on this machine: Intel i7-1165G7, 8 logical CPUs, 16,705,122,304 bytes 
 | Tool | Status | Consequence |
 | --- | --- | --- |
 | Java | 18.0.2 on Windows; **no Java in WSL Ubuntu-24.04** | TLC can run on Windows now (TLA+ tools need Java 11+). Install a JDK in WSL for Linux runs |
-| TLC / `tla2tools.jar` | Not installed | Fetch by script at a pinned version with recorded SHA-256 (needs your OK to download) |
+| TLC / `tla2tools.jar` | Pinned to stable v1.7.4 (TLC 2.19) in `tools/versions.json`; fetched by `tools/fetch_tools.py` with SHA-256 check | v1.8.0 was rejected because it is a pre-release that gets republished. If a later experiment needs a 1.8-only feature, the pin must change deliberately |
 | UPPAAL | Not installed | See section 4 |
 | `make` | Only in WSL | Provide `run_all.py` as the real entry point, plus a thin Makefile |
 | cargo, gcc | Present in WSL | The MCUboot harness can be rebuilt |

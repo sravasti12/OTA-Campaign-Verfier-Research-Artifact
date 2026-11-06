@@ -1,0 +1,10 @@
+{
+  "tla2tools": {
+    "version": "v1.7.4",
+    "tlc_version": "2.19 of 08 August 2024",
+    "url": "https://github.com/tlaplus/tlaplus/releases/download/v1.7.4/tla2tools.jar",
+    "path": "tools/bin/tla2tools.jar",
+    "size": 2274532,
+    "sha256": "936a262061c914694dfd669a543be24573c45d5aa0ff20a8b96b23d01e050e88"
+  }
+}
