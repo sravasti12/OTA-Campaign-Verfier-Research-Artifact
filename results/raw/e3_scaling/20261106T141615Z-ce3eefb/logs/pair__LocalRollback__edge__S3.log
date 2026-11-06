@@ -1,0 +1,65 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 42 with 1 worker on 8 cores with 3641MB heap and 64MB offheap memory [pid: 22576] (Windows 11 10.0 amd64, Oracle Corporation 18.0.2 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file C:\Users\KIIT\AppData\Local\Temp\claude\c48ca1428cc44ed6\74c1f06a-f71d-4630-8766-3e43d313d9aa\scratchpad\e3clean\results\raw\e3_scaling\20261106T141615Z-ce3eefb\tla\Pair_edge.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\claude\c48ca1428cc44ed6\74c1f06a-f71d-4630-8766-3e43d313d9aa\scratchpad\e3clean\results\raw\e3_scaling\20261106T141615Z-ce3eefb\tla\OTAPair.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module OTAPair
+Semantic processing of module Pair_edge
+Starting... (2026-11-06 19:46:36)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-06 19:46:37.
+Error: Invariant AllOrNothing is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ culprit = {}
+/\ inactive = [a |-> 0, b |-> 0]
+/\ campaign = "run"
+/\ corrupt = [a |-> FALSE, b |-> FALSE]
+/\ active = [a |-> 1, b |-> 1]
+/\ stage = [a |-> "idle", b |-> "idle"]
+
+State 2: <Download line 34, col 5 to line 36, col 65 of module OTAPair>
+/\ culprit = {}
+/\ inactive = [a |-> 0, b |-> 0]
+/\ campaign = "run"
+/\ corrupt = [a |-> FALSE, b |-> FALSE]
+/\ active = [a |-> 1, b |-> 1]
+/\ stage = [a |-> "idle", b |-> "downloaded"]
+
+State 3: <Verify line 39, col 5 to line 43, col 55 of module OTAPair>
+/\ culprit = {}
+/\ inactive = [a |-> 0, b |-> 2]
+/\ campaign = "run"
+/\ corrupt = [a |-> FALSE, b |-> FALSE]
+/\ active = [a |-> 1, b |-> 1]
+/\ stage = [a |-> "idle", b |-> "verified"]
+
+State 4: <Activate line 54, col 5 to line 59, col 47 of module OTAPair>
+/\ culprit = {}
+/\ inactive = [a |-> 0, b |-> 1]
+/\ campaign = "run"
+/\ corrupt = [a |-> FALSE, b |-> FALSE]
+/\ active = [a |-> 1, b |-> 2]
+/\ stage = [a |-> "idle", b |-> "trial"]
+
+State 5: <DownloadFail line 73, col 5 to line 77, col 46 of module OTAPair>
+/\ culprit = {"a"}
+/\ inactive = [a |-> 0, b |-> 1]
+/\ campaign = "rollback"
+/\ corrupt = [a |-> FALSE, b |-> FALSE]
+/\ active = [a |-> 1, b |-> 2]
+/\ stage = [a |-> "failed", b |-> "trial"]
+
+State 6: <FinishRollback line 123, col 5 to line 126, col 62 of module OTAPair>
+/\ culprit = {"a"}
+/\ inactive = [a |-> 0, b |-> 1]
+/\ campaign = "aborted"
+/\ corrupt = [a |-> FALSE, b |-> FALSE]
+/\ active = [a |-> 1, b |-> 2]
+/\ stage = [a |-> "failed", b |-> "trial"]
+
+158 states generated, 95 distinct states found, 19 states left on queue.
+The depth of the complete state graph search is 6.
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 7 and the 95th percentile is 4).
+Finished in 00s at (2026-11-06 19:46:37)

@@ -24,7 +24,7 @@ SEED = 42
 SMOKE_TESTS = ('tests/test_research_corpus.py', 'tests/test_run_all.py', 'tests/test_invariants.py',
                'tests/test_recovery.py', 'tests/test_simulator.py')
 TLC_SUMMARY = re.compile(r'([\d,]+) states generated, ([\d,]+) distinct states found')
-EXPERIMENTS = {name: ROOT / 'experiments' / f'{name}.py' for name in ('e0_small_campaign', 'e3_scaling')}
+EXPERIMENTS = {name: ROOT / 'experiments' / f'{name}.py' for name in ('e0_small_campaign', 'e3_scaling', 'e5_predict', 'e5_sil')}
 
 
 @dataclass
@@ -71,7 +71,7 @@ def environment() -> dict[str, object]:
     """Record what is needed to interpret and repeat a run."""
     freeze = subprocess.run((sys.executable, '-m', 'pip', 'freeze', '--exclude-editable'),
                             text=True, capture_output=True, check=False)
-    return {'commit': git('rev-parse', 'HEAD'), 'dirty_files': git('status', '--porcelain', '--', '.', ':(exclude)results/raw').splitlines(),
+    return {'commit': git('rev-parse', 'HEAD'), 'dirty_files': git('status', '--porcelain', '--', '.', ':(exclude)results/raw', ':(exclude)results/scaling.csv', ':(exclude)results/confusion.csv').splitlines(),
             'seed': SEED, 'python': platform.python_version(), 'platform': platform.platform(),
             'machine': platform.machine(), 'logical_cpus': os.cpu_count(), 'java': java_version(),
             'packages': freeze.stdout.splitlines()}

@@ -1,0 +1,94 @@
+{
+  "id": "generated-n4-s1",
+  "ecus": [
+    {
+      "id": "ecu00",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu01",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu02",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu03",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    }
+  ],
+  "initial_state": {
+    "ecus": [
+      {
+        "ecu_id": "ecu00",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu01",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu02",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu03",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      }
+    ],
+    "battery_percent": 80.0,
+    "ignition": "off"
+  },
+  "constraints": [
+    {
+      "id": "ecu02-needs-ecu00",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu02",
+      "version_spec": ">=2",
+      "needs": "ecu00",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu03-needs-ecu00",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu03",
+      "version_spec": ">=2",
+      "needs": "ecu00",
+      "needs_version_spec": ">=2"
+    }
+  ],
+  "downgrade_authorizations": []
+}

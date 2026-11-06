@@ -1,0 +1,16 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 42 with 1 worker on 8 cores with 3641MB heap and 64MB offheap memory [pid: 28836] (Windows 11 10.0 amd64, Oracle Corporation 18.0.2 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file C:\Users\KIIT\AppData\Local\Temp\claude\c48ca1428cc44ed6\74c1f06a-f71d-4630-8766-3e43d313d9aa\scratchpad\e3clean\results\raw\e3_scaling\20261106T141615Z-ce3eefb\tla\Gen_n50_s1.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\claude\c48ca1428cc44ed6\74c1f06a-f71d-4630-8766-3e43d313d9aa\scratchpad\e3clean\results\raw\e3_scaling\20261106T141615Z-ce3eefb\tla\OTACampaign.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module OTACampaign
+Semantic processing of module Gen_n50_s1
+Starting... (2026-11-06 22:06:55)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-06 22:06:55.
+Progress(4) at 2026-11-06 22:06:58: 67,722 states generated (67,722 s/min), 40,777 distinct states found (40,777 ds/min), 39,693 states left on queue.
+Progress(5) at 2026-11-06 22:07:58: 1,962,655 states generated (1,894,933 s/min), 897,767 distinct states found (856,990 ds/min), 858,083 states left on queue.
+Progress(5) at 2026-11-06 22:08:58: 3,553,177 states generated (1,590,522 s/min), 1,566,177 distinct states found (668,410 ds/min), 1,492,619 states left on queue.
+Progress(5) at 2026-11-06 22:09:58: 5,589,693 states generated (2,036,516 s/min), 2,326,855 distinct states found (760,678 ds/min), 2,205,548 states left on queue.
+Progress(6) at 2026-11-06 22:10:58: 6,727,813 states generated (1,138,120 s/min), 2,697,439 distinct states found (370,584 ds/min), 2,540,221 states left on queue.
