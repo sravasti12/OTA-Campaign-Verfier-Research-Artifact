@@ -1,0 +1,179 @@
+{
+  "states": [
+    {
+      "action": "Initial",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 0,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "idle",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Download",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 0,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "downloaded",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Verify",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 2,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "verified",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Activate",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "trial",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "TrialFail",
+      "vars": {
+        "culprit": [
+          "gateway"
+        ],
+        "faults": 1,
+        "inactive": {
+          "gateway": 1,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "rollback",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "failed",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Rollback",
+      "vars": {
+        "culprit": [
+          "gateway"
+        ],
+        "faults": 1,
+        "inactive": {
+          "gateway": 2,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "rollback",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "reverted",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    }
+  ],
+  "ending": "finite",
+  "loop_to": null,
+  "replay_confirmed": true
+}

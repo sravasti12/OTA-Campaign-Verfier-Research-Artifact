@@ -1,0 +1,19 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 42 with 1 worker on 8 cores with 3541MB heap and 64MB offheap memory [pid: 32316] (Windows 11 10.0 amd64, Oracle Corporation 18.0.2 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file C:\Users\KIIT\Desktop\OTACampaignVerifier\ota_verifier\specs\tla\SmallCampaign.tla
+Parsing file C:\Users\KIIT\Desktop\OTACampaignVerifier\ota_verifier\specs\tla\OTACampaign.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module OTACampaign
+Semantic processing of module SmallCampaign
+Starting... (2026-11-06 19:02:39)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-06 19:02:39.
+Model checking completed. No error has been found.
+  Estimates of the probability that TLC did not check all reachable states
+  because two distinct states had the same fingerprint:
+  calculated (optimistic):  val = 5.7E-14
+2080 states generated, 1224 distinct states found, 0 states left on queue.
+The depth of the complete state graph search is 16.
+The average outdegree of the complete state graph is 1 (minimum is 0, the maximum 10 and the 95th percentile is 3).
+Finished in 00s at (2026-11-06 19:02:39)

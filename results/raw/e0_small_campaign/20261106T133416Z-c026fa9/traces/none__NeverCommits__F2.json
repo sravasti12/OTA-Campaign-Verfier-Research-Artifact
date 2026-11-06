@@ -1,0 +1,399 @@
+{
+  "states": [
+    {
+      "action": "Initial",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 0,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "idle",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Download",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 0,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "downloaded",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Verify",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 2,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "verified",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Activate",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "trial",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Confirm",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "healthy",
+          "brake": "idle",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Download",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 0,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "healthy",
+          "brake": "downloaded",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Verify",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 2,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "healthy",
+          "brake": "verified",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Activate",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 2,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "healthy",
+          "brake": "trial",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Confirm",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 2,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "healthy",
+          "brake": "healthy",
+          "infotainment": "idle"
+        }
+      }
+    },
+    {
+      "action": "Download",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 0
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 2,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "healthy",
+          "brake": "healthy",
+          "infotainment": "downloaded"
+        }
+      }
+    },
+    {
+      "action": "Verify",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 2
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 2,
+          "infotainment": 1
+        },
+        "stage": {
+          "gateway": "healthy",
+          "brake": "healthy",
+          "infotainment": "verified"
+        }
+      }
+    },
+    {
+      "action": "Activate",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 2,
+          "infotainment": 2
+        },
+        "stage": {
+          "gateway": "healthy",
+          "brake": "healthy",
+          "infotainment": "trial"
+        }
+      }
+    },
+    {
+      "action": "Confirm",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "campaign": "run",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 2,
+          "infotainment": 2
+        },
+        "stage": {
+          "gateway": "healthy",
+          "brake": "healthy",
+          "infotainment": "healthy"
+        }
+      }
+    },
+    {
+      "action": "Commit",
+      "vars": {
+        "culprit": [],
+        "faults": 0,
+        "inactive": {
+          "gateway": 1,
+          "brake": 1,
+          "infotainment": 1
+        },
+        "campaign": "committed",
+        "corrupt": {
+          "gateway": false,
+          "brake": false,
+          "infotainment": false
+        },
+        "active": {
+          "gateway": 2,
+          "brake": 2,
+          "infotainment": 2
+        },
+        "stage": {
+          "gateway": "healthy",
+          "brake": "healthy",
+          "infotainment": "healthy"
+        }
+      }
+    }
+  ],
+  "ending": "finite",
+  "loop_to": null,
+  "replay_confirmed": true
+}

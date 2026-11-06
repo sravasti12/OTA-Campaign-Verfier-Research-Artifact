@@ -2,12 +2,14 @@
 
 The model and property definitions are in [../specs/SMALL_CAMPAIGN.md](../specs/SMALL_CAMPAIGN.md).
 
-**Evidence:** `results/raw/e0_small_campaign/20261106T133224Z-c026fa9/`, with `results.csv`, full TLC logs in `logs/`, and traces
-in `traces/` as JSON and readable tables. A repeat run, `20261106T133416Z-c026fa9`, gave identical results apart from wall-clock
-time, and byte-identical traces.
+**Evidence:** `results/raw/e0_small_campaign/20261106T140103Z-fc95dee/`, with `results.csv`, full TLC logs in `logs/`, and traces
+in `traces/` as JSON and readable tables. This run was made in a fresh checkout of commit `fc95dee`, and its manifest lists no
+uncommitted files.
 
-**Not paper evidence yet.** Both runs were made with uncommitted files, which their manifests record. Re-run from a clean commit
-before using any number here in the paper.
+Two earlier runs, `20261106T133224Z-c026fa9` and `20261106T133416Z-c026fa9`, were made with uncommitted files and are kept for
+history only. All three gave identical results apart from wall-clock time, and byte-identical traces.
+
+All three ran on the same Windows machine. Reproduction on another machine has not been tested.
 
 Reproduce with:
 

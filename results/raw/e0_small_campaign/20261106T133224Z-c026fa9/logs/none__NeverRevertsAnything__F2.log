@@ -1,0 +1,71 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 42 with 1 worker on 8 cores with 3541MB heap and 64MB offheap memory [pid: 9972] (Windows 11 10.0 amd64, Oracle Corporation 18.0.2 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file C:\Users\KIIT\Desktop\OTACampaignVerifier\ota_verifier\specs\tla\SmallCampaign.tla
+Parsing file C:\Users\KIIT\Desktop\OTACampaignVerifier\ota_verifier\specs\tla\OTACampaign.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module OTACampaign
+Semantic processing of module SmallCampaign
+Starting... (2026-11-06 19:03:59)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-06 19:03:59.
+Error: Invariant NeverRevertsAnything is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ culprit = {}
+/\ faults = 0
+/\ inactive = [gateway |-> 0, brake |-> 0, infotainment |-> 0]
+/\ campaign = "run"
+/\ corrupt = [gateway |-> FALSE, brake |-> FALSE, infotainment |-> FALSE]
+/\ active = [gateway |-> 1, brake |-> 1, infotainment |-> 1]
+/\ stage = [gateway |-> "idle", brake |-> "idle", infotainment |-> "idle"]
+
+State 2: <Download line 46, col 5 to line 48, col 73 of module OTACampaign>
+/\ culprit = {}
+/\ faults = 0
+/\ inactive = [gateway |-> 0, brake |-> 0, infotainment |-> 0]
+/\ campaign = "run"
+/\ corrupt = [gateway |-> FALSE, brake |-> FALSE, infotainment |-> FALSE]
+/\ active = [gateway |-> 1, brake |-> 1, infotainment |-> 1]
+/\ stage = [gateway |-> "downloaded", brake |-> "idle", infotainment |-> "idle"]
+
+State 3: <Verify line 51, col 5 to line 55, col 63 of module OTACampaign>
+/\ culprit = {}
+/\ faults = 0
+/\ inactive = [gateway |-> 2, brake |-> 0, infotainment |-> 0]
+/\ campaign = "run"
+/\ corrupt = [gateway |-> FALSE, brake |-> FALSE, infotainment |-> FALSE]
+/\ active = [gateway |-> 1, brake |-> 1, infotainment |-> 1]
+/\ stage = [gateway |-> "verified", brake |-> "idle", infotainment |-> "idle"]
+
+State 4: <Activate line 67, col 5 to line 72, col 55 of module OTACampaign>
+/\ culprit = {}
+/\ faults = 0
+/\ inactive = [gateway |-> 1, brake |-> 0, infotainment |-> 0]
+/\ campaign = "run"
+/\ corrupt = [gateway |-> FALSE, brake |-> FALSE, infotainment |-> FALSE]
+/\ active = [gateway |-> 2, brake |-> 1, infotainment |-> 1]
+/\ stage = [gateway |-> "trial", brake |-> "idle", infotainment |-> "idle"]
+
+State 5: <TrialFail line 105, col 5 to line 111, col 46 of module OTACampaign>
+/\ culprit = {"gateway"}
+/\ faults = 1
+/\ inactive = [gateway |-> 1, brake |-> 0, infotainment |-> 0]
+/\ campaign = "rollback"
+/\ corrupt = [gateway |-> FALSE, brake |-> FALSE, infotainment |-> FALSE]
+/\ active = [gateway |-> 2, brake |-> 1, infotainment |-> 1]
+/\ stage = [gateway |-> "failed", brake |-> "idle", infotainment |-> "idle"]
+
+State 6: <Rollback line 133, col 5 to line 140, col 55 of module OTACampaign>
+/\ culprit = {"gateway"}
+/\ faults = 1
+/\ inactive = [gateway |-> 2, brake |-> 0, infotainment |-> 0]
+/\ campaign = "rollback"
+/\ corrupt = [gateway |-> FALSE, brake |-> FALSE, infotainment |-> FALSE]
+/\ active = [gateway |-> 1, brake |-> 1, infotainment |-> 1]
+/\ stage = [gateway |-> "reverted", brake |-> "idle", infotainment |-> "idle"]
+
+351 states generated, 232 distinct states found, 107 states left on queue.
+The depth of the complete state graph search is 6.
+The average outdegree of the complete state graph is 2 (minimum is 0, the maximum 10 and the 95th percentile is 5).
+Finished in 00s at (2026-11-06 19:03:59)
