@@ -1,0 +1,772 @@
+{
+  "schema_version": 1,
+  "phase": "1D",
+  "reference_commit": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+  "phase_1c_directory": "../differential_evidence",
+  "native_execution": "Retained actual Phase 1C execution; no new native scenarios claimed",
+  "phase_1c_evidence_sha256": {
+    "reference.log": "03af8e04ab9e1671a0e2176cc3980702718ac3ca16e3f6db5b92d353356302bf",
+    "environment.txt": "d8bed25ee3ead8855388ec636eecf3d50edb076e81ee16ca7f26fab006fea838",
+    "test_upgrade-simulator.json": "dee434ee353d696e5f9d006e2bbaee7f323b691fb2d07bac1dbd9defd4b93bf8",
+    "confirmed_reboot-simulator.json": "a9d07086e0953bad4b3695525de69ca3dc66fb1699242ee4ec11a0b432406c3d",
+    "unconfirmed_revert-simulator.json": "f0d0de2573e4287c70c1c8673cfbab14e00c5426e89538238868a2bdf9f4c6ee",
+    "unauthorized_revert-simulator.json": "3ba6e92c26aabc7e5f24f8bb12ed249cb33fd65c7ed29d845e544f6d93a37696",
+    "invalid_signature-simulator.json": "ed96adaf0c2cf2eceb132133e360b9d6c8e6d6f67d0af4f4c9d7f927117b20e9",
+    "payload_corruption-simulator.json": "5c9d8ef94567a7f7aa4c02174abb9b67ccf8415c1ef0f9af38d3721ceaf14aa7",
+    "swap_power_loss-simulator.json": "0ec39085c0ee229b71e0da12963b2dbacdd107965a0a672ca83f9a4e6bdcbfa6",
+    "interrupted_revert-simulator.json": "f0d0de2573e4287c70c1c8673cfbab14e00c5426e89538238868a2bdf9f4c6ee",
+    "failed_trial-simulator.json": "7deb80a2a7a8fe8c2f5c3ffab1dbb8f42acdd4171c243697fe22d9a723335f7e",
+    "repeated_resets-simulator.json": "b046a4c0a52960f3670a88afe75830941b5ea24f34bf3231de2215477bd3a875",
+    "known_good_recovery-simulator.json": "5c9d8ef94567a7f7aa4c02174abb9b67ccf8415c1ef0f9af38d3721ceaf14aa7",
+    "post_confirm_campaign_recovery-simulator.json": "95ba6518e442208a27379f5dc554ea64dadccd45a1a41729e0f1fc9e0609937e",
+    "comparison.json": "ad4cbe96899bf935ec51015da481b33cde39f0e9a686d776df473907eaa6ccf4"
+  },
+  "original_summary": {
+    "MATCH": 6,
+    "MISMATCH": 2,
+    "UNSUPPORTED": 4
+  },
+  "production_behavior_changed": false,
+  "unexpected_contradictions": 0,
+  "scenarios": [
+    {
+      "id": "test_upgrade",
+      "original_status": "MATCH",
+      "original_comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "1.0.1.1",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          },
+          {
+            "name": "confirmed",
+            "mcuboot": false,
+            "simulator": false,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "1.0.1.1",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "1.0.1.1",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          },
+          {
+            "name": "confirmed",
+            "mcuboot": false,
+            "simulator": false,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "NOT_ESTABLISHED",
+        "campaign_policy": "NOT_EXERCISED",
+        "requires_investigation": false,
+        "disposition": "BOUNDED_ENDPOINT_AGREEMENT"
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "test_upgrade-simulator.json",
+        "simulator_sha256": "dee434ee353d696e5f9d006e2bbaee7f323b691fb2d07bac1dbd9defd4b93bf8"
+      },
+      "fresh_simulator": {
+        "path": "test_upgrade-simulator.json",
+        "sha256": "dee434ee353d696e5f9d006e2bbaee7f323b691fb2d07bac1dbd9defd4b93bf8"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "confirmed_reboot",
+      "original_status": "MATCH",
+      "original_comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "1.0.1.1",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          },
+          {
+            "name": "confirmed",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "1.0.1.1",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "1.0.1.1",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          },
+          {
+            "name": "confirmed",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "NOT_ESTABLISHED",
+        "campaign_policy": "NOT_EXERCISED",
+        "requires_investigation": false,
+        "disposition": "BOUNDED_ENDPOINT_AGREEMENT"
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "confirmed_reboot-simulator.json",
+        "simulator_sha256": "a9d07086e0953bad4b3695525de69ca3dc66fb1699242ee4ec11a0b432406c3d"
+      },
+      "fresh_simulator": {
+        "path": "confirmed_reboot-simulator.json",
+        "sha256": "a9d07086e0953bad4b3695525de69ca3dc66fb1699242ee4ec11a0b432406c3d"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "unconfirmed_revert",
+      "original_status": "MATCH",
+      "original_comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "NOT_ESTABLISHED",
+        "campaign_policy": "PROJECT_POLICY_RETAINED",
+        "requires_investigation": false,
+        "disposition": "BOUNDED_ENDPOINT_AGREEMENT"
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "unconfirmed_revert-simulator.json",
+        "simulator_sha256": "f0d0de2573e4287c70c1c8673cfbab14e00c5426e89538238868a2bdf9f4c6ee"
+      },
+      "fresh_simulator": {
+        "path": "unconfirmed_revert-simulator.json",
+        "sha256": "f0d0de2573e4287c70c1c8673cfbab14e00c5426e89538238868a2bdf9f4c6ee"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "unauthorized_revert",
+      "original_status": "MISMATCH",
+      "original_comparison": {
+        "status": "MISMATCH",
+        "category": "intentional_policy_difference",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": null,
+            "status": "MISMATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": null,
+            "status": "MISMATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": null,
+            "status": "MISMATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": null,
+            "status": "MISMATCH"
+          }
+        ],
+        "mechanism_equivalence": "NOT_ESTABLISHED",
+        "campaign_policy": "DISTINCT_FROM_BOOTLOADER_MECHANISM",
+        "requires_investigation": false,
+        "disposition": "INTENTIONAL_POLICY_DIFFERENCE",
+        "policy_evidence_verified": true,
+        "reason": "Native automatic revert is outside the project ECU/version authorization policy.",
+        "evidence": {
+          "authorization_present": false,
+          "blocker_codes": [
+            "unauthorized_downgrade"
+          ],
+          "recovery_status": "unavailable"
+        }
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "unauthorized_revert-simulator.json",
+        "simulator_sha256": "3ba6e92c26aabc7e5f24f8bb12ed249cb33fd65c7ed29d845e544f6d93a37696"
+      },
+      "fresh_simulator": {
+        "path": "unauthorized_revert-simulator.json",
+        "sha256": "3ba6e92c26aabc7e5f24f8bb12ed249cb33fd65c7ed29d845e544f6d93a37696"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "invalid_signature",
+      "original_status": "UNSUPPORTED",
+      "original_comparison": {
+        "status": "UNSUPPORTED",
+        "category": "unsupported_mechanism",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "Project has no signature parser, key or cryptographic verifier.",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "UNSUPPORTED",
+        "campaign_policy": "PROJECT_POLICY_RETAINED",
+        "requires_investigation": false,
+        "disposition": "UNSUPPORTED_COMPARISON",
+        "unsupported_reason": "Project has no signature parser, key or cryptographic verifier."
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "invalid_signature-simulator.json",
+        "simulator_sha256": "ed96adaf0c2cf2eceb132133e360b9d6c8e6d6f67d0af4f4c9d7f927117b20e9"
+      },
+      "fresh_simulator": {
+        "path": "invalid_signature-simulator.json",
+        "sha256": "ed96adaf0c2cf2eceb132133e360b9d6c8e6d6f67d0af4f4c9d7f927117b20e9"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "payload_corruption",
+      "original_status": "MATCH",
+      "original_comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "NOT_ESTABLISHED",
+        "campaign_policy": "PROJECT_POLICY_RETAINED",
+        "requires_investigation": false,
+        "disposition": "BOUNDED_ENDPOINT_AGREEMENT"
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "payload_corruption-simulator.json",
+        "simulator_sha256": "5c9d8ef94567a7f7aa4c02174abb9b67ccf8415c1ef0f9af38d3721ceaf14aa7"
+      },
+      "fresh_simulator": {
+        "path": "payload_corruption-simulator.json",
+        "sha256": "5c9d8ef94567a7f7aa4c02174abb9b67ccf8415c1ef0f9af38d3721ceaf14aa7"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "swap_power_loss",
+      "original_status": "UNSUPPORTED",
+      "original_comparison": {
+        "status": "UNSUPPORTED",
+        "category": "unsupported_boundary",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "0.0.1.0",
+            "status": "MISMATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "Reference cuts before flash operation 7; logical activate-before is only a coarse counterpart.",
+        "expected_reference_version": "1.0.1.1",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "0.0.1.0",
+            "status": "MISMATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "UNSUPPORTED",
+        "campaign_policy": "PROJECT_POLICY_RETAINED",
+        "requires_investigation": false,
+        "disposition": "UNSUPPORTED_COMPARISON",
+        "unsupported_reason": "Reference cuts before flash operation 7; logical activate-before is only a coarse counterpart."
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "swap_power_loss-simulator.json",
+        "simulator_sha256": "0ec39085c0ee229b71e0da12963b2dbacdd107965a0a672ca83f9a4e6bdcbfa6"
+      },
+      "fresh_simulator": {
+        "path": "swap_power_loss-simulator.json",
+        "sha256": "0ec39085c0ee229b71e0da12963b2dbacdd107965a0a672ca83f9a4e6bdcbfa6"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "interrupted_revert",
+      "original_status": "UNSUPPORTED",
+      "original_comparison": {
+        "status": "UNSUPPORTED",
+        "category": "unsupported_boundary",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "Project has no fault injection inside recovery actions or scratch journal.",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "UNSUPPORTED",
+        "campaign_policy": "PROJECT_POLICY_RETAINED",
+        "requires_investigation": false,
+        "disposition": "UNSUPPORTED_COMPARISON",
+        "unsupported_reason": "Project has no fault injection inside recovery actions or scratch journal."
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "interrupted_revert-simulator.json",
+        "simulator_sha256": "f0d0de2573e4287c70c1c8673cfbab14e00c5426e89538238868a2bdf9f4c6ee"
+      },
+      "fresh_simulator": {
+        "path": "interrupted_revert-simulator.json",
+        "sha256": "f0d0de2573e4287c70c1c8673cfbab14e00c5426e89538238868a2bdf9f4c6ee"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "failed_trial",
+      "original_status": "UNSUPPORTED",
+      "original_comparison": {
+        "status": "UNSUPPORTED",
+        "category": "unsupported_mechanism",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "Reference models missing confirmation/reset, not runtime health failure. Project gates health before exposure.",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "UNSUPPORTED",
+        "campaign_policy": "PROJECT_POLICY_RETAINED",
+        "requires_investigation": false,
+        "disposition": "UNSUPPORTED_COMPARISON",
+        "unsupported_reason": "Reference models missing confirmation/reset, not runtime health failure. Project gates health before exposure.",
+        "exposure_difference": {
+          "native_trial_selected": "1.0.1.1",
+          "project_ever_effective_candidate": false,
+          "application_crash_executed": false
+        }
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "failed_trial-simulator.json",
+        "simulator_sha256": "7deb80a2a7a8fe8c2f5c3ffab1dbb8f42acdd4171c243697fe22d9a723335f7e"
+      },
+      "fresh_simulator": {
+        "path": "failed_trial-simulator.json",
+        "sha256": "7deb80a2a7a8fe8c2f5c3ffab1dbb8f42acdd4171c243697fe22d9a723335f7e"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "repeated_resets",
+      "original_status": "MATCH",
+      "original_comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "NOT_ESTABLISHED",
+        "campaign_policy": "PROJECT_POLICY_RETAINED",
+        "requires_investigation": false,
+        "disposition": "BOUNDED_ENDPOINT_AGREEMENT"
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "repeated_resets-simulator.json",
+        "simulator_sha256": "b046a4c0a52960f3670a88afe75830941b5ea24f34bf3231de2215477bd3a875"
+      },
+      "fresh_simulator": {
+        "path": "repeated_resets-simulator.json",
+        "sha256": "b046a4c0a52960f3670a88afe75830941b5ea24f34bf3231de2215477bd3a875"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "known_good_recovery",
+      "original_status": "MATCH",
+      "original_comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "NOT_ESTABLISHED",
+        "campaign_policy": "PROJECT_POLICY_RETAINED",
+        "requires_investigation": false,
+        "disposition": "BOUNDED_ENDPOINT_AGREEMENT"
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "known_good_recovery-simulator.json",
+        "simulator_sha256": "5c9d8ef94567a7f7aa4c02174abb9b67ccf8415c1ef0f9af38d3721ceaf14aa7"
+      },
+      "fresh_simulator": {
+        "path": "known_good_recovery-simulator.json",
+        "sha256": "5c9d8ef94567a7f7aa4c02174abb9b67ccf8415c1ef0f9af38d3721ceaf14aa7"
+      },
+      "original_input_unchanged": true
+    },
+    {
+      "id": "post_confirm_campaign_recovery",
+      "original_status": "MISMATCH",
+      "original_comparison": {
+        "status": "MISMATCH",
+        "category": "intentional_orchestration_difference",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "0.0.1.0",
+            "status": "MISMATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          },
+          {
+            "name": "confirmed",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "1.0.1.1",
+        "reference_expectation_met": true
+      },
+      "review": {
+        "endpoint_properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "0.0.1.0",
+            "status": "MISMATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          },
+          {
+            "name": "confirmed",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "mechanism_equivalence": "NOT_ESTABLISHED",
+        "campaign_policy": "DISTINCT_FROM_BOOTLOADER_MECHANISM",
+        "requires_investigation": false,
+        "disposition": "INTENTIONAL_POLICY_DIFFERENCE",
+        "policy_evidence_verified": true,
+        "reason": "Immediate confirmed-image reboot agrees; subsequent campaign recovery restores the authorized original.",
+        "evidence": {
+          "rebooted_target_before_campaign_recovery": true,
+          "original_restore_authorized": true,
+          "recovery_status": "available"
+        },
+        "aligned_checkpoint": {
+          "native": "reset_1",
+          "project": "reboot before recover_begin",
+          "target_reboot_observed": true,
+          "note": "This checkpoint does not replace the original final-state MISMATCH."
+        }
+      },
+      "original_evidence": {
+        "reference": "reference.log",
+        "simulator": "post_confirm_campaign_recovery-simulator.json",
+        "simulator_sha256": "95ba6518e442208a27379f5dc554ea64dadccd45a1a41729e0f1fc9e0609937e"
+      },
+      "fresh_simulator": {
+        "path": "post_confirm_campaign_recovery-simulator.json",
+        "sha256": "95ba6518e442208a27379f5dc554ea64dadccd45a1a41729e0f1fc9e0609937e"
+      },
+      "original_input_unchanged": true
+    }
+  ]
+}

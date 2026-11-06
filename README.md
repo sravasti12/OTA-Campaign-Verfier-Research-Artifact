@@ -12,6 +12,8 @@ LLMs extract requirements, check extraction faithfulness, and explain evidence.
 **Compatibility, parallel planning, fault injection, recovery, and invariants are
 deterministic code.** They run and are tested without model services.
 
+[Detailed project and architecture report (20-page PDF)](docs/OTA_Campaign_Verifier_Project_Report.pdf)
+
 ![Guarded recovery comparison with retained baseline violations](docs/assets/guarded-recovery.png)
 
 *Actual Streamlit UI using scripted synthetic responses. The guarded example
@@ -36,6 +38,57 @@ simulation records.
 See the [free deployment and maintenance guide](docs/deploy_free.md) for setup.
 The public fixture demo does not validate the separate shared-mode OIDC setup.
 
+## MCUboot recovery validation
+
+An independent harness compares the guarded recovery simulator with real MCUboot
+v2.4.0 C bootloader code running over simulated flash. Phases 1A–1E are complete.
+The reference is pinned to commit
+`6d3b3d2c38ab20c242e5b9abb04d050086383eb2`, using scratch swap,
+RSA-2048/SHA-256 and primary-slot validation in the official simulator under WSL2.
+
+| Differential result | Scenarios |
+| --- | ---: |
+| MATCH — bounded observable endpoints | 6 |
+| MISMATCH — intentional campaign-policy differences | 2 |
+| UNSUPPORTED — mechanism or interruption boundaries differ | 4 |
+| INCONCLUSIVE | 0 |
+
+The mismatches preserve explicit downgrade authorization and the campaign's
+original-image recovery objective. Unsupported cases remain unsupported;
+matching endpoints do not establish signature verification, scratch-journal
+recovery or application-health equivalence. No production simulator defect was
+identified, and its behavior was preserved. This is software simulation evidence,
+not full MCUboot equivalence, hardware or real-vehicle validation.
+
+Recorded Phase 1E runs (each with 0 failures/errors/skips and 14 warnings):
+
+| Run | Native evidence | Python tests passed | Artifact hashes verified |
+| --- | --- | ---: | ---: |
+| [Fresh execution](validation/mcuboot/final_evidence/phase1e-fresh/validation.json) | Real C tests executed again | 582 | 58 |
+| [Evidence replay](validation/mcuboot/final_evidence/phase1e-replay/validation.json) | Historical C logs; no fresh native execution | 586 | 50 |
+
+The replay run includes four status-guard tests added after the fresh run.
+Warnings and JUnit results are retained in each package; unsupported scenarios
+are not counted as successful validations.
+
+After the [reference environment setup](docs/MCUBOOT_REFERENCE_ENVIRONMENT.md),
+run from this directory in PowerShell:
+
+```powershell
+# Build/test real MCUboot, compare both implementations, review policies and run regressions.
+.\.venv\Scripts\python.exe validation/mcuboot/validate.py --mode fresh
+
+# Reuse recorded native evidence; Python simulation and regression tests still execute.
+.\.venv\Scripts\python.exe validation/mcuboot/validate.py --mode replay
+
+# Verify the recorded fresh package, including its consolidated report.
+.\.venv\Scripts\python.exe validation/mcuboot/validate.py --verify validation/mcuboot/final_evidence/phase1e-fresh/validation.json
+```
+
+New runs use separate timestamped evidence directories. See the
+[engineering report, complete scenario table and Windows/WSL2 reproduction guide](docs/MCUBOOT_VALIDATION_REPORT.md)
+for methods, raw evidence, limitations and remaining gaps.
+
 ## What the demonstrations prove under the model
 
 | Scenario | Measured result | Why it matters |
@@ -49,7 +102,7 @@ and covers 252 core fault cases. Its 12 extraction fixtures yield 8 ready and 4
 required-abstention outcomes. These are regression checks using supplied answers,
 not measured model performance. See the [recorded local evidence](docs/release-evidence.json).
 
-**Local verification:** 548 tests passed on Windows/Python 3.14.4, with 14
+**Earlier release-record verification:** 548 tests passed on Windows/Python 3.14.4, with 14
 upstream/cache warnings. The JUnit digest and counts are retained in the release
 summary.
 

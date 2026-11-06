@@ -1,0 +1,20 @@
+........................................................................ [ 12%]
+........................................................................ [ 24%]
+........................................................................ [ 36%]
+........................................................................ [ 49%]
+........................................................................ [ 61%]
+........................................................................ [ 73%]
+........................................................................ [ 86%]
+........................................................................ [ 98%]
+..........                                                               [100%]
+============================== warnings summary ===============================
+.venv\Lib\site-packages\langsmith\_internal\_beta_decorator.py:92: 13 warnings
+  C:\Users\KIIT\Desktop\OTACampaignVerifier\ota_verifier\.venv\Lib\site-packages\langsmith\_internal\_beta_decorator.py:92: DeprecationWarning: 'asyncio.iscoroutinefunction' is deprecated and slated for removal in Python 3.16; use inspect.iscoroutinefunction() instead
+    if asyncio.iscoroutinefunction(func):
+
+.venv\Lib\site-packages\_pytest\cacheprovider.py:487
+  C:\Users\KIIT\Desktop\OTACampaignVerifier\ota_verifier\.venv\Lib\site-packages\_pytest\cacheprovider.py:487: PytestCacheWarning: could not create cache path C:\Users\KIIT\Desktop\OTACampaignVerifier\ota_verifier\.pytest_cache\v\cache\nodeids: [WinError 183] Cannot create a file when that file already exists: 'C:\\Users\\KIIT\\Desktop\\OTACampaignVerifier\\ota_verifier\\.pytest_cache\\v\\cache'
+    config.cache.set("cache/nodeids", sorted(str(n) for n in self.cached_nodeids))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+586 passed, 14 warnings in 336.76s (0:05:36)

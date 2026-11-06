@@ -1,0 +1,547 @@
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> sim/src/image.rs:33:20
+   |
+33 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2018:21
+     |
+2018 |         let nonce = GenericArray::from_slice(&[0; 16]);
+     |                     ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:47
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                                               ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:23
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                       ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:47
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                                               ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:23
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                       ^^^^^^^^^^^^
+
+warning: use of deprecated function `rand::thread_rng`: Renamed to `rng`
+    --> sim/src/image.rs:1649:29
+     |
+1649 |         let mut rng = rand::thread_rng();
+     |                             ^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> sim/src/tlv.rs:42:20
+   |
+42 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:779:25
+    |
+779 |             let nonce = GenericArray::from_slice(&[0; 16]);
+    |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:51
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                                                   ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:27
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                           ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:51
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                                                   ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:27
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                           ^^^^^^^^^^^^
+
+warning: use of deprecated method `rand::Rng::gen_range`: Renamed to `random_range`
+    --> sim/src/image.rs:1653:37
+     |
+1653 |             let reset_counter = rng.gen_range(1 ..= remaining_ops / 2);
+     |                                     ^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2018:35
+     |
+2018 |         let nonce = GenericArray::from_slice(&[0; 16]);
+     |                                   ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:61
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                                                             ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:61
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                                                             ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:779:39
+    |
+779 |             let nonce = GenericArray::from_slice(&[0; 16]);
+    |                                       ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:65
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                                                                 ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:65
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                                                                 ^^^^^^^^^^
+
+warning: `bootsim` (lib) generated 20 warnings
+    Finished `test` profile [optimized + debuginfo] target(s) in 11.54s
+     Running tests/core.rs (target/debug/deps/core-a09ff3138511dd3f)
+
+running 1 test
+test bad_secondary_slot ... [2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x20000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x34000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x1b0, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x330, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0x630, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] slot: 0x68000, HDR: 0x20, trailer: 0xc30, tlv_len: 0x150, padding: 0x0
+[2026-11-06T10:30:51Z INFO  bootsim::image] Try upgrade image with bad signature
+[INF] Primary image: magic=good, swap_type=0x1, copy_done=0x3, image_ok=0x1
+[INF] Scratch: magic=unset, swap_type=0x1, copy_done=0x3, image_ok=0x3
+[INF] Boot source: primary slot
+[INF] Image index: 0, Swap type: test
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlots: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlots: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlots: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlots: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlots: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlots: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlots: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlots: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlotsLargerSlot1: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlotsLargerSlot1: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlotsLargerSlot1: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlotsLargerSlot1: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlotsLargerSlot1: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlotsLargerSlot1: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlotsLargerSlot1: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping Nrf52840UnequalSlotsLargerSlot1: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping PSOCEdgeE8x: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping PSOCEdgeE8x: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping PSOCEdgeE8x: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping PSOCEdgeE8x: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping PSOCEdgeE8x: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping PSOCEdgeE8x: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping PSOCEdgeE8x: unsupported SwapUsingScratch
+[2026-11-06T10:30:51Z WARN  bootsim::image] Skipping PSOCEdgeE8x: unsupported SwapUsingScratch
+ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 24 filtered out; finished in 0.55s
+

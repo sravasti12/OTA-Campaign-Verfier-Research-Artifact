@@ -1,0 +1,51 @@
+2026-11-06T12:19:51+00:00
+rustc 1.90.0 (1159e78c4 2025-09-14)
+binary: rustc
+commit-hash: 1159e78c4747b02ef996e55082b704c09b970588
+commit-date: 2025-09-14
+host: x86_64-unknown-linux-gnu
+release: 1.90.0
+LLVM version: 20.1.8
+cargo 1.90.0 (840b83a10 2025-07-30)
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
+Linux BT-2206300 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+build-essential	12.10ubuntu1
+gcc	4:13.2.0-7ubuntu1
+gcc-13	13.3.0-6ubuntu2~24.04.1
+libc6-dev:amd64	2.39-0ubuntu8.9
+pkg-config:amd64	1.8.1-2build1
+6d3b3d2c38ab20c242e5b9abb04d050086383eb2
+ a0f53cdda39a373c45cdbf9f853c8018c1172461 boot/cypress/libs/core-lib (release-v1.1.4)
+ 79a9d8e5e0a98531d8b17f94f3f040359e9cdd9d boot/cypress/libs/cy-mbedtls-acceleration (release-v1.2.0)
+ 55b5a5457195ad2a2a02e0a98ca72a9333e26397 boot/cypress/libs/mtb-pdl-cat1 (release-v2.1.0)
+ 0e38b78ef9ae3ce5db0563bdcde80a028c5fc38a boot/cypress/libs/pdl/psoc6pdl (release-v1.4.1)
+ a0d6c08f1178750e29967999860485878fac09f9 boot/cypress/libs/psoc6hal (release-v1.1.1)
+ bd88e66fc6976de49694382a5ce5dc7613f12ace boot/cypress/libs/retarget-io (release-v1.0.0)
+ 2ca6c285a0dd3f33982dd57299012dacab1ff206 ext/mbedtls (v3.6.0)
+ 750634d3a51eb9d61b59fd5d801546927c946588 ext/mbedtls/framework (mbedtls-4.0.0_tf-psa-crypto-1.0.0~115)
+2892bcc36e7a0ad01d96dd13a0606c8627d8ea2c8ed90ab63426bac3510e6cb1  Cargo.lock
+2ce720e1509351534cd46e9d38997ab1491b5346485ad5b82e7bcba29760cc5e  /mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/validation/mcuboot/ota_reference.rs
+722a6a90ebb6c875af527de3127f84090cbb6c9f75d1bad160540b4f02df558e  target/debug/build/mcuboot-sys-a94d24cd1d486a28/out/libbootutil.a
+8d53f3821bcddf7a01a13a314a51f73c065b62f09d3c50cc7a1357c93f3a8d2a  target/debug/deps/bootsim-7a5df14708ae2565
+f53d313916a374f30facfa20aba2e71d9a3c9a0c88979775332c4a7c7aa56b4e  target/debug/deps/bootsim-817798e03add7535
+37ddf43359a092925fb5f26c6b2c55193b7be6d2424a794f49f93e4d3e3a0320  target/debug/deps/bootsim-b83e3bb7c7f8cffa
+0000000000000000 T context_boot_go
+0000000000000000 T swap_run
+0000000000000000 T bootutil_get_caps

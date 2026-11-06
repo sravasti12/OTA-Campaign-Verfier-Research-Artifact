@@ -1,0 +1,19 @@
+2026-11-06T10:45:09+00:00
+6d3b3d2c38ab20c242e5b9abb04d050086383eb2
+rustc 1.90.0 (1159e78c4 2025-09-14)
+binary: rustc
+commit-hash: 1159e78c4747b02ef996e55082b704c09b970588
+commit-date: 2025-09-14
+host: x86_64-unknown-linux-gnu
+release: 1.90.0
+LLVM version: 20.1.8
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+ 2ca6c285a0dd3f33982dd57299012dacab1ff206 ext/mbedtls (v3.6.0)
+ 750634d3a51eb9d61b59fd5d801546927c946588 ext/mbedtls/framework (mbedtls-4.0.0_tf-psa-crypto-1.0.0~115)
+2892bcc36e7a0ad01d96dd13a0606c8627d8ea2c8ed90ab63426bac3510e6cb1  Cargo.lock
+d6ba6937d164d2e6e99fb77d4eb0436a21b4b4b983bb3af8e2864bacc20634d9  /mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/validation/mcuboot/ota_differential.rs
+722a6a90ebb6c875af527de3127f84090cbb6c9f75d1bad160540b4f02df558e  target/debug/build/mcuboot-sys-a94d24cd1d486a28/out/libbootutil.a

@@ -1,0 +1,403 @@
+{
+  "campaign": {
+    "id": "mcuboot-differential",
+    "ecus": [
+      {
+        "id": "ecu",
+        "current_version": "0.0.1.0",
+        "target_version": "1.0.1.1",
+        "flash_minutes": 1.0
+      }
+    ],
+    "initial_state": {
+      "ecus": [
+        {
+          "ecu_id": "ecu",
+          "slot_a": {
+            "version": "0.0.1.0",
+            "valid": true
+          },
+          "slot_b": null,
+          "active_slot": "A"
+        }
+      ],
+      "battery_percent": 80.0,
+      "ignition": "off"
+    },
+    "constraints": [],
+    "downgrade_authorizations": [
+      {
+        "ecu_id": "ecu",
+        "version": "0.0.1.0",
+        "authorized_by": "validation-fixture",
+        "reason": "Explicit permission for reference rollback comparison"
+      }
+    ]
+  },
+  "plan": {
+    "campaign_id": "mcuboot-differential",
+    "steps": [
+      {
+        "ecu_id": "ecu",
+        "from_version": "0.0.1.0",
+        "to_version": "1.0.1.1",
+        "write_slot": "B",
+        "start_ms": 0,
+        "end_ms": 60000,
+        "activation_index": 1,
+        "constraint_ids": []
+      }
+    ],
+    "states": [
+      {
+        "ecus": [
+          {
+            "ecu_id": "ecu",
+            "slot_a": {
+              "version": "0.0.1.0",
+              "valid": true
+            },
+            "slot_b": null,
+            "active_slot": "A"
+          }
+        ],
+        "battery_percent": 80.0,
+        "ignition": "off"
+      },
+      {
+        "ecus": [
+          {
+            "ecu_id": "ecu",
+            "slot_a": {
+              "version": "0.0.1.0",
+              "valid": true
+            },
+            "slot_b": {
+              "version": "1.0.1.1",
+              "valid": true
+            },
+            "active_slot": "B"
+          }
+        ],
+        "battery_percent": 80.0,
+        "ignition": "off"
+      }
+    ],
+    "makespan_ms": 60000,
+    "optimal": true,
+    "options": {
+      "max_parallel": null,
+      "deadline_ms": null,
+      "timeout_ms": 10000
+    }
+  },
+  "fault": null,
+  "result": {
+    "campaign_id": "mcuboot-differential",
+    "fault": null,
+    "status": "completed",
+    "assessment": "passed",
+    "trace": [
+      {
+        "time_ms": 0,
+        "ecu_id": null,
+        "stage": "initial",
+        "snapshot": {
+          "state": {
+            "ecus": [
+              {
+                "ecu_id": "ecu",
+                "slot_a": {
+                  "version": "0.0.1.0",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "boot": [
+            {
+              "ecu_id": "ecu",
+              "confirmed_slot": "A",
+              "candidate_slot": null,
+              "running_slot": "A",
+              "available": true,
+              "health_a": "passed",
+              "health_b": "unknown",
+              "attempts_used": 0
+            }
+          ]
+        },
+        "writing_ecus": [],
+        "message": ""
+      },
+      {
+        "time_ms": 0,
+        "ecu_id": "ecu",
+        "stage": "erase",
+        "snapshot": {
+          "state": {
+            "ecus": [
+              {
+                "ecu_id": "ecu",
+                "slot_a": {
+                  "version": "0.0.1.0",
+                  "valid": true
+                },
+                "slot_b": {
+                  "version": "1.0.1.1",
+                  "valid": false
+                },
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "boot": [
+            {
+              "ecu_id": "ecu",
+              "confirmed_slot": "A",
+              "candidate_slot": null,
+              "running_slot": "A",
+              "available": true,
+              "health_a": "passed",
+              "health_b": "unknown",
+              "attempts_used": 0
+            }
+          ]
+        },
+        "writing_ecus": [
+          "ecu"
+        ],
+        "message": ""
+      },
+      {
+        "time_ms": 30000,
+        "ecu_id": "ecu",
+        "stage": "write",
+        "snapshot": {
+          "state": {
+            "ecus": [
+              {
+                "ecu_id": "ecu",
+                "slot_a": {
+                  "version": "0.0.1.0",
+                  "valid": true
+                },
+                "slot_b": {
+                  "version": "1.0.1.1",
+                  "valid": false
+                },
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "boot": [
+            {
+              "ecu_id": "ecu",
+              "confirmed_slot": "A",
+              "candidate_slot": null,
+              "running_slot": "A",
+              "available": true,
+              "health_a": "passed",
+              "health_b": "unknown",
+              "attempts_used": 0
+            }
+          ]
+        },
+        "writing_ecus": [
+          "ecu"
+        ],
+        "message": ""
+      },
+      {
+        "time_ms": 60000,
+        "ecu_id": "ecu",
+        "stage": "verify",
+        "snapshot": {
+          "state": {
+            "ecus": [
+              {
+                "ecu_id": "ecu",
+                "slot_a": {
+                  "version": "0.0.1.0",
+                  "valid": true
+                },
+                "slot_b": {
+                  "version": "1.0.1.1",
+                  "valid": true
+                },
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "boot": [
+            {
+              "ecu_id": "ecu",
+              "confirmed_slot": "A",
+              "candidate_slot": null,
+              "running_slot": "A",
+              "available": true,
+              "health_a": "passed",
+              "health_b": "unknown",
+              "attempts_used": 0
+            }
+          ]
+        },
+        "writing_ecus": [],
+        "message": ""
+      },
+      {
+        "time_ms": 60000,
+        "ecu_id": "ecu",
+        "stage": "activate",
+        "snapshot": {
+          "state": {
+            "ecus": [
+              {
+                "ecu_id": "ecu",
+                "slot_a": {
+                  "version": "0.0.1.0",
+                  "valid": true
+                },
+                "slot_b": {
+                  "version": "1.0.1.1",
+                  "valid": true
+                },
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "boot": [
+            {
+              "ecu_id": "ecu",
+              "confirmed_slot": "A",
+              "candidate_slot": "B",
+              "running_slot": null,
+              "available": false,
+              "health_a": "passed",
+              "health_b": "unknown",
+              "attempts_used": 0
+            }
+          ]
+        },
+        "writing_ecus": [],
+        "message": ""
+      },
+      {
+        "time_ms": 60000,
+        "ecu_id": "ecu",
+        "stage": "boot",
+        "snapshot": {
+          "state": {
+            "ecus": [
+              {
+                "ecu_id": "ecu",
+                "slot_a": {
+                  "version": "0.0.1.0",
+                  "valid": true
+                },
+                "slot_b": {
+                  "version": "1.0.1.1",
+                  "valid": true
+                },
+                "active_slot": "B"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "boot": [
+            {
+              "ecu_id": "ecu",
+              "confirmed_slot": "A",
+              "candidate_slot": "B",
+              "running_slot": "B",
+              "available": true,
+              "health_a": "passed",
+              "health_b": "passed",
+              "attempts_used": 1
+            }
+          ]
+        },
+        "writing_ecus": [],
+        "message": ""
+      },
+      {
+        "time_ms": 60000,
+        "ecu_id": "ecu",
+        "stage": "confirm",
+        "snapshot": {
+          "state": {
+            "ecus": [
+              {
+                "ecu_id": "ecu",
+                "slot_a": {
+                  "version": "0.0.1.0",
+                  "valid": true
+                },
+                "slot_b": {
+                  "version": "1.0.1.1",
+                  "valid": true
+                },
+                "active_slot": "B"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "boot": [
+            {
+              "ecu_id": "ecu",
+              "confirmed_slot": "B",
+              "candidate_slot": null,
+              "running_slot": "B",
+              "available": true,
+              "health_a": "passed",
+              "health_b": "passed",
+              "attempts_used": 1
+            }
+          ]
+        },
+        "writing_ecus": [],
+        "message": ""
+      }
+    ],
+    "findings": [],
+    "recovery": null,
+    "guard_blockers": []
+  },
+  "checkpoints": [
+    {
+      "checkpoint": "selected_campaign_trace",
+      "observation": {
+        "selected_version": "1.0.1.1",
+        "retained_effective_version": "1.0.1.1",
+        "selected_valid": true,
+        "confirmed": false,
+        "available": true,
+        "active_slot": "B",
+        "metadata": {
+          "ecu_id": "ecu",
+          "confirmed_slot": "A",
+          "candidate_slot": "B",
+          "running_slot": "B",
+          "available": true,
+          "health_a": "passed",
+          "health_b": "passed",
+          "attempts_used": 1
+        }
+      }
+    }
+  ]
+}

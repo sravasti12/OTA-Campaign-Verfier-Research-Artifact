@@ -1,0 +1,7 @@
+Tool transcript recorded from the failed PowerShell wrapper check, before tests started:
+wsl.exe : wslpath: C:UsersKIITDesktopOTACampaignVerifierota_verifiervalidationmcubootrun-reference.sh
+At C:\Users\KIIT\Desktop\OTACampaignVerifier\ota_verifier\validation\mcuboot\reference.ps1:8 char:15
++ $linuxPath = (& wsl -d $Distribution -- wslpath -a $localPath).Trim()
+    + FullyQualifiedErrorId : NativeCommandError
+Tool process exit code: 1
+Resolved by converting backslashes to forward slashes before invoking wslpath.

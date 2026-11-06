@@ -1,0 +1,1344 @@
+rustc 1.90.0 (1159e78c4 2025-09-14)
+cargo 1.90.0 (840b83a10 2025-07-30)
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Linux BT-2206300 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+6d3b3d2c38ab20c242e5b9abb04d050086383eb2
+ a0f53cdda39a373c45cdbf9f853c8018c1172461 ../boot/cypress/libs/core-lib (release-v1.1.4)
+ 79a9d8e5e0a98531d8b17f94f3f040359e9cdd9d ../boot/cypress/libs/cy-mbedtls-acceleration (release-v1.2.0)
+ 55b5a5457195ad2a2a02e0a98ca72a9333e26397 ../boot/cypress/libs/mtb-pdl-cat1 (release-v2.1.0)
+ 0e38b78ef9ae3ce5db0563bdcde80a028c5fc38a ../boot/cypress/libs/pdl/psoc6pdl (release-v1.4.1)
+ a0d6c08f1178750e29967999860485878fac09f9 ../boot/cypress/libs/psoc6hal (release-v1.1.1)
+ bd88e66fc6976de49694382a5ce5dc7613f12ace ../boot/cypress/libs/retarget-io (release-v1.0.0)
+ 2ca6c285a0dd3f33982dd57299012dacab1ff206 ../ext/mbedtls (v3.6.0)
+ 750634d3a51eb9d61b59fd5d801546927c946588 ../ext/mbedtls/framework (mbedtls-4.0.0_tf-psa-crypto-1.0.0~115)
+2892bcc36e7a0ad01d96dd13a0606c8627d8ea2c8ed90ab63426bac3510e6cb1  ../Cargo.lock
+       Fresh cfg-if v1.0.5
+       Fresh unicode-ident v1.0.27
+       Fresh find-msvc-tools v0.1.15
+       Fresh shlex v2.0.1
+       Fresh libc v0.2.191
+       Fresh cc v1.11.1
+       Fresh version_check v0.9.5
+       Fresh memchr v2.8.3
+       Fresh proc-macro2 v1.0.107
+       Fresh zerocopy v0.8.63
+       Fresh getrandom v0.2.17
+       Fresh aho-corasick v1.1.5
+warning: associated constant `BITS` is never used
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aho-corasick-1.1.5/src/packed/vector.rs:32:11
+   |
+28 | pub(crate) trait Vector:
+   |                  ------ associated constant in this trait
+...
+32 |     const BITS: usize;
+   |           ^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+    --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aho-corasick-1.1.5/src/automaton.rs:1117:13
+     |
+1117 |     fn next(&mut self) -> Option<std::io::Result<StreamChunk>> {
+     |             ^^^^^^^^^                            ----------- the same lifetime is hidden here
+     |             |
+     |             the lifetime is elided here
+     |
+     = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+     = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+     |
+1117 |     fn next(&mut self) -> Option<std::io::Result<StreamChunk<'_>>> {
+     |                                                             ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aho-corasick-1.1.5/src/util/alphabet.rs:85:28
+   |
+85 |     pub(crate) fn elements(&self, class: u8) -> ByteClassElements {
+   |                            ^^^^^                ----------------- the same lifetime is hidden here
+   |                            |
+   |                            the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+85 |     pub(crate) fn elements(&self, class: u8) -> ByteClassElements<'_> {
+   |                                                                  ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aho-corasick-1.1.5/src/util/alphabet.rs:93:23
+   |
+93 |     fn element_ranges(&self, class: u8) -> ByteClassElementRanges {
+   |                       ^^^^^                ---------------------- the same lifetime is hidden here
+   |                       |
+   |                       the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+93 |     fn element_ranges(&self, class: u8) -> ByteClassElementRanges<'_> {
+   |                                                                  ++++
+
+       Fresh regex-syntax v0.8.11
+warning: `aho-corasick` (lib) generated 4 warnings
+       Fresh quote v1.0.47
+       Fresh ppv-lite86 v0.2.21
+       Fresh rand_core v0.6.4
+       Fresh typenum v1.20.1
+       Fresh getrandom v0.3.4
+warning: generic-array@0.14.9: generic-array 0.14 is deprecated; please upgrade to generic-array 1.x
+       Fresh syn v2.0.119
+       Fresh syn v3.0.9
+       Fresh generic-array v0.14.9
+warning: unexpected `cfg` condition name: `relaxed_coherence`
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/generic-array-0.14.9/src/impls.rs:136:19
+    |
+136 |               #[cfg(relaxed_coherence)]
+    |                     ^^^^^^^^^^^^^^^^^
+...
+183 | / impl_from! {
+184 | |     1  => ::typenum::U1,
+185 | |     2  => ::typenum::U2,
+186 | |     3  => ::typenum::U3,
+...   |
+215 | |     32 => ::typenum::U32
+216 | | }
+    | |_- in this macro invocation
+    |
+    = help: expected names are: `docsrs`, `feature`, `ga_is_deprecated`, and `test` and 31 more
+    = help: consider using a Cargo feature instead
+    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+             [lints.rust]
+             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(relaxed_coherence)'] }
+    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(relaxed_coherence)");` to the top of the `build.rs`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+    = note: `#[warn(unexpected_cfgs)]` on by default
+    = note: this warning originates in the macro `impl_from` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: unexpected `cfg` condition name: `relaxed_coherence`
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/generic-array-0.14.9/src/impls.rs:158:23
+    |
+158 |               #[cfg(not(relaxed_coherence))]
+    |                         ^^^^^^^^^^^^^^^^^
+...
+183 | / impl_from! {
+184 | |     1  => ::typenum::U1,
+185 | |     2  => ::typenum::U2,
+186 | |     3  => ::typenum::U3,
+...   |
+215 | |     32 => ::typenum::U32
+216 | | }
+    | |_- in this macro invocation
+    |
+    = help: consider using a Cargo feature instead
+    = help: or consider adding in `Cargo.toml` the `check-cfg` lint config for the lint:
+             [lints.rust]
+             unexpected_cfgs = { level = "warn", check-cfg = ['cfg(relaxed_coherence)'] }
+    = help: or consider adding `println!("cargo::rustc-check-cfg=cfg(relaxed_coherence)");` to the top of the `build.rs`
+    = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+    = note: this warning originates in the macro `impl_from` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/generic-array-0.14.9/src/lib.rs:239:33
+    |
+239 |     pub unsafe fn iter_position(&mut self) -> (slice::IterMut<T>, &mut usize) {
+    |                                 ^^^^^^^^^      -----------------  ---------- the same lifetime is elided here
+    |                                 |              |
+    |                                 |              the same lifetime is hidden here
+    |                                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+239 |     pub unsafe fn iter_position(&mut self) -> (slice::IterMut<'_, T>, &mut usize) {
+    |                                                               +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/generic-array-0.14.9/src/lib.rs:294:33
+    |
+294 |     pub unsafe fn iter_position(&mut self) -> (slice::Iter<T>, &mut usize) {
+    |                                 ^^^^^^^^^      --------------  ---------- the same lifetime is elided here
+    |                                 |              |
+    |                                 |              the same lifetime is hidden here
+    |                                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+294 |     pub unsafe fn iter_position(&mut self) -> (slice::Iter<'_, T>, &mut usize) {
+    |                                                            +++
+
+       Fresh rand_chacha v0.3.1
+       Fresh regex-automata v0.4.18
+       Fresh log v0.4.35
+warning: `generic-array` (lib) generated 4 warnings
+       Fresh thiserror-impl v1.0.69
+       Fresh cipher v0.3.0
+warning: use of deprecated crate `generic_array`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/lib.rs:30:9
+   |
+30 | pub use generic_array::{self, typenum::consts};
+   |         ^^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated trait `generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/block.rs:14:40
+   |
+14 | use generic_array::{typenum::Unsigned, ArrayLength, GenericArray};
+   |                                        ^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/block.rs:14:53
+   |
+14 | use generic_array::{typenum::Unsigned, ArrayLength, GenericArray};
+   |                                                     ^^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/block.rs:17:30
+   |
+17 | pub type BlockCipherKey<B> = GenericArray<u8, <B as NewBlockCipher>::KeySize>;
+   |                              ^^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/block.rs:20:21
+   |
+20 | pub type Block<B> = GenericArray<u8, <B as BlockCipher>::BlockSize>;
+   |                     ^^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/block.rs:23:25
+   |
+23 | pub type ParBlocks<B> = GenericArray<Block<B>, <B as BlockCipher>::ParBlocks>;
+   |                         ^^^^^^^^^^^^
+
+warning: use of deprecated trait `generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/block.rs:28:19
+   |
+28 |     type KeySize: ArrayLength<u8>;
+   |                   ^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/block.rs:41:26
+   |
+41 |             Ok(Self::new(GenericArray::from_slice(key)))
+   |                          ^^^^^^^^^^^^
+
+warning: use of deprecated trait `generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/block.rs:49:21
+   |
+49 |     type BlockSize: ArrayLength<u8>;
+   |                     ^^^^^^^^^^^
+
+warning: use of deprecated trait `generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/block.rs:53:21
+   |
+53 |     type ParBlocks: ArrayLength<Block<Self>>;
+   |                     ^^^^^^^^^^^
+
+warning: use of deprecated trait `generic_array::ArrayLength`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:2:40
+  |
+2 | use generic_array::{typenum::Unsigned, ArrayLength, GenericArray};
+  |                                        ^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:2:53
+  |
+2 | use generic_array::{typenum::Unsigned, ArrayLength, GenericArray};
+  |                                                     ^^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:5:25
+  |
+5 | pub type CipherKey<C> = GenericArray<u8, <C as NewCipher>::KeySize>;
+  |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:8:21
+  |
+8 | pub type Nonce<C> = GenericArray<u8, <C as NewCipher>::NonceSize>;
+  |                     ^^^^^^^^^^^^
+
+warning: use of deprecated trait `generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:15:19
+   |
+15 |     type KeySize: ArrayLength<u8>;
+   |                   ^^^^^^^^^^^
+
+warning: use of deprecated trait `generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:18:21
+   |
+18 |     type NonceSize: ArrayLength<u8>;
+   |                     ^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:32:23
+   |
+32 |             let key = GenericArray::from_slice(key);
+   |                       ^^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:33:25
+   |
+33 |             let nonce = GenericArray::from_slice(nonce);
+   |                         ^^^^^^^^^^^^
+
+warning: use of deprecated trait `generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:44:21
+   |
+44 |     type NonceSize: ArrayLength<u8>;
+   |                     ^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:49:17
+   |
+49 |         nonce: &GenericArray<u8, Self::NonceSize>,
+   |                 ^^^^^^^^^^^^
+
+warning: use of deprecated struct `generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:75:33
+   |
+75 |                     let nonce = GenericArray::from_slice(nonce);
+   |                                 ^^^^^^^^^^^^
+
+warning: use of deprecated associated function `generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/block.rs:41:40
+   |
+41 |             Ok(Self::new(GenericArray::from_slice(key)))
+   |                                        ^^^^^^^^^^
+
+warning: use of deprecated associated function `generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:32:37
+   |
+32 |             let key = GenericArray::from_slice(key);
+   |                                     ^^^^^^^^^^
+
+warning: use of deprecated associated function `generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:33:39
+   |
+33 |             let nonce = GenericArray::from_slice(nonce);
+   |                                       ^^^^^^^^^^
+
+warning: use of deprecated associated function `generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/cipher-0.3.0/src/common.rs:75:47
+   |
+75 |                     let nonce = GenericArray::from_slice(nonce);
+   |                                               ^^^^^^^^^^
+
+       Fresh regex v1.13.1
+       Fresh rand v0.8.8
+       Fresh serde_derive v1.0.229
+       Fresh serde_core v1.0.229
+       Fresh rand_core v0.9.5
+warning: `cipher` (lib) generated 25 warnings
+       Fresh thiserror v1.0.69
+warning: unnecessary parentheses around match arm expression
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ring-0.16.20/build.rs:625:21
+    |
+625 |         "x86_64" => ("win64"),
+    |                     ^       ^
+    |
+    = note: `#[warn(unused_parens)]` on by default
+help: remove these parentheses
+    |
+625 -         "x86_64" => ("win64"),
+625 +         "x86_64" => "win64",
+    |
+
+warning: unnecessary parentheses around match arm expression
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ring-0.16.20/build.rs:626:18
+    |
+626 |         "x86" => ("win32"),
+    |                  ^       ^
+    |
+help: remove these parentheses
+    |
+626 -         "x86" => ("win32"),
+626 +         "x86" => "win32",
+    |
+
+       Fresh serde v1.0.229
+       Fresh rand_chacha v0.9.0
+       Fresh ctr v0.8.0
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors.rs:4:21
+  |
+4 |     generic_array::{ArrayLength, GenericArray},
+  |                     ^^^^^^^^^^^
+  |
+  = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors.rs:4:34
+  |
+4 |     generic_array::{ArrayLength, GenericArray},
+  |                                  ^^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors.rs:20:8
+   |
+20 |     B: ArrayLength<u8>,
+   |        ^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors.rs:28:54
+   |
+28 |     fn generate_block(&self, nonce: &Self::Nonce) -> GenericArray<u8, B>;
+   |                                                      ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors.rs:31:21
+   |
+31 |     fn load(block: &GenericArray<u8, B>) -> Self::Nonce;
+   |                     ^^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:5:5
+  |
+5 |     ArrayLength, GenericArray,
+  |     ^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:5:18
+  |
+5 |     ArrayLength, GenericArray,
+  |                  ^^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:21:8
+   |
+21 |     B: ArrayLength<u8> + PartialDiv<ChunkSize>,
+   |        ^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:22:16
+   |
+22 |     Chunks<B>: ArrayLength<u128>,
+   |                ^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:87:8
+   |
+87 |     B: ArrayLength<u8> + PartialDiv<ChunkSize>,
+   |        ^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:88:16
+   |
+88 |     Chunks<B>: ArrayLength<u128>,
+   |                ^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:24:18
+   |
+24 |     type Nonce = GenericArray<u128, Chunks<B>>;
+   |                  ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:28:54
+   |
+28 |     fn generate_block(&self, nonce: &Self::Nonce) -> GenericArray<u8, B> {
+   |                                                      ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:29:25
+   |
+29 |         let mut block = GenericArray::<u8, B>::default();
+   |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:42:21
+   |
+42 |     fn load(block: &GenericArray<u8, B>) -> Self::Nonce {
+   |                     ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:90:18
+   |
+90 |     type Nonce = GenericArray<u128, Chunks<B>>;
+   |                  ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:94:54
+   |
+94 |     fn generate_block(&self, nonce: &Self::Nonce) -> GenericArray<u8, B> {
+   |                                                      ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:95:25
+   |
+95 |         let mut block = GenericArray::<u8, B>::default();
+   |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr128.rs:108:21
+    |
+108 |     fn load(block: &GenericArray<u8, B>) -> Self::Nonce {
+    |                     ^^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:5:5
+  |
+5 |     ArrayLength, GenericArray,
+  |     ^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:5:18
+  |
+5 |     ArrayLength, GenericArray,
+  |                  ^^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:21:8
+   |
+21 |     B: ArrayLength<u8> + PartialDiv<ChunkSize>,
+   |        ^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:22:16
+   |
+22 |     Chunks<B>: ArrayLength<u32>,
+   |                ^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:87:8
+   |
+87 |     B: ArrayLength<u8> + PartialDiv<ChunkSize>,
+   |        ^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:88:16
+   |
+88 |     Chunks<B>: ArrayLength<u32>,
+   |                ^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:24:18
+   |
+24 |     type Nonce = GenericArray<u32, Chunks<B>>;
+   |                  ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:28:54
+   |
+28 |     fn generate_block(&self, nonce: &Self::Nonce) -> GenericArray<u8, B> {
+   |                                                      ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:29:25
+   |
+29 |         let mut block = GenericArray::<u8, B>::default();
+   |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:42:21
+   |
+42 |     fn load(block: &GenericArray<u8, B>) -> Self::Nonce {
+   |                     ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:90:18
+   |
+90 |     type Nonce = GenericArray<u32, Chunks<B>>;
+   |                  ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:94:54
+   |
+94 |     fn generate_block(&self, nonce: &Self::Nonce) -> GenericArray<u8, B> {
+   |                                                      ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:95:25
+   |
+95 |         let mut block = GenericArray::<u8, B>::default();
+   |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr32.rs:108:21
+    |
+108 |     fn load(block: &GenericArray<u8, B>) -> Self::Nonce {
+    |                     ^^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:5:5
+  |
+5 |     ArrayLength, GenericArray,
+  |     ^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:5:18
+  |
+5 |     ArrayLength, GenericArray,
+  |                  ^^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:21:8
+   |
+21 |     B: ArrayLength<u8> + PartialDiv<ChunkSize>,
+   |        ^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:22:16
+   |
+22 |     Chunks<B>: ArrayLength<u64>,
+   |                ^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:87:8
+   |
+87 |     B: ArrayLength<u8> + PartialDiv<ChunkSize>,
+   |        ^^^^^^^^^^^
+
+warning: use of deprecated trait `cipher::generic_array::ArrayLength`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:88:16
+   |
+88 |     Chunks<B>: ArrayLength<u64>,
+   |                ^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:24:18
+   |
+24 |     type Nonce = GenericArray<u64, Chunks<B>>;
+   |                  ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:28:54
+   |
+28 |     fn generate_block(&self, nonce: &Self::Nonce) -> GenericArray<u8, B> {
+   |                                                      ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:29:25
+   |
+29 |         let mut block = GenericArray::<u8, B>::default();
+   |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:42:21
+   |
+42 |     fn load(block: &GenericArray<u8, B>) -> Self::Nonce {
+   |                     ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:90:18
+   |
+90 |     type Nonce = GenericArray<u64, Chunks<B>>;
+   |                  ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:94:54
+   |
+94 |     fn generate_block(&self, nonce: &Self::Nonce) -> GenericArray<u8, B> {
+   |                                                      ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:95:25
+   |
+95 |         let mut block = GenericArray::<u8, B>::default();
+   |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ctr-0.8.0/src/flavors/ctr64.rs:108:21
+    |
+108 |     fn load(block: &GenericArray<u8, B>) -> Self::Nonce {
+    |                     ^^^^^^^^^^^^
+
+       Fresh atty v0.2.14
+       Fresh spin v0.5.2
+warning: use of deprecated function `core::sync::atomic::spin_loop_hint`: use hint::spin_loop instead
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/mutex.rs:1:48
+  |
+1 | use core::sync::atomic::{AtomicBool, Ordering, spin_loop_hint as cpu_relax};
+  |                                                ^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated function `core::sync::atomic::spin_loop_hint`: use hint::spin_loop instead
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/mutex.rs:136:17
+    |
+136 |                 cpu_relax();
+    |                 ^^^^^^^^^
+
+warning: use of deprecated function `core::sync::atomic::spin_loop_hint`: use hint::spin_loop instead
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:8:26
+  |
+8 | use core::sync::atomic::{spin_loop_hint as cpu_relax, AtomicUsize, Ordering};
+  |                          ^^^^^^^^^^^^^^
+
+warning: use of deprecated function `core::sync::atomic::spin_loop_hint`: use hint::spin_loop instead
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:170:25
+    |
+170 |                 None => cpu_relax(),
+    |                         ^^^^^^^^^
+
+warning: use of deprecated function `core::sync::atomic::spin_loop_hint`: use hint::spin_loop instead
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:284:25
+    |
+284 |                 None => cpu_relax(),
+    |                         ^^^^^^^^^
+
+warning: use of deprecated function `core::sync::atomic::spin_loop_hint`: use hint::spin_loop instead
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:320:25
+    |
+320 |                 None => cpu_relax(),
+    |                         ^^^^^^^^^
+
+warning: use of deprecated function `core::sync::atomic::spin_loop_hint`: use hint::spin_loop instead
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:404:13
+    |
+404 |             cpu_relax();
+    |             ^^^^^^^^^
+
+warning: use of deprecated function `core::sync::atomic::spin_loop_hint`: use hint::spin_loop instead
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/once.rs:2:49
+  |
+2 | use core::sync::atomic::{AtomicUsize, Ordering, spin_loop_hint as cpu_relax};
+  |                                                 ^^^^^^^^^^^^^^
+
+warning: use of deprecated function `core::sync::atomic::spin_loop_hint`: use hint::spin_loop instead
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/once.rs:125:21
+    |
+125 |                     cpu_relax();
+    |                     ^^^^^^^^^
+
+warning: use of deprecated function `core::sync::atomic::spin_loop_hint`: use hint::spin_loop instead
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/once.rs:149:31
+    |
+149 |                 RUNNING    => cpu_relax(), // We spin
+    |                               ^^^^^^^^^
+
+warning: use of deprecated method `core::sync::atomic::AtomicBool::compare_and_swap`: Use `compare_exchange` or `compare_exchange_weak` instead
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/mutex.rs:131:25
+    |
+131 |         while self.lock.compare_and_swap(false, true, Ordering::Acquire) != false
+    |                         ^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `core::sync::atomic::AtomicBool::compare_and_swap`: Use `compare_exchange` or `compare_exchange_weak` instead
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/mutex.rs:181:22
+    |
+181 |         if self.lock.compare_and_swap(false, true, Ordering::Acquire) == false
+    |                      ^^^^^^^^^^^^^^^^
+
+warning: use of deprecated method `core::sync::atomic::AtomicUsize::compare_and_swap`: Use `compare_exchange` or `compare_exchange_weak` instead
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/once.rs:104:33
+    |
+104 |             status = self.state.compare_and_swap(INCOMPLETE,
+    |                                 ^^^^^^^^^^^^^^^^
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/mutex.rs:156:17
+    |
+156 |     pub fn lock(&self) -> MutexGuard<T>
+    |                 ^^^^^     ------------- the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+    = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: use `'_` for type paths
+    |
+156 |     pub fn lock(&self) -> MutexGuard<'_, T>
+    |                                      +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/mutex.rs:179:21
+    |
+179 |     pub fn try_lock(&self) -> Option<MutexGuard<T>>
+    |                     ^^^^^            ------------- the same lifetime is hidden here
+    |                     |
+    |                     the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+179 |     pub fn try_lock(&self) -> Option<MutexGuard<'_, T>>
+    |                                                 +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:166:17
+    |
+166 |     pub fn read(&self) -> RwLockReadGuard<T> {
+    |                 ^^^^^     ------------------ the same lifetime is hidden here
+    |                 |
+    |                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+166 |     pub fn read(&self) -> RwLockReadGuard<'_, T> {
+    |                                           +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:198:21
+    |
+198 |     pub fn try_read(&self) -> Option<RwLockReadGuard<T>> {
+    |                     ^^^^^            ------------------ the same lifetime is hidden here
+    |                     |
+    |                     the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+198 |     pub fn try_read(&self) -> Option<RwLockReadGuard<'_, T>> {
+    |                                                      +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:240:27
+    |
+240 |     fn try_write_internal(&self, strong: bool) -> Option<RwLockWriteGuard<T>> {
+    |                           ^^^^^                          ------------------- the same lifetime is hidden here
+    |                           |
+    |                           the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+240 |     fn try_write_internal(&self, strong: bool) -> Option<RwLockWriteGuard<'_, T>> {
+    |                                                                           +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:280:18
+    |
+280 |     pub fn write(&self) -> RwLockWriteGuard<T> {
+    |                  ^^^^^     ------------------- the same lifetime is hidden here
+    |                  |
+    |                  the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+280 |     pub fn write(&self) -> RwLockWriteGuard<'_, T> {
+    |                                             +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:309:22
+    |
+309 |     pub fn try_write(&self) -> Option<RwLockWriteGuard<T>> {
+    |                      ^^^^^            ------------------- the same lifetime is hidden here
+    |                      |
+    |                      the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+309 |     pub fn try_write(&self) -> Option<RwLockWriteGuard<'_, T>> {
+    |                                                        +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:316:29
+    |
+316 |     pub fn upgradeable_read(&self) -> RwLockUpgradeableGuard<T> {
+    |                             ^^^^^     ------------------------- the same lifetime is hidden here
+    |                             |
+    |                             the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+316 |     pub fn upgradeable_read(&self) -> RwLockUpgradeableGuard<'_, T> {
+    |                                                              +++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/spin-0.5.2/src/rw_lock.rs:327:33
+    |
+327 |     pub fn try_upgradeable_read(&self) -> Option<RwLockUpgradeableGuard<T>> {
+    |                                 ^^^^^            ------------------------- the same lifetime is hidden here
+    |                                 |
+    |                                 the lifetime is elided here
+    |
+    = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+    |
+327 |     pub fn try_upgradeable_read(&self) -> Option<RwLockUpgradeableGuard<'_, T>> {
+    |                                                                         +++
+
+warning: `ring` (build script) generated 2 warnings
+warning: `ctr` (lib) generated 47 warnings
+warning: `spin` (lib) generated 22 warnings
+       Fresh simflash v0.1.0 (/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim/simflash)
+       Fresh base64 v0.13.1
+warning: unexpected `cfg` condition value: `cargo-clippy`
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/base64-0.13.1/src/lib.rs:60:13
+   |
+60 | #![cfg_attr(feature = "cargo-clippy", allow(clippy::cast_lossless))]
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: expected values for `feature` are: `alloc`, `default`, and `std`
+   = help: consider adding `cargo-clippy` as a feature in `Cargo.toml`
+   = note: see <https://doc.rust-lang.org/nightly/rustc/check-cfg/cargo-specifics.html> for more information about checking conditional configuration
+note: the lint level is defined here
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/base64-0.13.1/src/lib.rs:69:5
+   |
+69 |     warnings
+   |     ^^^^^^^^
+   = note: `#[warn(unexpected_cfgs)]` implied by `#[warn(warnings)]`
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/base64-0.13.1/src/chunked_encoder.rs:94:26
+   |
+94 |     pub(crate) fn new(s: &mut String) -> StringSink {
+   |                          ^^^^^^^^^^^     ---------- the same lifetime is hidden here
+   |                          |
+   |                          the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+   = note: `#[warn(mismatched_lifetime_syntaxes)]` implied by `#[warn(warnings)]`
+help: use `'_` for type paths
+   |
+94 |     pub(crate) fn new(s: &mut String) -> StringSink<'_> {
+   |                                                    ++++
+
+warning: hiding a lifetime that's elided elsewhere is confusing
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/base64-0.13.1/src/display.rs:25:31
+   |
+25 |     pub fn with_config(bytes: &[u8], config: Config) -> Base64Display {
+   |                               ^^^^^                     ------------- the same lifetime is hidden here
+   |                               |
+   |                               the lifetime is elided here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+help: use `'_` for type paths
+   |
+25 |     pub fn with_config(bytes: &[u8], config: Config) -> Base64Display<'_> {
+   |                                                                      ++++
+
+       Fresh humantime v2.4.0
+       Fresh untrusted v0.7.1
+warning: lint `box_pointers` has been removed: it does not detect other kinds of allocations, and existed only for historical reasons
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/untrusted-0.7.1/src/untrusted.rs:91:5
+   |
+91 |     box_pointers,
+   |     ^^^^^^^^^^^^
+   |
+   = note: `#[warn(renamed_and_removed_lints)]` on by default
+
+       Fresh lazy_static v1.5.1
+warning: eliding a lifetime that's named elsewhere is confusing
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/lazy_static-1.5.1/src/inline_lazy.rs:26:20
+   |
+26 |     pub fn get<F>(&'static self, f: F) -> &T
+   |                    ^^^^^^^                -- the same lifetime is elided here
+   |                    |
+   |                    the lifetime is named here
+   |
+   = help: the same lifetime is referred to in inconsistent ways, making the signature confusing
+   = note: `#[warn(mismatched_lifetime_syntaxes)]` on by default
+help: consistently use `'static`
+   |
+26 |     pub fn get<F>(&'static self, f: F) -> &'static T
+   |                                            +++++++
+
+       Fresh termcolor v1.4.1
+warning: `base64` (lib) generated 3 warnings
+warning: `untrusted` (lib) generated 1 warning
+warning: `lazy_static` (lib) generated 1 warning
+       Fresh once_cell v1.21.4
+       Fresh cpufeatures v0.2.17
+       Fresh opaque-debug v0.3.1
+       Fresh strsim v0.10.0
+       Fresh env_logger v0.9.3
+       Fresh mcuboot-sys v0.1.0 (/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim/mcuboot-sys)
+       Fresh pem v1.1.1
+       Fresh rand v0.9.5
+       Fresh aes v0.7.5
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/lib.rs:132:41
+    |
+132 | pub type Block = cipher::generic_array::GenericArray<u8, cipher::consts::U16>;
+    |                                         ^^^^^^^^^^^^
+    |
+    = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/lib.rs:135:45
+    |
+135 | pub type ParBlocks = cipher::generic_array::GenericArray<Block, cipher::consts::U8>;
+    |                                             ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/soft.rs:24:20
+   |
+24 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/soft.rs:49:26
+    |
+ 49 |               fn new(key: &GenericArray<u8, $key_size>) -> Self {
+    |                            ^^^^^^^^^^^^
+...
+ 99 | / define_aes_impl!(
+100 | |     Aes128,
+101 | |     U16,
+102 | |     FixsliceKeys128,
+...   |
+106 | |     "AES-128 block cipher instance"
+107 | | );
+    | |_- in this macro invocation
+    |
+    = note: this warning originates in the macro `define_aes_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/soft.rs:49:26
+    |
+ 49 |               fn new(key: &GenericArray<u8, $key_size>) -> Self {
+    |                            ^^^^^^^^^^^^
+...
+109 | / define_aes_impl!(
+110 | |     Aes192,
+111 | |     U24,
+112 | |     FixsliceKeys192,
+...   |
+116 | |     "AES-192 block cipher instance"
+117 | | );
+    | |_- in this macro invocation
+    |
+    = note: this warning originates in the macro `define_aes_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/soft.rs:49:26
+    |
+ 49 |               fn new(key: &GenericArray<u8, $key_size>) -> Self {
+    |                            ^^^^^^^^^^^^
+...
+119 | / define_aes_impl!(
+120 | |     Aes256,
+121 | |     U32,
+122 | |     FixsliceKeys256,
+...   |
+126 | |     "AES-256 block cipher instance"
+127 | | );
+    | |_- in this macro invocation
+    |
+    = note: this warning originates in the macro `define_aes_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/soft/fixslice64.rs:21:20
+   |
+21 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/soft/fixslice64.rs:40:41
+   |
+40 | pub(crate) fn aes128_key_schedule(key: &GenericArray<u8, U16>) -> FixsliceKeys128 {
+   |                                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/soft/fixslice64.rs:91:41
+   |
+91 | pub(crate) fn aes192_key_schedule(key: &GenericArray<u8, U24>) -> FixsliceKeys192 {
+   |                                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/soft/fixslice64.rs:196:41
+    |
+196 | pub(crate) fn aes256_key_schedule(key: &GenericArray<u8, U32>) -> FixsliceKeys256 {
+    |                                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/autodetect.rs:7:20
+  |
+7 |     generic_array::GenericArray,
+  |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/autodetect.rs:47:26
+    |
+ 47 |             fn new(key: &GenericArray<u8, $key_size>) -> Self {
+    |                          ^^^^^^^^^^^^
+...
+132 | define_aes_impl!(Aes128, aes128, U16, "AES-128 block cipher instance");
+    | ---------------------------------------------------------------------- in this macro invocation
+    |
+    = note: this warning originates in the macro `define_aes_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/autodetect.rs:47:26
+    |
+ 47 |             fn new(key: &GenericArray<u8, $key_size>) -> Self {
+    |                          ^^^^^^^^^^^^
+...
+133 | define_aes_impl!(Aes192, aes192, U24, "AES-192 block cipher instance");
+    | ---------------------------------------------------------------------- in this macro invocation
+    |
+    = note: this warning originates in the macro `define_aes_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/autodetect.rs:47:26
+    |
+ 47 |             fn new(key: &GenericArray<u8, $key_size>) -> Self {
+    |                          ^^^^^^^^^^^^
+...
+134 | define_aes_impl!(Aes256, aes256, U32, "AES-256 block cipher instance");
+    | ---------------------------------------------------------------------- in this macro invocation
+    |
+    = note: this warning originates in the macro `define_aes_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/autodetect.rs:156:24
+    |
+156 |         generic_array::GenericArray,
+    |                        ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/autodetect.rs:193:29
+    |
+193 |                     nonce: &GenericArray<u8, Self::NonceSize>,
+    |                             ^^^^^^^^^^^^
+...
+256 |     define_aes_ctr_impl!(Aes128Ctr, Aes128, aes128ctr, "AES-128 in CTR mode");
+    |     ------------------------------------------------------------------------- in this macro invocation
+    |
+    = note: this warning originates in the macro `define_aes_ctr_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/autodetect.rs:193:29
+    |
+193 |                     nonce: &GenericArray<u8, Self::NonceSize>,
+    |                             ^^^^^^^^^^^^
+...
+257 |     define_aes_ctr_impl!(Aes192Ctr, Aes192, aes192ctr, "AES-192 in CTR mode");
+    |     ------------------------------------------------------------------------- in this macro invocation
+    |
+    = note: this warning originates in the macro `define_aes_ctr_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/autodetect.rs:193:29
+    |
+193 |                     nonce: &GenericArray<u8, Self::NonceSize>,
+    |                             ^^^^^^^^^^^^
+...
+258 |     define_aes_ctr_impl!(Aes256Ctr, Aes256, aes256ctr, "AES-256 in CTR mode");
+    |     ------------------------------------------------------------------------- in this macro invocation
+    |
+    = note: this warning originates in the macro `define_aes_ctr_impl` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/aes128.rs:8:20
+  |
+8 |     generic_array::GenericArray,
+  |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/aes128.rs:73:18
+   |
+73 |     fn new(key: &GenericArray<u8, U16>) -> Self {
+   |                  ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/aes192.rs:8:20
+  |
+8 |     generic_array::GenericArray,
+  |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/aes192.rs:77:18
+   |
+77 |     fn new(key: &GenericArray<u8, U24>) -> Self {
+   |                  ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+ --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/aes256.rs:8:20
+  |
+8 |     generic_array::GenericArray,
+  |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/aes256.rs:81:18
+   |
+81 |     fn new(key: &GenericArray<u8, U32>) -> Self {
+   |                  ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/ctr.rs:15:20
+   |
+15 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/ctr.rs:61:15
+   |
+61 | fn load(val: &GenericArray<u8, U16>) -> __m128i {
+   |               ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/ctr.rs:142:25
+    |
+142 |                 nonce: &GenericArray<u8, Self::NonceSize>,
+    |                         ^^^^^^^^^^^^
+...
+227 | impl_ctr!(Aes128Ctr, Aes128, "AES-128 in CTR mode");
+    | --------------------------------------------------- in this macro invocation
+    |
+    = note: this warning originates in the macro `impl_ctr` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/ctr.rs:142:25
+    |
+142 |                 nonce: &GenericArray<u8, Self::NonceSize>,
+    |                         ^^^^^^^^^^^^
+...
+228 | impl_ctr!(Aes192Ctr, Aes192, "AES-192 in CTR mode");
+    | --------------------------------------------------- in this macro invocation
+    |
+    = note: this warning originates in the macro `impl_ctr` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> /home/kiit/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/aes-0.7.5/src/ni/ctr.rs:142:25
+    |
+142 |                 nonce: &GenericArray<u8, Self::NonceSize>,
+    |                         ^^^^^^^^^^^^
+...
+229 | impl_ctr!(Aes256Ctr, Aes256, "AES-256 in CTR mode");
+    | --------------------------------------------------- in this macro invocation
+    |
+    = note: this warning originates in the macro `impl_ctr` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+       Fresh ring v0.16.20
+       Fresh docopt v1.1.1
+       Fresh untrusted v0.9.0
+       Fresh byteorder v1.5.0
+warning: `aes` (lib) generated 29 warnings
+       Dirty bootsim v0.1.0 (/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim): the file `sim/src/image.rs` has changed (1793961910.078415600s, 14m 59s after last build at 1793961011.000000000s)
+   Compiling bootsim v0.1.0 (/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim)
+     Running `CARGO=/home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/bin/cargo CARGO_CRATE_NAME=bootsim CARGO_MANIFEST_DIR=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim CARGO_MANIFEST_PATH=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim/Cargo.toml CARGO_PKG_AUTHORS='David Brown <davidb@davidb.org>' CARGO_PKG_DESCRIPTION='' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='' CARGO_PKG_LICENSE_FILE='' CARGO_PKG_NAME=bootsim CARGO_PKG_README='' CARGO_PKG_REPOSITORY='' CARGO_PKG_RUST_VERSION='' CARGO_PKG_VERSION=0.1.0 CARGO_PKG_VERSION_MAJOR=0 CARGO_PKG_VERSION_MINOR=1 CARGO_PKG_VERSION_PATCH=0 CARGO_PKG_VERSION_PRE='' CARGO_PRIMARY_PACKAGE=1 CARGO_SBOM_PATH='' LD_LIBRARY_PATH='/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps:/home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/lib' /home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name bootsim --edition=2021 sim/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C opt-level=2 -C embed-bitcode=no -C debuginfo=2 -C debug-assertions=on --test --cfg 'feature="sig-rsa"' --cfg 'feature="validate-primary-slot"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bootstrap", "check-load-addr", "default", "direct-xip", "downgrade-prevention", "enc-aes256-ec256", "enc-aes256-kw", "enc-aes256-rsa", "enc-aes256-x25519", "enc-ec256", "enc-ec256-mbedtls", "enc-kw", "enc-rsa", "enc-x25519", "hw-rollback-protection", "max-align-16", "max-align-32", "multiimage", "overwrite-only", "ram-load", "sig-ecdsa", "sig-ecdsa-mbedtls", "sig-ecdsa-psa", "sig-ed25519", "sig-p384", "sig-rsa", "sig-rsa3072", "swap-move", "swap-offset", "validate-primary-slot"))' -C metadata=602ec62e3980bf0e -C extra-filename=-7a5df14708ae2565 --out-dir /mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps -C incremental=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/incremental -L dependency=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps --extern aes=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libaes-4af1c484c294c11b.rlib --extern base64=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbase64-f6838f00be6f063e.rlib --extern byteorder=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbyteorder-28254e0ffef419bf.rlib --extern cipher=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libcipher-383f39a2d0ed78bf.rlib --extern docopt=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libdocopt-0334ee49f5887b93.rlib --extern env_logger=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libenv_logger-8413bf1ba32d64fc.rlib --extern libc=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/liblibc-551f8b6f80cc3190.rlib --extern log=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/liblog-dd0f41089c720822.rlib --extern mcuboot_sys=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libmcuboot_sys-07d151c148b9c81f.rlib --extern pem=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libpem-559b0841e39770a8.rlib --extern rand=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/librand-fcb38b3763c7ddb5.rlib --extern ring=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libring-f477f3e8fb539cf0.rlib --extern serde=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libserde-83227b322868a3c1.rlib --extern serde_derive=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libserde_derive-d8f397db5e264c40.so --extern simflash=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libsimflash-d75a18552ac5a1ab.rlib --extern typenum=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libtypenum-bf31e3a37bb6a65c.rlib --extern untrusted=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libuntrusted-32a0953ce370aa84.rlib -L native=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/build/mcuboot-sys-a94d24cd1d486a28/out -L native=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/build/ring-798bba97917080c0/out`
+     Running `CARGO=/home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/bin/cargo CARGO_CRATE_NAME=bootsim CARGO_MANIFEST_DIR=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim CARGO_MANIFEST_PATH=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim/Cargo.toml CARGO_PKG_AUTHORS='David Brown <davidb@davidb.org>' CARGO_PKG_DESCRIPTION='' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='' CARGO_PKG_LICENSE_FILE='' CARGO_PKG_NAME=bootsim CARGO_PKG_README='' CARGO_PKG_REPOSITORY='' CARGO_PKG_RUST_VERSION='' CARGO_PKG_VERSION=0.1.0 CARGO_PKG_VERSION_MAJOR=0 CARGO_PKG_VERSION_MINOR=1 CARGO_PKG_VERSION_PATCH=0 CARGO_PKG_VERSION_PRE='' CARGO_PRIMARY_PACKAGE=1 CARGO_SBOM_PATH='' LD_LIBRARY_PATH='/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps:/home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/lib' /home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name bootsim --edition=2021 sim/src/lib.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type lib --emit=dep-info,metadata,link -C opt-level=2 -C embed-bitcode=no -C debuginfo=2 -C debug-assertions=on --cfg 'feature="sig-rsa"' --cfg 'feature="validate-primary-slot"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bootstrap", "check-load-addr", "default", "direct-xip", "downgrade-prevention", "enc-aes256-ec256", "enc-aes256-kw", "enc-aes256-rsa", "enc-aes256-x25519", "enc-ec256", "enc-ec256-mbedtls", "enc-kw", "enc-rsa", "enc-x25519", "hw-rollback-protection", "max-align-16", "max-align-32", "multiimage", "overwrite-only", "ram-load", "sig-ecdsa", "sig-ecdsa-mbedtls", "sig-ecdsa-psa", "sig-ed25519", "sig-p384", "sig-rsa", "sig-rsa3072", "swap-move", "swap-offset", "validate-primary-slot"))' -C metadata=b1488f16df22d5a0 -C extra-filename=-9a51906c10a2b678 --out-dir /mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps -C incremental=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/incremental -L dependency=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps --extern aes=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libaes-4af1c484c294c11b.rmeta --extern base64=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbase64-f6838f00be6f063e.rmeta --extern byteorder=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbyteorder-28254e0ffef419bf.rmeta --extern cipher=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libcipher-383f39a2d0ed78bf.rmeta --extern docopt=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libdocopt-0334ee49f5887b93.rmeta --extern env_logger=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libenv_logger-8413bf1ba32d64fc.rmeta --extern libc=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/liblibc-551f8b6f80cc3190.rmeta --extern log=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/liblog-dd0f41089c720822.rmeta --extern mcuboot_sys=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libmcuboot_sys-07d151c148b9c81f.rmeta --extern pem=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libpem-559b0841e39770a8.rmeta --extern rand=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/librand-fcb38b3763c7ddb5.rmeta --extern ring=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libring-f477f3e8fb539cf0.rmeta --extern serde=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libserde-83227b322868a3c1.rmeta --extern serde_derive=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libserde_derive-d8f397db5e264c40.so --extern simflash=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libsimflash-d75a18552ac5a1ab.rmeta --extern typenum=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libtypenum-bf31e3a37bb6a65c.rmeta --extern untrusted=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libuntrusted-32a0953ce370aa84.rmeta -L native=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/build/mcuboot-sys-a94d24cd1d486a28/out -L native=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/build/ring-798bba97917080c0/out`
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> sim/src/image.rs:33:20
+   |
+33 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2018:21
+     |
+2018 |         let nonce = GenericArray::from_slice(&[0; 16]);
+     |                     ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:47
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                                               ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:23
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                       ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:47
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                                               ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:23
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                       ^^^^^^^^^^^^
+
+warning: use of deprecated function `rand::thread_rng`: Renamed to `rng`
+    --> sim/src/image.rs:1649:29
+     |
+1649 |         let mut rng = rand::thread_rng();
+     |                             ^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> sim/src/tlv.rs:42:20
+   |
+42 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:779:25
+    |
+779 |             let nonce = GenericArray::from_slice(&[0; 16]);
+    |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:51
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                                                   ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:27
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                           ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:51
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                                                   ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:27
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                           ^^^^^^^^^^^^
+
+warning: use of deprecated method `rand::Rng::gen_range`: Renamed to `random_range`
+    --> sim/src/image.rs:1653:37
+     |
+1653 |             let reset_counter = rng.gen_range(1 ..= remaining_ops / 2);
+     |                                     ^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2018:35
+     |
+2018 |         let nonce = GenericArray::from_slice(&[0; 16]);
+     |                                   ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:61
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                                                             ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:61
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                                                             ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:779:39
+    |
+779 |             let nonce = GenericArray::from_slice(&[0; 16]);
+    |                                       ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:65
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                                                                 ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:65
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                                                                 ^^^^^^^^^^
+
+warning: `bootsim` (lib) generated 20 warnings
+     Running `CARGO=/home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/bin/cargo CARGO_BIN_EXE_bootsim=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/bootsim CARGO_CRATE_NAME=core CARGO_MANIFEST_DIR=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim CARGO_MANIFEST_PATH=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim/Cargo.toml CARGO_PKG_AUTHORS='David Brown <davidb@davidb.org>' CARGO_PKG_DESCRIPTION='' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='' CARGO_PKG_LICENSE_FILE='' CARGO_PKG_NAME=bootsim CARGO_PKG_README='' CARGO_PKG_REPOSITORY='' CARGO_PKG_RUST_VERSION='' CARGO_PKG_VERSION=0.1.0 CARGO_PKG_VERSION_MAJOR=0 CARGO_PKG_VERSION_MINOR=1 CARGO_PKG_VERSION_PATCH=0 CARGO_PKG_VERSION_PRE='' CARGO_PRIMARY_PACKAGE=1 CARGO_SBOM_PATH='' CARGO_TARGET_TMPDIR=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/tmp LD_LIBRARY_PATH='/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps:/home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/lib' /home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name core --edition=2021 sim/tests/core.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C opt-level=2 -C embed-bitcode=no -C debuginfo=2 -C debug-assertions=on --test --cfg 'feature="sig-rsa"' --cfg 'feature="validate-primary-slot"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bootstrap", "check-load-addr", "default", "direct-xip", "downgrade-prevention", "enc-aes256-ec256", "enc-aes256-kw", "enc-aes256-rsa", "enc-aes256-x25519", "enc-ec256", "enc-ec256-mbedtls", "enc-kw", "enc-rsa", "enc-x25519", "hw-rollback-protection", "max-align-16", "max-align-32", "multiimage", "overwrite-only", "ram-load", "sig-ecdsa", "sig-ecdsa-mbedtls", "sig-ecdsa-psa", "sig-ed25519", "sig-p384", "sig-rsa", "sig-rsa3072", "swap-move", "swap-offset", "validate-primary-slot"))' -C metadata=1c76b97368d5098e -C extra-filename=-a09ff3138511dd3f --out-dir /mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps -C incremental=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/incremental -L dependency=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps --extern aes=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libaes-4af1c484c294c11b.rlib --extern base64=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbase64-f6838f00be6f063e.rlib --extern bootsim=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbootsim-9a51906c10a2b678.rlib --extern byteorder=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbyteorder-28254e0ffef419bf.rlib --extern cipher=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libcipher-383f39a2d0ed78bf.rlib --extern docopt=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libdocopt-0334ee49f5887b93.rlib --extern env_logger=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libenv_logger-8413bf1ba32d64fc.rlib --extern libc=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/liblibc-551f8b6f80cc3190.rlib --extern log=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/liblog-dd0f41089c720822.rlib --extern mcuboot_sys=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libmcuboot_sys-07d151c148b9c81f.rlib --extern pem=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libpem-559b0841e39770a8.rlib --extern rand=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/librand-fcb38b3763c7ddb5.rlib --extern ring=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libring-f477f3e8fb539cf0.rlib --extern serde=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libserde-83227b322868a3c1.rlib --extern serde_derive=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libserde_derive-d8f397db5e264c40.so --extern simflash=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libsimflash-d75a18552ac5a1ab.rlib --extern typenum=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libtypenum-bf31e3a37bb6a65c.rlib --extern untrusted=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libuntrusted-32a0953ce370aa84.rlib -L native=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/build/mcuboot-sys-a94d24cd1d486a28/out -L native=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/build/ring-798bba97917080c0/out`
+     Running `CARGO=/home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/bin/cargo CARGO_BIN_NAME=bootsim CARGO_CRATE_NAME=bootsim CARGO_MANIFEST_DIR=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim CARGO_MANIFEST_PATH=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim/Cargo.toml CARGO_PKG_AUTHORS='David Brown <davidb@davidb.org>' CARGO_PKG_DESCRIPTION='' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='' CARGO_PKG_LICENSE_FILE='' CARGO_PKG_NAME=bootsim CARGO_PKG_README='' CARGO_PKG_REPOSITORY='' CARGO_PKG_RUST_VERSION='' CARGO_PKG_VERSION=0.1.0 CARGO_PKG_VERSION_MAJOR=0 CARGO_PKG_VERSION_MINOR=1 CARGO_PKG_VERSION_PATCH=0 CARGO_PKG_VERSION_PRE='' CARGO_PRIMARY_PACKAGE=1 CARGO_SBOM_PATH='' LD_LIBRARY_PATH='/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps:/home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/lib' /home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name bootsim --edition=2021 sim/src/main.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --emit=dep-info,link -C opt-level=2 -C embed-bitcode=no -C debuginfo=2 -C debug-assertions=on --test --cfg 'feature="sig-rsa"' --cfg 'feature="validate-primary-slot"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bootstrap", "check-load-addr", "default", "direct-xip", "downgrade-prevention", "enc-aes256-ec256", "enc-aes256-kw", "enc-aes256-rsa", "enc-aes256-x25519", "enc-ec256", "enc-ec256-mbedtls", "enc-kw", "enc-rsa", "enc-x25519", "hw-rollback-protection", "max-align-16", "max-align-32", "multiimage", "overwrite-only", "ram-load", "sig-ecdsa", "sig-ecdsa-mbedtls", "sig-ecdsa-psa", "sig-ed25519", "sig-p384", "sig-rsa", "sig-rsa3072", "swap-move", "swap-offset", "validate-primary-slot"))' -C metadata=e9b8a89d3ac379b4 -C extra-filename=-817798e03add7535 --out-dir /mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps -C incremental=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/incremental -L dependency=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps --extern aes=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libaes-4af1c484c294c11b.rlib --extern base64=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbase64-f6838f00be6f063e.rlib --extern bootsim=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbootsim-9a51906c10a2b678.rlib --extern byteorder=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbyteorder-28254e0ffef419bf.rlib --extern cipher=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libcipher-383f39a2d0ed78bf.rlib --extern docopt=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libdocopt-0334ee49f5887b93.rlib --extern env_logger=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libenv_logger-8413bf1ba32d64fc.rlib --extern libc=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/liblibc-551f8b6f80cc3190.rlib --extern log=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/liblog-dd0f41089c720822.rlib --extern mcuboot_sys=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libmcuboot_sys-07d151c148b9c81f.rlib --extern pem=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libpem-559b0841e39770a8.rlib --extern rand=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/librand-fcb38b3763c7ddb5.rlib --extern ring=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libring-f477f3e8fb539cf0.rlib --extern serde=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libserde-83227b322868a3c1.rlib --extern serde_derive=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libserde_derive-d8f397db5e264c40.so --extern simflash=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libsimflash-d75a18552ac5a1ab.rlib --extern typenum=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libtypenum-bf31e3a37bb6a65c.rlib --extern untrusted=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libuntrusted-32a0953ce370aa84.rlib -L native=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/build/mcuboot-sys-a94d24cd1d486a28/out -L native=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/build/ring-798bba97917080c0/out`
+     Running `CARGO=/home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/bin/cargo CARGO_BIN_NAME=bootsim CARGO_CRATE_NAME=bootsim CARGO_MANIFEST_DIR=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim CARGO_MANIFEST_PATH=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim/Cargo.toml CARGO_PKG_AUTHORS='David Brown <davidb@davidb.org>' CARGO_PKG_DESCRIPTION='' CARGO_PKG_HOMEPAGE='' CARGO_PKG_LICENSE='' CARGO_PKG_LICENSE_FILE='' CARGO_PKG_NAME=bootsim CARGO_PKG_README='' CARGO_PKG_REPOSITORY='' CARGO_PKG_RUST_VERSION='' CARGO_PKG_VERSION=0.1.0 CARGO_PKG_VERSION_MAJOR=0 CARGO_PKG_VERSION_MINOR=1 CARGO_PKG_VERSION_PATCH=0 CARGO_PKG_VERSION_PRE='' CARGO_PRIMARY_PACKAGE=1 CARGO_SBOM_PATH='' LD_LIBRARY_PATH='/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps:/home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/lib' /home/kiit/.rustup/toolchains/1.90.0-x86_64-unknown-linux-gnu/bin/rustc --crate-name bootsim --edition=2021 sim/src/main.rs --error-format=json --json=diagnostic-rendered-ansi,artifacts,future-incompat --crate-type bin --emit=dep-info,link -C opt-level=2 -C embed-bitcode=no -C debuginfo=2 -C debug-assertions=on --cfg 'feature="sig-rsa"' --cfg 'feature="validate-primary-slot"' --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values("bootstrap", "check-load-addr", "default", "direct-xip", "downgrade-prevention", "enc-aes256-ec256", "enc-aes256-kw", "enc-aes256-rsa", "enc-aes256-x25519", "enc-ec256", "enc-ec256-mbedtls", "enc-kw", "enc-rsa", "enc-x25519", "hw-rollback-protection", "max-align-16", "max-align-32", "multiimage", "overwrite-only", "ram-load", "sig-ecdsa", "sig-ecdsa-mbedtls", "sig-ecdsa-psa", "sig-ed25519", "sig-p384", "sig-rsa", "sig-rsa3072", "swap-move", "swap-offset", "validate-primary-slot"))' -C metadata=81d5f2115e5cfecc -C extra-filename=-b83e3bb7c7f8cffa --out-dir /mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps -C incremental=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/incremental -L dependency=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps --extern aes=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libaes-4af1c484c294c11b.rlib --extern base64=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbase64-f6838f00be6f063e.rlib --extern bootsim=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbootsim-9a51906c10a2b678.rlib --extern byteorder=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libbyteorder-28254e0ffef419bf.rlib --extern cipher=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libcipher-383f39a2d0ed78bf.rlib --extern docopt=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libdocopt-0334ee49f5887b93.rlib --extern env_logger=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libenv_logger-8413bf1ba32d64fc.rlib --extern libc=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/liblibc-551f8b6f80cc3190.rlib --extern log=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/liblog-dd0f41089c720822.rlib --extern mcuboot_sys=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libmcuboot_sys-07d151c148b9c81f.rlib --extern pem=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libpem-559b0841e39770a8.rlib --extern rand=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/librand-fcb38b3763c7ddb5.rlib --extern ring=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libring-f477f3e8fb539cf0.rlib --extern serde=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libserde-83227b322868a3c1.rlib --extern serde_derive=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libserde_derive-d8f397db5e264c40.so --extern simflash=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libsimflash-d75a18552ac5a1ab.rlib --extern typenum=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libtypenum-bf31e3a37bb6a65c.rlib --extern untrusted=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/libuntrusted-32a0953ce370aa84.rlib -L native=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/build/mcuboot-sys-a94d24cd1d486a28/out -L native=/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/build/ring-798bba97917080c0/out`
+warning: `bootsim` (lib test) generated 20 warnings (20 duplicates)
+    Finished `test` profile [optimized + debuginfo] target(s) in 19.62s
+  Executable `/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/bootsim-7a5df14708ae2565`
+  Executable `/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/bootsim-817798e03add7535`
+  Executable `/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/target/debug/deps/core-a09ff3138511dd3f`
+BUILD_COMPLETE

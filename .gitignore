@@ -8,6 +8,7 @@ dist/
 test_temp/
 runs/
 .ota_state/
+.mcuboot-reference/
 # Local secrets
 .env.*
 !.env.example

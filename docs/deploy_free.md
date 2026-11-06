@@ -1,8 +1,16 @@
-﻿# Free deployment: Streamlit Community Cloud
+# Free deployment: Streamlit Community Cloud
 
-Status: prepared and locally tested; no hosted URL has been created or verified.
-The user selected guided Community Cloud deployment. Signing in and publishing
-source through the user's Git workflow remain required before hosting can start.
+## Hosted demo
+
+[Open OTA Campaign Verifier](https://ota-campaign-verifier.streamlit.app/)
+
+This is the deployment URL supplied by the project owner. The README now links
+to this app. The instructions below remain available for future redeployment.
+The public fixture demo does not complete the separate live OIDC or CI gates.
+
+Availability check on 2026-11-05: the URL returned HTTP 200, but the app
+interface did not render within the automated browser check. Interactive
+workflow verification remains pending; HTTP success alone is not an app test.
 
 Streamlit describes Community Cloud as free hosting for Streamlit apps:
 [official overview](https://docs.streamlit.io/deploy/streamlit-community-cloud).
@@ -63,9 +71,8 @@ Streamlit secrets, `.venv`, `.ota_state`, or generated runtime databases.
    **Analyze revision**, the intermediate-version conflict, and guarded trial
    boot on **Authorized rollback comparison**. In the guarded example, baseline
    violations must remain visible and no decision should be recorded automatically.
-7. Share the actual deployed URL here. The assistant can verify the live page and
-   replace the README's pending-deployment notice with that exact URL. No guessed
-   or localhost URL is presented as a deployed application.
+7. For future redeployments, keep the README linked to the actual URL assigned
+   by the platform. The current deployment URL is recorded at the top of this guide.
 
 ## What the public demo exposes
 
@@ -96,6 +103,6 @@ shared-mode OIDC deployment gate.
 
 The public-entry tests prohibit provider configuration/model calls and persistent
 workspace construction. They check policy-specific outcomes, stale-draft review
-blocking, per-session isolation, and bounded analysis controls. Actual Linux
-cloud startup and the assigned URL remain unverified until the account deployment
-is completed.
+blocking, per-session isolation, and bounded analysis controls. The hosted URL
+is recorded above. Local tests and the public fixture page do not establish
+remote CI matrix success or a verified shared-mode OIDC login.

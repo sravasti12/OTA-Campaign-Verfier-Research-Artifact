@@ -1,0 +1,15 @@
+{
+  "name": "pytest",
+  "execution_kind": "FRESH_PYTHON_TESTS",
+  "command": [
+    "C:\\Users\\KIIT\\Desktop\\OTACampaignVerifier\\ota_verifier\\.venv\\Scripts\\python.exe",
+    "-m",
+    "pytest",
+    "-q",
+    "tests",
+    "validation/mcuboot/test_differential.py",
+    "validation/mcuboot/test_refinement.py",
+    "validation/mcuboot/test_validate.py",
+    "--junitxml=C:\\Users\\KIIT\\Desktop\\OTACampaignVerifier\\ota_verifier\\validation\\mcuboot\\final_evidence\\phase1e-replay\\pytest.xml"
+  ]
+}

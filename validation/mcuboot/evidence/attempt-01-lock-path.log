@@ -1,0 +1,30 @@
+rustc 1.90.0 (1159e78c4 2025-09-14)
+cargo 1.90.0 (840b83a10 2025-07-30)
+gcc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0
+Copyright (C) 2023 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+Linux BT-2206300 6.18.54.1-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Tue Oct  6 19:13:07 UTC 2026 x86_64 x86_64 x86_64 GNU/Linux
+6d3b3d2c38ab20c242e5b9abb04d050086383eb2
+ a0f53cdda39a373c45cdbf9f853c8018c1172461 ../boot/cypress/libs/core-lib (release-v1.1.4)
+ 79a9d8e5e0a98531d8b17f94f3f040359e9cdd9d ../boot/cypress/libs/cy-mbedtls-acceleration (release-v1.2.0)
+ 55b5a5457195ad2a2a02e0a98ca72a9333e26397 ../boot/cypress/libs/mtb-pdl-cat1 (release-v2.1.0)
+ 0e38b78ef9ae3ce5db0563bdcde80a028c5fc38a ../boot/cypress/libs/pdl/psoc6pdl (release-v1.4.1)
+ a0d6c08f1178750e29967999860485878fac09f9 ../boot/cypress/libs/psoc6hal (release-v1.1.1)
+ bd88e66fc6976de49694382a5ce5dc7613f12ace ../boot/cypress/libs/retarget-io (release-v1.0.0)
+ 2ca6c285a0dd3f33982dd57299012dacab1ff206 ../ext/mbedtls (v3.6.0)
+ 750634d3a51eb9d61b59fd5d801546927c946588 ../ext/mbedtls/framework (mbedtls-4.0.0_tf-psa-crypto-1.0.0~115)
+    Updating crates.io index
+     Locking 74 packages to latest compatible versions
+      Adding aes v0.7.5 (available: v0.9.4)
+      Adding base64 v0.13.1 (available: v0.23.1)
+      Adding cipher v0.3.0 (available: v0.5.2)
+      Adding env_logger v0.9.3 (available: v0.11.11)
+      Adding pem v1.1.1 (available: v4.0.0)
+      Adding rand v0.8.8 (available: v0.10.3)
+      Adding rand v0.9.5 (available: v0.10.3)
+      Adding ring v0.16.20 (available: v0.17.14)
+      Adding thiserror v1.0.69 (available: v2.0.21)
+cp: cannot stat 'Cargo.lock': No such file or directory
+FAILED line=30 exit=1

@@ -1,0 +1,12 @@
+*.sh text eol=lf
+*.rs text eol=lf
+Cargo.lock text eol=lf
+*.log text eol=lf
+*.txt text eol=lf
+*.patch text eol=lf
+*.json text eol=lf
+# Execution evidence is byte-preserved: newline conversion would invalidate hashes.
+evidence/** -text
+differential_evidence/** -text
+refinement_evidence/** -text
+final_evidence/** -text

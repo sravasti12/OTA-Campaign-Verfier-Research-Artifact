@@ -1,0 +1,12 @@
+diff --git a/sim/src/image.rs b/sim/src/image.rs
+index 286c1c3e..fdd3b18c 100644
+--- a/sim/src/image.rs
++++ b/sim/src/image.rs
+@@ -2520,3 +2520,7 @@ fn skip_slow_test() -> bool {
+         false
+     }
+ }
++
++#[cfg(test)]
++#[path = "ota_reference.rs"]
++mod ota_reference;

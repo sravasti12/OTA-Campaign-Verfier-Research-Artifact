@@ -1,0 +1,3564 @@
+{
+  "schema_version": 1,
+  "generated_utc": "2026-11-06T12:20:33.335447+00:00",
+  "reference_commit": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+  "features": [
+    "sig-rsa",
+    "validate-primary-slot"
+  ],
+  "strategy": "scratch",
+  "simulator_policy": "guarded-trial-v1",
+  "scope": "C bootutil with simulated flash versus existing guarded simulator; no hardware execution",
+  "reference_log_sha256": "ee06759bad757ea7063796ca53b648b8c0d1e75c00cb9e813f6ac4cac637b503",
+  "environment_sha256": "1b518733b65f5668c2d3d9fddae1cc97df11cd7da3ac196eb4453cc85b233245",
+  "summary": {
+    "MATCH": 6,
+    "MISMATCH": 2,
+    "UNSUPPORTED": 4
+  },
+  "scenarios": [
+    {
+      "id": "test_upgrade",
+      "scenario": {
+        "id": "test_upgrade",
+        "expected": "Candidate selected, not yet confirmed.",
+        "fault": null,
+        "sample": "boot",
+        "authorization": true,
+        "category": "comparable_endpoint",
+        "limit": ""
+      },
+      "expected": "Candidate selected, not yet confirmed.",
+      "mcuboot_initial": {
+        "scenario": "test_upgrade",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "f5e7bc98934ebe6e06b391a282e176ca348897807d1d5cd83167334186e9291d",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "ba4e23a4b9ce0bd516ef777bc06136a96cecef9b1a8fbe51320b0976ea34f4de",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "first_boot"
+        ],
+        "cut_operation": null
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "test_upgrade",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "f5e7bc98934ebe6e06b391a282e176ca348897807d1d5cd83167334186e9291d",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "ba4e23a4b9ce0bd516ef777bc06136a96cecef9b1a8fbe51320b0976ea34f4de",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "test_upgrade",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "382620bea9fd80f6a075a173a3fd495661e6ac35a1fc35b99227d3c3efe9d7ba",
+              "trailer": "02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "f5e7bc98934ebe6e06b391a282e176ca348897807d1d5cd83167334186e9291d",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "1.0.1.1",
+        "selected_valid": true,
+        "confirmed": false,
+        "boot_ok": true,
+        "checkpoint": "first_boot"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": null,
+          "authorization": true,
+          "sample": "boot",
+          "reset_driver": null
+        },
+        "observation": {
+          "selected_version": "1.0.1.1",
+          "retained_effective_version": "1.0.1.1",
+          "selected_valid": true,
+          "confirmed": false,
+          "available": true,
+          "active_slot": "B",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": "B",
+            "running_slot": "B",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "passed",
+            "attempts_used": 1
+          }
+        },
+        "assessment": "passed",
+        "recovery": null,
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "1.0.1.1",
+              "retained_effective_version": "1.0.1.1",
+              "selected_valid": true,
+              "confirmed": false,
+              "available": true,
+              "active_slot": "B",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": "B",
+                "running_slot": "B",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "passed",
+                "attempts_used": 1
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "1.0.1.1",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          },
+          {
+            "name": "confirmed",
+            "mcuboot": false,
+            "simulator": false,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "1.0.1.1",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "test_upgrade-simulator.json",
+        "simulator_sha256": "dee434ee353d696e5f9d006e2bbaee7f323b691fb2d07bac1dbd9defd4b93bf8"
+      }
+    },
+    {
+      "id": "confirmed_reboot",
+      "scenario": {
+        "id": "confirmed_reboot",
+        "expected": "Confirmed candidate remains selected after reset.",
+        "fault": null,
+        "sample": "reset",
+        "authorization": true,
+        "category": "comparable_endpoint",
+        "limit": ""
+      },
+      "expected": "Confirmed candidate remains selected after reset.",
+      "mcuboot_initial": {
+        "scenario": "confirmed_reboot",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "16beee6c3954712844b333add484c2ec553050c8652ea8a62e1741410156821d",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "10ffe06f9268e7c030ace58f34a59df5f28ff9bf5021602b85f5ff7a45125e55",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "first_boot",
+          "confirmation_write",
+          "reset_1"
+        ],
+        "cut_operation": null
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "confirmed_reboot",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "16beee6c3954712844b333add484c2ec553050c8652ea8a62e1741410156821d",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "10ffe06f9268e7c030ace58f34a59df5f28ff9bf5021602b85f5ff7a45125e55",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "confirmed_reboot",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "02f03e128f79f397b789af8e5789b7a277ca5d35714c167e1b947dcea90b2337",
+              "trailer": "02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "16beee6c3954712844b333add484c2ec553050c8652ea8a62e1741410156821d",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "confirmed_reboot",
+          "checkpoint": "confirmation_write",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "46b2946eccaa6f2383a0cb719b638f71b5d13411ed0059ace6abed120a7e3c43",
+              "trailer": "02ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "16beee6c3954712844b333add484c2ec553050c8652ea8a62e1741410156821d",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "confirmed_reboot",
+          "checkpoint": "reset_1",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "46b2946eccaa6f2383a0cb719b638f71b5d13411ed0059ace6abed120a7e3c43",
+              "trailer": "02ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "16beee6c3954712844b333add484c2ec553050c8652ea8a62e1741410156821d",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "1.0.1.1",
+        "selected_valid": true,
+        "confirmed": true,
+        "boot_ok": true,
+        "checkpoint": "reset_1"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": null,
+          "authorization": true,
+          "sample": "reset",
+          "reset_driver": "public power_loss/guarded_boot primitives"
+        },
+        "observation": {
+          "selected_version": "1.0.1.1",
+          "retained_effective_version": "1.0.1.1",
+          "selected_valid": true,
+          "confirmed": true,
+          "available": true,
+          "active_slot": "B",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "B",
+            "candidate_slot": null,
+            "running_slot": "B",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "passed",
+            "attempts_used": 1
+          }
+        },
+        "assessment": "passed",
+        "recovery": null,
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "1.0.1.1",
+              "retained_effective_version": "1.0.1.1",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "B",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "B",
+                "candidate_slot": null,
+                "running_slot": "B",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "passed",
+                "attempts_used": 1
+              }
+            }
+          },
+          {
+            "checkpoint": "primitive_reset_1",
+            "blockers": [],
+            "observation": {
+              "selected_version": "1.0.1.1",
+              "retained_effective_version": "1.0.1.1",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "B",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "B",
+                "candidate_slot": null,
+                "running_slot": "B",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "passed",
+                "attempts_used": 1
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "1.0.1.1",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          },
+          {
+            "name": "confirmed",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "1.0.1.1",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "confirmed_reboot-simulator.json",
+        "simulator_sha256": "a9d07086e0953bad4b3695525de69ca3dc66fb1699242ee4ec11a0b432406c3d"
+      }
+    },
+    {
+      "id": "unconfirmed_revert",
+      "scenario": {
+        "id": "unconfirmed_revert",
+        "expected": "Original selected after unconfirmed reset.",
+        "fault": [
+          "power_loss",
+          "confirm",
+          "before"
+        ],
+        "sample": "final",
+        "authorization": true,
+        "category": "comparable_endpoint",
+        "limit": ""
+      },
+      "expected": "Original selected after unconfirmed reset.",
+      "mcuboot_initial": {
+        "scenario": "unconfirmed_revert",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "1ee70b851fa2812d69cae5240588a8e6d10070f1dca39b0ac4d9f45b7eb18867",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "e25cf8e8eec1f45e3f331bcef163f88a70797a5b259cdf35336af4315e80c62a",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "first_boot",
+          "reset_1"
+        ],
+        "cut_operation": null
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "unconfirmed_revert",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "1ee70b851fa2812d69cae5240588a8e6d10070f1dca39b0ac4d9f45b7eb18867",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "e25cf8e8eec1f45e3f331bcef163f88a70797a5b259cdf35336af4315e80c62a",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "unconfirmed_revert",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "54eb7e6a3cc2b9c01bf2a6648f0ee10029f733e474fc5f1ed3e716100f3685a6",
+              "trailer": "02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "1ee70b851fa2812d69cae5240588a8e6d10070f1dca39b0ac4d9f45b7eb18867",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "unconfirmed_revert",
+          "checkpoint": "reset_1",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "05b99da8df7745ec6412ca4678303f47bc68175fd8d125b0fcdc46aabcf6b80c",
+              "trailer": "04ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "ad61aebb516f4e95c37e24e87b73468152e8aac4bfcfa2460de1afe01827c458",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "0.0.1.0",
+        "selected_valid": true,
+        "confirmed": true,
+        "boot_ok": true,
+        "checkpoint": "reset_1"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": {
+            "ecu_id": "ecu",
+            "stage": "confirm",
+            "kind": "power_loss",
+            "when": "before"
+          },
+          "authorization": true,
+          "sample": "final",
+          "reset_driver": null
+        },
+        "observation": {
+          "selected_version": "0.0.1.0",
+          "retained_effective_version": "0.0.1.0",
+          "selected_valid": true,
+          "confirmed": true,
+          "available": true,
+          "active_slot": "A",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": null,
+            "running_slot": "A",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "passed",
+            "attempts_used": 1
+          }
+        },
+        "assessment": "passed",
+        "recovery": {
+          "status": "available",
+          "states": [
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": true
+                    },
+                    "active_slot": "A"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "A",
+                  "candidate_slot": null,
+                  "running_slot": "A",
+                  "available": true,
+                  "health_a": "passed",
+                  "health_b": "passed",
+                  "attempts_used": 1
+                }
+              ]
+            }
+          ],
+          "steps": [],
+          "examined_states": 1,
+          "reason": "Original healthy confirmed images are running",
+          "blockers": []
+        },
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "passed",
+                "attempts_used": 1
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "unconfirmed_revert-simulator.json",
+        "simulator_sha256": "f0d0de2573e4287c70c1c8673cfbab14e00c5426e89538238868a2bdf9f4c6ee"
+      }
+    },
+    {
+      "id": "unauthorized_revert",
+      "scenario": {
+        "id": "unauthorized_revert",
+        "expected": "MCUboot reverts; project may block an unauthorized downgrade.",
+        "fault": [
+          "power_loss",
+          "confirm",
+          "before"
+        ],
+        "sample": "final",
+        "authorization": false,
+        "category": "intentional_policy_difference",
+        "limit": ""
+      },
+      "expected": "MCUboot reverts; project may block an unauthorized downgrade.",
+      "mcuboot_initial": {
+        "scenario": "unauthorized_revert",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "a5b14a3666896ceaa5823208ddd4dc3b3e345b7d915f3654d9c83b2851ffc5a6",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "c5b54b1ec318d7d4cf95c244fb8f5b6d4c0007f1e2669f113e3bde71153e4b97",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "first_boot",
+          "reset_1"
+        ],
+        "cut_operation": null
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "unauthorized_revert",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "a5b14a3666896ceaa5823208ddd4dc3b3e345b7d915f3654d9c83b2851ffc5a6",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "c5b54b1ec318d7d4cf95c244fb8f5b6d4c0007f1e2669f113e3bde71153e4b97",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "unauthorized_revert",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "12a1180edc9a60761c0199447361107392153fef37792c91b49c82c9199bb49f",
+              "trailer": "02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "a5b14a3666896ceaa5823208ddd4dc3b3e345b7d915f3654d9c83b2851ffc5a6",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "unauthorized_revert",
+          "checkpoint": "reset_1",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "00b29f642f0464e92a1a742a3d208b22f23fb3aa24499128d1bc8bdc24181800",
+              "trailer": "04ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "4049021f754f9f5eb2adbf86c9805ab6b20a643a07c0559be900215f9335d018",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "0.0.1.0",
+        "selected_valid": true,
+        "confirmed": true,
+        "boot_ok": true,
+        "checkpoint": "reset_1"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": {
+            "ecu_id": "ecu",
+            "stage": "confirm",
+            "kind": "power_loss",
+            "when": "before"
+          },
+          "authorization": false,
+          "sample": "final",
+          "reset_driver": null
+        },
+        "observation": {
+          "selected_version": null,
+          "retained_effective_version": "1.0.1.1",
+          "selected_valid": null,
+          "confirmed": null,
+          "available": false,
+          "active_slot": "B",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": null,
+            "running_slot": null,
+            "available": false,
+            "health_a": "passed",
+            "health_b": "passed",
+            "attempts_used": 1
+          }
+        },
+        "assessment": "violations",
+        "recovery": {
+          "status": "unavailable",
+          "states": [
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": true
+                    },
+                    "active_slot": "B"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "A",
+                  "candidate_slot": null,
+                  "running_slot": null,
+                  "available": false,
+                  "health_a": "passed",
+                  "health_b": "passed",
+                  "attempts_used": 1
+                }
+              ]
+            }
+          ],
+          "steps": [],
+          "examined_states": 2,
+          "reason": "No healthy, compatible, authorized boot path restores original confirmed images",
+          "blockers": [
+            {
+              "code": "unauthorized_downgrade",
+              "ecu_ids": [
+                "ecu"
+              ],
+              "message": "Installing or activating 0.0.1.0 from 1.0.1.1 needs explicit ECU/version authorization",
+              "constraint_id": null,
+              "source_document_id": null,
+              "source_text": null,
+              "actual_version": "0.0.1.0",
+              "expected_version_spec": null
+            }
+          ]
+        },
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": null,
+              "retained_effective_version": "1.0.1.1",
+              "selected_valid": null,
+              "confirmed": null,
+              "available": false,
+              "active_slot": "B",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": null,
+                "available": false,
+                "health_a": "passed",
+                "health_b": "passed",
+                "attempts_used": 1
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "MISMATCH",
+        "category": "intentional_policy_difference",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": null,
+            "status": "MISMATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": null,
+            "status": "MISMATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "unauthorized_revert-simulator.json",
+        "simulator_sha256": "3ba6e92c26aabc7e5f24f8bb12ed249cb33fd65c7ed29d845e544f6d93a37696"
+      }
+    },
+    {
+      "id": "invalid_signature",
+      "scenario": {
+        "id": "invalid_signature",
+        "expected": "MCUboot rejects bad signature; project represents verification rejection only.",
+        "fault": [
+          "verification_failure",
+          "verify",
+          "before"
+        ],
+        "sample": "final",
+        "authorization": true,
+        "category": "unsupported_mechanism",
+        "limit": "Project has no signature parser, key or cryptographic verifier."
+      },
+      "expected": "MCUboot rejects bad signature; project represents verification rejection only.",
+      "mcuboot_initial": {
+        "scenario": "invalid_signature",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "4e6fcdf8673ecf08d296714e54a43caec5cd067ba7690ec4f572f0da18add9fd",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "b502c51d91c9fe8d21056e941c4bef366c8a7ed9143fa4ab68db48decc607a24",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "first_boot"
+        ],
+        "cut_operation": null
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "invalid_signature",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "4e6fcdf8673ecf08d296714e54a43caec5cd067ba7690ec4f572f0da18add9fd",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "b502c51d91c9fe8d21056e941c4bef366c8a7ed9143fa4ab68db48decc607a24",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "invalid_signature",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "4e6fcdf8673ecf08d296714e54a43caec5cd067ba7690ec4f572f0da18add9fd",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "255.255.65535.4294967295",
+              "header": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "sha256": "b5a41c3758763bbec72769fab4a2533bf2db0b6312d93d25a695f9e4b9e02260",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "0.0.1.0",
+        "selected_valid": true,
+        "confirmed": false,
+        "boot_ok": true,
+        "checkpoint": "first_boot"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": {
+            "ecu_id": "ecu",
+            "stage": "verify",
+            "kind": "verification_failure",
+            "when": "before"
+          },
+          "authorization": true,
+          "sample": "final",
+          "reset_driver": null
+        },
+        "observation": {
+          "selected_version": "0.0.1.0",
+          "retained_effective_version": "0.0.1.0",
+          "selected_valid": true,
+          "confirmed": true,
+          "available": true,
+          "active_slot": "A",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": null,
+            "running_slot": "A",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "unknown",
+            "attempts_used": 0
+          }
+        },
+        "assessment": "passed",
+        "recovery": {
+          "status": "available",
+          "states": [
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": false
+                    },
+                    "active_slot": "A"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "A",
+                  "candidate_slot": null,
+                  "running_slot": "A",
+                  "available": true,
+                  "health_a": "passed",
+                  "health_b": "unknown",
+                  "attempts_used": 0
+                }
+              ]
+            }
+          ],
+          "steps": [],
+          "examined_states": 1,
+          "reason": "Original healthy confirmed images are running",
+          "blockers": []
+        },
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "unknown",
+                "attempts_used": 0
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "UNSUPPORTED",
+        "category": "unsupported_mechanism",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "Project has no signature parser, key or cryptographic verifier.",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "invalid_signature-simulator.json",
+        "simulator_sha256": "ed96adaf0c2cf2eceb132133e360b9d6c8e6d6f67d0af4f4c9d7f927117b20e9"
+      }
+    },
+    {
+      "id": "payload_corruption",
+      "scenario": {
+        "id": "payload_corruption",
+        "expected": "Corrupted candidate rejected; original retained.",
+        "fault": [
+          "write_corruption",
+          "write",
+          "after"
+        ],
+        "sample": "final",
+        "authorization": true,
+        "category": "comparable_endpoint",
+        "limit": ""
+      },
+      "expected": "Corrupted candidate rejected; original retained.",
+      "mcuboot_initial": {
+        "scenario": "payload_corruption",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "06662df15fbcc0a7f3b31127b6e045bf10609f50c2af6f84ae0303751be9dd1b",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "436f0ab0804f53fb29e5da569a9f3235496a2575cdc00af0780c0ff56dd57ee5",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "corrupted",
+          "first_boot"
+        ],
+        "cut_operation": null
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "payload_corruption",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "06662df15fbcc0a7f3b31127b6e045bf10609f50c2af6f84ae0303751be9dd1b",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "436f0ab0804f53fb29e5da569a9f3235496a2575cdc00af0780c0ff56dd57ee5",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "payload_corruption",
+          "checkpoint": "corrupted",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "06662df15fbcc0a7f3b31127b6e045bf10609f50c2af6f84ae0303751be9dd1b",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "1aefd89c60de6a299eaa436b580f582256b79783f6c5f8ec2c6b8968d74be9d4",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "payload_corruption",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "06662df15fbcc0a7f3b31127b6e045bf10609f50c2af6f84ae0303751be9dd1b",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "255.255.65535.4294967295",
+              "header": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "sha256": "b5a41c3758763bbec72769fab4a2533bf2db0b6312d93d25a695f9e4b9e02260",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "0.0.1.0",
+        "selected_valid": true,
+        "confirmed": false,
+        "boot_ok": true,
+        "checkpoint": "first_boot"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": {
+            "ecu_id": "ecu",
+            "stage": "write",
+            "kind": "write_corruption",
+            "when": "after"
+          },
+          "authorization": true,
+          "sample": "final",
+          "reset_driver": null
+        },
+        "observation": {
+          "selected_version": "0.0.1.0",
+          "retained_effective_version": "0.0.1.0",
+          "selected_valid": true,
+          "confirmed": true,
+          "available": true,
+          "active_slot": "A",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": null,
+            "running_slot": "A",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "unknown",
+            "attempts_used": 0
+          }
+        },
+        "assessment": "passed",
+        "recovery": {
+          "status": "available",
+          "states": [
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": false
+                    },
+                    "active_slot": "A"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "A",
+                  "candidate_slot": null,
+                  "running_slot": "A",
+                  "available": true,
+                  "health_a": "passed",
+                  "health_b": "unknown",
+                  "attempts_used": 0
+                }
+              ]
+            }
+          ],
+          "steps": [],
+          "examined_states": 1,
+          "reason": "Original healthy confirmed images are running",
+          "blockers": []
+        },
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "unknown",
+                "attempts_used": 0
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "payload_corruption-simulator.json",
+        "simulator_sha256": "5c9d8ef94567a7f7aa4c02174abb9b67ccf8415c1ef0f9af38d3721ceaf14aa7"
+      }
+    },
+    {
+      "id": "swap_power_loss",
+      "scenario": {
+        "id": "swap_power_loss",
+        "expected": "Reference resumes interrupted swap; project has no swap journal.",
+        "fault": [
+          "power_loss",
+          "activate",
+          "before"
+        ],
+        "sample": "final",
+        "authorization": true,
+        "category": "unsupported_boundary",
+        "limit": "Reference cuts before flash operation 7; logical activate-before is only a coarse counterpart."
+      },
+      "expected": "Reference resumes interrupted swap; project has no swap journal.",
+      "mcuboot_initial": {
+        "scenario": "swap_power_loss",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "8e5c7a8af5ccb06fd26c142c46e9285a1d25f33da903a7d49fdee03ea316e311",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "6f2d828fcc60d12ec148626dc9fb3c0e570f0c29fd54a361f1428e7c82c80f55",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "cut",
+          "first_boot"
+        ],
+        "cut_operation": 7
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "swap_power_loss",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "8e5c7a8af5ccb06fd26c142c46e9285a1d25f33da903a7d49fdee03ea316e311",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "6f2d828fcc60d12ec148626dc9fb3c0e570f0c29fd54a361f1428e7c82c80f55",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "swap_power_loss",
+          "checkpoint": "cut",
+          "boot_ok": false,
+          "interrupted": true,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "8e5c7a8af5ccb06fd26c142c46e9285a1d25f33da903a7d49fdee03ea316e311",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "6f2d828fcc60d12ec148626dc9fb3c0e570f0c29fd54a361f1428e7c82c80f55",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "swap_power_loss",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "d2ab63d8c7a793f6e7c093a18d2080cb95417f813929f5dbd19ab9f87bfa2f5b",
+              "trailer": "02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "8e5c7a8af5ccb06fd26c142c46e9285a1d25f33da903a7d49fdee03ea316e311",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "1.0.1.1",
+        "selected_valid": true,
+        "confirmed": false,
+        "boot_ok": true,
+        "checkpoint": "first_boot"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": {
+            "ecu_id": "ecu",
+            "stage": "activate",
+            "kind": "power_loss",
+            "when": "before"
+          },
+          "authorization": true,
+          "sample": "final",
+          "reset_driver": null
+        },
+        "observation": {
+          "selected_version": "0.0.1.0",
+          "retained_effective_version": "0.0.1.0",
+          "selected_valid": true,
+          "confirmed": true,
+          "available": true,
+          "active_slot": "A",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": null,
+            "running_slot": "A",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "unknown",
+            "attempts_used": 0
+          }
+        },
+        "assessment": "passed",
+        "recovery": {
+          "status": "available",
+          "states": [
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": true
+                    },
+                    "active_slot": "A"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "A",
+                  "candidate_slot": null,
+                  "running_slot": "A",
+                  "available": true,
+                  "health_a": "passed",
+                  "health_b": "unknown",
+                  "attempts_used": 0
+                }
+              ]
+            }
+          ],
+          "steps": [],
+          "examined_states": 1,
+          "reason": "Original healthy confirmed images are running",
+          "blockers": []
+        },
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "unknown",
+                "attempts_used": 0
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "UNSUPPORTED",
+        "category": "unsupported_boundary",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "0.0.1.0",
+            "status": "MISMATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "Reference cuts before flash operation 7; logical activate-before is only a coarse counterpart.",
+        "expected_reference_version": "1.0.1.1",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "swap_power_loss-simulator.json",
+        "simulator_sha256": "0ec39085c0ee229b71e0da12963b2dbacdd107965a0a672ca83f9a4e6bdcbfa6"
+      }
+    },
+    {
+      "id": "interrupted_revert",
+      "scenario": {
+        "id": "interrupted_revert",
+        "expected": "Reference resumes interrupted revert to original.",
+        "fault": [
+          "power_loss",
+          "confirm",
+          "before"
+        ],
+        "sample": "final",
+        "authorization": true,
+        "category": "unsupported_boundary",
+        "limit": "Project has no fault injection inside recovery actions or scratch journal."
+      },
+      "expected": "Reference resumes interrupted revert to original.",
+      "mcuboot_initial": {
+        "scenario": "interrupted_revert",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "16fd9dd373e84a49495ec065b6387ecc255457eaf31e0528bfb078bb838da8f2",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "39fe024defddfa49b8fa956db8cc111cabd86978425f69f3abc5e703092e90d5",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "first_boot",
+          "cut",
+          "reset_1"
+        ],
+        "cut_operation": 7
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "interrupted_revert",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "16fd9dd373e84a49495ec065b6387ecc255457eaf31e0528bfb078bb838da8f2",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "39fe024defddfa49b8fa956db8cc111cabd86978425f69f3abc5e703092e90d5",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "interrupted_revert",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "63efe7b1767112ff436d7bea6ca28387271fac01d094972c4291662c2820af7a",
+              "trailer": "02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "16fd9dd373e84a49495ec065b6387ecc255457eaf31e0528bfb078bb838da8f2",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "interrupted_revert",
+          "checkpoint": "cut",
+          "boot_ok": false,
+          "interrupted": true,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "63efe7b1767112ff436d7bea6ca28387271fac01d094972c4291662c2820af7a",
+              "trailer": "02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "16fd9dd373e84a49495ec065b6387ecc255457eaf31e0528bfb078bb838da8f2",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "interrupted_revert",
+          "checkpoint": "reset_1",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "ba6383fb40b82477960d9cb5e733ded5a51d08481698ee62a4fe8ae9f9bbbdd3",
+              "trailer": "04ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "067d943dc2709531859e170ef0be2385c46dcc0215933e700547530d2dd446d4",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "0.0.1.0",
+        "selected_valid": true,
+        "confirmed": true,
+        "boot_ok": true,
+        "checkpoint": "reset_1"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": {
+            "ecu_id": "ecu",
+            "stage": "confirm",
+            "kind": "power_loss",
+            "when": "before"
+          },
+          "authorization": true,
+          "sample": "final",
+          "reset_driver": null
+        },
+        "observation": {
+          "selected_version": "0.0.1.0",
+          "retained_effective_version": "0.0.1.0",
+          "selected_valid": true,
+          "confirmed": true,
+          "available": true,
+          "active_slot": "A",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": null,
+            "running_slot": "A",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "passed",
+            "attempts_used": 1
+          }
+        },
+        "assessment": "passed",
+        "recovery": {
+          "status": "available",
+          "states": [
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": true
+                    },
+                    "active_slot": "A"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "A",
+                  "candidate_slot": null,
+                  "running_slot": "A",
+                  "available": true,
+                  "health_a": "passed",
+                  "health_b": "passed",
+                  "attempts_used": 1
+                }
+              ]
+            }
+          ],
+          "steps": [],
+          "examined_states": 1,
+          "reason": "Original healthy confirmed images are running",
+          "blockers": []
+        },
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "passed",
+                "attempts_used": 1
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "UNSUPPORTED",
+        "category": "unsupported_boundary",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "Project has no fault injection inside recovery actions or scratch journal.",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "interrupted_revert-simulator.json",
+        "simulator_sha256": "f0d0de2573e4287c70c1c8673cfbab14e00c5426e89538238868a2bdf9f4c6ee"
+      }
+    },
+    {
+      "id": "failed_trial",
+      "scenario": {
+        "id": "failed_trial",
+        "expected": "Original selected after external reset without confirmation.",
+        "fault": [
+          "boot_failure",
+          "boot",
+          "before"
+        ],
+        "sample": "final",
+        "authorization": true,
+        "category": "unsupported_mechanism",
+        "limit": "Reference models missing confirmation/reset, not runtime health failure. Project gates health before exposure."
+      },
+      "expected": "Original selected after external reset without confirmation.",
+      "mcuboot_initial": {
+        "scenario": "failed_trial",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "868417fb798c15042cb4bf9fab56c4feb05ff38734b8d43e46317b40e9841715",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "34e5bd76f3d6298e373105d19bd4180628aaf02f7e4ac0b64e23674d057a0555",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "first_boot",
+          "reset_1"
+        ],
+        "cut_operation": null
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "failed_trial",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "868417fb798c15042cb4bf9fab56c4feb05ff38734b8d43e46317b40e9841715",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "34e5bd76f3d6298e373105d19bd4180628aaf02f7e4ac0b64e23674d057a0555",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "failed_trial",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "1fd2e5a288415162ee87c982a0523b51eb1f3490fb2aaf3a90a218db87c14d7e",
+              "trailer": "02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "868417fb798c15042cb4bf9fab56c4feb05ff38734b8d43e46317b40e9841715",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "failed_trial",
+          "checkpoint": "reset_1",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "46b00c0e1fa9d887e595636ac028ad3ec0f12bc7a99ff3e34cab69e9777ad332",
+              "trailer": "04ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "ad6a691f779cb68ae1900ef18003de09f33339d6dbda1645f444a6546bcfc655",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "0.0.1.0",
+        "selected_valid": true,
+        "confirmed": true,
+        "boot_ok": true,
+        "checkpoint": "reset_1"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": {
+            "ecu_id": "ecu",
+            "stage": "boot",
+            "kind": "boot_failure",
+            "when": "before"
+          },
+          "authorization": true,
+          "sample": "final",
+          "reset_driver": null
+        },
+        "observation": {
+          "selected_version": "0.0.1.0",
+          "retained_effective_version": "0.0.1.0",
+          "selected_valid": true,
+          "confirmed": true,
+          "available": true,
+          "active_slot": "A",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": null,
+            "running_slot": "A",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "failed",
+            "attempts_used": 2
+          }
+        },
+        "assessment": "passed",
+        "recovery": {
+          "status": "available",
+          "states": [
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": true
+                    },
+                    "active_slot": "A"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "A",
+                  "candidate_slot": null,
+                  "running_slot": "A",
+                  "available": true,
+                  "health_a": "passed",
+                  "health_b": "failed",
+                  "attempts_used": 2
+                }
+              ]
+            }
+          ],
+          "steps": [],
+          "examined_states": 1,
+          "reason": "Original healthy confirmed images are running",
+          "blockers": []
+        },
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "failed",
+                "attempts_used": 2
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "UNSUPPORTED",
+        "category": "unsupported_mechanism",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "Reference models missing confirmation/reset, not runtime health failure. Project gates health before exposure.",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "failed_trial-simulator.json",
+        "simulator_sha256": "7deb80a2a7a8fe8c2f5c3ffab1dbb8f42acdd4171c243697fe22d9a723335f7e"
+      }
+    },
+    {
+      "id": "repeated_resets",
+      "scenario": {
+        "id": "repeated_resets",
+        "expected": "Original remains selected through three unconfirmed-path resets.",
+        "fault": [
+          "power_loss",
+          "confirm",
+          "before"
+        ],
+        "sample": "repeated",
+        "authorization": true,
+        "category": "comparable_endpoint",
+        "limit": ""
+      },
+      "expected": "Original remains selected through three unconfirmed-path resets.",
+      "mcuboot_initial": {
+        "scenario": "repeated_resets",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "233e7e571b4f8dd03b42fecfd97732f7848273cbb4d56b936f7890f799738f74",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "1ea351cff7134a28a0062b8529af8681bb7e05c3cae6570ebb8ae6c86bf84a2f",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "first_boot",
+          "reset_1",
+          "reset_2",
+          "reset_3"
+        ],
+        "cut_operation": null
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "repeated_resets",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "233e7e571b4f8dd03b42fecfd97732f7848273cbb4d56b936f7890f799738f74",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "1ea351cff7134a28a0062b8529af8681bb7e05c3cae6570ebb8ae6c86bf84a2f",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "repeated_resets",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "d5c207faba6a2cbaee29b217e55937a448f9c50d1e2f951588c5e8d4a3626796",
+              "trailer": "02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "233e7e571b4f8dd03b42fecfd97732f7848273cbb4d56b936f7890f799738f74",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "repeated_resets",
+          "checkpoint": "reset_1",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "2e61cc2034d56e22827548472e84840a043564c911087d37671a7c3c54f56d30",
+              "trailer": "04ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "147713ab7e86332cfc0223b5b1733c19f2e4e39061ceab3999fb18cec22090e1",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "repeated_resets",
+          "checkpoint": "reset_2",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "2e61cc2034d56e22827548472e84840a043564c911087d37671a7c3c54f56d30",
+              "trailer": "04ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "147713ab7e86332cfc0223b5b1733c19f2e4e39061ceab3999fb18cec22090e1",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "repeated_resets",
+          "checkpoint": "reset_3",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "2e61cc2034d56e22827548472e84840a043564c911087d37671a7c3c54f56d30",
+              "trailer": "04ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "147713ab7e86332cfc0223b5b1733c19f2e4e39061ceab3999fb18cec22090e1",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "0.0.1.0",
+        "selected_valid": true,
+        "confirmed": true,
+        "boot_ok": true,
+        "checkpoint": "reset_3"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": {
+            "ecu_id": "ecu",
+            "stage": "confirm",
+            "kind": "power_loss",
+            "when": "before"
+          },
+          "authorization": true,
+          "sample": "repeated",
+          "reset_driver": "public power_loss/guarded_boot primitives"
+        },
+        "observation": {
+          "selected_version": "0.0.1.0",
+          "retained_effective_version": "0.0.1.0",
+          "selected_valid": true,
+          "confirmed": true,
+          "available": true,
+          "active_slot": "A",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": null,
+            "running_slot": "A",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "passed",
+            "attempts_used": 1
+          }
+        },
+        "assessment": "passed",
+        "recovery": {
+          "status": "available",
+          "states": [
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": true
+                    },
+                    "active_slot": "A"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "A",
+                  "candidate_slot": null,
+                  "running_slot": "A",
+                  "available": true,
+                  "health_a": "passed",
+                  "health_b": "passed",
+                  "attempts_used": 1
+                }
+              ]
+            }
+          ],
+          "steps": [],
+          "examined_states": 1,
+          "reason": "Original healthy confirmed images are running",
+          "blockers": []
+        },
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "passed",
+                "attempts_used": 1
+              }
+            }
+          },
+          {
+            "checkpoint": "primitive_reset_1",
+            "blockers": [],
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "passed",
+                "attempts_used": 1
+              }
+            }
+          },
+          {
+            "checkpoint": "primitive_reset_2",
+            "blockers": [],
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "passed",
+                "attempts_used": 1
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "repeated_resets-simulator.json",
+        "simulator_sha256": "b046a4c0a52960f3670a88afe75830941b5ea24f34bf3231de2215477bd3a875"
+      }
+    },
+    {
+      "id": "known_good_recovery",
+      "scenario": {
+        "id": "known_good_recovery",
+        "expected": "Good original remains available when candidate payload is invalid.",
+        "fault": [
+          "write_corruption",
+          "write",
+          "after"
+        ],
+        "sample": "final",
+        "authorization": true,
+        "category": "comparable_endpoint",
+        "limit": ""
+      },
+      "expected": "Good original remains available when candidate payload is invalid.",
+      "mcuboot_initial": {
+        "scenario": "known_good_recovery",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "96a945b9f9612be754cc1258f5afb9d593ff851670f2b349db0595a3daac47b6",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "bdcceec35b2bdfca82cf360960f50e2b1236976d178da9a91d903fc61a006a61",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "corrupted",
+          "first_boot"
+        ],
+        "cut_operation": null
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "known_good_recovery",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "96a945b9f9612be754cc1258f5afb9d593ff851670f2b349db0595a3daac47b6",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "bdcceec35b2bdfca82cf360960f50e2b1236976d178da9a91d903fc61a006a61",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "known_good_recovery",
+          "checkpoint": "corrupted",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "96a945b9f9612be754cc1258f5afb9d593ff851670f2b349db0595a3daac47b6",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "caf87b689af32a1824eab2131d0c727a463a36d11589ce4d2c7526da3682e49f",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "known_good_recovery",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "96a945b9f9612be754cc1258f5afb9d593ff851670f2b349db0595a3daac47b6",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "255.255.65535.4294967295",
+              "header": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "sha256": "b5a41c3758763bbec72769fab4a2533bf2db0b6312d93d25a695f9e4b9e02260",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "0.0.1.0",
+        "selected_valid": true,
+        "confirmed": false,
+        "boot_ok": true,
+        "checkpoint": "first_boot"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": {
+            "ecu_id": "ecu",
+            "stage": "write",
+            "kind": "write_corruption",
+            "when": "after"
+          },
+          "authorization": true,
+          "sample": "final",
+          "reset_driver": null
+        },
+        "observation": {
+          "selected_version": "0.0.1.0",
+          "retained_effective_version": "0.0.1.0",
+          "selected_valid": true,
+          "confirmed": true,
+          "available": true,
+          "active_slot": "A",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": null,
+            "running_slot": "A",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "unknown",
+            "attempts_used": 0
+          }
+        },
+        "assessment": "passed",
+        "recovery": {
+          "status": "available",
+          "states": [
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": false
+                    },
+                    "active_slot": "A"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "A",
+                  "candidate_slot": null,
+                  "running_slot": "A",
+                  "available": true,
+                  "health_a": "passed",
+                  "health_b": "unknown",
+                  "attempts_used": 0
+                }
+              ]
+            }
+          ],
+          "steps": [],
+          "examined_states": 1,
+          "reason": "Original healthy confirmed images are running",
+          "blockers": []
+        },
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "unknown",
+                "attempts_used": 0
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "MATCH",
+        "category": "bounded_endpoint_agreement",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "0.0.1.0",
+            "simulator": "0.0.1.0",
+            "status": "MATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "0.0.1.0",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "known_good_recovery-simulator.json",
+        "simulator_sha256": "5c9d8ef94567a7f7aa4c02174abb9b67ccf8415c1ef0f9af38d3721ceaf14aa7"
+      }
+    },
+    {
+      "id": "post_confirm_campaign_recovery",
+      "scenario": {
+        "id": "post_confirm_campaign_recovery",
+        "expected": "MCUboot retains candidate; project recovery aims for campaign original.",
+        "fault": [
+          "power_loss",
+          "confirm",
+          "after"
+        ],
+        "sample": "final",
+        "authorization": true,
+        "category": "intentional_orchestration_difference",
+        "limit": ""
+      },
+      "expected": "MCUboot retains candidate; project recovery aims for campaign original.",
+      "mcuboot_initial": {
+        "scenario": "post_confirm_campaign_recovery",
+        "checkpoint": "initial",
+        "boot_ok": false,
+        "interrupted": false,
+        "original_present_primary": true,
+        "candidate_present_primary": false,
+        "slots": [
+          {
+            "address": 131072,
+            "version": "0.0.1.0",
+            "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+            "sha256": "2f8cfcf12c2d6dd0fce0bd383686815e0142645ae60069d5d9aac3742f72e2bf",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          },
+          {
+            "address": 262144,
+            "version": "1.0.1.1",
+            "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+            "sha256": "fb9c475df902cb04087b1fafacb9d7ee12a48545c11ecbcd1f1a41827ad44de1",
+            "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+            "image_ok_raw": 255,
+            "copy_done_raw": 255
+          }
+        ]
+      },
+      "mcuboot_input": {
+        "geometry": "k64f, align=8, erased=ff",
+        "stimuli": [
+          "initial",
+          "first_boot",
+          "confirmation_write",
+          "reset_1"
+        ],
+        "cut_operation": null
+      },
+      "mcuboot_observations": [
+        {
+          "scenario": "post_confirm_campaign_recovery",
+          "checkpoint": "initial",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": true,
+          "candidate_present_primary": false,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "2f8cfcf12c2d6dd0fce0bd383686815e0142645ae60069d5d9aac3742f72e2bf",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            },
+            {
+              "address": 262144,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "fb9c475df902cb04087b1fafacb9d7ee12a48545c11ecbcd1f1a41827ad44de1",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "post_confirm_campaign_recovery",
+          "checkpoint": "first_boot",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "1185cd2d87642152f9da5f9ae0ba04adbe8d8201f180eb2a14ecbd38e01d047d",
+              "trailer": "02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 255,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "2f8cfcf12c2d6dd0fce0bd383686815e0142645ae60069d5d9aac3742f72e2bf",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "post_confirm_campaign_recovery",
+          "checkpoint": "confirmation_write",
+          "boot_ok": false,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "40c94ae354634643c204f167c8560bb2e3835c9573137c4afc6b9ee5b0f69d90",
+              "trailer": "02ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "2f8cfcf12c2d6dd0fce0bd383686815e0142645ae60069d5d9aac3742f72e2bf",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        },
+        {
+          "scenario": "post_confirm_campaign_recovery",
+          "checkpoint": "reset_1",
+          "boot_ok": true,
+          "interrupted": false,
+          "original_present_primary": false,
+          "candidate_present_primary": true,
+          "slots": [
+            {
+              "address": 131072,
+              "version": "1.0.1.1",
+              "header": "3db8f396000000002000000060f2010000000000010001000100000000000000",
+              "sha256": "40c94ae354634643c204f167c8560bb2e3835c9573137c4afc6b9ee5b0f69d90",
+              "trailer": "02ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980",
+              "image_ok_raw": 1,
+              "copy_done_raw": 1
+            },
+            {
+              "address": 262144,
+              "version": "0.0.1.0",
+              "header": "3db8f396000000002000000060f2010000000000000001000000000000000000",
+              "sha256": "2f8cfcf12c2d6dd0fce0bd383686815e0142645ae60069d5d9aac3742f72e2bf",
+              "trailer": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+              "image_ok_raw": 255,
+              "copy_done_raw": 255
+            }
+          ]
+        }
+      ],
+      "mcuboot_actual": {
+        "selected_version": "1.0.1.1",
+        "selected_valid": true,
+        "confirmed": true,
+        "boot_ok": true,
+        "checkpoint": "reset_1"
+      },
+      "simulator_actual": {
+        "initial": {
+          "ecus": [
+            {
+              "ecu_id": "ecu",
+              "slot_a": {
+                "version": "0.0.1.0",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "input": {
+          "fault": {
+            "ecu_id": "ecu",
+            "stage": "confirm",
+            "kind": "power_loss",
+            "when": "after"
+          },
+          "authorization": true,
+          "sample": "final",
+          "reset_driver": null
+        },
+        "observation": {
+          "selected_version": "0.0.1.0",
+          "retained_effective_version": "0.0.1.0",
+          "selected_valid": true,
+          "confirmed": true,
+          "available": true,
+          "active_slot": "A",
+          "metadata": {
+            "ecu_id": "ecu",
+            "confirmed_slot": "A",
+            "candidate_slot": null,
+            "running_slot": "A",
+            "available": true,
+            "health_a": "passed",
+            "health_b": "passed",
+            "attempts_used": 1
+          }
+        },
+        "assessment": "passed",
+        "recovery": {
+          "status": "available",
+          "states": [
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": true
+                    },
+                    "active_slot": "B"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "B",
+                  "candidate_slot": null,
+                  "running_slot": "B",
+                  "available": true,
+                  "health_a": "passed",
+                  "health_b": "passed",
+                  "attempts_used": 1
+                }
+              ]
+            },
+            {
+              "state": {
+                "ecus": [
+                  {
+                    "ecu_id": "ecu",
+                    "slot_a": {
+                      "version": "0.0.1.0",
+                      "valid": true
+                    },
+                    "slot_b": {
+                      "version": "1.0.1.1",
+                      "valid": true
+                    },
+                    "active_slot": "A"
+                  }
+                ],
+                "battery_percent": 80.0,
+                "ignition": "off"
+              },
+              "boot": [
+                {
+                  "ecu_id": "ecu",
+                  "confirmed_slot": "A",
+                  "candidate_slot": null,
+                  "running_slot": "A",
+                  "available": true,
+                  "health_a": "passed",
+                  "health_b": "passed",
+                  "attempts_used": 1
+                }
+              ]
+            }
+          ],
+          "steps": [
+            {
+              "ecu_id": "ecu",
+              "slot": "A"
+            }
+          ],
+          "examined_states": 2,
+          "reason": "Original healthy confirmed images are running",
+          "blockers": []
+        },
+        "checkpoints": [
+          {
+            "checkpoint": "selected_campaign_trace",
+            "observation": {
+              "selected_version": "0.0.1.0",
+              "retained_effective_version": "0.0.1.0",
+              "selected_valid": true,
+              "confirmed": true,
+              "available": true,
+              "active_slot": "A",
+              "metadata": {
+                "ecu_id": "ecu",
+                "confirmed_slot": "A",
+                "candidate_slot": null,
+                "running_slot": "A",
+                "available": true,
+                "health_a": "passed",
+                "health_b": "passed",
+                "attempts_used": 1
+              }
+            }
+          }
+        ]
+      },
+      "comparison": {
+        "status": "MISMATCH",
+        "category": "intentional_orchestration_difference",
+        "unexpected_contradiction": false,
+        "properties": [
+          {
+            "name": "selected_version",
+            "mcuboot": "1.0.1.1",
+            "simulator": "0.0.1.0",
+            "status": "MISMATCH"
+          },
+          {
+            "name": "selected_valid",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          },
+          {
+            "name": "confirmed",
+            "mcuboot": true,
+            "simulator": true,
+            "status": "MATCH"
+          }
+        ],
+        "limit": "",
+        "expected_reference_version": "1.0.1.1",
+        "reference_expectation_met": true
+      },
+      "evidence": {
+        "reference": "reference.log",
+        "simulator": "post_confirm_campaign_recovery-simulator.json",
+        "simulator_sha256": "95ba6518e442208a27379f5dc554ea64dadccd45a1a41729e0f1fc9e0609937e"
+      }
+    }
+  ]
+}

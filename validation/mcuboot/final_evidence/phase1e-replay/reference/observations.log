@@ -1,0 +1,160 @@
+   Compiling bootsim v0.1.0 (/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim)
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> sim/src/image.rs:33:20
+   |
+33 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2018:21
+     |
+2018 |         let nonce = GenericArray::from_slice(&[0; 16]);
+     |                     ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:47
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                                               ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:23
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                       ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:47
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                                               ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:23
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                       ^^^^^^^^^^^^
+
+warning: use of deprecated function `rand::thread_rng`: Renamed to `rng`
+    --> sim/src/image.rs:1649:29
+     |
+1649 |         let mut rng = rand::thread_rng();
+     |                             ^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> sim/src/tlv.rs:42:20
+   |
+42 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:779:25
+    |
+779 |             let nonce = GenericArray::from_slice(&[0; 16]);
+    |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:51
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                                                   ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:27
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                           ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:51
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                                                   ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:27
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                           ^^^^^^^^^^^^
+
+warning: use of deprecated method `rand::Rng::gen_range`: Renamed to `random_range`
+    --> sim/src/image.rs:1653:37
+     |
+1653 |             let reset_counter = rng.gen_range(1 ..= remaining_ops / 2);
+     |                                     ^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2018:35
+     |
+2018 |         let nonce = GenericArray::from_slice(&[0; 16]);
+     |                                   ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:61
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                                                             ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:61
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                                                             ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:779:39
+    |
+779 |             let nonce = GenericArray::from_slice(&[0; 16]);
+    |                                       ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:65
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                                                                 ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:65
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                                                                 ^^^^^^^^^^
+
+warning: `bootsim` (lib test) generated 20 warnings
+    Finished `test` profile [optimized + debuginfo] target(s) in 17.95s
+     Running unittests src/lib.rs (target/debug/deps/bootsim-7a5df14708ae2565)
+
+running 2 tests
+test image::ota_reference::reference_test_upgrade_confirm_persists ... CONFIG scratch=true rsa2048=true validate_primary=true images=1 device=k64f align=8 erased=ff
+OBS checkpoint=confirm_initial image=0 slot=0 address=0x20000 length=131072 sha256=b375737fca1ef5625c46b8023b0c5dbf510e0661bba671fee95e83810b347077 header=3db8f396000000002000000060f2010000000000000001000000000000000000 trailer=ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff image_ok_raw=0xff copy_done_raw=0xff
+OBS checkpoint=confirm_initial image=0 slot=1 address=0x40000 length=131072 sha256=de19ee1d55c085a6165d406ec63e10689b17b098d41f7c74209c1fbe9ef21f96 header=3db8f396000000002000000060f2010000000000010001000100000000000000 trailer=ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980 image_ok_raw=0xff copy_done_raw=0xff
+OBS checkpoint=confirm_initial primary_is_original=true primary_is_candidate=false
+BOOT checkpoint=confirm_test_upgrade result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x71a3a0060380, flash_dev_id: 0, image_off: 131072 } }
+OBS checkpoint=confirm_trial image=0 slot=0 address=0x20000 length=131072 sha256=028be2b7ea4769d02be17ed2e946ca94bb495941a1aed32b832b48ac1c23fc94 header=3db8f396000000002000000060f2010000000000010001000100000000000000 trailer=02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980 image_ok_raw=0xff copy_done_raw=0x1
+OBS checkpoint=confirm_trial image=0 slot=1 address=0x40000 length=131072 sha256=b375737fca1ef5625c46b8023b0c5dbf510e0661bba671fee95e83810b347077 header=3db8f396000000002000000060f2010000000000000001000000000000000000 trailer=ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff image_ok_raw=0xff copy_done_raw=0xff
+OBS checkpoint=confirm_trial primary_is_original=false primary_is_candidate=true
+OBS checkpoint=confirm_metadata_written image=0 slot=0 address=0x20000 length=131072 sha256=c5ef9e5414b35fc797a093a170cde46b62abca31e5fd7bc62dc546c60c0d7e7f header=3db8f396000000002000000060f2010000000000010001000100000000000000 trailer=02ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980 image_ok_raw=0x1 copy_done_raw=0x1
+OBS checkpoint=confirm_metadata_written image=0 slot=1 address=0x40000 length=131072 sha256=b375737fca1ef5625c46b8023b0c5dbf510e0661bba671fee95e83810b347077 header=3db8f396000000002000000060f2010000000000000001000000000000000000 trailer=ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff image_ok_raw=0xff copy_done_raw=0xff
+OBS checkpoint=confirm_metadata_written primary_is_original=false primary_is_candidate=true
+BOOT checkpoint=confirm_reboot result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x71a3a0060380, flash_dev_id: 0, image_off: 131072 } }
+OBS checkpoint=confirm_reboot image=0 slot=0 address=0x20000 length=131072 sha256=c5ef9e5414b35fc797a093a170cde46b62abca31e5fd7bc62dc546c60c0d7e7f header=3db8f396000000002000000060f2010000000000010001000100000000000000 trailer=02ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980 image_ok_raw=0x1 copy_done_raw=0x1
+OBS checkpoint=confirm_reboot image=0 slot=1 address=0x40000 length=131072 sha256=b375737fca1ef5625c46b8023b0c5dbf510e0661bba671fee95e83810b347077 header=3db8f396000000002000000060f2010000000000000001000000000000000000 trailer=ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff image_ok_raw=0xff copy_done_raw=0xff
+OBS checkpoint=confirm_reboot primary_is_original=false primary_is_candidate=true
+ok
+test image::ota_reference::reference_unconfirmed_test_reverts ... CONFIG scratch=true rsa2048=true validate_primary=true images=1 device=k64f align=8 erased=ff
+OBS checkpoint=revert_initial image=0 slot=0 address=0x20000 length=131072 sha256=f3eac6ea074ddd292ca0a2b62916d57b1f99b47a00b3e8c25b867b350c8c022f header=3db8f396000000002000000060f2010000000000000001000000000000000000 trailer=ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff image_ok_raw=0xff copy_done_raw=0xff
+OBS checkpoint=revert_initial image=0 slot=1 address=0x40000 length=131072 sha256=acdb2acd982b2c8db71f33606597bc467dee5bd8bf77e6d9b4789cf87f9c8027 header=3db8f396000000002000000060f2010000000000010001000100000000000000 trailer=ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980 image_ok_raw=0xff copy_done_raw=0xff
+OBS checkpoint=revert_initial primary_is_original=true primary_is_candidate=false
+BOOT checkpoint=revert_test_upgrade result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x71a3a0060380, flash_dev_id: 0, image_off: 131072 } }
+OBS checkpoint=revert_trial image=0 slot=0 address=0x20000 length=131072 sha256=58adb0e3353fb260f65ca735f8891134c979c7a7f6bf16337140d370217d6702 header=3db8f396000000002000000060f2010000000000010001000100000000000000 trailer=02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980 image_ok_raw=0xff copy_done_raw=0x1
+OBS checkpoint=revert_trial image=0 slot=1 address=0x40000 length=131072 sha256=f3eac6ea074ddd292ca0a2b62916d57b1f99b47a00b3e8c25b867b350c8c022f header=3db8f396000000002000000060f2010000000000000001000000000000000000 trailer=ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff image_ok_raw=0xff copy_done_raw=0xff
+OBS checkpoint=revert_trial primary_is_original=false primary_is_candidate=true
+BOOT checkpoint=revert_reboot result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x71a3a0060380, flash_dev_id: 0, image_off: 131072 } }
+OBS checkpoint=revert_reboot image=0 slot=0 address=0x20000 length=131072 sha256=c4c171c4c7346a51641d7026fd92afa03a7d9c564d16de472b4f0e69620a8091 header=3db8f396000000002000000060f2010000000000000001000000000000000000 trailer=04ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980 image_ok_raw=0x1 copy_done_raw=0x1
+OBS checkpoint=revert_reboot image=0 slot=1 address=0x40000 length=131072 sha256=4b9ee932e59d0085864622ffd790f864b3ccaabc4cfc5570b9a12ecb04679e14 header=3db8f396000000002000000060f2010000000000010001000100000000000000 trailer=ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff image_ok_raw=0xff copy_done_raw=0xff
+OBS checkpoint=revert_reboot primary_is_original=true primary_is_candidate=false
+ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+

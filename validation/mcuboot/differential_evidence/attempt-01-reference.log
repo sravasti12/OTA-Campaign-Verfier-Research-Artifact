@@ -1,0 +1,165 @@
+   Compiling bootsim v0.1.0 (/mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier/.mcuboot-reference/upstream/sim)
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> sim/src/image.rs:33:20
+   |
+33 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+   |
+   = note: `#[warn(deprecated)]` on by default
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2018:21
+     |
+2018 |         let nonce = GenericArray::from_slice(&[0; 16]);
+     |                     ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:47
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                                               ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:23
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                       ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:47
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                                               ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:23
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                       ^^^^^^^^^^^^
+
+warning: use of deprecated function `rand::thread_rng`: Renamed to `rng`
+    --> sim/src/image.rs:1649:29
+     |
+1649 |         let mut rng = rand::thread_rng();
+     |                             ^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+  --> sim/src/tlv.rs:42:20
+   |
+42 |     generic_array::GenericArray,
+   |                    ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:779:25
+    |
+779 |             let nonce = GenericArray::from_slice(&[0; 16]);
+    |                         ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:51
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                                                   ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:27
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                           ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:51
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                                                   ^^^^^^^^^^^^
+
+warning: use of deprecated struct `cipher::generic_array::GenericArray`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:27
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                           ^^^^^^^^^^^^
+
+warning: use of deprecated method `rand::Rng::gen_range`: Renamed to `random_range`
+    --> sim/src/image.rs:1653:37
+     |
+1653 |             let reset_counter = rng.gen_range(1 ..= remaining_ops / 2);
+     |                                     ^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2018:35
+     |
+2018 |         let nonce = GenericArray::from_slice(&[0; 16]);
+     |                                   ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2021:61
+     |
+2021 |             let key: &GenericArray<u8, U32> = GenericArray::from_slice(enc_key.as_slice());
+     |                                                             ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+    --> sim/src/image.rs:2026:61
+     |
+2026 |             let key: &GenericArray<u8, U16> = GenericArray::from_slice(enc_key.as_slice());
+     |                                                             ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:779:39
+    |
+779 |             let nonce = GenericArray::from_slice(&[0; 16]);
+    |                                       ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:782:65
+    |
+782 |                 let key: &GenericArray<u8, U32> = GenericArray::from_slice(&derived_key[..32]);
+    |                                                                 ^^^^^^^^^^
+
+warning: use of deprecated associated function `cipher::generic_array::GenericArray::<T, N>::from_slice`: please upgrade to generic-array 1.x
+   --> sim/src/tlv.rs:787:65
+    |
+787 |                 let key: &GenericArray<u8, U16> = GenericArray::from_slice(&derived_key[..16]);
+    |                                                                 ^^^^^^^^^^
+
+warning: `bootsim` (lib test) generated 20 warnings
+    Finished `test` profile [optimized + debuginfo] target(s) in 20.79s
+     Running unittests src/lib.rs (target/debug/deps/bootsim-7a5df14708ae2565)
+
+running 1 test
+test image::ota_differential::differential_reference_scenarios ... DIFF_JSON {"scenario":"test_upgrade","checkpoint":"initial","boot_ok":false,"interrupted":false,"original_present_primary":true,"candidate_present_primary":false,"slots":[{"address":131072,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"bd66c1d91b39f7256bd729607e1677e65417130b60aebfd8ee72f0b530d40083","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255},{"address":262144,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"4faaa78362f6b1979b7845fea919a598d1e75c0f4252ef5c1faa44cc29716704","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":255,"copy_done_raw":255}]}
+NATIVE_BOOT scenario=test_upgrade checkpoint=first_boot cut=None result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x738968060380, flash_dev_id: 0, image_off: 131072 } }
+DIFF_JSON {"scenario":"test_upgrade","checkpoint":"first_boot","boot_ok":true,"interrupted":false,"original_present_primary":false,"candidate_present_primary":true,"slots":[{"address":131072,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"b080b3ddf72b708f48676863ea3da04ffc9a60944c0d1d66a0cdffc0ef1c6014","trailer":"02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":255,"copy_done_raw":1},{"address":262144,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"bd66c1d91b39f7256bd729607e1677e65417130b60aebfd8ee72f0b530d40083","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255}]}
+DIFF_JSON {"scenario":"confirmed_reboot","checkpoint":"initial","boot_ok":false,"interrupted":false,"original_present_primary":true,"candidate_present_primary":false,"slots":[{"address":131072,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"2b366a7ed93cf367463989cefcd3bfff9e8b4f7f5340999ce06fccf329ca9f80","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255},{"address":262144,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"677507b6dc6479ea7136f181c4bd9ad98ef26cda54bad4270023216fecf819cc","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":255,"copy_done_raw":255}]}
+NATIVE_BOOT scenario=confirmed_reboot checkpoint=first_boot cut=None result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x738968060380, flash_dev_id: 0, image_off: 131072 } }
+DIFF_JSON {"scenario":"confirmed_reboot","checkpoint":"first_boot","boot_ok":true,"interrupted":false,"original_present_primary":false,"candidate_present_primary":true,"slots":[{"address":131072,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"21768f1b16a4539c97d82aa0be55b30ca6c76b1cd0f5129940b3717f10628e22","trailer":"02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":255,"copy_done_raw":1},{"address":262144,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"2b366a7ed93cf367463989cefcd3bfff9e8b4f7f5340999ce06fccf329ca9f80","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255}]}
+DIFF_JSON {"scenario":"confirmed_reboot","checkpoint":"confirmation_write","boot_ok":false,"interrupted":false,"original_present_primary":false,"candidate_present_primary":true,"slots":[{"address":131072,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"03e7f76e3a0f1d87b49bbd088a8c884214591d2ec2bd2f31173e5034aca46b2c","trailer":"02ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":1,"copy_done_raw":1},{"address":262144,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"2b366a7ed93cf367463989cefcd3bfff9e8b4f7f5340999ce06fccf329ca9f80","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255}]}
+NATIVE_BOOT scenario=confirmed_reboot checkpoint=reset_1 cut=None result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x738968060380, flash_dev_id: 0, image_off: 131072 } }
+DIFF_JSON {"scenario":"confirmed_reboot","checkpoint":"reset_1","boot_ok":true,"interrupted":false,"original_present_primary":false,"candidate_present_primary":true,"slots":[{"address":131072,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"03e7f76e3a0f1d87b49bbd088a8c884214591d2ec2bd2f31173e5034aca46b2c","trailer":"02ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":1,"copy_done_raw":1},{"address":262144,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"2b366a7ed93cf367463989cefcd3bfff9e8b4f7f5340999ce06fccf329ca9f80","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255}]}
+DIFF_JSON {"scenario":"unconfirmed_revert","checkpoint":"initial","boot_ok":false,"interrupted":false,"original_present_primary":true,"candidate_present_primary":false,"slots":[{"address":131072,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"ba634fdaeeb1a2b75a56e914c430d78132a5471c32192a482f490ef44b47916c","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255},{"address":262144,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"aef40063dc7d870ba9d4a525bf70986563c0c882407dedbe30edc99b2cd14ce7","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":255,"copy_done_raw":255}]}
+NATIVE_BOOT scenario=unconfirmed_revert checkpoint=first_boot cut=None result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x738968060380, flash_dev_id: 0, image_off: 131072 } }
+DIFF_JSON {"scenario":"unconfirmed_revert","checkpoint":"first_boot","boot_ok":true,"interrupted":false,"original_present_primary":false,"candidate_present_primary":true,"slots":[{"address":131072,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"42094aa9633874b3a038b3f4db29fddc2b8a9c650f1c1520cd843aa4f55cf43b","trailer":"02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":255,"copy_done_raw":1},{"address":262144,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"ba634fdaeeb1a2b75a56e914c430d78132a5471c32192a482f490ef44b47916c","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255}]}
+NATIVE_BOOT scenario=unconfirmed_revert checkpoint=reset_1 cut=None result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x738968060380, flash_dev_id: 0, image_off: 131072 } }
+DIFF_JSON {"scenario":"unconfirmed_revert","checkpoint":"reset_1","boot_ok":true,"interrupted":false,"original_present_primary":true,"candidate_present_primary":false,"slots":[{"address":131072,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"c5264bef19d2b9133f18891d8087cfa12b5d33212f2b02fae76e6b13e0d46357","trailer":"04ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":1,"copy_done_raw":1},{"address":262144,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"a797f5d4a19c03b964e5f8c5c12b0be45011d9dd97a199f2126058c663f16e69","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255}]}
+DIFF_JSON {"scenario":"unauthorized_revert","checkpoint":"initial","boot_ok":false,"interrupted":false,"original_present_primary":true,"candidate_present_primary":false,"slots":[{"address":131072,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"c3b4e6f7564dbbdbcd8a0900666e8437cdf089b086ba42c3b087cc71158f3768","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255},{"address":262144,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"80b02fff6d413b6b19fb6cdd242ae6500097bd6cbc15fd2353f7aa2bdf3624ae","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":255,"copy_done_raw":255}]}
+NATIVE_BOOT scenario=unauthorized_revert checkpoint=first_boot cut=None result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x7389680457c0, flash_dev_id: 0, image_off: 131072 } }
+DIFF_JSON {"scenario":"unauthorized_revert","checkpoint":"first_boot","boot_ok":true,"interrupted":false,"original_present_primary":false,"candidate_present_primary":true,"slots":[{"address":131072,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"a8d4eb9838ea4edf6af39cb440299756264ebb17dfd4859bda4eb617a8afbede","trailer":"02ffffffffffffff01ffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":255,"copy_done_raw":1},{"address":262144,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"c3b4e6f7564dbbdbcd8a0900666e8437cdf089b086ba42c3b087cc71158f3768","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255}]}
+NATIVE_BOOT scenario=unauthorized_revert checkpoint=reset_1 cut=None result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x7389680457c0, flash_dev_id: 0, image_off: 131072 } }
+DIFF_JSON {"scenario":"unauthorized_revert","checkpoint":"reset_1","boot_ok":true,"interrupted":false,"original_present_primary":true,"candidate_present_primary":false,"slots":[{"address":131072,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"0b3449b8d194eb0feccec6e2af91f8c480ca1c36892bfd14d5ef80bee3a5988e","trailer":"04ffffffffffffff01ffffffffffffff01ffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":1,"copy_done_raw":1},{"address":262144,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"8fb6da0dcbb6796bf26c3425a60d0c35d59ae9d2b65adffcce0b912822c57c1b","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255}]}
+DIFF_JSON {"scenario":"invalid_signature","checkpoint":"initial","boot_ok":false,"interrupted":false,"original_present_primary":true,"candidate_present_primary":false,"slots":[{"address":131072,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"4d03b2d7ed7f5bf6ba616d08b9b1012fd37a52bd7b2c4f7837cdb539032f2a52","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255},{"address":262144,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"6932ab257c15616b33f24cc159666d8b20804a2de44bb838a83952bfb3fac80f","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255}]}
+NATIVE_BOOT scenario=invalid_signature checkpoint=first_boot cut=None result=Normal { result: 0, asserts: 0, resp: BootRsp { br_hdr: 0x7389680467e0, flash_dev_id: 0, image_off: 131072 } }
+DIFF_JSON {"scenario":"invalid_signature","checkpoint":"first_boot","boot_ok":true,"interrupted":false,"original_present_primary":true,"candidate_present_primary":false,"slots":[{"address":131072,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"4d03b2d7ed7f5bf6ba616d08b9b1012fd37a52bd7b2c4f7837cdb539032f2a52","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255},{"address":262144,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"6932ab257c15616b33f24cc159666d8b20804a2de44bb838a83952bfb3fac80f","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255}]}
+DIFF_JSON {"scenario":"payload_corruption","checkpoint":"initial","boot_ok":false,"interrupted":false,"original_present_primary":true,"candidate_present_primary":false,"slots":[{"address":131072,"version":"0.0.1.0","header":"3db8f396000000002000000060f2010000000000000001000000000000000000","sha256":"2f12cf033c07bbfeac946913d969fe3f686d7fc8e7b6df06b72874f762b97a9b","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff","image_ok_raw":255,"copy_done_raw":255},{"address":262144,"version":"1.0.1.1","header":"3db8f396000000002000000060f2010000000000010001000100000000000000","sha256":"3dac182046be1b8b03379a26e9b67db90edd2c5532aba0e6c05b2b4bb98a0a9b","trailer":"ffffffffffffffffffffffffffffffffffffffffffffffff77c295f360d2ef7f3552500f2cb67980","image_ok_raw":255,"copy_done_raw":255}]}
+
+thread 'image::ota_differential::differential_reference_scenarios' panicked at sim/simflash/src/lib.rs:209:17:
+Write to unerased location at 0x40020
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+FAILED
+
+failures:
+
+failures:
+    image::ota_differential::differential_reference_scenarios
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+
+error: test failed, to rerun pass `--lib`
