@@ -12,7 +12,7 @@ LLMs extract requirements, check extraction faithfulness, and explain evidence.
 **Compatibility, parallel planning, fault injection, recovery, and invariants are
 deterministic code.** They run and are tested without model services.
 
-[Detailed project and architecture report (20-page PDF)](docs/OTA_Campaign_Verifier_Project_Report.pdf)
+[Project and architecture report](docs/OTA_Campaign_Verifier_Project_Report.html)
 
 ![Guarded recovery comparison with retained baseline violations](docs/assets/guarded-recovery.png)
 
@@ -21,14 +21,45 @@ passes its modeled sweep while baseline failures stay visible; human review is
 still pending. This is not live-model accuracy, vehicle validation, or
 certification evidence.*
 
-[Three-minute demo](docs/demo_walkthrough.md) ? [Screen recording](docs/assets/demo.webm) ?
-[Architecture](docs/architecture.md) ? [Release validation](docs/phase11.md)
+[Three-minute demo](docs/demo_walkthrough.md) | [Screen recording](docs/assets/demo.webm) |
+[Architecture](docs/architecture.md) | [Release validation](docs/phase11.md)
+
+## Engineering strengths
+
+- **Intermediate-state reasoning:** one compatibility rule serves Z3 planning and invariant checking, catching campaigns whose endpoints are compatible but whose activation path is not.
+- **Parallel flashing with explicit semantics:** writes overlap while activations remain ordered; mutex, capacity, deadline and downgrade requirements stay traceable to evidence.
+- **Recovery beyond a nominal plan:** deterministic fault sweeps, authorized rollback search and guarded boot-policy comparisons retain violations and inconclusive results.
+- **Reviewable decisions:** extraction citations, revision-bound human approval, SQLite history and verified evidence bundles connect results to the exact inputs and policy.
+- **Independent bootloader observations:** pinned MCUboot C execution is compared with the Python model; intentional differences and unsupported mechanisms remain visible.
+
+## Project phases
+
+Phases 1-11 build the campaign-verification workflow. Phase 12 adds the MCUboot
+validation workstream; its five subphases are numbered 12A-12E below.
+
+| Phase | Capability | Guide |
+| --- | --- | --- |
+| 1 | Validated ECU/constraint models and shared compatibility rule | [Domain contract](#phase-1-domain-model-and-compatibility) |
+| 2 | Z3 parallel flash planning and conflict evidence | [Planning](#phase-2-parallel-flash-planning) |
+| 3 | A/B fault injection, invariant checking and recovery search | [Simulation](#phase-3-fault-simulation-and-invariant-checking) |
+| 4 | LLM extraction, schema/faithfulness checks and source evidence | [Phase 4](docs/phase4.md) |
+| 5 | Streamlit/LangGraph local review and human approval | [Phase 5](docs/phase5.md) |
+| 6 | Baseline versus guarded trial-boot comparison | [Phase 6](docs/phase6.md) |
+| 7 | SQLite persistence, revisions and review history | [Phase 7](docs/phase7.md) |
+| 8 | Reproducible deterministic and extraction-fixture benchmarks | [Phase 8](docs/phase8.md) |
+| 9 | Explicit policy selection and policy-bound approval | [Phase 9](docs/phase9.md) |
+| 10 | Optional authenticated shared review and operational controls | [Phase 10](docs/phase10.md) |
+| 11 | Release validation and portfolio evidence | [Phase 11](docs/phase11.md) |
+| 12 | MCUboot reference execution and independent recovery comparison | [Phase 12A-12E](#phase-12-mcuboot-recovery-validation) |
+
+Implemented features and exercised infrastructure are separate: mocked/offline
+checks do not establish live provider accuracy, remote CI or live OIDC operation.
 
 ## Live demo
 
 [Open OTA Campaign Verifier](https://ota-campaign-verifier.streamlit.app/)
 
-The URL responds with HTTP 200; interactive live-browser verification is pending.
+Interactive verification of the hosted deployment remains separate from local tests.
 
 Hosted on Streamlit Community Cloud. The public demo runs real deterministic
 analysis on synthetic fixtures; no API keys are needed. Provider configuration
@@ -37,57 +68,6 @@ simulation records.
 
 See the [free deployment and maintenance guide](docs/deploy_free.md) for setup.
 The public fixture demo does not validate the separate shared-mode OIDC setup.
-
-## MCUboot recovery validation
-
-An independent harness compares the guarded recovery simulator with real MCUboot
-v2.4.0 C bootloader code running over simulated flash. Phases 1A–1E are complete.
-The reference is pinned to commit
-`6d3b3d2c38ab20c242e5b9abb04d050086383eb2`, using scratch swap,
-RSA-2048/SHA-256 and primary-slot validation in the official simulator under WSL2.
-
-| Differential result | Scenarios |
-| --- | ---: |
-| MATCH — bounded observable endpoints | 6 |
-| MISMATCH — intentional campaign-policy differences | 2 |
-| UNSUPPORTED — mechanism or interruption boundaries differ | 4 |
-| INCONCLUSIVE | 0 |
-
-The mismatches preserve explicit downgrade authorization and the campaign's
-original-image recovery objective. Unsupported cases remain unsupported;
-matching endpoints do not establish signature verification, scratch-journal
-recovery or application-health equivalence. No production simulator defect was
-identified, and its behavior was preserved. This is software simulation evidence,
-not full MCUboot equivalence, hardware or real-vehicle validation.
-
-Recorded Phase 1E runs (each with 0 failures/errors/skips and 14 warnings):
-
-| Run | Native evidence | Python tests passed | Artifact hashes verified |
-| --- | --- | ---: | ---: |
-| [Fresh execution](validation/mcuboot/final_evidence/phase1e-fresh/validation.json) | Real C tests executed again | 582 | 58 |
-| [Evidence replay](validation/mcuboot/final_evidence/phase1e-replay/validation.json) | Historical C logs; no fresh native execution | 586 | 50 |
-
-The replay run includes four status-guard tests added after the fresh run.
-Warnings and JUnit results are retained in each package; unsupported scenarios
-are not counted as successful validations.
-
-After the [reference environment setup](docs/MCUBOOT_REFERENCE_ENVIRONMENT.md),
-run from this directory in PowerShell:
-
-```powershell
-# Build/test real MCUboot, compare both implementations, review policies and run regressions.
-.\.venv\Scripts\python.exe validation/mcuboot/validate.py --mode fresh
-
-# Reuse recorded native evidence; Python simulation and regression tests still execute.
-.\.venv\Scripts\python.exe validation/mcuboot/validate.py --mode replay
-
-# Verify the recorded fresh package, including its consolidated report.
-.\.venv\Scripts\python.exe validation/mcuboot/validate.py --verify validation/mcuboot/final_evidence/phase1e-fresh/validation.json
-```
-
-New runs use separate timestamped evidence directories. See the
-[engineering report, complete scenario table and Windows/WSL2 reproduction guide](docs/MCUBOOT_VALIDATION_REPORT.md)
-for methods, raw evidence, limitations and remaining gaps.
 
 ## What the demonstrations prove under the model
 
@@ -132,7 +112,40 @@ Run just the Phase 2 tests:
 .\.venv\Scripts\python -m pytest -q tests/test_planner.py tests/test_exhaustive_planner.py tests/test_plan_validation.py tests/test_cli.py
 ```
 
-## Try parallel planning
+## Phase 1: domain model and compatibility
+
+ECU configuration and runtime state are separate: `ECU` holds current/target
+versions and flash duration; `ECUState` holds A/B images and active slot.
+Constraints retain stable IDs, source document IDs, and source sentences.
+Pydantic rejects unknown fields, malformed specifications, unknown ECU references,
+duplicate IDs, invalid active slots, incomplete initial state, and contradictory
+current-version observations.
+
+One definition in `compat.py` expresses dependency implication for both concrete
+and symbolic evaluation. `check_compatibility` returns all violated `requires`
+constraints with source evidence, actual dependency version, and expected spec.
+Only active images participate. Missing or extra runtime ECUs raise an input
+error rather than being treated as compatible.
+
+Compatibility alone does not imply bootability, valid environment, allowed
+ordering, or authorization. Invalid active images and incompatible initial
+states remain representable as input for analysis; the planner blocks them.
+An active slot must contain an image. Unbootability is represented with
+`valid=false`, which is supplied simulation data, not verified cryptographic
+image integrity.
+
+Versions are dotted nonnegative numeric components: `4.10 > 4.2`, `4.2.0 == 4.2`,
+and leading zeros are insignificant. Each specification has one explicit `==`,
+`!=`, `>=`, `<=`, `>`, or `<` comparison. Prereleases, build metadata, compound
+ranges, prefixes, and whitespace are rejected.
+
+Strict Python construction uses tuples; JSON arrays are accepted through
+`model_validate_json`. Records are frozen and `model_dump_json` preserves source
+evidence. Create states with validated constructors rather than unchecked
+`model_construct` or `model_copy(update=...)` APIs. `validate_plan` checks nominal
+validity, not a caller-supplied claim of optimality.
+
+## Phase 2: parallel flash planning
 
 ```powershell
 .\.venv\Scripts\python -m ota_verifier.cli examples/parallel_campaign.json --max-parallel 2
@@ -160,7 +173,7 @@ also expose the `ota-plan` command. Options include `--timeout-ms` (default 1000
 `--max-parallel`, and `--deadline-ms`. Omitting a concurrency limit assumes
 unlimited independent write channels; set a limit to model constrained resources.
 
-## Python API
+### Python API
 
 ```python
 from pathlib import Path
@@ -177,7 +190,7 @@ if isinstance(result, FeasibleResult):
     assert result.plan.makespan_ms == 300_000
 ```
 
-## Phase 2 planning semantics
+### Planning semantics
 
 | Concern | Explicit modeling rule |
 | --- | --- |
@@ -479,73 +492,6 @@ Durability here concerns simulated power loss, not Python-process persistence.
 See [the Phase 6 guide](docs/phase6.md) for exact semantics, coverage, the negative
 cold-start example, APIs, and verification evidence.
 
-## Domain and compatibility contract
-
-ECU configuration and runtime state are separate: `ECU` holds current/target
-versions and flash duration; `ECUState` holds A/B images and active slot.
-Constraints retain stable IDs, source document IDs, and source sentences.
-Pydantic rejects unknown fields, malformed specifications, unknown ECU references,
-duplicate IDs, invalid active slots, incomplete initial state, and contradictory
-current-version observations.
-
-One definition in `compat.py` expresses dependency implication for both concrete
-and symbolic evaluation. `check_compatibility` returns all violated `requires`
-constraints with source evidence, actual dependency version, and expected spec.
-Only active images participate. Missing or extra runtime ECUs raise an input
-error rather than being treated as compatible.
-
-Compatibility alone does not imply bootability, valid environment, allowed
-ordering, or authorization. Invalid active images and incompatible initial
-states remain representable as input for analysis; the planner blocks them.
-An active slot must contain an image. Unbootability is represented with
-`valid=false`, which is supplied simulation data, not verified cryptographic
-image integrity.
-
-Versions are dotted nonnegative numeric components: `4.10 > 4.2`, `4.2.0 == 4.2`,
-and leading zeros are insignificant. Each specification has one explicit `==`,
-`!=`, `>=`, `<=`, `>`, or `<` comparison. Prereleases, build metadata, compound
-ranges, prefixes, and whitespace are rejected.
-
-Strict Python construction uses tuples; JSON arrays are accepted through
-`model_validate_json`. Records are frozen and `model_dump_json` preserves source
-evidence. Create states with validated constructors rather than unchecked
-`model_construct` or `model_copy(update=...)` APIs. `validate_plan` checks nominal
-validity, not a caller-supplied claim of optimality.
-
-## Verification evidence
-
-Phase 1's 69 regression tests remain included. Phase 2 tests cover parallel
-speedup, capacity, mutex groups, order, environment boundaries, downgrades,
-unchanged ECUs, invalid active images, endpoint and intermediate incompatibility,
-conflict evidence and subset minimality, result serialization, altered-plan
-rejection, CLI behavior, and interrupted solver operations.
-
-Twenty-four reproducible tiny campaigns are checked against exhaustive
-start-time and activation-order enumeration, comparing both feasibility and
-optimal duration. These cases use integer-minute durations and deadlines; for
-a fixed ordering their integer difference bounds admit a lattice optimum.
-This provides an independent scheduling oracle for those cases, not an
-exhaustive validation of arbitrary campaign sizes or real systems.
-
-The five hand-authored benchmarks in `tests/fixtures` remain:
-
-| Fixture | Expected result |
-| --- | --- |
-| `compatible.json` | Compatible initial, intermediate, and target states. |
-| `order_sensitive.json` | Gateway activation first works; brake activation first violates its dependency. Writes can still overlap. |
-| `impossible_direct.json` | Compatible endpoints, but either first single-ECU activation fails. Parallel writes do not resolve this. |
-| `recovery_trap.json` | Reverting the gateway alone breaks the updated brake dependency. |
-| `invalid_input.json` | Validation rejects an unknown dependency ECU. |
-
-## Later phases
-
-The scoped simulation workflow is implemented through local human review.
-Compatibility, planning, fault injection, and invariant checking remain entirely
-deterministic; LLM use stays limited to extraction, verification, and explanation.
-Potential later work includes durable checkpoint storage, authenticated review,
-and broader benchmark coverage. Those are not guarantees of this local demo.
-
-
 ## Phase 7: persistent runs and review history
 
 In the Streamlit sidebar, open **Persistent run library** and then **Open SQLite
@@ -560,8 +506,8 @@ transactionally. Reviewer identities remain self-reported in this local tool.
 See [Phase 7 usage and recovery rules](docs/phase7.md). Phase 7 completes the
 current local portfolio milestone. [The next-phase roadmap](docs/roadmap.md)
 records completed evaluation/reproducibility and explicit policy selection.
-The single-host shared-review and operational-hardening phase is now implemented;
-no further numbered phases are planned.
+Optional shared review and operational controls are implemented in Phase 10;
+Phase 11 records release evidence and Phase 12 adds MCUboot comparison.
 
 
 ## Phase 8: reproducible benchmark evidence
@@ -582,7 +528,7 @@ for the deterministic benchmark alone; live evaluation requires explicit
 
 See [Phase 8 methodology and commands](docs/phase8.md) and the recorded
 [reference baseline](eval/baseline_v1.json). Offline CI is configured for
-Python 3.11?3.14 on Windows and Linux; only Windows/Python 3.14 has been verified
+Python 3.11-3.14 on Windows and Linux; only Windows/Python 3.14 has been verified
 locally. Correctly detecting an expected campaign violation counts as a passing
 benchmark check, never approval of that campaign.
 
@@ -621,7 +567,8 @@ exports retain provenance separately from historical self-reported identities.
 Follow [Phase 10 setup, maintenance commands, and limits](docs/phase10.md).
 Login and UI authorization are tested with mocked verified identities; an actual
 identity-provider login and network deployment have not been exercised. The
-checked-in server stays on loopback. No further numbered phases are planned.
+checked-in server stays on loopback. Phase 12 separately validates bounded
+recovery observations against MCUboot.
 
 
 ## Phase 11: release validation and portfolio evidence
@@ -641,3 +588,101 @@ remain explicitly pending, as agreed for this milestone.
 criteria. [Architecture](docs/architecture.md) explains the model boundaries;
 [the demo walkthrough](docs/demo_walkthrough.md) includes the presentation script
 and instructions for regenerating the real browser screenshots and recording.
+
+
+## Phase 12: MCUboot recovery validation
+
+The MCUboot extension follows the original eleven project phases. Its archived
+reports use the workstream labels **1A-1E**; here they are **12A-12E** to avoid
+confusing them with the original domain-model Phase 1. Evidence filenames and
+historical reports retain their original identifiers.
+
+| Subphase | Completed work | Engineering record |
+| --- | --- | --- |
+| 12A | Repository audit, reference selection and model-gap analysis | [Validation plan](docs/MCUBOOT_VALIDATION_PLAN.md) |
+| 12B | Executable official MCUboot reference and actual C observations | [Reference environment](docs/MCUBOOT_REFERENCE_ENVIRONMENT.md) |
+| 12C | Independent twelve-scenario comparison | [Differential findings](docs/MCUBOOT_DIFFERENTIAL_VALIDATION.md) |
+| 12D | Evidence-backed policy distinction and regression guards | [Model refinement](docs/MCUBOOT_MODEL_REFINEMENT.md) |
+| 12E | Unified runner, full regressions and independently verifiable packages | [Final engineering report](docs/MCUBOOT_VALIDATION_REPORT.md) |
+
+An independent harness compares the guarded recovery simulator with real MCUboot
+v2.4.0 C bootloader code running over simulated flash. Phases 12A-12E are complete.
+The reference is pinned to commit
+`6d3b3d2c38ab20c242e5b9abb04d050086383eb2`, using scratch swap,
+RSA-2048/SHA-256 and primary-slot validation in the official simulator under WSL2.
+
+| Differential result | Scenarios |
+| --- | ---: |
+| MATCH — bounded observable endpoints | 6 |
+| MISMATCH — intentional campaign-policy differences | 2 |
+| UNSUPPORTED — mechanism or interruption boundaries differ | 4 |
+| INCONCLUSIVE | 0 |
+
+The mismatches preserve explicit downgrade authorization and the campaign's
+original-image recovery objective. Unsupported cases remain unsupported;
+matching endpoints do not establish signature verification, scratch-journal
+recovery or application-health equivalence. No production simulator defect was
+identified, and its behavior was preserved. This is software simulation evidence,
+not full MCUboot equivalence, hardware or real-vehicle validation.
+
+Recorded Phase 12E runs (each with 0 failures/errors/skips and 14 warnings):
+
+| Run | Native evidence | Python tests passed | Artifact hashes verified |
+| --- | --- | ---: | ---: |
+| [Fresh execution](validation/mcuboot/final_evidence/phase1e-fresh/validation.json) | Real C tests executed again | 582 | 58 |
+| [Evidence replay](validation/mcuboot/final_evidence/phase1e-replay/validation.json) | Historical C logs; no fresh native execution | 586 | 50 |
+
+The replay run includes four status-guard tests added after the fresh run.
+Warnings and JUnit results are retained in each package; unsupported scenarios
+are not counted as successful validations.
+
+After the [reference environment setup](docs/MCUBOOT_REFERENCE_ENVIRONMENT.md),
+run from this directory in PowerShell:
+
+```powershell
+# Build/test real MCUboot, compare both implementations, review policies and run regressions.
+.\.venv\Scripts\python.exe validation/mcuboot/validate.py --mode fresh
+
+# Reuse recorded native evidence; Python simulation and regression tests still execute.
+.\.venv\Scripts\python.exe validation/mcuboot/validate.py --mode replay
+
+# Verify the recorded fresh package, including its consolidated report.
+.\.venv\Scripts\python.exe validation/mcuboot/validate.py --verify validation/mcuboot/final_evidence/phase1e-fresh/validation.json
+```
+
+New runs use separate timestamped evidence directories. See the
+[engineering report, complete scenario table and Windows/WSL2 reproduction guide](docs/MCUBOOT_VALIDATION_REPORT.md)
+for methods, raw evidence, limitations and remaining gaps.
+
+## Verification approach
+
+Phase 1's 69 regression tests remain included. Phase 2 tests cover parallel
+speedup, capacity, mutex groups, order, environment boundaries, downgrades,
+unchanged ECUs, invalid active images, endpoint and intermediate incompatibility,
+conflict evidence and subset minimality, result serialization, altered-plan
+rejection, CLI behavior, and interrupted solver operations.
+
+Twenty-four reproducible tiny campaigns are checked against exhaustive
+start-time and activation-order enumeration, comparing both feasibility and
+optimal duration. These cases use integer-minute durations and deadlines; for
+a fixed ordering their integer difference bounds admit a lattice optimum.
+This provides an independent scheduling oracle for those cases, not an
+exhaustive validation of arbitrary campaign sizes or real systems.
+
+The five hand-authored benchmarks in `tests/fixtures` remain:
+
+| Fixture | Expected result |
+| --- | --- |
+| `compatible.json` | Compatible initial, intermediate, and target states. |
+| `order_sensitive.json` | Gateway activation first works; brake activation first violates its dependency. Writes can still overlap. |
+| `impossible_direct.json` | Compatible endpoints, but either first single-ECU activation fails. Parallel writes do not resolve this. |
+| `recovery_trap.json` | Reverting the gateway alone breaks the updated brake dependency. |
+| `invalid_input.json` | Validation rejects an unknown dependency ECU. |
+
+## Remaining work and boundaries
+
+Remote CI and live OIDC checks remain pending in the recorded release evidence.
+Live LLM accuracy, scalability evaluation and regulatory-evidence work have not
+been established by the MCUboot extension. No additional phase is implied as
+complete. The project remains a simulation; selected endpoint agreement does not
+establish full bootloader equivalence, hardware or real-vehicle validation.
