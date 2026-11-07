@@ -23,7 +23,8 @@ def extract_and_verify(request: DocumentRequest, client: JsonClient,
 
     The second client can select a different model. Using the same client still
     creates a separate call and prompt, but does not remove correlated errors.
-    Review issues block progression; no source text or model output is repaired.
+    Unresolved review issues block progression; explicitly witnessed opposite
+    orders remain in the draft for solver review. No model output is repaired.
     """
     calls: list[CallRecord] = []
     draft: ExtractionDraft | None = None

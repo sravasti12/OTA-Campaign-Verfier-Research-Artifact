@@ -1,0 +1,43 @@
+{
+  "retrieved_at_recorded_utc": "2026-11-07T06:50:12.723231+00:00",
+  "timestamp_meaning": "Provenance consolidation time after source retrieval, not exact HTTP request time",
+  "expresslrs": {
+    "commit": "805830b6d0bcd352ee7167ab16ab57d1c26fb421",
+    "source": "Official GitHub repository; resolved branch once, then downloaded exact commit path"
+  },
+  "flysky": {
+    "source": "Official manufacturer link resolved to Squarespace PDF; exact bytes stored",
+    "document_model": "Noble NB4+ (not NB4 Pro)",
+    "manual_filename_revision": "20231219",
+    "quote_pdf_page_1based": 67,
+    "quote_printed_page": 62,
+    "text_verification": "ASSISTANT_VISUAL_VERIFICATION of actual local PDF rasterization; no human label approval",
+    "extraction_note": "Two physical lines joined with one space; raw two-line quotation retained",
+    "visual_pages": {
+      "7": "NB4+ transmitter and FGr4B receiver identity, printed p2",
+      "67": "NB4+ header, section7.16, exact order note, printed p62"
+    },
+    "renderer": "Built-in Windows.Data.Pdf API; render_flysky.ps1; no dependency installation",
+    "failed_methods": [
+      "WSL rendering tools absent",
+      "web PDF access failed",
+      "initial WinRT AsTask overload error corrected before successful rendering"
+    ],
+    "unresolved_transcription_uncertainty": null,
+    "human_interpretation_approval": false
+  },
+  "mcuboot": {
+    "commit": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+    "source": "Existing pinned upstream checkout; text hashes agree with previously recorded official source hashes",
+    "line_endings": "Stored Windows CRLF bytes; Python Unicode text/source offsets use universal-newline LF decoding",
+    "design_normalized_text_sha256": "8d23b015f9e60dd49a80b44c5c9eee0a3e3b8928abae78064541f8ee64d57c13",
+    "serial_normalized_text_sha256": "47de13170a90e2ef2b72145f43bae5434aec03a327b68c09756acf6fe87ca002"
+  },
+  "distribution_note": "Public access is not a blanket redistribution grant. Manufacturer PDF and ExpressLRS documentation license/redistribution review remain publication checks; no inference was run.",
+  "revision_recorded_at_utc": "2026-11-07T06:57:38.378728+00:00",
+  "revision_changes": [
+    "Flysky visual evidence and transcription verification",
+    "ExpressLRS case03 extended by exact adjacent version-format definition; recalculated offsets",
+    "All labels remain UNREVIEWED and all original IDs retained for lineage"
+  ]
+}

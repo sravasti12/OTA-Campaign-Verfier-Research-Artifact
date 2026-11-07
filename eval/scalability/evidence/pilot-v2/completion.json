@@ -1,0 +1,1 @@
+{"benchmark_sources_unchanged":true,"elapsed_seconds":362.32445540002664,"findings":[],"profile":"pilot","protected_sources_and_mcuboot_unchanged":true,"protocol_complete":true,"scheduled":80,"statuses":{"NO_BASELINE_SCHEDULE":12,"WATCHDOG_TIMEOUT":1,"feasible":43,"infeasible":12,"unknown":12}}

@@ -1,0 +1,32 @@
+{
+  "checked_at_utc": "2026-11-07T07:44:10.639039+00:00",
+  "historical_and_execution_hash_entries_verified": {
+    "synthetic-pilot-v1": 20,
+    "real-pilot-v1": 20,
+    "real-review-v3": 16,
+    "reliability-repair-v1": 4,
+    "real-retest-v2": 17
+  },
+  "production_sources_unchanged": true,
+  "prompts_unchanged_during_execution": true,
+  "dataset_unchanged": true,
+  "actual_live_http_requests": 8,
+  "automatic_retries": 0,
+  "additional_requests_after_execution": 0,
+  "tests": {
+    "passed": 274,
+    "failed": 0,
+    "errors": 0,
+    "warnings": 13,
+    "seconds": 26.71
+  },
+  "pip_check": "No broken requirements found.",
+  "configured_secret_value_scan": "PASS for changed text and retest artifacts; not a whole-repository audit",
+  "changed_file_sha256": {
+    "eval\\live_extraction\\final_retest.py": "9aea78bdec69683c9f4367a0a40ae1aff2e0ac0bf747e412ab6f80d3fe649267",
+    "eval\\live_extraction\\compare_retest.py": "92a48f0acfd40497a503dd765ec05feb63ffc8a953deed6773b2f436b376f86c",
+    "tests\\test_final_retest_runner.py": "f3518828eb87a8b4804bf323d5c87d2b5ae1f60935c6efbe347fbefeaa971a5f",
+    "tests\\test_retest_comparison.py": "639aea6c0130a3c1a71b9063553a4b1f0cd40bd840575da837e98daf84264ace",
+    "docs\\PHASE2C_FINAL_RETEST_COMPARISON.md": "ec52e87f785330830f9aa9c63b14a34cbf6548bcdf8dfbc5ab928ac857961ec4"
+  }
+}

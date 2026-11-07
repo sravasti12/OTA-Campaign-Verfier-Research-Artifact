@@ -1,0 +1,8 @@
+{
+    "recorded_utc":  "2026-11-06T13:59:10.1078684Z",
+    "power_scheme":  "Power Scheme GUID: 381b4222-f694-41f0-9685-ff5bb260df2e  (Balanced)",
+    "cpu":  null,
+    "cpu_query_error":  "CimException",
+    "dedicated_host":  false,
+    "note":  "Read-only preflight observation; power/CPU load not held constant during experiments."
+}

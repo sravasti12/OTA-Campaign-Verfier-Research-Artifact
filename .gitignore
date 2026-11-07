@@ -32,3 +32,10 @@ Thumbs.db
 # Research artifacts: fetched tools and throwaway smoke runs are not results
 tools/bin/
 results/raw/smoke/
+
+# Manufacturer reference assets: retain locally, do not redistribute without permission.
+# Exact hashes and provenance stay in the immutable evidence manifests.
+eval/live_extraction/real-review-v2/sources/flysky-nb4-manual.pdf
+eval/live_extraction/real-review-v3/sources/flysky-nb4-manual.pdf
+eval/live_extraction/real-review-v3/rendered-pages/flysky-page-7.png
+eval/live_extraction/real-review-v3/rendered-pages/flysky-page-67.png

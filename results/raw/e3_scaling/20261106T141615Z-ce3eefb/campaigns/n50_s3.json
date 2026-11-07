@@ -1,0 +1,1174 @@
+{
+  "id": "generated-n50-s3",
+  "ecus": [
+    {
+      "id": "ecu00",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu01",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu02",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu03",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu04",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu05",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu06",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu07",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu08",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu09",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu10",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu11",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu12",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu13",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu14",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu15",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu16",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu17",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu18",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu19",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu20",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu21",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu22",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu23",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu24",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu25",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu26",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu27",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu28",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu29",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu30",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu31",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu32",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu33",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu34",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu35",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu36",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu37",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu38",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu39",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu40",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu41",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu42",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu43",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu44",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu45",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu46",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu47",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu48",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu49",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    }
+  ],
+  "initial_state": {
+    "ecus": [
+      {
+        "ecu_id": "ecu00",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu01",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu02",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu03",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu04",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu05",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu06",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu07",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu08",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu09",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu10",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu11",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu12",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu13",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu14",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu15",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu16",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu17",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu18",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu19",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu20",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu21",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu22",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu23",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu24",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu25",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu26",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu27",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu28",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu29",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu30",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu31",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu32",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu33",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu34",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu35",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu36",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu37",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu38",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu39",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu40",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu41",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu42",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu43",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu44",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu45",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu46",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu47",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu48",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu49",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      }
+    ],
+    "battery_percent": 80.0,
+    "ignition": "off"
+  },
+  "constraints": [
+    {
+      "id": "ecu02-needs-ecu00",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu02",
+      "version_spec": ">=2",
+      "needs": "ecu00",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu02-needs-ecu01",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu02",
+      "version_spec": ">=2",
+      "needs": "ecu01",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu03-needs-ecu02",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu03",
+      "version_spec": ">=2",
+      "needs": "ecu02",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu05-needs-ecu00",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu05",
+      "version_spec": ">=2",
+      "needs": "ecu00",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu06-needs-ecu05",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu06",
+      "version_spec": ">=2",
+      "needs": "ecu05",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu08-needs-ecu06",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu08",
+      "version_spec": ">=2",
+      "needs": "ecu06",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu09-needs-ecu01",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu09",
+      "version_spec": ">=2",
+      "needs": "ecu01",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu10-needs-ecu08",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu10",
+      "version_spec": ">=2",
+      "needs": "ecu08",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu14-needs-ecu05",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu14",
+      "version_spec": ">=2",
+      "needs": "ecu05",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu14-needs-ecu08",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu14",
+      "version_spec": ">=2",
+      "needs": "ecu08",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu15-needs-ecu08",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu15",
+      "version_spec": ">=2",
+      "needs": "ecu08",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu16-needs-ecu07",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu16",
+      "version_spec": ">=2",
+      "needs": "ecu07",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu17-needs-ecu08",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu17",
+      "version_spec": ">=2",
+      "needs": "ecu08",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu18-needs-ecu06",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu18",
+      "version_spec": ">=2",
+      "needs": "ecu06",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu18-needs-ecu12",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu18",
+      "version_spec": ">=2",
+      "needs": "ecu12",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu19-needs-ecu11",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu19",
+      "version_spec": ">=2",
+      "needs": "ecu11",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu21-needs-ecu00",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu21",
+      "version_spec": ">=2",
+      "needs": "ecu00",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu24-needs-ecu21",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu24",
+      "version_spec": ">=2",
+      "needs": "ecu21",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu25-needs-ecu08",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu25",
+      "version_spec": ">=2",
+      "needs": "ecu08",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu28-needs-ecu25",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu28",
+      "version_spec": ">=2",
+      "needs": "ecu25",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu29-needs-ecu19",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu29",
+      "version_spec": ">=2",
+      "needs": "ecu19",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu30-needs-ecu01",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu30",
+      "version_spec": ">=2",
+      "needs": "ecu01",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu30-needs-ecu10",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu30",
+      "version_spec": ">=2",
+      "needs": "ecu10",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu31-needs-ecu13",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu31",
+      "version_spec": ">=2",
+      "needs": "ecu13",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu31-needs-ecu19",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu31",
+      "version_spec": ">=2",
+      "needs": "ecu19",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu33-needs-ecu22",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu33",
+      "version_spec": ">=2",
+      "needs": "ecu22",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu35-needs-ecu03",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu35",
+      "version_spec": ">=2",
+      "needs": "ecu03",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu35-needs-ecu08",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu35",
+      "version_spec": ">=2",
+      "needs": "ecu08",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu37-needs-ecu17",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu37",
+      "version_spec": ">=2",
+      "needs": "ecu17",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu37-needs-ecu20",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu37",
+      "version_spec": ">=2",
+      "needs": "ecu20",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu39-needs-ecu38",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu39",
+      "version_spec": ">=2",
+      "needs": "ecu38",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu41-needs-ecu29",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu41",
+      "version_spec": ">=2",
+      "needs": "ecu29",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu42-needs-ecu05",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu42",
+      "version_spec": ">=2",
+      "needs": "ecu05",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu42-needs-ecu23",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu42",
+      "version_spec": ">=2",
+      "needs": "ecu23",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu43-needs-ecu28",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu43",
+      "version_spec": ">=2",
+      "needs": "ecu28",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu44-needs-ecu37",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu44",
+      "version_spec": ">=2",
+      "needs": "ecu37",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu44-needs-ecu42",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu44",
+      "version_spec": ">=2",
+      "needs": "ecu42",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu46-needs-ecu06",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu46",
+      "version_spec": ">=2",
+      "needs": "ecu06",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu47-needs-ecu08",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu47",
+      "version_spec": ">=2",
+      "needs": "ecu08",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu47-needs-ecu25",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu47",
+      "version_spec": ">=2",
+      "needs": "ecu25",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu49-needs-ecu22",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu49",
+      "version_spec": ">=2",
+      "needs": "ecu22",
+      "needs_version_spec": ">=2"
+    }
+  ],
+  "downgrade_authorizations": []
+}

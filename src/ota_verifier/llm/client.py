@@ -16,6 +16,7 @@ from .models import CallRecord, Purpose
 logger = logging.getLogger(__name__)
 Provider = Literal['ollama', 'gemini', 'groq']
 MAX_RESPONSE_BYTES = 8 * 1024 * 1024
+USER_AGENT = 'OTA-Campaign-Verifier-Evaluation/0.1.0'
 
 
 class LLMError(RuntimeError):
@@ -135,7 +136,7 @@ def provider_schema(schema: dict[str, Any]) -> dict[str, Any]:
 
 
 def _request(settings: ClientSettings, system: str, user: str, schema: dict[str, Any]) -> HttpRequest:
-    headers = {'Content-Type': 'application/json'}
+    headers = {'Content-Type': 'application/json', 'User-Agent': USER_AGENT}
     messages = [{'role': 'system', 'content': system}, {'role': 'user', 'content': user}]
     wire_schema = provider_schema(schema)
     if settings.provider == 'ollama':

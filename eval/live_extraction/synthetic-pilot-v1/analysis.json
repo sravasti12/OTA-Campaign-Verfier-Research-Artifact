@@ -1,0 +1,109 @@
+{
+  "interpretation": "SYNTHETIC DEVELOPMENT PILOT; semantic multiset accuracy does not establish evidence-attribution or handoff accuracy.",
+  "cases": [
+    {
+      "case_id": "clear-42",
+      "semantic_counts": {
+        "true_positives": 3,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "exact_semantic_evidence_bindings": 3,
+      "emitted_constraints": 3,
+      "draft_exact_including_evidence_and_issues": true,
+      "pipeline_status": "blocked",
+      "complete_expected_outcome": false,
+      "faithfulness_called": true,
+      "issues": [
+        {
+          "code": "verification_reference",
+          "message": "Verifier issue references an invalid constraint ID",
+          "constraint_id": null,
+          "evidence": null
+        },
+        {
+          "code": "missing_requirement",
+          "message": "Missing requirement that brake runs >=2.",
+          "constraint_id": "c1",
+          "evidence": {
+            "document_id": "release-42",
+            "start_char": 75,
+            "end_char": 117
+          }
+        }
+      ],
+      "planning_status": "not_run"
+    },
+    {
+      "case_id": "order_conflict-44",
+      "semantic_counts": {
+        "true_positives": 2,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "exact_semantic_evidence_bindings": 0,
+      "emitted_constraints": 2,
+      "draft_exact_including_evidence_and_issues": false,
+      "pipeline_status": "blocked",
+      "complete_expected_outcome": false,
+      "faithfulness_called": false,
+      "issues": [
+        {
+          "code": "contradictory_documents",
+          "message": "Contradictory order constraints between gateway and brake.",
+          "constraint_id": null,
+          "evidence": {
+            "document_id": "release-44",
+            "start_char": 150,
+            "end_char": 221
+          }
+        }
+      ],
+      "planning_status": "not_run"
+    },
+    {
+      "case_id": "unsupported-47",
+      "semantic_counts": null,
+      "exact_semantic_evidence_bindings": 0,
+      "emitted_constraints": 0,
+      "draft_exact_including_evidence_and_issues": true,
+      "pipeline_status": "blocked",
+      "complete_expected_outcome": true,
+      "faithfulness_called": false,
+      "issues": [
+        {
+          "code": "unsupported_requirement",
+          "message": "Unsupported requirement: Wi-Fi connection not modeled.",
+          "constraint_id": null,
+          "evidence": {
+            "document_id": "guide-47",
+            "start_char": 81,
+            "end_char": 142
+          }
+        }
+      ],
+      "planning_status": "not_run"
+    }
+  ],
+  "literal_citation_validity": {
+    "numerator": 5,
+    "denominator": 5,
+    "value": 1.0
+  },
+  "semantic_evidence_binding_accuracy": {
+    "numerator": 3,
+    "denominator": 5,
+    "value": 0.6
+  },
+  "faithfulness_false_rejection_on_fully_correct_reviewed_drafts": {
+    "numerator": 1,
+    "denominator": 1,
+    "value": 1.0
+  },
+  "verifier_false_acceptance_on_wrong_reviewed_drafts": null,
+  "post_analysis_note": "No labels or scoring thresholds changed. This separates already-approved exact-evidence, semantic-set and gate criteria; original execution summary is retained. Original pacing_wait_ms records elapsed start-to-start interval, not isolated sleep; do not use it as exact pacing-only latency."
+}

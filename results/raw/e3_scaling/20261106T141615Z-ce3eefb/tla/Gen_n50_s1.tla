@@ -1,0 +1,5 @@
+---- MODULE Gen_n50_s1 ----
+EXTENDS OTACampaign
+GenECUs == {"ecu00", "ecu01", "ecu02", "ecu03", "ecu04", "ecu05", "ecu06", "ecu07", "ecu08", "ecu09", "ecu10", "ecu11", "ecu12", "ecu13", "ecu14", "ecu15", "ecu16", "ecu17", "ecu18", "ecu19", "ecu20", "ecu21", "ecu22", "ecu23", "ecu24", "ecu25", "ecu26", "ecu27", "ecu28", "ecu29", "ecu30", "ecu31", "ecu32", "ecu33", "ecu34", "ecu35", "ecu36", "ecu37", "ecu38", "ecu39", "ecu40", "ecu41", "ecu42", "ecu43", "ecu44", "ecu45", "ecu46", "ecu47", "ecu48", "ecu49"}
+GenDeps == {<<"ecu02", "ecu01">>, <<"ecu03", "ecu00">>, <<"ecu03", "ecu01">>, <<"ecu04", "ecu02">>, <<"ecu04", "ecu03">>, <<"ecu05", "ecu03">>, <<"ecu10", "ecu08">>, <<"ecu16", "ecu06">>, <<"ecu17", "ecu06">>, <<"ecu17", "ecu09">>, <<"ecu20", "ecu11">>, <<"ecu24", "ecu12">>, <<"ecu27", "ecu15">>, <<"ecu28", "ecu06">>, <<"ecu30", "ecu19">>, <<"ecu31", "ecu06">>, <<"ecu33", "ecu09">>, <<"ecu34", "ecu28">>, <<"ecu34", "ecu33">>, <<"ecu35", "ecu27">>, <<"ecu36", "ecu10">>, <<"ecu36", "ecu17">>, <<"ecu39", "ecu38">>, <<"ecu40", "ecu26">>, <<"ecu41", "ecu06">>, <<"ecu45", "ecu44">>, <<"ecu46", "ecu25">>}
+====

@@ -1,0 +1,1 @@
+{"completion_marker_after_launcher_kill":false,"launcher_memory":{"error":null,"method":"windows_peak_working_set","peak_bytes":3633152,"working_bytes":3633152},"popen_pid":816,"worker_memory":{"error":null,"method":"windows_peak_working_set","peak_bytes":80605184,"working_bytes":80605184},"worker_pid":32888}

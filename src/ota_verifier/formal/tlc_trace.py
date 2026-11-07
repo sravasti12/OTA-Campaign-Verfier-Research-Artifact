@@ -5,7 +5,8 @@ from typing import Any
 STATE_HEADER = re.compile(r'^State (\d+): (?:<(\w+)\b.*>|(Stuttering))\s*$')
 LOOP_HEADER = re.compile(r'^Back to state (\d+)')
 VARIABLE = re.compile(r'^/\\ (\w+) = (.*)$')
-TOKEN = re.compile(r'\s*(\|->|"[^"]*"|-?\d+|TRUE|FALSE|\w+|[\[\]{},])')
+RESULT = re.compile(r'<<\s*"RESULT"')
+TOKEN = re.compile(r'\s*(\|->|<<|>>|"[^"]*"|-?\d+|TRUE|FALSE|\w+|[\[\]{},])')
 
 
 def parse_value(text: str) -> Any:
@@ -23,6 +24,8 @@ def _value(tokens: list[str], index: int) -> tuple[Any, int]:
         return _record(tokens, index + 1)
     if token == '{':
         return _set(tokens, index + 1)
+    if token == '<<':
+        return _tuple(tokens, index + 1)
     if token.startswith('"'):
         return token[1:-1], index + 1
     if token in ('TRUE', 'FALSE'):
@@ -52,6 +55,40 @@ def _set(tokens: list[str], index: int) -> tuple[list[Any], int]:
         if tokens[index] == ',':
             index += 1
     return sorted(items), index + 1
+
+
+def _tuple(tokens: list[str], index: int) -> tuple[list[Any], int]:
+    items: list[Any] = []
+    while tokens[index] != '>>':
+        item, index = _value(tokens, index)
+        items.append(item)
+        if tokens[index] == ',':
+            index += 1
+    return items, index + 1
+
+
+def extract_results(output: str) -> list[list[Any]]:
+    """Parse every PrintT tuple tagged "RESULT", including ones TLC wrapped over lines."""
+    results = []
+    found = RESULT.search(output)
+    while found is not None:
+        position = found.start()
+        depth, cursor = 0, position
+        while True:
+            pair = output[cursor:cursor + 2]
+            if pair == '<<':
+                depth += 1
+                cursor += 2
+            elif pair == '>>':
+                depth -= 1
+                cursor += 2
+                if depth == 0:
+                    break
+            else:
+                cursor += 1
+        results.append(parse_value(output[position:cursor]))
+        found = RESULT.search(output, cursor)
+    return results
 
 
 def _variables(lines: list[str]) -> dict[str, Any]:

@@ -1,0 +1,604 @@
+{
+  "format": "synthetic-development-pilot-v1",
+  "origin": "SYNTHETIC DEVELOPMENT PILOT",
+  "source_corpus_sha256": "7a8a5008b3005a870f377b0bf7ea536c51b48dfc6a9a3419ed167f770d713ff1",
+  "cases": [
+    {
+      "id": "clear-42",
+      "scenario": "clear",
+      "request": {
+        "campaign": {
+          "id": "clear-42",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 4.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "release-42",
+            "text": "Synthetic release record 42.\nDisplay theme and log wording were refreshed.\nWhen brake runs >=2, gateway must run >=2."
+          },
+          {
+            "id": "guide-42",
+            "text": "Synthetic ECU installation guide.\nRetain these notes with the campaign record.\nDo not flash gateway and brake at the same time.\nFlashing gateway requires ignition off and battery at least 30 percent."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "clear-42",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 4.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "brake-needs-gateway",
+            "source_document_id": "release-42",
+            "source_text": "When brake runs >=2, gateway must run >=2.",
+            "type": "requires",
+            "ecu": "brake",
+            "version_spec": ">=2",
+            "needs": "gateway",
+            "needs_version_spec": ">=2"
+          },
+          {
+            "id": "shared-channel",
+            "source_document_id": "guide-42",
+            "source_text": "Do not flash gateway and brake at the same time.",
+            "type": "mutex",
+            "ecus": [
+              "gateway",
+              "brake"
+            ]
+          },
+          {
+            "id": "parked-charged",
+            "source_document_id": "guide-42",
+            "source_text": "Flashing gateway requires ignition off and battery at least 30 percent.",
+            "type": "precondition",
+            "ecu": "gateway",
+            "ignition": "off",
+            "minimum_battery_percent": 30.0
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": false,
+      "reference_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "brake-needs-gateway",
+              "source_document_id": "release-42",
+              "source_text": "When brake runs >=2, gateway must run >=2.",
+              "type": "requires",
+              "ecu": "brake",
+              "version_spec": ">=2",
+              "needs": "gateway",
+              "needs_version_spec": ">=2"
+            },
+            "evidence": {
+              "document_id": "release-42",
+              "start_char": 75,
+              "end_char": 117
+            }
+          },
+          {
+            "constraint": {
+              "id": "shared-channel",
+              "source_document_id": "guide-42",
+              "source_text": "Do not flash gateway and brake at the same time.",
+              "type": "mutex",
+              "ecus": [
+                "gateway",
+                "brake"
+              ]
+            },
+            "evidence": {
+              "document_id": "guide-42",
+              "start_char": 79,
+              "end_char": 127
+            }
+          },
+          {
+            "constraint": {
+              "id": "parked-charged",
+              "source_document_id": "guide-42",
+              "source_text": "Flashing gateway requires ignition off and battery at least 30 percent.",
+              "type": "precondition",
+              "ecu": "gateway",
+              "ignition": "off",
+              "minimum_battery_percent": 30.0
+            },
+            "evidence": {
+              "document_id": "guide-42",
+              "start_char": 128,
+              "end_char": 199
+            }
+          }
+        ],
+        "issues": []
+      },
+      "reference_verdict": {
+        "faithful": true,
+        "reviewed_constraint_ids": [
+          "brake-needs-gateway",
+          "shared-channel",
+          "parked-charged"
+        ],
+        "reviewed_document_ids": [
+          "release-42",
+          "guide-42"
+        ],
+        "issues": []
+      }
+    },
+    {
+      "id": "order_conflict-44",
+      "scenario": "order_conflict",
+      "request": {
+        "campaign": {
+          "id": "order_conflict-44",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 4.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "release-44",
+            "text": "Synthetic release record 44.\n\nDisplay theme and log wording were refreshed.\n\ngateway must finish flashing and activate before brake starts flashing.\n\nbrake must finish flashing and activate before gateway starts flashing."
+          },
+          {
+            "id": "guide-44",
+            "text": "Synthetic ECU installation guide.\n\nRetain these notes with the campaign record."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "order_conflict-44",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 4.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [
+          {
+            "id": "gateway-first",
+            "source_document_id": "release-44",
+            "source_text": "gateway must finish flashing and activate before brake starts flashing.",
+            "type": "order",
+            "before": "gateway",
+            "after": "brake"
+          },
+          {
+            "id": "brake-first",
+            "source_document_id": "release-44",
+            "source_text": "brake must finish flashing and activate before gateway starts flashing.",
+            "type": "order",
+            "before": "brake",
+            "after": "gateway"
+          }
+        ],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": false,
+      "reference_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "gateway-first",
+              "source_document_id": "release-44",
+              "source_text": "gateway must finish flashing and activate before brake starts flashing.",
+              "type": "order",
+              "before": "gateway",
+              "after": "brake"
+            },
+            "evidence": {
+              "document_id": "release-44",
+              "start_char": 77,
+              "end_char": 148
+            }
+          },
+          {
+            "constraint": {
+              "id": "brake-first",
+              "source_document_id": "release-44",
+              "source_text": "brake must finish flashing and activate before gateway starts flashing.",
+              "type": "order",
+              "before": "brake",
+              "after": "gateway"
+            },
+            "evidence": {
+              "document_id": "release-44",
+              "start_char": 150,
+              "end_char": 221
+            }
+          }
+        ],
+        "issues": []
+      },
+      "reference_verdict": {
+        "faithful": true,
+        "reviewed_constraint_ids": [
+          "gateway-first",
+          "brake-first"
+        ],
+        "reviewed_document_ids": [
+          "release-44",
+          "guide-44"
+        ],
+        "issues": []
+      }
+    },
+    {
+      "id": "unsupported-47",
+      "scenario": "unsupported",
+      "request": {
+        "campaign": {
+          "id": "unsupported-47",
+          "ecus": [
+            {
+              "id": "gateway",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 3.0
+            },
+            {
+              "id": "brake",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "infotainment",
+              "current_version": "1",
+              "target_version": "2",
+              "flash_minutes": 2.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "gateway",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "brake",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "infotainment",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 80.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "release-47",
+            "text": "Synthetic release record 47.\n\nDisplay theme and log wording were refreshed."
+          },
+          {
+            "id": "guide-47",
+            "text": "Synthetic ECU installation guide.\n\nRetain these notes with the campaign record.\n\nFlashing gateway requires a reliable garage Wi-Fi connection."
+          }
+        ]
+      },
+      "truth_campaign": {
+        "id": "unsupported-47",
+        "ecus": [
+          {
+            "id": "gateway",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 3.0
+          },
+          {
+            "id": "brake",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "infotainment",
+            "current_version": "1",
+            "target_version": "2",
+            "flash_minutes": 2.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "gateway",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "brake",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "infotainment",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 80.0,
+          "ignition": "off"
+        },
+        "constraints": [],
+        "downgrade_authorizations": []
+      },
+      "expected_blocked": true,
+      "reference_draft": {
+        "constraints": [],
+        "issues": [
+          {
+            "kind": "unsupported_requirement",
+            "evidence": {
+              "document_id": "guide-47",
+              "start_char": 81,
+              "end_char": 142
+            },
+            "source_text": "Flashing gateway requires a reliable garage Wi-Fi connection.",
+            "message": "Wi-Fi is outside the supported precondition model"
+          }
+        ]
+      },
+      "reference_verdict": {
+        "faithful": false,
+        "reviewed_constraint_ids": [],
+        "reviewed_document_ids": [
+          "release-47",
+          "guide-47"
+        ],
+        "issues": [
+          {
+            "kind": "unsupported_requirement",
+            "constraint_id": null,
+            "evidence": {
+              "document_id": "guide-47",
+              "start_char": 81,
+              "end_char": 142
+            },
+            "source_text": "Flashing gateway requires a reliable garage Wi-Fi connection.",
+            "message": "Wi-Fi is outside the supported precondition model"
+          }
+        ]
+      }
+    }
+  ]
+}

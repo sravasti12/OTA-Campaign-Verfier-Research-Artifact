@@ -1,0 +1,15 @@
+{
+  "candidates.json": "b00b5b2febce243adaf991c9723e80205d91869b12d6b112cedd7bc71c77a93b",
+  "integrity-checks.json": "6349871da47b9feecc548eeec3807fd28cb576ac6c275044449db99741ab39d2",
+  "offline-checks.json": "9a890f36001c4b5a1fceec5fd7480de2ff83c0161d00775b3d95e26ad8e0b920",
+  "provenance.json": "e29070908826452d036eb32c76acf483a3a5953485652130e73ccc485246a6c2",
+  "REVIEW.md": "46ba1860e37c052fe746266f956ad77c3bcb71fb3554a99ddc147a945fe04893",
+  "sources\\expresslrs-firmware-version.md": "3bd20055d979c6bd924a70b1761f30cc5f932b75177da02fe34f127b2a66b414",
+  "sources\\expresslrs-revision.json": "339cb9c866fdca483e6837ed38f5a5922b4cab4cf317f2920f7d6ddede864477",
+  "sources\\flysky-nb4-manual.pdf": "c18b753b23361f2c71f8b642bcfc9eddf0b51c248f247b4cc7e9989641b63556",
+  "sources\\flysky-source.json": "e77918e98205b262130e7f986046fdc2af2bbc368238d37def3741753b0b5902",
+  "sources\\mcuboot-design.md": "95114751a65750f64a24d8d996f84e793514feb6b13d52fc6b1b30431d308210",
+  "sources\\mcuboot-serial_recovery.md": "7bd73167ad720ad7b0639bb6727b1bd7e7177de7a878da0f0ae6e08c467e6e5b",
+  "sources\\MCUBOOT_LICENSE": "86438164119907debf649e2f9f18a43ad506d75421c9d9675700066b0456205d",
+  "sources\\MCUBOOT_NOTICE": "d32155360a767b3f17bbb9813f9bccc118a4fbd7d80d6c0912fe01d60d55e80e"
+}

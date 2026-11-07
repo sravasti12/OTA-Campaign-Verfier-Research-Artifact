@@ -1,0 +1,10 @@
+{
+  "passed": 120,
+  "failed": 0,
+  "errors": 0,
+  "warnings": 13,
+  "seconds": 1.32,
+  "warnings_detail": "LangSmith asyncio.iscoroutinefunction deprecation",
+  "new_provider_requests": 0,
+  "command": ".venv/Scripts/python.exe -m pytest -q --basetemp=.ota_state/real-admission-v3 tests/test_real_review_v3.py tests/test_real_review_v2.py tests/test_pilot_reliability.py tests/test_llm_evidence.py tests/test_llm_pipeline.py tests/test_versions.py tests/test_planner.py"
+}

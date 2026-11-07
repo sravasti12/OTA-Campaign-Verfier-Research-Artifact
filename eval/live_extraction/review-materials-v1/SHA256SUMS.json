@@ -1,0 +1,10 @@
+{
+  "candidate.schema.json": "1812836555c1fabce2d6c50650d0e2cc133bc5cce58acdb5432836cfcf9563d3",
+  "MCUBOOT_LICENSE": "86438164119907debf649e2f9f18a43ad506d75421c9d9675700066b0456205d",
+  "MCUBOOT_NOTICE": "d32155360a767b3f17bbb9813f9bccc118a4fbd7d80d6c0912fe01d60d55e80e",
+  "real-candidates.json": "f9bbfbc3c78fb1c6a88cadbee89b7e5ab047319cdf0e47ea08ec00f681a6d0c8",
+  "REAL_DOCUMENT_REVIEW.md": "2484537145b5301b1c5f6a17e0e38a6a7bdf92c9ee69f300212c95d00ec438e5",
+  "review-signoff.template.json": "03cb7da05ed778f8853cb80b26f76af9119ddb5076d64f643b4372c2babab0a5",
+  "synthetic-checks.json": "16eef405bfba626030cef3f972accb42f383ff5a3f1c8c6c9c19a306d476bd76",
+  "SYNTHETIC_REVIEW.md": "f41de2d7261302858d23808983bff9ffe293bf8b77bf427d8929a7e47b2bec47"
+}

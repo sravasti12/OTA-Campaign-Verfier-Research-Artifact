@@ -1,0 +1,424 @@
+{
+  "id": "generated-n20-s2",
+  "ecus": [
+    {
+      "id": "ecu00",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu01",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu02",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu03",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu04",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu05",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu06",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu07",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu08",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu09",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu10",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu11",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu12",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu13",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu14",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu15",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu16",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu17",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu18",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu19",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    }
+  ],
+  "initial_state": {
+    "ecus": [
+      {
+        "ecu_id": "ecu00",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu01",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu02",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu03",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu04",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu05",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu06",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu07",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu08",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu09",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu10",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu11",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu12",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu13",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu14",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu15",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu16",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu17",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu18",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu19",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      }
+    ],
+    "battery_percent": 80.0,
+    "ignition": "off"
+  },
+  "constraints": [
+    {
+      "id": "ecu01-needs-ecu00",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu01",
+      "version_spec": ">=2",
+      "needs": "ecu00",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu03-needs-ecu00",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu03",
+      "version_spec": ">=2",
+      "needs": "ecu00",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu07-needs-ecu00",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu07",
+      "version_spec": ">=2",
+      "needs": "ecu00",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu08-needs-ecu03",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu08",
+      "version_spec": ">=2",
+      "needs": "ecu03",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu08-needs-ecu04",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu08",
+      "version_spec": ">=2",
+      "needs": "ecu04",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu09-needs-ecu04",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu09",
+      "version_spec": ">=2",
+      "needs": "ecu04",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu12-needs-ecu07",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu12",
+      "version_spec": ">=2",
+      "needs": "ecu07",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu14-needs-ecu03",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu14",
+      "version_spec": ">=2",
+      "needs": "ecu03",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu14-needs-ecu08",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu14",
+      "version_spec": ">=2",
+      "needs": "ecu08",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu18-needs-ecu11",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu18",
+      "version_spec": ">=2",
+      "needs": "ecu11",
+      "needs_version_spec": ">=2"
+    },
+    {
+      "id": "ecu19-needs-ecu14",
+      "source_document_id": "synthetic",
+      "source_text": "Generated synthetic dependency.",
+      "type": "requires",
+      "ecu": "ecu19",
+      "version_spec": ">=2",
+      "needs": "ecu14",
+      "needs_version_spec": ">=2"
+    }
+  ],
+  "downgrade_authorizations": []
+}

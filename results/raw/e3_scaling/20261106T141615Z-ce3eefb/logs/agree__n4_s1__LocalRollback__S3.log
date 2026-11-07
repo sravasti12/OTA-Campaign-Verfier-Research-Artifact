@@ -1,0 +1,71 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 42 with 1 worker on 8 cores with 3641MB heap and 64MB offheap memory [pid: 12000] (Windows 11 10.0 amd64, Oracle Corporation 18.0.2 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file C:\Users\KIIT\AppData\Local\Temp\claude\c48ca1428cc44ed6\74c1f06a-f71d-4630-8766-3e43d313d9aa\scratchpad\e3clean\results\raw\e3_scaling\20261106T141615Z-ce3eefb\tla\Gen_n4_s1.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\claude\c48ca1428cc44ed6\74c1f06a-f71d-4630-8766-3e43d313d9aa\scratchpad\e3clean\results\raw\e3_scaling\20261106T141615Z-ce3eefb\tla\OTACampaign.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\Naturals.tla
+Semantic processing of module Naturals
+Semantic processing of module OTACampaign
+Semantic processing of module Gen_n4_s1
+Starting... (2026-11-06 19:51:57)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-06 19:51:58.
+Error: Invariant AllOrNothing is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ culprit = {}
+/\ faults = 0
+/\ inactive = [ecu00 |-> 0, ecu01 |-> 0, ecu02 |-> 0, ecu03 |-> 0]
+/\ campaign = "run"
+/\ corrupt = [ecu00 |-> FALSE, ecu01 |-> FALSE, ecu02 |-> FALSE, ecu03 |-> FALSE]
+/\ active = [ecu00 |-> 1, ecu01 |-> 1, ecu02 |-> 1, ecu03 |-> 1]
+/\ stage = [ecu00 |-> "idle", ecu01 |-> "idle", ecu02 |-> "idle", ecu03 |-> "idle"]
+
+State 2: <Download line 46, col 5 to line 48, col 73 of module OTACampaign>
+/\ culprit = {}
+/\ faults = 0
+/\ inactive = [ecu00 |-> 0, ecu01 |-> 0, ecu02 |-> 0, ecu03 |-> 0]
+/\ campaign = "run"
+/\ corrupt = [ecu00 |-> FALSE, ecu01 |-> FALSE, ecu02 |-> FALSE, ecu03 |-> FALSE]
+/\ active = [ecu00 |-> 1, ecu01 |-> 1, ecu02 |-> 1, ecu03 |-> 1]
+/\ stage = [ecu00 |-> "downloaded", ecu01 |-> "idle", ecu02 |-> "idle", ecu03 |-> "idle"]
+
+State 3: <Verify line 51, col 5 to line 55, col 63 of module OTACampaign>
+/\ culprit = {}
+/\ faults = 0
+/\ inactive = [ecu00 |-> 2, ecu01 |-> 0, ecu02 |-> 0, ecu03 |-> 0]
+/\ campaign = "run"
+/\ corrupt = [ecu00 |-> FALSE, ecu01 |-> FALSE, ecu02 |-> FALSE, ecu03 |-> FALSE]
+/\ active = [ecu00 |-> 1, ecu01 |-> 1, ecu02 |-> 1, ecu03 |-> 1]
+/\ stage = [ecu00 |-> "verified", ecu01 |-> "idle", ecu02 |-> "idle", ecu03 |-> "idle"]
+
+State 4: <Activate line 67, col 5 to line 72, col 55 of module OTACampaign>
+/\ culprit = {}
+/\ faults = 0
+/\ inactive = [ecu00 |-> 1, ecu01 |-> 0, ecu02 |-> 0, ecu03 |-> 0]
+/\ campaign = "run"
+/\ corrupt = [ecu00 |-> FALSE, ecu01 |-> FALSE, ecu02 |-> FALSE, ecu03 |-> FALSE]
+/\ active = [ecu00 |-> 2, ecu01 |-> 1, ecu02 |-> 1, ecu03 |-> 1]
+/\ stage = [ecu00 |-> "trial", ecu01 |-> "idle", ecu02 |-> "idle", ecu03 |-> "idle"]
+
+State 5: <DownloadFail line 88, col 5 to line 94, col 46 of module OTACampaign>
+/\ culprit = {"ecu01"}
+/\ faults = 1
+/\ inactive = [ecu00 |-> 1, ecu01 |-> 0, ecu02 |-> 0, ecu03 |-> 0]
+/\ campaign = "rollback"
+/\ corrupt = [ecu00 |-> FALSE, ecu01 |-> FALSE, ecu02 |-> FALSE, ecu03 |-> FALSE]
+/\ active = [ecu00 |-> 2, ecu01 |-> 1, ecu02 |-> 1, ecu03 |-> 1]
+/\ stage = [ecu00 |-> "trial", ecu01 |-> "failed", ecu02 |-> "idle", ecu03 |-> "idle"]
+
+State 6: <FinishRollback line 143, col 5 to line 146, col 70 of module OTACampaign>
+/\ culprit = {"ecu01"}
+/\ faults = 1
+/\ inactive = [ecu00 |-> 1, ecu01 |-> 0, ecu02 |-> 0, ecu03 |-> 0]
+/\ campaign = "aborted"
+/\ corrupt = [ecu00 |-> FALSE, ecu01 |-> FALSE, ecu02 |-> FALSE, ecu03 |-> FALSE]
+/\ active = [ecu00 |-> 2, ecu01 |-> 1, ecu02 |-> 1, ecu03 |-> 1]
+/\ stage = [ecu00 |-> "trial", ecu01 |-> "failed", ecu02 |-> "idle", ecu03 |-> "idle"]
+
+922 states generated, 566 distinct states found, 314 states left on queue.
+The depth of the complete state graph search is 6.
+The average outdegree of the complete state graph is 2 (minimum is 0, the maximum 13 and the 95th percentile is 8).
+Finished in 01s at (2026-11-06 19:51:58)

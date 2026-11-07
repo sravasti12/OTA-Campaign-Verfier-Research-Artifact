@@ -1,0 +1,15 @@
+[
+  "C:\\Users\\KIIT\\Desktop\\OTACampaignVerifier\\ota_verifier\\.venv\\Scripts\\python.exe",
+  "-m",
+  "pytest",
+  "-q",
+  "--basetemp=.ota_state/live-pilot-regression-v1",
+  "tests/test_live_pilot_metrics.py",
+  "tests/test_benchmark.py",
+  "tests/test_extraction_evaluation.py",
+  "tests/test_llm_client.py",
+  "tests/test_llm_evidence.py",
+  "tests/test_llm_pipeline.py",
+  "tests/test_graph.py",
+  "tests/test_plan_validation.py"
+]

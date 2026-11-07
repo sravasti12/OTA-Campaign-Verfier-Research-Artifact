@@ -1,0 +1,22 @@
+{
+  "status": "APPROVED_BY_PROJECT_OWNER",
+  "recorded_at_utc": "2026-11-06T18:31:50.529649+00:00",
+  "timestamp_meaning": "Time this explicit chat approval was recorded, not an authenticated signature timestamp.",
+  "reviewer": "Project owner; self-reported explicit user instruction in this conversation",
+  "scope": "SYNTHETIC DEVELOPMENT PILOT ONLY",
+  "dataset_canonical_sha256": "5908bf34ff185eaaa3a7000b889e4273e6f806b9619af3d71923aead4fd91c52",
+  "case_ids": [
+    "clear-42",
+    "order_conflict-44",
+    "unsupported-47"
+  ],
+  "automotive_domain_expert_validation": false,
+  "approval_basis": "User personally reviewed and approved frozen expected labels, exact source evidence and gate outcomes.",
+  "specific_adjudications": {
+    "order_conflict-44": "Preserve both contradictory ordering rules; deterministic planner decides infeasibility.",
+    "unsupported-47": "Zero formal constraints and cited unsupported_requirement issue."
+  },
+  "maximum_api_requests": 6,
+  "automatic_retries": 0,
+  "real_document_approval": false
+}

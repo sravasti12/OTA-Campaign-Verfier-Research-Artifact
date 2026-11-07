@@ -1,0 +1,2 @@
+# Optional plotting tool; does not change the production dependency set.
+matplotlib==3.10.8

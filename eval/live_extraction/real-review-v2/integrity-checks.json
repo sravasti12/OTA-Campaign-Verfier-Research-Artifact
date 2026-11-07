@@ -1,0 +1,24 @@
+{
+  "baseline_execution_hashes_verified": 12,
+  "baseline_recovery_hashes_verified": 20,
+  "new_review_packet_hashes_verified": 12,
+  "new_llm_requests": 0,
+  "changed_previous_production_files": [
+    "src\\ota_verifier\\llm\\extractor.py",
+    "src\\ota_verifier\\llm\\pipeline.py",
+    "src\\ota_verifier\\llm\\verifier.py"
+  ],
+  "new_production_file": "src/ota_verifier/llm/source_support.py",
+  "unchanged_production_scope": "Every previously frozen production file except the three authorized LLM-layer files listed; no planner, compatibility, simulator or safety changes",
+  "source_and_test_sha256": {
+    "src\\ota_verifier\\llm\\source_support.py": "60d3865fae0d7e86ac47e846d921d0b12647de222046919248726cd99008abd3",
+    "src\\ota_verifier\\llm\\verifier.py": "7a4afe35b07f9f9e0f7994be123f55d454d3309aa88ec759fce29df2ec1fcf99",
+    "src\\ota_verifier\\llm\\extractor.py": "fdac646d3776dbc886c8a99bcce05b7767f96bd220c5c9576541ef7f448b55ce",
+    "src\\ota_verifier\\llm\\pipeline.py": "3e901de1da83f62c7a4dcf2846b86fc69fec525741834b358386e0007e60dc82",
+    "tests\\test_pilot_reliability.py": "6745931970fcbabbe84de0a105ca5cf9eb06ed94c01dce3e47e80a082fbc9b86",
+    "tests\\test_real_review_v2.py": "28fd27c40e3aadb8ac858591bc5b094f6f3126278c5097fe2a421e53aba78791",
+    "eval\\live_extraction\\prepare_real_v2.py": "f7eafa9430352d7e6d10e549cf5e6f4583aa86b9cd2e063cfaaac3d7d95fe07a",
+    "docs\\PHASE2C_RELIABILITY_REVIEW.md": "0115e74219075192eda3cb41bdb719a5568ef6931bcb2929811e09c143939122"
+  },
+  "configured_secret_value_scan": "PASS for changed text files and new review packet; not a whole-repository audit"
+}

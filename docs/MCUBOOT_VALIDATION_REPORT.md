@@ -115,7 +115,8 @@ Do not run native harnesses concurrently against the same checkout: observation-
 The existing Windows virtual environment can be invoked through WSL interoperability while the runner uses Ubuntu for native C execution:
 
 ```bash
-cd /mnt/c/Users/KIIT/Desktop/OTACampaignVerifier/ota_verifier
+# Replace this placeholder with your project's WSL path.
+cd /mnt/c/path/to/ota_verifier
 .venv/Scripts/python.exe validation/mcuboot/validate.py --mode fresh --output validation/mcuboot/final_evidence/my-wsl-fresh-run
 .venv/Scripts/python.exe validation/mcuboot/validate.py --verify validation/mcuboot/final_evidence/my-wsl-fresh-run/validation.json
 ```

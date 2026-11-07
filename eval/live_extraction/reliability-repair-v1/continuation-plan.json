@@ -1,0 +1,166 @@
+{
+  "status": "OFFLINE_PREPARATION_ONLY_NOT_AUTHORIZED_TO_EXECUTE",
+  "new_api_requests": 0,
+  "dataset_canonical_sha256": "2800892519dddf8ccbe7291db6109a7e41acfbde1cd5ed638d2b529eb57e9004",
+  "case_ids": [
+    "real-v2-01",
+    "real-v2-02",
+    "real-v2-03",
+    "real-v2-04",
+    "real-v2-05"
+  ],
+  "prompt_versions": {
+    "extraction": "extract-v3",
+    "verification": "verify-v3"
+  },
+  "prompt_hashes": {
+    "extraction": "00131211446a716eb17caefd16237e344532bee1dc2fb8fbe3d399006106ac2b",
+    "verification": "c762bcaa60d241d439e1ef0a931067652b49e92cd3c49d517b0854f3722a9d17"
+  },
+  "currently_configured": {
+    "extraction": {
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "max_tokens": 8192,
+      "timeout_seconds": 60.0,
+      "schema_mode": "json"
+    },
+    "verification": {
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "max_tokens": 8192,
+      "timeout_seconds": 60.0,
+      "schema_mode": "json"
+    }
+  },
+  "proposed_profile": {
+    "extraction": {
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "max_completion_tokens": 4096,
+      "timeout_seconds": 60.0,
+      "schema_mode": "json"
+    },
+    "verification": {
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "max_completion_tokens": 4096,
+      "timeout_seconds": 60.0,
+      "schema_mode": "json"
+    }
+  },
+  "nominal_requests": 8,
+  "maximum_live_requests": 10,
+  "maximum_generated_tokens_all_calls": 40960,
+  "automatic_retries": 0,
+  "explanation_requests": 0,
+  "rough_nominal_tokens_including_completion_caps": 51985,
+  "rough_worst_case_tokens_including_completion_caps": 63997,
+  "minimum_start_interval_seconds": 90,
+  "wall_budget_seconds": 1200,
+  "historical_tpm_not_current_quota": 8000,
+  "per_role_estimates": [
+    {
+      "case_id": "real-v2-01",
+      "purpose": "extraction",
+      "prompt_characters": 8335,
+      "prompt_token_estimate": 2779,
+      "completion_hard_cap": 4096,
+      "estimated_reservation_with_512_token_margin": 7387,
+      "nominal_call": true
+    },
+    {
+      "case_id": "real-v2-01",
+      "purpose": "verification",
+      "prompt_characters": 5189,
+      "prompt_token_estimate": 1730,
+      "completion_hard_cap": 4096,
+      "estimated_reservation_with_512_token_margin": 6338,
+      "nominal_call": true
+    },
+    {
+      "case_id": "real-v2-02",
+      "purpose": "extraction",
+      "prompt_characters": 8369,
+      "prompt_token_estimate": 2790,
+      "completion_hard_cap": 4096,
+      "estimated_reservation_with_512_token_margin": 7398,
+      "nominal_call": true
+    },
+    {
+      "case_id": "real-v2-02",
+      "purpose": "verification",
+      "prompt_characters": 5292,
+      "prompt_token_estimate": 1764,
+      "completion_hard_cap": 4096,
+      "estimated_reservation_with_512_token_margin": 6372,
+      "nominal_call": true
+    },
+    {
+      "case_id": "real-v2-03",
+      "purpose": "extraction",
+      "prompt_characters": 9093,
+      "prompt_token_estimate": 3031,
+      "completion_hard_cap": 4096,
+      "estimated_reservation_with_512_token_margin": 7639,
+      "nominal_call": true
+    },
+    {
+      "case_id": "real-v2-03",
+      "purpose": "verification",
+      "prompt_characters": 5978,
+      "prompt_token_estimate": 1993,
+      "completion_hard_cap": 4096,
+      "estimated_reservation_with_512_token_margin": 6601,
+      "nominal_call": false
+    },
+    {
+      "case_id": "real-v2-04",
+      "purpose": "extraction",
+      "prompt_characters": 8404,
+      "prompt_token_estimate": 2802,
+      "completion_hard_cap": 4096,
+      "estimated_reservation_with_512_token_margin": 7410,
+      "nominal_call": true
+    },
+    {
+      "case_id": "real-v2-04",
+      "purpose": "verification",
+      "prompt_characters": 5481,
+      "prompt_token_estimate": 1827,
+      "completion_hard_cap": 4096,
+      "estimated_reservation_with_512_token_margin": 6435,
+      "nominal_call": false
+    },
+    {
+      "case_id": "real-v2-05",
+      "purpose": "extraction",
+      "prompt_characters": 8205,
+      "prompt_token_estimate": 2735,
+      "completion_hard_cap": 4096,
+      "estimated_reservation_with_512_token_margin": 7343,
+      "nominal_call": true
+    },
+    {
+      "case_id": "real-v2-05",
+      "purpose": "verification",
+      "prompt_characters": 4758,
+      "prompt_token_estimate": 1586,
+      "completion_hard_cap": 4096,
+      "estimated_reservation_with_512_token_margin": 6194,
+      "nominal_call": true
+    }
+  ],
+  "max_estimated_single_request_reservation": 7639,
+  "limits": [
+    "Actual current quota unknown; do not call a models/connectivity endpoint just to probe it",
+    "Re-estimate every actual request including a changed model draft before verification; do not truncate evidence",
+    "Wait for observed reset when remaining quota cannot cover next reservation; abort if limit is too small or metadata insufficient",
+    "Stop on first provider/schema failure; retain pending cases and do not retry",
+    "No permission to execute is granted by this file; require explicit new budget/configuration approval",
+    "Old real_pilot.py is historical 2048-token protocol; do not reuse its execute command for this profile",
+    "A separately versioned future runner must consume this profile and freeze its own evidence; never mutate the old run",
+    "4096 is finite and supported by existing adapter; live completion success not established",
+    "Model default reasoning remains unchanged; no new provider or reasoning-effort option added"
+  ]
+}

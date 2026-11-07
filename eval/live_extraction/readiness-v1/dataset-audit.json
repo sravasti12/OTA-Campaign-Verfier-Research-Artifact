@@ -1,0 +1,210 @@
+{
+  "status": "BLOCKED_BEFORE_INFERENCE",
+  "checked_at_utc": "2026-11-06T17:58:42.961681+00:00",
+  "new_live_api_requests": 0,
+  "pilot_examples_executed": 0,
+  "corpus_version": "ota-benchmark-v1",
+  "corpus_canonical_sha256": "7a8a5008b3005a870f377b0bf7ea536c51b48dfc6a9a3419ed167f770d713ff1",
+  "existing_synthetic_extraction_cases": 12,
+  "existing_development_cases": 6,
+  "existing_heldout_cases": 6,
+  "deterministic_core_cases_not_extraction_data": 11,
+  "admitted_real_document_cases_found": 0,
+  "independent_review_gate_verified": false,
+  "historical_docs_describe_v1_as_reviewed": true,
+  "case_audit": [
+    {
+      "id": "clear-42",
+      "origin": "synthetic",
+      "split": "development",
+      "scenario": "clear",
+      "gold_constraint_count": 3,
+      "hidden_truth_constraint_count": 3,
+      "expected_blocked": false,
+      "reference_draft_issue_codes": [],
+      "reference_verdict_issue_codes": [],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "dependency_only-43",
+      "origin": "synthetic",
+      "split": "development",
+      "scenario": "dependency_only",
+      "gold_constraint_count": 1,
+      "hidden_truth_constraint_count": 1,
+      "expected_blocked": false,
+      "reference_draft_issue_codes": [],
+      "reference_verdict_issue_codes": [],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "order_conflict-44",
+      "origin": "synthetic",
+      "split": "development",
+      "scenario": "order_conflict",
+      "gold_constraint_count": 2,
+      "hidden_truth_constraint_count": 2,
+      "expected_blocked": false,
+      "reference_draft_issue_codes": [],
+      "reference_verdict_issue_codes": [],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "intermediate_trap-45",
+      "origin": "synthetic",
+      "split": "development",
+      "scenario": "intermediate_trap",
+      "gold_constraint_count": 2,
+      "hidden_truth_constraint_count": 2,
+      "expected_blocked": false,
+      "reference_draft_issue_codes": [],
+      "reference_verdict_issue_codes": [],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "ambiguous-46",
+      "origin": "synthetic",
+      "split": "development",
+      "scenario": "ambiguous",
+      "gold_constraint_count": 0,
+      "hidden_truth_constraint_count": 1,
+      "expected_blocked": true,
+      "reference_draft_issue_codes": [
+        "ambiguous_requirement"
+      ],
+      "reference_verdict_issue_codes": [
+        "ambiguous_requirement"
+      ],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "unsupported-47",
+      "origin": "synthetic",
+      "split": "development",
+      "scenario": "unsupported",
+      "gold_constraint_count": 0,
+      "hidden_truth_constraint_count": 0,
+      "expected_blocked": true,
+      "reference_draft_issue_codes": [
+        "unsupported_requirement"
+      ],
+      "reference_verdict_issue_codes": [
+        "unsupported_requirement"
+      ],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "heldout-clear-142",
+      "origin": "synthetic",
+      "split": "heldout",
+      "scenario": "clear",
+      "gold_constraint_count": 3,
+      "hidden_truth_constraint_count": 3,
+      "expected_blocked": false,
+      "reference_draft_issue_codes": [],
+      "reference_verdict_issue_codes": [],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "heldout-dependency_only-143",
+      "origin": "synthetic",
+      "split": "heldout",
+      "scenario": "dependency_only",
+      "gold_constraint_count": 1,
+      "hidden_truth_constraint_count": 1,
+      "expected_blocked": false,
+      "reference_draft_issue_codes": [],
+      "reference_verdict_issue_codes": [],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "heldout-order_conflict-144",
+      "origin": "synthetic",
+      "split": "heldout",
+      "scenario": "order_conflict",
+      "gold_constraint_count": 2,
+      "hidden_truth_constraint_count": 2,
+      "expected_blocked": false,
+      "reference_draft_issue_codes": [],
+      "reference_verdict_issue_codes": [],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "heldout-intermediate_trap-145",
+      "origin": "synthetic",
+      "split": "heldout",
+      "scenario": "intermediate_trap",
+      "gold_constraint_count": 2,
+      "hidden_truth_constraint_count": 2,
+      "expected_blocked": false,
+      "reference_draft_issue_codes": [],
+      "reference_verdict_issue_codes": [],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "heldout-ambiguous-146",
+      "origin": "synthetic",
+      "split": "heldout",
+      "scenario": "ambiguous",
+      "gold_constraint_count": 0,
+      "hidden_truth_constraint_count": 1,
+      "expected_blocked": true,
+      "reference_draft_issue_codes": [
+        "ambiguous_requirement"
+      ],
+      "reference_verdict_issue_codes": [
+        "ambiguous_requirement"
+      ],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    },
+    {
+      "id": "heldout-unsupported-147",
+      "origin": "synthetic",
+      "split": "heldout",
+      "scenario": "unsupported",
+      "gold_constraint_count": 0,
+      "hidden_truth_constraint_count": 0,
+      "expected_blocked": true,
+      "reference_draft_issue_codes": [
+        "unsupported_requirement"
+      ],
+      "reference_verdict_issue_codes": [
+        "unsupported_requirement"
+      ],
+      "independent_review_evidence": "not located; not inferred from frozen hash or reviewed wording"
+    }
+  ],
+  "proposed_pilot_case_ids": [
+    "clear-42",
+    "order_conflict-44",
+    "unsupported-47"
+  ],
+  "scope_deviation_requires_review": "Existing synthetic development controls only; not the proposed real-document held-out study",
+  "prospective_max_requests": 6,
+  "prospective_model": "openai/gpt-oss-20b",
+  "prospective_schema_mode": "json",
+  "prospective_max_output_tokens": 2048,
+  "rate_metadata_source": "runs/groq-followup-v1/retry.json; historical response, not a fresh quota query",
+  "historically_observed_tpm": 8000,
+  "historically_observed_daily_requests": 1000,
+  "proposed_min_seconds_between_starts": 70,
+  "proposed_wall_budget_seconds": 900,
+  "automatic_retries": 0,
+  "metrics": {
+    "real_document": null,
+    "synthetic": null
+  },
+  "prior_bootability_findings": {
+    "fault_cases_passed": 26,
+    "fault_cases_with_violations": 2,
+    "classification": "genuine baseline invariant violations, unchanged"
+  },
+  "offline_regressions": {
+    "passed": 149,
+    "failed": 0,
+    "errors": 0,
+    "warnings": 13,
+    "seconds": 43.84,
+    "log": "regression.log"
+  }
+}

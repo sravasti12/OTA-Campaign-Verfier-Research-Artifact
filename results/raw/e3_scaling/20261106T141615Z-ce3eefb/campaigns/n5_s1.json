@@ -1,0 +1,88 @@
+{
+  "id": "generated-n5-s1",
+  "ecus": [
+    {
+      "id": "ecu00",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu01",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu02",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu03",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    },
+    {
+      "id": "ecu04",
+      "current_version": "1",
+      "target_version": "2",
+      "flash_minutes": 1.0
+    }
+  ],
+  "initial_state": {
+    "ecus": [
+      {
+        "ecu_id": "ecu00",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu01",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu02",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu03",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      },
+      {
+        "ecu_id": "ecu04",
+        "slot_a": {
+          "version": "1",
+          "valid": true
+        },
+        "slot_b": null,
+        "active_slot": "A"
+      }
+    ],
+    "battery_percent": 80.0,
+    "ignition": "off"
+  },
+  "constraints": [],
+  "downgrade_authorizations": []
+}

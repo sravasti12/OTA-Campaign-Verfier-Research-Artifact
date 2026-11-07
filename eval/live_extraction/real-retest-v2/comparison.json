@@ -1,0 +1,955 @@
+{
+  "version": "real-document-retest-comparison-v2",
+  "new_provider_requests_by_analysis": 0,
+  "dataset_canonical_sha256": "2800892519dddf8ccbe7291db6109a7e41acfbde1cd5ed638d2b529eb57e9004",
+  "original": {
+    "summary": {
+      "stratum": "REAL-DOCUMENT DEVELOPMENT PILOT",
+      "dataset_canonical_sha256": "2800892519dddf8ccbe7291db6109a7e41acfbde1cd5ed638d2b529eb57e9004",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "requests": 4,
+      "http_requests_sent": 4,
+      "maximum_requests": 10,
+      "automatic_retries": 0,
+      "attempted_cases": 3,
+      "scheduled_cases": 5,
+      "not_run_cases": 2,
+      "stop_reason": "Provider/schema/budget failure; no retry or fixture fallback",
+      "wall_elapsed_seconds": 212.907,
+      "semantic_counts": {
+        "tp": 1,
+        "fp": 0,
+        "fn": 1
+      },
+      "precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "recall": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "f1": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": 0.6666666666666666
+      },
+      "semantic_case_exact_match": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      },
+      "grounding_precision": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "grounding_recall": {
+        "numerator": 1,
+        "denominator": 2,
+        "value": 0.5
+      },
+      "literal_citation_validity": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "draft_exact_match": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      },
+      "gate_correctness": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      },
+      "complete_expected_outcome": {
+        "numerator": 0,
+        "denominator": 3,
+        "value": 0.0
+      },
+      "hallucination_over_extraction_proxy": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "verifier_correctness": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "verifier_false_rejection": {
+        "numerator": 1,
+        "denominator": 1,
+        "value": 1.0
+      },
+      "verifier_false_acceptance": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "http_status_counts": {
+        "200": 3,
+        "400": 1
+      },
+      "token_usage": {
+        "prompt_tokens": 4686,
+        "completion_tokens": 1651,
+        "total_tokens": 6337
+      },
+      "latency_ms_by_role": {
+        "extraction": [
+          1296.955,
+          1363.646,
+          2832.575
+        ],
+        "verification": [
+          1374.933
+        ]
+      },
+      "production_sources_unchanged": true,
+      "source_dataset_unchanged": true,
+      "all_cases_correct": false
+    },
+    "cases": [
+      {
+        "case_id": "real-v2-01",
+        "status": "ATTEMPTED",
+        "usable_extraction": true,
+        "score": {
+          "case_id": "real-v2-01",
+          "semantic": {
+            "true_positives": 1,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "semantic_exact": true,
+          "false_positive_signatures": [],
+          "false_negative_signatures": [],
+          "gold_constraints": 1,
+          "emitted_constraints": 1,
+          "correct_bindings": 1,
+          "literal_valid_citations": 1,
+          "exact_issue_set": true,
+          "exact_draft": true,
+          "gate_correct": false,
+          "complete_expected_outcome": false,
+          "expected_gate": "ready",
+          "actual_gate": "blocked",
+          "verifier_called": true,
+          "verifier_correct": false,
+          "verifier_reference_valid": true,
+          "expected_issue_kinds": [],
+          "actual_issue_kinds": []
+        },
+        "gate_issues": [
+          {
+            "code": "incorrect_constraint",
+            "message": "Constraint direction does not match source text.",
+            "constraint_id": "order-1",
+            "evidence": {
+              "document_id": "real-v2-01",
+              "start_char": 0,
+              "end_char": 85
+            }
+          }
+        ],
+        "planning_status": "not_run",
+        "plan_step_count": null,
+        "extracted_constraints": [
+          {
+            "constraint": {
+              "id": "order-1",
+              "source_document_id": "real-v2-01",
+              "source_text": "Note: You must update the transmitter firmware before updating the receiver firmware.",
+              "type": "order",
+              "before": "transmitter",
+              "after": "receiver"
+            },
+            "evidence": {
+              "document_id": "real-v2-01",
+              "start_char": 0,
+              "end_char": 85
+            }
+          }
+        ],
+        "extraction_issues": [],
+        "verdict": {
+          "faithful": false,
+          "reviewed_constraint_ids": [
+            "order-1"
+          ],
+          "reviewed_document_ids": [
+            "real-v2-01"
+          ],
+          "issues": [
+            {
+              "kind": "incorrect_constraint",
+              "constraint_id": "order-1",
+              "evidence": {
+                "document_id": "real-v2-01",
+                "start_char": 0,
+                "end_char": 85
+              },
+              "source_text": "Note: You must update the transmitter firmware before updating the receiver firmware.",
+              "message": "Constraint direction does not match source text."
+            }
+          ]
+        }
+      },
+      {
+        "case_id": "real-v2-02",
+        "status": "ATTEMPTED",
+        "usable_extraction": true,
+        "score": {
+          "case_id": "real-v2-02",
+          "semantic": {
+            "true_positives": 0,
+            "false_positives": 0,
+            "false_negatives": 1,
+            "precision": null,
+            "recall": 0.0
+          },
+          "semantic_exact": false,
+          "false_positive_signatures": [],
+          "false_negative_signatures": [
+            "[\"requires\",\"receiver\",[\"==\",[3,2]],\"tx\",[\"!=\",[2,4]]]"
+          ],
+          "gold_constraints": 1,
+          "emitted_constraints": 0,
+          "correct_bindings": 0,
+          "literal_valid_citations": 0,
+          "exact_issue_set": false,
+          "exact_draft": false,
+          "gate_correct": false,
+          "complete_expected_outcome": false,
+          "expected_gate": "ready",
+          "actual_gate": "blocked",
+          "verifier_called": false,
+          "verifier_correct": null,
+          "verifier_reference_valid": null,
+          "expected_issue_kinds": [],
+          "actual_issue_kinds": [
+            "unsupported_requirement"
+          ]
+        },
+        "gate_issues": [
+          {
+            "code": "unsupported_requirement",
+            "message": "Requirement about sync/bind between specific ECU versions cannot be represented in current schema",
+            "constraint_id": null,
+            "evidence": {
+              "document_id": "real-v2-02",
+              "start_char": 0,
+              "end_char": 106
+            }
+          }
+        ],
+        "planning_status": "not_run",
+        "plan_step_count": null,
+        "extracted_constraints": [],
+        "extraction_issues": [
+          {
+            "kind": "unsupported_requirement",
+            "evidence": {
+              "document_id": "real-v2-02",
+              "start_char": 0,
+              "end_char": 106
+            },
+            "source_text": "a Receiver with version string of 3.2.0 will NOT sync or bind with a TX Module with firmware version 2.4.0",
+            "message": "Requirement about sync/bind between specific ECU versions cannot be represented in current schema"
+          }
+        ],
+        "verdict": null
+      },
+      {
+        "case_id": "real-v2-03",
+        "status": "ATTEMPTED",
+        "usable_extraction": false,
+        "score": {
+          "case_id": "real-v2-03",
+          "semantic": {
+            "true_positives": 0,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": null,
+            "recall": null
+          },
+          "semantic_exact": false,
+          "false_positive_signatures": [],
+          "false_negative_signatures": [],
+          "gold_constraints": 0,
+          "emitted_constraints": 0,
+          "correct_bindings": 0,
+          "literal_valid_citations": 0,
+          "exact_issue_set": false,
+          "exact_draft": false,
+          "gate_correct": true,
+          "complete_expected_outcome": false,
+          "expected_gate": "blocked",
+          "actual_gate": "blocked",
+          "verifier_called": false,
+          "verifier_correct": null,
+          "verifier_reference_valid": null,
+          "expected_issue_kinds": [
+            "unsupported_requirement"
+          ],
+          "actual_issue_kinds": null
+        },
+        "gate_issues": [
+          {
+            "code": "llm_boundary_error",
+            "message": "Provider request failed (HTTP 400); check credentials, limits, model, and schema support",
+            "constraint_id": null,
+            "evidence": null
+          }
+        ],
+        "planning_status": "not_run",
+        "plan_step_count": null,
+        "extracted_constraints": null,
+        "extraction_issues": null,
+        "verdict": null
+      },
+      {
+        "case_id": "real-v2-04",
+        "status": "NOT_RUN",
+        "reason": "Provider/schema/budget failure; no retry or fixture fallback"
+      },
+      {
+        "case_id": "real-v2-05",
+        "status": "NOT_RUN",
+        "reason": "Provider/schema/budget failure; no retry or fixture fallback"
+      }
+    ],
+    "parsed_extraction_cases": 2,
+    "semantic_case_exact_on_usable_drafts": {
+      "numerator": 1,
+      "denominator": 2,
+      "value": 0.5
+    },
+    "gate_correct_on_usable_drafts": {
+      "numerator": 0,
+      "denominator": 2,
+      "value": 0.0
+    },
+    "complete_expected_on_attempted": {
+      "numerator": 0,
+      "denominator": 3,
+      "value": 0.0
+    },
+    "complete_expected_on_scheduled": {
+      "numerator": 0,
+      "denominator": 5,
+      "value": 0.0
+    },
+    "correct_unsupported_abstention_on_usable_unsupported": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "descriptive_case_correctness": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "usage_coverage": {
+      "numerator": 3,
+      "denominator": 4,
+      "value": 0.75
+    },
+    "total_consumption_known": false,
+    "provider_success": {
+      "numerator": 3,
+      "denominator": 4,
+      "value": 0.75
+    },
+    "provider_errors": [
+      {
+        "case_id": "real-v2-03",
+        "purpose": "extraction",
+        "http_status": 400,
+        "error_body": "{\"error\":{\"message\":\"Failed to generate JSON. Please adjust your prompt. See 'failed_generation' for more details.\",\"type\":\"invalid_request_error\",\"code\":\"json_validate_failed\",\"failed_generation\":\"max completion tokens reached before generating a valid document\"}}\n",
+        "error": "Provider request failed (HTTP 400); check credentials, limits, model, and schema support"
+      }
+    ],
+    "successful_latency_ms": {
+      "extraction": [
+        1296.955,
+        1363.646
+      ],
+      "verification": [
+        1374.933
+      ]
+    }
+  },
+  "retest": {
+    "summary": {
+      "stratum": "FINAL REAL-DOCUMENT DEVELOPMENT RETEST",
+      "dataset_canonical_sha256": "2800892519dddf8ccbe7291db6109a7e41acfbde1cd5ed638d2b529eb57e9004",
+      "provider": "groq",
+      "model": "openai/gpt-oss-20b",
+      "requests": 8,
+      "http_requests_sent": 8,
+      "maximum_requests": 10,
+      "estimated_tokens_reserved": 51978,
+      "estimated_token_ceiling": 63997,
+      "automatic_retries": 0,
+      "attempted_cases": 5,
+      "scheduled_cases": 5,
+      "not_run_cases": 0,
+      "stop_reason": null,
+      "wall_elapsed_seconds": 633.271,
+      "semantic_counts": {
+        "tp": 2,
+        "fp": 0,
+        "fn": 0
+      },
+      "precision": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "recall": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "f1": {
+        "numerator": 4,
+        "denominator": 4,
+        "value": 1.0
+      },
+      "semantic_case_exact_match": {
+        "numerator": 5,
+        "denominator": 5,
+        "value": 1.0
+      },
+      "grounding_precision": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "grounding_recall": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "literal_citation_validity": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      },
+      "draft_exact_match": {
+        "numerator": 5,
+        "denominator": 5,
+        "value": 1.0
+      },
+      "gate_correctness": {
+        "numerator": 4,
+        "denominator": 5,
+        "value": 0.8
+      },
+      "complete_expected_outcome": {
+        "numerator": 4,
+        "denominator": 5,
+        "value": 0.8
+      },
+      "hallucination_over_extraction_proxy": {
+        "numerator": 0,
+        "denominator": 2,
+        "value": 0.0
+      },
+      "verifier_correctness": {
+        "numerator": 2,
+        "denominator": 3,
+        "value": 0.6666666666666666
+      },
+      "verifier_false_rejection": {
+        "numerator": 1,
+        "denominator": 3,
+        "value": 0.3333333333333333
+      },
+      "verifier_false_acceptance": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "http_status_counts": {
+        "200": 8
+      },
+      "token_usage": {
+        "prompt_tokens": 13521,
+        "completion_tokens": 4501,
+        "total_tokens": 18022
+      },
+      "latency_ms_by_role": {
+        "extraction": [
+          2305.008,
+          1401.066,
+          1974.452,
+          1350.651,
+          1232.235
+        ],
+        "verification": [
+          1236.848,
+          1240.457,
+          822.087
+        ]
+      },
+      "production_sources_unchanged": true,
+      "source_dataset_unchanged": true,
+      "all_cases_correct": false
+    },
+    "cases": [
+      {
+        "case_id": "real-v2-01",
+        "status": "ATTEMPTED",
+        "usable_extraction": true,
+        "score": {
+          "case_id": "real-v2-01",
+          "semantic": {
+            "true_positives": 1,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "semantic_exact": true,
+          "false_positive_signatures": [],
+          "false_negative_signatures": [],
+          "gold_constraints": 1,
+          "emitted_constraints": 1,
+          "correct_bindings": 1,
+          "literal_valid_citations": 1,
+          "exact_issue_set": true,
+          "exact_draft": true,
+          "gate_correct": false,
+          "complete_expected_outcome": false,
+          "expected_gate": "ready",
+          "actual_gate": "blocked",
+          "verifier_called": true,
+          "verifier_correct": false,
+          "verifier_reference_valid": true,
+          "expected_issue_kinds": [],
+          "actual_issue_kinds": []
+        },
+        "gate_issues": [
+          {
+            "code": "verification_disagreement",
+            "message": "Verifier rejected an order whose endpoints match bounded explicit source wording; unresolved manual review required",
+            "constraint_id": "order-1",
+            "evidence": {
+              "document_id": "real-v2-01",
+              "start_char": 0,
+              "end_char": 85
+            }
+          },
+          {
+            "code": "incorrect_constraint",
+            "message": "Constraint direction does not match source text; the text indicates transmitter before receiver, but constraint states receiver before transmitter.",
+            "constraint_id": "order-1",
+            "evidence": {
+              "document_id": "real-v2-01",
+              "start_char": 0,
+              "end_char": 85
+            }
+          }
+        ],
+        "planning_status": "not_run",
+        "plan_step_count": null,
+        "extracted_constraints": [
+          {
+            "constraint": {
+              "id": "order-1",
+              "source_document_id": "real-v2-01",
+              "source_text": "Note: You must update the transmitter firmware before updating the receiver firmware.",
+              "type": "order",
+              "before": "transmitter",
+              "after": "receiver"
+            },
+            "evidence": {
+              "document_id": "real-v2-01",
+              "start_char": 0,
+              "end_char": 85
+            }
+          }
+        ],
+        "extraction_issues": [],
+        "verdict": {
+          "faithful": false,
+          "reviewed_constraint_ids": [
+            "order-1"
+          ],
+          "reviewed_document_ids": [
+            "real-v2-01"
+          ],
+          "issues": [
+            {
+              "kind": "incorrect_constraint",
+              "constraint_id": "order-1",
+              "evidence": {
+                "document_id": "real-v2-01",
+                "start_char": 0,
+                "end_char": 85
+              },
+              "source_text": "Note: You must update the transmitter firmware before updating the receiver firmware.",
+              "message": "Constraint direction does not match source text; the text indicates transmitter before receiver, but constraint states receiver before transmitter."
+            }
+          ]
+        }
+      },
+      {
+        "case_id": "real-v2-02",
+        "status": "ATTEMPTED",
+        "usable_extraction": true,
+        "score": {
+          "case_id": "real-v2-02",
+          "semantic": {
+            "true_positives": 1,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": 1.0,
+            "recall": 1.0
+          },
+          "semantic_exact": true,
+          "false_positive_signatures": [],
+          "false_negative_signatures": [],
+          "gold_constraints": 1,
+          "emitted_constraints": 1,
+          "correct_bindings": 1,
+          "literal_valid_citations": 1,
+          "exact_issue_set": true,
+          "exact_draft": true,
+          "gate_correct": true,
+          "complete_expected_outcome": true,
+          "expected_gate": "ready",
+          "actual_gate": "ready",
+          "verifier_called": true,
+          "verifier_correct": true,
+          "verifier_reference_valid": true,
+          "expected_issue_kinds": [],
+          "actual_issue_kinds": []
+        },
+        "gate_issues": [],
+        "planning_status": "feasible",
+        "plan_step_count": 0,
+        "extracted_constraints": [
+          {
+            "constraint": {
+              "id": "c1",
+              "source_document_id": "real-v2-02",
+              "source_text": "a Receiver with version string of 3.2.0 will NOT sync or bind with a TX Module with firmware version 2.4.0",
+              "type": "requires",
+              "ecu": "receiver",
+              "version_spec": "==3.2.0",
+              "needs": "tx",
+              "needs_version_spec": "!=2.4.0"
+            },
+            "evidence": {
+              "document_id": "real-v2-02",
+              "start_char": 0,
+              "end_char": 106
+            }
+          }
+        ],
+        "extraction_issues": [],
+        "verdict": {
+          "faithful": true,
+          "reviewed_constraint_ids": [
+            "c1"
+          ],
+          "reviewed_document_ids": [
+            "real-v2-02"
+          ],
+          "issues": []
+        }
+      },
+      {
+        "case_id": "real-v2-03",
+        "status": "ATTEMPTED",
+        "usable_extraction": true,
+        "score": {
+          "case_id": "real-v2-03",
+          "semantic": {
+            "true_positives": 0,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": null,
+            "recall": null
+          },
+          "semantic_exact": true,
+          "false_positive_signatures": [],
+          "false_negative_signatures": [],
+          "gold_constraints": 0,
+          "emitted_constraints": 0,
+          "correct_bindings": 0,
+          "literal_valid_citations": 0,
+          "exact_issue_set": true,
+          "exact_draft": true,
+          "gate_correct": true,
+          "complete_expected_outcome": true,
+          "expected_gate": "blocked",
+          "actual_gate": "blocked",
+          "verifier_called": false,
+          "verifier_correct": null,
+          "verifier_reference_valid": null,
+          "expected_issue_kinds": [
+            "unsupported_requirement"
+          ],
+          "actual_issue_kinds": [
+            "unsupported_requirement"
+          ]
+        },
+        "gate_issues": [
+          {
+            "code": "unsupported_requirement",
+            "message": "Requirement that TX Module and Receiver major versions must match cannot be represented in the schema.",
+            "constraint_id": null,
+            "evidence": {
+              "document_id": "real-v2-03",
+              "start_char": 227,
+              "end_char": 315
+            }
+          }
+        ],
+        "planning_status": "not_run",
+        "plan_step_count": null,
+        "extracted_constraints": [],
+        "extraction_issues": [
+          {
+            "kind": "unsupported_requirement",
+            "evidence": {
+              "document_id": "real-v2-03",
+              "start_char": 227,
+              "end_char": 315
+            },
+            "source_text": "That first number in the Version string should match between a TX Module and a Receiver.",
+            "message": "Requirement that TX Module and Receiver major versions must match cannot be represented in the schema."
+          }
+        ],
+        "verdict": null
+      },
+      {
+        "case_id": "real-v2-04",
+        "status": "ATTEMPTED",
+        "usable_extraction": true,
+        "score": {
+          "case_id": "real-v2-04",
+          "semantic": {
+            "true_positives": 0,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": null,
+            "recall": null
+          },
+          "semantic_exact": true,
+          "false_positive_signatures": [],
+          "false_negative_signatures": [],
+          "gold_constraints": 0,
+          "emitted_constraints": 0,
+          "correct_bindings": 0,
+          "literal_valid_citations": 0,
+          "exact_issue_set": true,
+          "exact_draft": true,
+          "gate_correct": true,
+          "complete_expected_outcome": true,
+          "expected_gate": "blocked",
+          "actual_gate": "blocked",
+          "verifier_called": false,
+          "verifier_correct": null,
+          "verifier_reference_valid": null,
+          "expected_issue_kinds": [
+            "unsupported_requirement"
+          ],
+          "actual_issue_kinds": [
+            "unsupported_requirement"
+          ]
+        },
+        "gate_issues": [
+          {
+            "code": "unsupported_requirement",
+            "message": "Requirement about scratch area not supported by schema",
+            "constraint_id": null,
+            "evidence": {
+              "document_id": "real-v2-04",
+              "start_char": 0,
+              "end_char": 160
+            }
+          }
+        ],
+        "planning_status": "not_run",
+        "plan_step_count": null,
+        "extracted_constraints": [],
+        "extraction_issues": [
+          {
+            "kind": "unsupported_requirement",
+            "evidence": {
+              "document_id": "real-v2-04",
+              "start_char": 0,
+              "end_char": 160
+            },
+            "source_text": "When swap-using-scratch algorithm is used, in addition to the slots of image areas, the bootloader requires a scratch area to allow for reliable image swapping.",
+            "message": "Requirement about scratch area not supported by schema"
+          }
+        ],
+        "verdict": null
+      },
+      {
+        "case_id": "real-v2-05",
+        "status": "ATTEMPTED",
+        "usable_extraction": true,
+        "score": {
+          "case_id": "real-v2-05",
+          "semantic": {
+            "true_positives": 0,
+            "false_positives": 0,
+            "false_negatives": 0,
+            "precision": null,
+            "recall": null
+          },
+          "semantic_exact": true,
+          "false_positive_signatures": [],
+          "false_negative_signatures": [],
+          "gold_constraints": 0,
+          "emitted_constraints": 0,
+          "correct_bindings": 0,
+          "literal_valid_citations": 0,
+          "exact_issue_set": true,
+          "exact_draft": true,
+          "gate_correct": true,
+          "complete_expected_outcome": true,
+          "expected_gate": "ready",
+          "actual_gate": "ready",
+          "verifier_called": true,
+          "verifier_correct": true,
+          "verifier_reference_valid": true,
+          "expected_issue_kinds": [],
+          "actual_issue_kinds": []
+        },
+        "gate_issues": [],
+        "planning_status": "feasible",
+        "plan_step_count": 0,
+        "extracted_constraints": [],
+        "extraction_issues": [],
+        "verdict": {
+          "faithful": true,
+          "reviewed_constraint_ids": [],
+          "reviewed_document_ids": [
+            "real-v2-05"
+          ],
+          "issues": []
+        }
+      }
+    ],
+    "parsed_extraction_cases": 5,
+    "semantic_case_exact_on_usable_drafts": {
+      "numerator": 5,
+      "denominator": 5,
+      "value": 1.0
+    },
+    "gate_correct_on_usable_drafts": {
+      "numerator": 4,
+      "denominator": 5,
+      "value": 0.8
+    },
+    "complete_expected_on_attempted": {
+      "numerator": 4,
+      "denominator": 5,
+      "value": 0.8
+    },
+    "complete_expected_on_scheduled": {
+      "numerator": 4,
+      "denominator": 5,
+      "value": 0.8
+    },
+    "correct_unsupported_abstention_on_usable_unsupported": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1.0
+    },
+    "descriptive_case_correctness": {
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1.0
+    },
+    "usage_coverage": {
+      "numerator": 8,
+      "denominator": 8,
+      "value": 1.0
+    },
+    "total_consumption_known": true,
+    "provider_success": {
+      "numerator": 8,
+      "denominator": 8,
+      "value": 1.0
+    },
+    "provider_errors": [],
+    "successful_latency_ms": {
+      "extraction": [
+        2305.008,
+        1401.066,
+        1974.452,
+        1350.651,
+        1232.235
+      ],
+      "verification": [
+        1236.848,
+        1240.457,
+        822.087
+      ]
+    }
+  },
+  "paired_usable_extraction_cases": [
+    {
+      "case_id": "real-v2-01",
+      "old_complete": false,
+      "new_complete": false,
+      "old_semantic": {
+        "true_positives": 1,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      },
+      "new_semantic": {
+        "true_positives": 1,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    },
+    {
+      "case_id": "real-v2-02",
+      "old_complete": false,
+      "new_complete": true,
+      "old_semantic": {
+        "true_positives": 0,
+        "false_positives": 0,
+        "false_negatives": 1,
+        "precision": null,
+        "recall": 0.0
+      },
+      "new_semantic": {
+        "true_positives": 1,
+        "false_positives": 0,
+        "false_negatives": 0,
+        "precision": 1.0,
+        "recall": 1.0
+      }
+    }
+  ],
+  "limits": [
+    "Owner-reviewed tiny embedded-document development corpus, not automotive-domain expert validation",
+    "Prompt versions, completion cap, spacing and repeated-error policy differ: cannot isolate the cause of any change",
+    "Old NOT_RUN cases are missing coverage, not old semantic successes/failures",
+    "Any planner results use synthetic no-update inventory scaffolding; not vendor schedules",
+    "No automatic additional repair or retest is authorized"
+  ]
+}

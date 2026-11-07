@@ -1,0 +1,78 @@
+{
+  "mode": "OFFLINE_RECOVERY_OF_EXISTING_LIVE_OUTPUTS",
+  "new_api_requests": 0,
+  "execution_hashes_verified": 14,
+  "scheduled_cases": 5,
+  "attempted_cases": 3,
+  "usable_extraction_cases": 2,
+  "not_run_cases": [
+    "real-v2-04",
+    "real-v2-05"
+  ],
+  "schema_valid_extraction_json_received": {
+    "numerator": 2,
+    "denominator": 2,
+    "value": 1.0
+  },
+  "usable_extraction_response_coverage": {
+    "numerator": 2,
+    "denominator": 3,
+    "value": 0.6666666666666666
+  },
+  "semantic_exact_on_usable_extractions": {
+    "numerator": 1,
+    "denominator": 2,
+    "value": 0.5
+  },
+  "semantic_exact_on_attempted_cases": {
+    "numerator": 1,
+    "denominator": 3,
+    "value": 0.3333333333333333
+  },
+  "mechanical_gate_agreement_on_attempted_cases": {
+    "numerator": 1,
+    "denominator": 3,
+    "value": 0.3333333333333333
+  },
+  "gate_agreement_on_usable_extractions": {
+    "numerator": 0,
+    "denominator": 2,
+    "value": 0.0
+  },
+  "complete_expected_outcome_on_attempted_cases": {
+    "numerator": 0,
+    "denominator": 3,
+    "value": 0.0
+  },
+  "expected_unsupported_cases": 2,
+  "expected_unsupported_cases_with_usable_extraction": 0,
+  "correct_unsupported_abstention_on_usable_expected_unsupported_cases": {
+    "numerator": 0,
+    "denominator": 0,
+    "value": null
+  },
+  "false_unsupported_abstention_on_usable_supported_positive_cases": {
+    "numerator": 1,
+    "denominator": 2,
+    "value": 0.5
+  },
+  "descriptive_case": "NOT_RUN",
+  "z3_cases": 0,
+  "provider_http_success": {
+    "numerator": 3,
+    "denominator": 4,
+    "value": 0.75
+  },
+  "usage_coverage_requests": {
+    "numerator": 3,
+    "denominator": 4,
+    "value": 0.75
+  },
+  "reported_tokens_on_usage_known_requests": 6337,
+  "failed_request_tokens": null,
+  "failed_request_usage_note": "HTTP400 response supplies no usage. Reported 6337 tokens cover three successful requests only, not necessarily total consumed/billed tokens.",
+  "mechanical_gate_note": "Case03 blocked on provider failure, not a successful unsupported_requirement classification. Raw 1/3 gate-state agreement is not a validated pass.",
+  "provider_error_codes": [
+    "json_validate_failed"
+  ]
+}

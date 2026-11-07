@@ -1,0 +1,39 @@
+{
+  "checked_at_utc": "2026-11-07T07:20:26.035868+00:00",
+  "mode": "OFFLINE_REPAIR_ONLY",
+  "new_groq_requests": 0,
+  "historical_hash_entries_verified": {
+    "real-pilot-v1": 20,
+    "synthetic-pilot-v1": 20,
+    "real-review-v3": 16
+  },
+  "changed_production_files": [
+    "src/ota_verifier/llm/extractor.py",
+    "src/ota_verifier/llm/source_support.py",
+    "src/ota_verifier/llm/verifier.py"
+  ],
+  "unchanged_core": "All other frozen production files including planner,compatibility,simulator,invariants,graph match the real-pilot freeze",
+  "tests": {
+    "passed": 271,
+    "failed": 0,
+    "errors": 0,
+    "warnings": 13,
+    "seconds": 32.49
+  },
+  "pip_check": "No broken requirements found.",
+  "configured_secret_value_scan": "PASS for changed files and repair artifacts; not whole-repository audit",
+  "files_sha256": {
+    "src\\ota_verifier\\llm\\extractor.py": "19f608aeae60cc142b14f0102c025cd1d9a208683ab1f68542806a37df4e044d",
+    "src\\ota_verifier\\llm\\source_support.py": "4d54f04d564936cad9435721387b33dbc54eecbeaeafda6bee93243cd66a27d5",
+    "src\\ota_verifier\\llm\\verifier.py": "c29075ae53e92c4d09de45e3ee289f76eb422f18c38b20a91c30d64c5db45f0c",
+    "tests\\test_final_reliability_repair.py": "e2cebf3ffc51d693c3246083e5bc3d30f6332596898c88e56604a0f43fd29865",
+    "eval\\live_extraction\\continuation_plan.py": "75f275df7b13daf4cd037a5738ca731ff245eb77c250a439484fe4d719970a96",
+    "docs\\PHASE2C_FINAL_RELIABILITY_REPAIR.md": "685f51cc4b13fe06f37d56cc34eb766b7ac03f21e07eea0f1795101a87dd6e9a"
+  },
+  "provider_documentation_consulted": [
+    "https://console.groq.com/docs/model/openai/gpt-oss-20b",
+    "https://console.groq.com/docs/api-reference"
+  ],
+  "live_accuracy_improvement": "NOT_MEASURED",
+  "token_completion_success": "NOT_LIVE_VERIFIED"
+}

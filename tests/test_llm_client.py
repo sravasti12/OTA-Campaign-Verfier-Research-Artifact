@@ -7,7 +7,7 @@ from urllib.error import HTTPError, URLError
 import pytest
 from pydantic import SecretStr
 from ota_verifier.llm.client import (ClientSettings, HttpRequest, LLMClient, LLMError,
-                                    http_transport, provider_schema)
+                                    USER_AGENT, http_transport, provider_schema)
 from ota_verifier.llm.evidence import content_hash
 from ota_verifier.llm.models import ExtractionDraft
 
@@ -44,7 +44,9 @@ def test_provider_request_and_credential_free_audit(provider: str) -> None:
     assert record.request_hash == content_hash(record.request_json)
     assert record.origin == 'live'  # Transport is mocked; adapter's actual path is exercised.
     assert request.timeout_seconds == 60
+    assert request.headers['User-Agent'] == USER_AGENT
     if provider == 'ollama':
+        assert request.headers['Authorization'] == 'Bearer ' + secret
         assert request.url == 'http://localhost:11434/api/chat'
         assert request.body['stream'] is False
         assert isinstance(request.body['format'], dict)
@@ -56,6 +58,31 @@ def test_provider_request_and_credential_free_audit(provider: str) -> None:
     else:
         assert request.headers['Authorization'] == 'Bearer ' + secret
         assert request.body['response_format']['json_schema']['strict'] is True
+
+
+@pytest.mark.parametrize('provider', ['ollama', 'gemini', 'groq'])
+def test_application_identity_and_auth_reach_http_request(provider: str, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Mock only network I/O: the real adapter/transport must preserve identity and credentials."""
+    secret = 'test-only-header-secret'
+    seen: list[Any] = []
+
+    def offline_urlopen(request: Any, *, timeout: float) -> BytesIO:
+        seen.append(request)
+        assert request.get_header('User-agent') == 'OTA-Campaign-Verifier-Evaluation/0.1.0'
+        assert request.get_header('Content-type') == 'application/json'
+        if provider == 'gemini':
+            assert request.get_header('X-goog-api-key') == secret
+            assert request.get_header('Authorization') is None
+        else:
+            assert request.get_header('Authorization') == 'Bearer ' + secret
+            assert request.get_header('X-goog-api-key') is None
+        return BytesIO(json.dumps(_envelope(provider)).encode('utf-8'))
+
+    monkeypatch.setattr('ota_verifier.llm.client.urlopen', offline_urlopen)
+    client = LLMClient(ClientSettings(provider=provider, model='test-model', api_key=SecretStr(secret)))
+    record = _generate(client)
+    assert len(seen) == 1
+    assert secret not in record.model_dump_json()
 
 
 @pytest.mark.parametrize('provider', ['ollama', 'gemini', 'groq'])

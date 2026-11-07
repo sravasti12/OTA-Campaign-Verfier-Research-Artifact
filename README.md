@@ -12,6 +12,27 @@ LLMs extract requirements, check extraction faithfulness, and explain evidence.
 **Compatibility, parallel planning, fault injection, recovery, and invariants are
 deterministic code.** They run and are tested without model services.
 
+LangGraph orchestrates the workflow and pauses for human review. The LLM
+interprets documentation; it does not decide compatibility, schedule updates,
+inject faults or authorize execution. This is a verification pipeline with
+inspectable solver and simulation evidence, rather than a conversational answer
+treated as an update decision. It does not control real vehicles.
+
+```mermaid
+flowchart LR
+    D[Release notes and ECU documentation] --> E[LLM requirement extraction]
+    E --> V[Schema, source and LLM faithfulness checks]
+    V --> Z[Z3 campaign planning]
+    Z --> S[Deterministic fault injection and recovery]
+    S --> R[Engineering evidence and advisory explanation]
+    R --> H[Human review]
+```
+
+[Live demo](https://ota-campaign-verifier.streamlit.app/) |
+[Measured results](#measured-evaluation-and-current-limits) |
+[Project phases](#project-phases) |
+[Setup](#setup-and-tests)
+
 [Project and architecture report](docs/OTA_Campaign_Verifier_Project_Report.html)
 
 ![Guarded recovery comparison with retained baseline violations](docs/assets/guarded-recovery.png)
@@ -31,11 +52,14 @@ certification evidence.*
 - **Recovery beyond a nominal plan:** deterministic fault sweeps, authorized rollback search and guarded boot-policy comparisons retain violations and inconclusive results.
 - **Reviewable decisions:** extraction citations, revision-bound human approval, SQLite history and verified evidence bundles connect results to the exact inputs and policy.
 - **Independent bootloader observations:** pinned MCUboot C execution is compared with the Python model; intentional differences and unsupported mechanisms remain visible.
+- **Inspectable engineering evidence:** deterministic JSON/Markdown exports retain source spans, compatibility states, rollback outcomes, safety findings and missing approval, with verifiable hashes.
 
 ## Project phases
 
-Phases 1-11 build the campaign-verification workflow. Phase 12 adds the MCUboot
-validation workstream; its five subphases are numbered 12A-12E below.
+Phases 1-11 build the campaign-verification workflow. Phase 12 adds MCUboot
+validation (12A-12E); Phase 13 covers scalability, LLM evaluation and reliability
+retesting; Phase 14 covers standards-concept engineering evidence. These are
+fourteen project phases, with implementation and validation limits recorded separately.
 
 | Phase | Capability | Guide |
 | --- | --- | --- |
@@ -51,9 +75,51 @@ validation workstream; its five subphases are numbered 12A-12E below.
 | 10 | Optional authenticated shared review and operational controls | [Phase 10](docs/phase10.md) |
 | 11 | Release validation and portfolio evidence | [Phase 11](docs/phase11.md) |
 | 12 | MCUboot reference execution and independent recovery comparison | [Phase 12A-12E](#phase-12-mcuboot-recovery-validation) |
+| 13 | Z3 scalability, synthetic/real-document Groq development evaluations, reliability repairs and final retest | [Phase 13 overview](#phase-13-scalability-and-live-llm-evaluation), [final comparison](docs/PHASE2C_FINAL_RETEST_COMPARISON.md) |
+| 14 | UNECE R156 / ISO 24089 concept traceability and tested engineering exports; normative/organizational review incomplete | [Phase 14 overview](#phase-14-standards-concept-engineering-evidence), [evidence report](docs/PHASE3_STANDARDS_EVIDENCE_REPORT.md) |
 
 Implemented features and exercised infrastructure are separate: mocked/offline
 checks do not establish live provider accuracy, remote CI or live OIDC operation.
+Follow-on workstream names “Phase 2” and “Phase 3” refer to project phases 13 and
+14 here; they do not replace the original planner/simulator phase numbers.
+
+## Measured evaluation and current limits
+
+| Evaluation | Actual evidence | Qualification |
+| --- | --- | --- |
+| Z3 scalability | 600 measured trials: 225 feasible, 180 infeasible, 180 unknown, 15 watchdogs | Synthetic 10/30/50/100-ECU inputs; no primary positive 100-ECU schedule returned |
+| Sequential baseline | 420 valid schedules, 180 no-schedule outcomes | Greedy sequential construction is not a complete parallel optimizer |
+| Live Groq integration | GPT-OSS 20B extraction, faithfulness and explanation succeeded across smoke/follow-up attempts | Four example requests include one HTTP 429; not a dataset accuracy result |
+| Fault findings | Nominal smoke passed; 26/28 fault cases passed, two bootability violations | Successful authorized rollback does not erase earlier unsafe states |
+| Synthetic Groq development pilot | Three owner-approved cases; semantic precision/recall/F1 100%; grounding 3/5; complete outcomes 1/3 | Five expected rules; swapped citations and verifier/gate errors retained |
+| Original real-document pilot | Five approved cases; three attempted; three HTTP 200 and one HTTP 400; semantic F1 66.7% | Two usable drafts, two NOT_RUN cases; no case reached Z3 |
+| Final real-document retest | All five cases executed; eight HTTP 200 responses, zero retries; semantic/grounding precision and recall 100%; complete outcomes 4/5 | Two positive rules in known embedded-document cases; Flysky false rejection persists; two feasible zero-step plans |
+| Evidence export | Versioned JSON, Markdown, schema and hashes, with tamper/approval checks | Simulated engineering evidence; no regulatory verdict or hardware assurance |
+
+The historical Windows benchmark parent monitored a venv launcher rather than
+the worker interpreter. Its parent memory readings/soft-limit enforcement are
+unreliable; returned-worker self-peaks remain recorded. The monitoring fix has
+an isolated verification, **not** a corrected full matrix rerun.
+
+Historical broad offline check: **760 passed, 0 failures/errors, 13 dependency
+deprecation warnings** across the then-existing tests plus MCUboot/scalability
+regressions. The final retest's targeted regression run separately recorded
+**274 passed, 0 failures/errors, 13 warnings**; it is not a replacement full-suite
+count. `pip check` found no broken requirements. Passing regressions do not erase
+the recorded fault findings or the live verifier failure.
+
+[Current readiness and remaining risks](docs/PROJECT_READINESS_REPORT.md) |
+[Detailed measurements](docs/PHASE2_EVALUATION_REPORT.md) |
+[Final real-document comparison](docs/PHASE2C_FINAL_RETEST_COMPARISON.md) |
+[Human dataset review](docs/DATASET_REVIEW_GUIDE.md) |
+[Sample engineering evidence](examples/engineering_evidence_v1/report.md) |
+[Portfolio/interview guide](docs/PORTFOLIO_AND_INTERVIEW_GUIDE.md)
+
+**Phase 13 has measured development results, not established general reliability.**
+The final retest completed its five-case execution, but one false faithfulness
+rejection remains. The corpus is not an automotive ECU accuracy benchmark, and
+no full held-out accuracy study is claimed. The standards-concept mapping still
+needs human normative review and organizational evidence beyond this simulation.
 
 ## Live demo
 
@@ -93,6 +159,9 @@ its availability does not establish passing remote CI or shared-mode OIDC checks
 
 ## Setup and tests
 
+[Final publication verification](docs/FINAL_PUBLICATION_READINESS.md) records the
+clean public-checkout tests and optional third-party reference checks.
+
 Python 3.11+ is required. In PowerShell, from this directory:
 
 ```powershell
@@ -102,9 +171,13 @@ python -m venv .venv
 ```
 
 The workspace verification uses Python 3.14.4. Python 3.11 has not been exercised
-here. After dependency installation, all tests and planning run offline without
-LLM services, environment variables, or credentials. `.env.example` documents
-optional provider configuration; `.env` is ignored.
+here. Deterministic planning and core tests run offline without LLM services,
+environment variables or credentials. Offline evaluation-profile tests supply explicit dummy provider settings and
+prohibit real HTTP; they do not require private provider configuration. Public tests do not require the four restricted Flysky assets: absent external
+references are explicitly reported as unavailable, while present files must
+match their hashes. The [optional reference audit](docs/THIRD_PARTY_PUBLICATION.md#offline-commands)
+checks the original assets when independently obtained. `.env.example` documents optional provider
+configuration; `.env` is ignored.
 
 Run just the Phase 2 tests:
 
@@ -410,8 +483,10 @@ metrics and deliberately reveal correlated extraction/reviewer errors:
 The second command intentionally exits 4 after detecting unsafe handoffs against
 hidden ground truth. Actual live evaluation is opt-in with `--mode live` and
 requires `.env`/environment configuration. Set `LLM_PROVIDER` to `ollama`, `gemini`,
-or `groq`, and configure an actual `LLM_MODEL`. No keys or live services are needed
-for the test suite. The verifier can use `LLM_VERIFIER_MODEL` if configured.
+or `groq`, and configure an actual `LLM_MODEL`. Core and fixture tests need no
+live services. Developer evaluation-profile tests use isolated dummy settings; optional external-reference
+verification is described in the setup qualification above. The verifier can use
+`LLM_VERIFIER_MODEL` if configured.
 
 Run records retain exact documents and character spans, hashes, prompts and
 versions, provider/model identity, raw responses, validated constraints, and
@@ -654,6 +729,132 @@ New runs use separate timestamped evidence directories. See the
 [engineering report, complete scenario table and Windows/WSL2 reproduction guide](docs/MCUBOOT_VALIDATION_REPORT.md)
 for methods, raw evidence, limitations and remaining gaps.
 
+## Phase 13: scalability and live LLM evaluation
+
+This workstream extends the original workflow with measured solver workloads,
+source-grounded extraction evaluation and retained reliability failures. The
+13A-13C headings below are README navigation groups for the recorded work, not
+additional official historical milestones. Reports retain their original
+"Phase 2" workstream filenames.
+
+### 13A: Z3 scalability benchmarking
+
+The primary study executed **600 Z3 trials** across fixed-seed synthetic
+10/30/50/100-ECU workloads: **225 feasible, 180 infeasible, 180 unknown and 15
+watchdogs**. The greedy sequential baseline returned 420 valid schedules and
+180 no-schedule outcomes. Solver timeout and watchdog results remain unresolved
+outcomes, not infeasibility proofs. No feasible schedule was returned for the
+primary positive 100-ECU cases, so large-scale scheduling success is not claimed.
+
+The historical Windows parent monitor observed a venv launcher rather than the
+worker interpreter. Parent memory readings and soft-limit enforcement are
+unreliable; worker-reported self-peaks remain recorded. The monitor correction
+was checked separately, without rerunning the complete primary matrix.
+
+[Scalability methods and results](docs/PHASE2B_SCALABILITY.md) |
+[Evidence audit](docs/PHASE2B_EVIDENCE_AUDIT.md) |
+[Consolidated evaluation through the original real pilot](docs/PHASE2_EVALUATION_REPORT.md)
+
+### 13B: reviewed datasets and synthetic Groq pilot
+
+The owner approved three frozen synthetic development cases and their exact
+source evidence. This was not independent automotive-domain expert validation.
+Groq `openai/gpt-oss-20b` made **four successful HTTP 200 requests**, with no
+retries and **12,170 reported tokens**.
+
+Semantic precision, recall and F1 were **100% on five expected rules**, but
+correct rule-to-evidence grounding was only **3/5 (60%)**, and complete expected
+workflow outcomes were **1/3**. The two opposing order rules carried swapped
+citations: their aggregate meanings matched while their individual evidence did
+not. A false faithfulness rejection with an invalid issue-reference usage and
+premature conflict blocking also remained visible. No case reached Z3.
+
+These are synthetic development measurements, not independent real-world
+accuracy. The frozen pilot was preserved through subsequent repairs and retests.
+
+[Synthetic pilot results and approval](docs/PHASE2C_PILOT_REPORT.md) |
+[Dataset review methodology](docs/DATASET_REVIEW_GUIDE.md)
+
+### 13C: real-document evaluation, reliability and final retest
+
+Five owner-reviewed embedded-firmware development cases covered a Flysky update
+order, a narrow ExpressLRS version exclusion, two unsupported requirements and a
+descriptive MCUboot statement. The corpus contains **two positive formal rules**;
+it is not an automotive ECU accuracy benchmark or a held-out study.
+
+| Measurement | Original incomplete pilot | Final bounded retest |
+| --- | --- | --- |
+| Cases | Five approved; three attempted, two NOT_RUN; two usable extraction drafts | All five attempted; five usable drafts |
+| Groq requests | Four: three HTTP 200, one HTTP 400 | Eight: all HTTP 200; zero retries |
+| Reported tokens | 6,337 across successful requests; failed-request usage unknown | 18,022 across all eight requests |
+| Semantic precision / recall / F1 | 100% / 50% / 66.7% | 100% / 100% / 100% |
+| Grounding precision / recall | 100% / 50% | 100% / 100% |
+| Complete expected outcomes | 0/3 attempted cases | 4/5 |
+| Planner handoff | No case reached Z3 | Two feasible zero-step plans |
+| Persistent failure | False Flysky rejection; omitted exclusion; JSON-completion failure | Flysky false faithfulness rejection remains |
+
+Reliability changes added bounded source-direction checks, clearer verifier
+reference/disagreement diagnostics, generic fixed-version exclusion instructions
+and a finite 4,096-completion-token retest profile. General variable-to-variable
+major-version matching remains unsupported. Unresolved judgments stay blocked;
+valid citations do not automatically approve a draft. No product-specific gold
+answers were hardcoded, and historical predictions were not repaired in place.
+
+The final retest used `extract-v3` / `verify-v3` and `openai/gpt-oss-20b`, with
+serial rate-limit pacing and a ten-request ceiling. Flysky extraction and its
+source evidence were correct, but the live verifier still incorrectly rejected
+the direction. The ExpressLRS exclusion, unsupported controls and descriptive
+control achieved their expected outcomes. No provider completion failure
+occurred in the retest; the original HTTP 400 remains retained.
+
+**The two feasible Z3 results were zero-step plans:** current and target versions
+were equal in the approved synthetic inventory scaffolds. They establish a
+verified handoff to the planner, not nonempty firmware-update scheduling or
+operational compatibility validation. Overall workflow reliability is not 100%.
+
+The pilots have different attempted-case coverage and changed prompts/token
+configuration. They are not equivalent statistical samples, and the results do
+not isolate which change caused an improvement. On the two cases with usable
+extractions in both runs, the exclusion improved while Flysky's rejection
+persisted. Do not pool synthetic and real-document scores.
+
+[Original real-document pilot](docs/PHASE2C_REAL_DOCUMENT_PILOT.md) |
+[Initial reliability review](docs/PHASE2C_RELIABILITY_REVIEW.md) |
+[Final offline repairs](docs/PHASE2C_FINAL_RELIABILITY_REPAIR.md) |
+**[Final versioned comparison and evidence](docs/PHASE2C_FINAL_RETEST_COMPARISON.md)**
+
+The final comparison records **274 passing targeted regressions**, with zero
+failures/errors and 13 dependency warnings, plus verified prior-pilot/corpus and
+new evidence hashes. This count does not replace the historical broad 760-test
+run. Further independent evaluation and the persistent verifier failure remain
+limitations; no additional live evaluation is implied as complete.
+
+## Phase 14: standards-concept engineering evidence
+
+A tested deterministic exporter assembles versioned JSON and Markdown evidence,
+a strict schema and SHA-256 manifests. It connects source sentences and spans to
+inventory, compatibility states, planning, simulated faults, rollback findings
+and the recorded human-review status. Missing review is explicit; exporting a
+package never creates approval or removes violations. Existing-artifact hash
+references do not masquerade as fresh MCUboot execution.
+
+The mapping relates these artifacts to **UNECE R156 and ISO 24089 engineering
+concepts**, including software/configuration identification, dependency
+traceability, failure/restoration records and decision accountability. It is a
+proposed concept traceability matrix, not a verified normative-clause checklist.
+Detailed R156 text was not verified in the recorded research, and full licensed
+ISO normative text was not used. Human normative review and organizational
+evidence remain incomplete.
+
+The sample retains **26/28 passing fault cases and two genuine bootability
+invariant violations**, with missing human approval clearly recorded. Hashes
+check consistency relative to a trusted manifest; they are not digital
+signatures or proof of source truth. The exporter does not establish regulatory
+compliance, certification, production safety or hardware assurance.
+
+[Phase 14 concept mapping, tests and reproduction](docs/PHASE3_STANDARDS_EVIDENCE_REPORT.md) |
+[Sample engineering evidence](examples/engineering_evidence_v1/report.md)
+
 ## Verification approach
 
 Phase 1's 69 regression tests remain included. Phase 2 tests cover parallel
@@ -682,7 +883,13 @@ The five hand-authored benchmarks in `tests/fixtures` remain:
 ## Remaining work and boundaries
 
 Remote CI and live OIDC checks remain pending in the recorded release evidence.
-Live LLM accuracy, scalability evaluation and regulatory-evidence work have not
-been established by the MCUboot extension. No additional phase is implied as
-complete. The project remains a simulation; selected endpoint agreement does not
-establish full bootloader equivalence, hardware or real-vehicle validation.
+Phase 13 records actual scalability trials and bounded live development pilots,
+including the final five-case retest and its persistent false verifier rejection.
+Broader independent accuracy, nonempty real-document update schedules, and
+successful primary positive 100-ECU scheduling remain unestablished. Phase 14's
+exporter is tested, while normative and organizational review remains incomplete.
+The linked readiness/consolidation reports retain their dated earlier snapshots;
+the final retest comparison is the later record for LLM evaluation results.
+The project remains a simulation: selected endpoint agreement does not establish
+full bootloader equivalence, hardware or real-vehicle validation. No production
+readiness or regulatory-compliance claim is made.

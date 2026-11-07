@@ -1,0 +1,26 @@
+{
+  "recorded_at_utc": "2026-11-07T06:39:04.344887+00:00",
+  "mode": "offline_recovery_only",
+  "new_api_requests": 0,
+  "original_execution_hashes_verified": 12,
+  "regression": {
+    "passed": 173,
+    "failed": 0,
+    "errors": 0,
+    "warnings": 13,
+    "elapsed_seconds": 28.75,
+    "warning": "LangSmith asyncio.iscoroutinefunction deprecation",
+    "command": ".venv/Scripts/python.exe -m pytest -q --basetemp=.ota_state/pilot-resume-20261107 tests/test_live_pilot_metrics.py tests/test_benchmark.py tests/test_extraction_evaluation.py tests/test_llm_client.py tests/test_llm_evidence.py tests/test_llm_pipeline.py tests/test_graph.py tests/test_plan_validation.py"
+  },
+  "pip_check": {
+    "exit_code": 0,
+    "output": "No broken requirements found."
+  },
+  "local_configured_secret_values_found_in_scanned_files": false,
+  "secret_scan_scope": "Pilot directory and three recovery/report files; not a repository-wide credential audit",
+  "changed_file_sha256": {
+    "eval\\live_extraction\\recover_pilot.py": "4b7d702f4eb48a73b1acd4d6eff85396486e08cdfd7921b9fe333ac66786bdcb",
+    "docs\\PHASE2C_PILOT_REPORT.md": "9d5fa0664c6c26e9dde9cc7cf0de47192bbefc5c65d28187a3aba2e6e007d5bc",
+    "docs\\PHASE2_EVALUATION_REPORT.md": "34bb1d1fbb5a1d5dfe1ba1438f082ff2b8ec9e406077667ca799be005aec4bab"
+  }
+}

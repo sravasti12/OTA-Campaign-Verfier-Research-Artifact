@@ -1,0 +1,1512 @@
+{
+  "format": "real-document-candidates-v1",
+  "status": "PROPOSED_UNREVIEWED_NOT_ADMITTED",
+  "candidate_count": 20,
+  "expressible_positive_cases": 0,
+  "live_inference_requests": 0,
+  "coverage_gaps": [
+    "No approved ECU-version positive",
+    "No genuine conflicting ECU requirements found",
+    "Project diversity limited; 18 MCUboot excerpts and 2 short external candidates"
+  ],
+  "cases": [
+    {
+      "id": "real-candidate-01",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/imgtool.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/imgtool.md",
+      "source_sha256": "e1ed4285cfa9eba78b3ab1d62be20e6bee7fdeb769fbda1fe3e1a41d0bebff21",
+      "excerpt": "The `--slot-size` argument is required and used to check that the firmware\ndoes not overflow into the swap status area (metadata). If swap upgrades are\nnot being used, `--overwrite-only` can be passed to avoid adding the swap\nstatus area size when calculating overflow.",
+      "excerpt_sha256": "4ac3b4461e0517ce3471df1f8fc2a8ba5997d321a9bc629a96f51b3edb6ee61d",
+      "source_start_char": 10085,
+      "source_end_char": 10354,
+      "context": "ils\nabout internals of image generated with this option can be found here\n[here](./compression_format.md)\nThis isn't fully supported on the embedded side but can be utilised when\nproject is built on top of the mcuboot.\n\nThe `--slot-size` argument is required and used to check that the firmware\ndoes not overflow into the swap status area (metadata). If swap upgrades are\nnot being used, `--overwrite-only` can be passed to avoid adding the swap\nstatus area size when calculating overflow.\n\nThe optional `--pad` argument will place a trailer on the image that\nindicates that the image should be considered an upgrade.  Writing this image\nin the secondary slot will then cause the bootloader to upgrade to it.\n",
+      "classification": "flash-layout",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-01",
+            "start_char": 0,
+            "end_char": 74
+          },
+          "text": "The `--slot-size` argument is required and used to check that the firmware"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-01",
+            "start_char": 75,
+            "end_char": 130
+          },
+          "text": "does not overflow into the swap status area (metadata)."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-01",
+            "start_char": 131,
+            "end_char": 151
+          },
+          "text": "If swap upgrades are"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-01",
+            "start_char": 152,
+            "end_char": 225
+          },
+          "text": "not being used, `--overwrite-only` can be passed to avoid adding the swap"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-01",
+            "start_char": 226,
+            "end_char": 269
+          },
+          "text": "status area size when calculating overflow."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-02",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/imgtool.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/imgtool.md",
+      "source_sha256": "e1ed4285cfa9eba78b3ab1d62be20e6bee7fdeb769fbda1fe3e1a41d0bebff21",
+      "excerpt": "A dependency can be specified in the following way:\n`-d \"(image_id, image_version)\"`. The `image_id` is the number of the image\nwhich the current image depends on. The `image_version` is the minimum version\nof that image to satisfy compliance. For example `-d \"(1, 1.2.3+0)\"` means this\nimage depends on Image 1 which version has to be at least 1.2.3+0.",
+      "excerpt_sha256": "95f1fe8f7fb7260faa2f408b676677f022da18a4020cb3e947f15f31016e4db8",
+      "source_start_char": 10575,
+      "source_end_char": 10928,
+      "context": "\nThe optional `--pad` argument will place a trailer on the image that\nindicates that the image should be considered an upgrade.  Writing this image\nin the secondary slot will then cause the bootloader to upgrade to it.\n\nA dependency can be specified in the following way:\n`-d \"(image_id, image_version)\"`. The `image_id` is the number of the image\nwhich the current image depends on. The `image_version` is the minimum version\nof that image to satisfy compliance. For example `-d \"(1, 1.2.3+0)\"` means this\nimage depends on Image 1 which version has to be at least 1.2.3+0.\n\nThe `--public-key-format` argument can be used to distinguish where the public\nkey is stored for image authentication. The `hash` option is used by default, in\nwhich case only the hash of the public key is added to the",
+      "classification": "image-minimum-version",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Image dependency metadata has no approved independently updatable ECU mapping; do not split one device into invented ECUs.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-02",
+            "start_char": 0,
+            "end_char": 51
+          },
+          "text": "A dependency can be specified in the following way:"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-02",
+            "start_char": 52,
+            "end_char": 85
+          },
+          "text": "`-d \"(image_id, image_version)\"`."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-02",
+            "start_char": 86,
+            "end_char": 127
+          },
+          "text": "The `image_id` is the number of the image"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-02",
+            "start_char": 128,
+            "end_char": 163
+          },
+          "text": "which the current image depends on."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-02",
+            "start_char": 164,
+            "end_char": 206
+          },
+          "text": "The `image_version` is the minimum version"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-02",
+            "start_char": 207,
+            "end_char": 243
+          },
+          "text": "of that image to satisfy compliance."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-02",
+            "start_char": 244,
+            "end_char": 286
+          },
+          "text": "For example `-d \"(1, 1.2.3+0)\"` means this"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-02",
+            "start_char": 287,
+            "end_char": 353
+          },
+          "text": "image depends on Image 1 which version has to be at least 1.2.3+0."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-03",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/readme-zephyr.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/readme-zephyr.md",
+      "source_sha256": "bff33ad1cf06c6ca8c23ea4841274e5638b3fe1b3a77fb45d1c8093349ebe724",
+      "excerpt": "Currently, the two image slots must be contiguous. If you are running\nMCUboot as your stage 1 bootloader, `boot_partition` must be configured\nso your SoC runs it out of reset. If there are multiple updateable images\nthen the corresponding primary and secondary partitions must be defined for\nthe rest of the images too (for example, `slot2_partition` and\n`slot3_partition` for Image 1).",
+      "excerpt_sha256": "c53a228f20fe521b8f48275e4f667bb66c6ac9810d1b71e3cb098c90b65c6dd6",
+      "source_start_char": 1066,
+      "source_end_char": 1452,
+      "context": "esired then the following flash partition is also\nneeded (see end of this help file for details on creating a scratch partition\nand how to use the swap-using-scratch algorithm):\n\n- `scratch_partition`: the scratch slot\n\nCurrently, the two image slots must be contiguous. If you are running\nMCUboot as your stage 1 bootloader, `boot_partition` must be configured\nso your SoC runs it out of reset. If there are multiple updateable images\nthen the corresponding primary and secondary partitions must be defined for\nthe rest of the images too (for example, `slot2_partition` and\n`slot3_partition` for Image 1).\n\nThe flash partitions are typically defined in the Zephyr boards folder, in a\nfile named `boards/<arch>/<board>/<board>.dts`. An example `.dts` file with\nflash partitions defined is the frdm_k64f's in\n`boards/nxp/frdm_k",
+      "classification": "flash-layout",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-03",
+            "start_char": 0,
+            "end_char": 50
+          },
+          "text": "Currently, the two image slots must be contiguous."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-03",
+            "start_char": 51,
+            "end_char": 69
+          },
+          "text": "If you are running"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-03",
+            "start_char": 70,
+            "end_char": 141
+          },
+          "text": "MCUboot as your stage 1 bootloader, `boot_partition` must be configured"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-03",
+            "start_char": 142,
+            "end_char": 175
+          },
+          "text": "so your SoC runs it out of reset."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-03",
+            "start_char": 176,
+            "end_char": 215
+          },
+          "text": "If there are multiple updateable images"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-03",
+            "start_char": 216,
+            "end_char": 291
+          },
+          "text": "then the corresponding primary and secondary partitions must be defined for"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-03",
+            "start_char": 292,
+            "end_char": 354
+          },
+          "text": "the rest of the images too (for example, `slot2_partition` and"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-03",
+            "start_char": 355,
+            "end_char": 386
+          },
+          "text": "`slot3_partition` for Image 1)."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-04",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/readme-zephyr.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/readme-zephyr.md",
+      "source_sha256": "bff33ad1cf06c6ca8c23ea4841274e5638b3fe1b3a77fb45d1c8093349ebe724",
+      "excerpt": "The application itself can flashed with regular flash tools, but will\nneed to be programmed at the offset of the primary slot for this particular\ntarget. Depending on the platform and flash tool you might need to manually\nspecify a flash offset corresponding to the primary slot starting address. This\nis usually not relevant for flash tools that use Intel Hex images (.hex) instead\nof raw binary images (.bin) since the former include destination address\ninformation. Additionally you will need to make sure that the flash tool does\nnot perform a mass erase (erasing the whole of the flash) or else you would be\ndeleting MCUboot.\nThese images can also be marked for upgrade, and loaded into the secondary slot,\nat which point the bootloader should perform an upgrade.  It is up to\nthe image to mark the primary slot as \"image ok\" before the next reboot,\notherwise the bootloader will revert the application.",
+      "excerpt_sha256": "2e12ef18b37b818d9bb0c6175bfe888193f8e892f92be4993cd9ce999731383a",
+      "source_start_char": 4971,
+      "source_end_char": 5879,
+      "context": " See below on how to make your own signatures.\n\nImages can be signed with the `scripts/imgtool.py` script.  It is best\nto look at `samples/zephyr/Makefile` for examples on how to use this.\n\n### Flashing the application\n\nThe application itself can flashed with regular flash tools, but will\nneed to be programmed at the offset of the primary slot for this particular\ntarget. Depending on the platform and flash tool you might need to manually\nspecify a flash offset corresponding to the primary slot starting address. This\nis usually not relevant for flash tools that use Intel Hex images (.hex) instead\nof raw binary images (.bin) since the former include destination address\ninformation. Additionally you will need to make sure that the flash tool does\nnot perform a mass erase (erasing the whole of the flash) or else you would be\ndeleting MCUboot.\nThese images can also be marked for upgrade, and loaded into the secondary slot,\nat which point the bootloader should perform an upgrade.  It is up to\nthe image to mark the primary slot as \"image ok\" before the next reboot,\notherwise the bootloader will revert the application.\n\n## Managing signing keys\n\nThe signing keys used by MCUboot are represented in standard formats,\nand can be generated and processed using conventional tools.  However,\n`scripts/imgtool.py` is able to generate key pairs ",
+      "classification": "confirmation-order",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 0,
+            "end_char": 69
+          },
+          "text": "The application itself can flashed with regular flash tools, but will"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 70,
+            "end_char": 145
+          },
+          "text": "need to be programmed at the offset of the primary slot for this particular"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 146,
+            "end_char": 153
+          },
+          "text": "target."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 154,
+            "end_char": 221
+          },
+          "text": "Depending on the platform and flash tool you might need to manually"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 222,
+            "end_char": 296
+          },
+          "text": "specify a flash offset corresponding to the primary slot starting address."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 297,
+            "end_char": 301
+          },
+          "text": "This"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 302,
+            "end_char": 382
+          },
+          "text": "is usually not relevant for flash tools that use Intel Hex images (.hex) instead"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 383,
+            "end_char": 455
+          },
+          "text": "of raw binary images (.bin) since the former include destination address"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 456,
+            "end_char": 468
+          },
+          "text": "information."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 469,
+            "end_char": 533
+          },
+          "text": "Additionally you will need to make sure that the flash tool does"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 534,
+            "end_char": 612
+          },
+          "text": "not perform a mass erase (erasing the whole of the flash) or else you would be"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 613,
+            "end_char": 630
+          },
+          "text": "deleting MCUboot."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 631,
+            "end_char": 711
+          },
+          "text": "These images can also be marked for upgrade, and loaded into the secondary slot,"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 712,
+            "end_char": 768
+          },
+          "text": "at which point the bootloader should perform an upgrade."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 770,
+            "end_char": 781
+          },
+          "text": "It is up to"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 782,
+            "end_char": 854
+          },
+          "text": "the image to mark the primary slot as \"image ok\" before the next reboot,"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-04",
+            "start_char": 855,
+            "end_char": 908
+          },
+          "text": "otherwise the bootloader will revert the application."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-05",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/design.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/design.md",
+      "source_sha256": "8d23b015f9e60dd49a80b44c5c9eee0a3e3b8928abae78064541f8ee64d57c13",
+      "excerpt": "Please note that the swap-using-scratch algorithm may be removed in the coming\nfuture.",
+      "excerpt_sha256": "a7e335b45bba3c3c4871b850297337a248cad2444c8a9390da89e4d620afdc5a",
+      "source_start_char": 10214,
+      "source_end_char": 10300,
+      "context": "the primary slot. The bootloader supports either swap- or\noverwrite-based image upgrades, but must be configured at build time to choose\none of these two strategies.\n\n### [Swap using scratch](#image-swap-using-scratch)\n\nPlease note that the swap-using-scratch algorithm may be removed in the coming\nfuture.\n\nWhen swap-using-scratch algorithm is used, in addition to the slots of\nimage areas, the bootloader requires a scratch area to allow for reliable\nimage swapping. The scratch area must have a size\nthat is enough to store",
+      "classification": "ambiguous-future-guidance",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-05",
+            "start_char": 0,
+            "end_char": 78
+          },
+          "text": "Please note that the swap-using-scratch algorithm may be removed in the coming"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-05",
+            "start_char": 79,
+            "end_char": 86
+          },
+          "text": "future."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-06",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/design.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/design.md",
+      "source_sha256": "8d23b015f9e60dd49a80b44c5c9eee0a3e3b8928abae78064541f8ee64d57c13",
+      "excerpt": "When swap-using-scratch algorithm is used, in addition to the slots of\nimage areas, the bootloader requires a scratch area to allow for reliable\nimage swapping. The scratch area must have a size\nthat is enough to store at least the largest sector that is going to be swapped.\nMany devices have small equally sized flash sectors, eg 4K, while others have\nvariable sized sectors where the largest sectors might be 128K or 256K, so the\nscratch must be big enough to store that. The scratch is only ever used when\nswapping firmware, which means only when doing an upgrade. Given that, the main\nreason for using a larger size for the scratch is that flash wear will be more\nevenly distributed, because a single sector would be written twice the number of\ntimes than using two sectors, for example. To evaluate the ideal size of the\nscratch for your use case the following parameters are relevant:",
+      "excerpt_sha256": "b08374d9c5c4776412ddcee897a74bd50cd82960b6692b65ca75d62a736ddbc6",
+      "source_start_char": 10302,
+      "source_end_char": 11193,
+      "context": ", but must be configured at build time to choose\none of these two strategies.\n\n### [Swap using scratch](#image-swap-using-scratch)\n\nPlease note that the swap-using-scratch algorithm may be removed in the coming\nfuture.\n\nWhen swap-using-scratch algorithm is used, in addition to the slots of\nimage areas, the bootloader requires a scratch area to allow for reliable\nimage swapping. The scratch area must have a size\nthat is enough to store at least the largest sector that is going to be swapped.\nMany devices have small equally sized flash sectors, eg 4K, while others have\nvariable sized sectors where the largest sectors might be 128K or 256K, so the\nscratch must be big enough to store that. The scratch is only ever used when\nswapping firmware, which means only when doing an upgrade. Given that, the main\nreason for using a larger size for the scratch is that flash wear will be more\nevenly distributed, because a single sector would be written twice the number of\ntimes than using two sectors, for example. To evaluate the ideal size of the\nscratch for your use case the following parameters are relevant:\n\n* the ratio of image size / scratch size\n* the number of erase cycles supported by the flash hardware\n\nThe image size is used (instead of slot size) because only the slot's sectors\nthat are actually used for storing th",
+      "classification": "scratch-capacity",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 0,
+            "end_char": 70
+          },
+          "text": "When swap-using-scratch algorithm is used, in addition to the slots of"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 71,
+            "end_char": 144
+          },
+          "text": "image areas, the bootloader requires a scratch area to allow for reliable"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 145,
+            "end_char": 160
+          },
+          "text": "image swapping."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 161,
+            "end_char": 194
+          },
+          "text": "The scratch area must have a size"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 195,
+            "end_char": 275
+          },
+          "text": "that is enough to store at least the largest sector that is going to be swapped."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 276,
+            "end_char": 353
+          },
+          "text": "Many devices have small equally sized flash sectors, eg 4K, while others have"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 354,
+            "end_char": 432
+          },
+          "text": "variable sized sectors where the largest sectors might be 128K or 256K, so the"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 433,
+            "end_char": 474
+          },
+          "text": "scratch must be big enough to store that."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 475,
+            "end_char": 509
+          },
+          "text": "The scratch is only ever used when"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 510,
+            "end_char": 568
+          },
+          "text": "swapping firmware, which means only when doing an upgrade."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 569,
+            "end_char": 589
+          },
+          "text": "Given that, the main"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 590,
+            "end_char": 668
+          },
+          "text": "reason for using a larger size for the scratch is that flash wear will be more"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 669,
+            "end_char": 749
+          },
+          "text": "evenly distributed, because a single sector would be written twice the number of"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 750,
+            "end_char": 792
+          },
+          "text": "times than using two sectors, for example."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 793,
+            "end_char": 826
+          },
+          "text": "To evaluate the ideal size of the"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-06",
+            "start_char": 827,
+            "end_char": 891
+          },
+          "text": "scratch for your use case the following parameters are relevant:"
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-07",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/design.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/design.md",
+      "source_sha256": "8d23b015f9e60dd49a80b44c5c9eee0a3e3b8928abae78064541f8ee64d57c13",
+      "excerpt": "For new swaps, MCUboot must inspect a collection of fields to determine which\nswap operation to perform.",
+      "excerpt_sha256": "7c8d673603ec071586cb9dc8217c2195758467292937af50fa967715464e6a9b",
+      "source_start_char": 34270,
+      "source_end_char": 34374,
+      "context": "wap type by inspecting the\nimage trailers.  When using the term \"image trailers\" what is meant is the\naggregate information provided by both image slot's trailers.\n\n### [New swaps (non-resumes)](#new-swaps-non-resumes)\n\nFor new swaps, MCUboot must inspect a collection of fields to determine which\nswap operation to perform.\n\nThe image trailers records are structured around the limitations imposed by\nflash hardware. As a consequence, they do not have a very intuitive design, and\nit is difficult to get a sense of the state of the device just",
+      "classification": "bootloader-state-machine",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-07",
+            "start_char": 0,
+            "end_char": 77
+          },
+          "text": "For new swaps, MCUboot must inspect a collection of fields to determine which"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-07",
+            "start_char": 78,
+            "end_char": 104
+          },
+          "text": "swap operation to perform."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-08",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/design.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/design.md",
+      "source_sha256": "8d23b015f9e60dd49a80b44c5c9eee0a3e3b8928abae78064541f8ee64d57c13",
+      "excerpt": "  * 32-bit magic number must be correct (`IMAGE_MAGIC`).\n  * Image must contain an `image_tlv_info` struct, identified by its magic\n    (`IMAGE_TLV_PROT_INFO_MAGIC` or `IMAGE_TLV_INFO_MAGIC`) exactly following\n    the firmware (`hdr_size` + `img_size`). If `IMAGE_TLV_PROT_INFO_MAGIC` is\n    found then after `ih_protect_tlv_size` bytes, another `image_tlv_info`\n    with magic equal to `IMAGE_TLV_INFO_MAGIC` must be present.\n  * Image must contain a SHA256 TLV.\n  * Calculated SHA256 must match SHA256 TLV contents.\n  * Image *may* contain a signature TLV.  If it does, it must also have a\n    KEYHASH TLV with the hash of the key that was used to sign. The list of\n    keys will then be iterated over looking for the matching key, which then\n    will then be used to verify the image contents.",
+      "excerpt_sha256": "477c463180c0655553a3290026d86b33108a9da8ff97b422baaec5ad1b082acb",
+      "source_start_char": 58345,
+      "source_end_char": 59141,
+      "context": "check of the image in the primary slot if\n`MCUBOOT_VALIDATE_PRIMARY_SLOT` is set, otherwise it doesn't perform an\nintegrity check.\n\nDuring the integrity check, the bootloader verifies the following aspects of\nan image:\n\n  * 32-bit magic number must be correct (`IMAGE_MAGIC`).\n  * Image must contain an `image_tlv_info` struct, identified by its magic\n    (`IMAGE_TLV_PROT_INFO_MAGIC` or `IMAGE_TLV_INFO_MAGIC`) exactly following\n    the firmware (`hdr_size` + `img_size`). If `IMAGE_TLV_PROT_INFO_MAGIC` is\n    found then after `ih_protect_tlv_size` bytes, another `image_tlv_info`\n    with magic equal to `IMAGE_TLV_INFO_MAGIC` must be present.\n  * Image must contain a SHA256 TLV.\n  * Calculated SHA256 must match SHA256 TLV contents.\n  * Image *may* contain a signature TLV.  If it does, it must also have a\n    KEYHASH TLV with the hash of the key that was used to sign. The list of\n    keys will then be iterated over looking for the matching key, which then\n    will then be used to verify the image contents.\n\nFor low performance MCU's where the validation is a heavy process at boot\n(~1-2 seconds on a arm-cortex-M0), the `MCUBOOT_VALIDATE_PRIMARY_SLOT_ONCE`\ncould be used. This option will cache the validation result as descr",
+      "classification": "image-integrity",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 2,
+            "end_char": 56
+          },
+          "text": "* 32-bit magic number must be correct (`IMAGE_MAGIC`)."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 59,
+            "end_char": 131
+          },
+          "text": "* Image must contain an `image_tlv_info` struct, identified by its magic"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 136,
+            "end_char": 209
+          },
+          "text": "(`IMAGE_TLV_PROT_INFO_MAGIC` or `IMAGE_TLV_INFO_MAGIC`) exactly following"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 214,
+            "end_char": 253
+          },
+          "text": "the firmware (`hdr_size` + `img_size`)."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 254,
+            "end_char": 287
+          },
+          "text": "If `IMAGE_TLV_PROT_INFO_MAGIC` is"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 292,
+            "end_char": 362
+          },
+          "text": "found then after `ih_protect_tlv_size` bytes, another `image_tlv_info`"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 367,
+            "end_char": 426
+          },
+          "text": "with magic equal to `IMAGE_TLV_INFO_MAGIC` must be present."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 429,
+            "end_char": 463
+          },
+          "text": "* Image must contain a SHA256 TLV."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 466,
+            "end_char": 517
+          },
+          "text": "* Calculated SHA256 must match SHA256 TLV contents."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 520,
+            "end_char": 558
+          },
+          "text": "* Image *may* contain a signature TLV."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 560,
+            "end_char": 591
+          },
+          "text": "If it does, it must also have a"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 596,
+            "end_char": 655
+          },
+          "text": "KEYHASH TLV with the hash of the key that was used to sign."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 656,
+            "end_char": 667
+          },
+          "text": "The list of"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 672,
+            "end_char": 744
+          },
+          "text": "keys will then be iterated over looking for the matching key, which then"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-08",
+            "start_char": 749,
+            "end_char": 796
+          },
+          "text": "will then be used to verify the image contents."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-09",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/design.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/design.md",
+      "source_sha256": "8d23b015f9e60dd49a80b44c5c9eee0a3e3b8928abae78064541f8ee64d57c13",
+      "excerpt": "Downgrade prevention is a feature which enforces that the new image must have a\nhigher version/security counter number than the image it is replacing, thus\npreventing the malicious downgrading of the device to an older and possibly\nvulnerable version of its firmware.",
+      "excerpt_sha256": "d4a3a920d51429375353f5a002ddb33dd43521b80bed37b6e7d1b52f22f4259d",
+      "source_start_char": 65368,
+      "source_end_char": 65635,
+      "context": " worst case, the system returns to the initial\nstate after dependency check.\n\nFor more information on adding dependency entries to an image,\nsee: [imgtool](imgtool.md).\n\n## [Downgrade prevention](#downgrade-prevention)\n\nDowngrade prevention is a feature which enforces that the new image must have a\nhigher version/security counter number than the image it is replacing, thus\npreventing the malicious downgrading of the device to an older and possibly\nvulnerable version of its firmware.\n\n### [Software-based downgrade prevention](#sw-downgrade-prevention)\n\nDuring the software based downgrade prevention the image version numbers are\ncompared. This feature is enabled with the `MCUBOOT_DOWNGRADE_PREVENTION",
+      "classification": "security-policy",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-09",
+            "start_char": 0,
+            "end_char": 79
+          },
+          "text": "Downgrade prevention is a feature which enforces that the new image must have a"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-09",
+            "start_char": 80,
+            "end_char": 155
+          },
+          "text": "higher version/security counter number than the image it is replacing, thus"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-09",
+            "start_char": 156,
+            "end_char": 231
+          },
+          "text": "preventing the malicious downgrading of the device to an older and possibly"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-09",
+            "start_char": 232,
+            "end_char": 267
+          },
+          "text": "vulnerable version of its firmware."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-10",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/design.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/design.md",
+      "source_sha256": "8d23b015f9e60dd49a80b44c5c9eee0a3e3b8928abae78064541f8ee64d57c13",
+      "excerpt": "During the software based downgrade prevention the image version numbers are\ncompared. This feature is enabled with the `MCUBOOT_DOWNGRADE_PREVENTION`\noption. In this case downgrade prevention is only available when the\noverwrite-based image update strategy is used (i.e. `MCUBOOT_OVERWRITE_ONLY`\nis set).",
+      "excerpt_sha256": "f9d560499537c555289ea220157ba10aa7e3553c821f4a6ad08039c52a8e6952",
+      "source_start_char": 65706,
+      "source_end_char": 66011,
+      "context": " than the image it is replacing, thus\npreventing the malicious downgrading of the device to an older and possibly\nvulnerable version of its firmware.\n\n### [Software-based downgrade prevention](#sw-downgrade-prevention)\n\nDuring the software based downgrade prevention the image version numbers are\ncompared. This feature is enabled with the `MCUBOOT_DOWNGRADE_PREVENTION`\noption. In this case downgrade prevention is only available when the\noverwrite-based image update strategy is used (i.e. `MCUBOOT_OVERWRITE_ONLY`\nis set).\n\n### [Hardware-based downgrade prevention](#hw-downgrade-prevention)\n\nEach signed image can contain a security counter in its protected TLV area, which\ncan be added to the image using the `-s` option of the [imgtool](im",
+      "classification": "conditional-build-feature",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-10",
+            "start_char": 0,
+            "end_char": 76
+          },
+          "text": "During the software based downgrade prevention the image version numbers are"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-10",
+            "start_char": 77,
+            "end_char": 86
+          },
+          "text": "compared."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-10",
+            "start_char": 87,
+            "end_char": 150
+          },
+          "text": "This feature is enabled with the `MCUBOOT_DOWNGRADE_PREVENTION`"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-10",
+            "start_char": 151,
+            "end_char": 158
+          },
+          "text": "option."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-10",
+            "start_char": 159,
+            "end_char": 219
+          },
+          "text": "In this case downgrade prevention is only available when the"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-10",
+            "start_char": 220,
+            "end_char": 271
+          },
+          "text": "overwrite-based image update strategy is used (i.e."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-10",
+            "start_char": 272,
+            "end_char": 296
+          },
+          "text": "`MCUBOOT_OVERWRITE_ONLY`"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-10",
+            "start_char": 297,
+            "end_char": 305
+          },
+          "text": "is set)."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-11",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/design.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/design.md",
+      "source_sha256": "8d23b015f9e60dd49a80b44c5c9eee0a3e3b8928abae78064541f8ee64d57c13",
+      "excerpt": "Each signed image can contain a security counter in its protected TLV area, which\ncan be added to the image using the `-s` option of the [imgtool](imgtool.md) script.\nDuring the hardware based downgrade prevention (alias rollback protection) the\nnew image's security counter will be compared with the currently active security\ncounter value which must be stored in a non-volatile and trusted component of\nthe device. It is beneficial to handle this counter independently from image\nversion number:",
+      "excerpt_sha256": "45fe2c5e11973007b1c64f3063c52f62b441194d2cf520e5dc85f2535ac7894f",
+      "source_start_char": 66082,
+      "source_end_char": 66579,
+      "context": "n. In this case downgrade prevention is only available when the\noverwrite-based image update strategy is used (i.e. `MCUBOOT_OVERWRITE_ONLY`\nis set).\n\n### [Hardware-based downgrade prevention](#hw-downgrade-prevention)\n\nEach signed image can contain a security counter in its protected TLV area, which\ncan be added to the image using the `-s` option of the [imgtool](imgtool.md) script.\nDuring the hardware based downgrade prevention (alias rollback protection) the\nnew image's security counter will be compared with the currently active security\ncounter value which must be stored in a non-volatile and trusted component of\nthe device. It is beneficial to handle this counter independently from image\nversion number:\n\n  * It does not need to increase with each software release,\n  * It makes it possible to do software downgrade to some extent: if the\n    security counter has the same value in the older image then it is accepted.\n\nIt ",
+      "classification": "security-counter",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-11",
+            "start_char": 0,
+            "end_char": 81
+          },
+          "text": "Each signed image can contain a security counter in its protected TLV area, which"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-11",
+            "start_char": 82,
+            "end_char": 166
+          },
+          "text": "can be added to the image using the `-s` option of the [imgtool](imgtool.md) script."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-11",
+            "start_char": 167,
+            "end_char": 245
+          },
+          "text": "During the hardware based downgrade prevention (alias rollback protection) the"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-11",
+            "start_char": 246,
+            "end_char": 326
+          },
+          "text": "new image's security counter will be compared with the currently active security"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-11",
+            "start_char": 327,
+            "end_char": 404
+          },
+          "text": "counter value which must be stored in a non-volatile and trusted component of"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-11",
+            "start_char": 405,
+            "end_char": 416
+          },
+          "text": "the device."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-11",
+            "start_char": 417,
+            "end_char": 481
+          },
+          "text": "It is beneficial to handle this counter independently from image"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-11",
+            "start_char": 482,
+            "end_char": 497
+          },
+          "text": "version number:"
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-12",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/design.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/design.md",
+      "source_sha256": "8d23b015f9e60dd49a80b44c5c9eee0a3e3b8928abae78064541f8ee64d57c13",
+      "excerpt": "The dependencies between images can be described with additional TLV entries in\nthe protected TLV area after the end of an image. There can be more than one\ndependency entry, but in practice if the platform only supports two individual\nimages then there can be maximum one entry which reflects to the other image.",
+      "excerpt_sha256": "3919c1000c33aa1064154fb8a20601a043cf426a1675b1281c5cfa7630befd0d",
+      "source_start_char": 64338,
+      "source_end_char": 64651,
+      "context": "firmware images. It is possible to update them\nindependently but in many cases it can be desired to be able to describe\ndependencies between the images (e.g. to ensure API compliance and avoid\ninteroperability issues).\n\nThe dependencies between images can be described with additional TLV entries in\nthe protected TLV area after the end of an image. There can be more than one\ndependency entry, but in practice if the platform only supports two individual\nimages then there can be maximum one entry which reflects to the other image.\n\nAt the phase of dependency check all aborted swaps are finalized if there were\nany. During the dependency check the bootloader verifies whether the image\ndependencies are all satisfied. If at least one of the dependenc",
+      "classification": "multi-image-dependency",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Image dependency metadata has no approved independently updatable ECU mapping; do not split one device into invented ECUs.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-12",
+            "start_char": 0,
+            "end_char": 79
+          },
+          "text": "The dependencies between images can be described with additional TLV entries in"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-12",
+            "start_char": 80,
+            "end_char": 129
+          },
+          "text": "the protected TLV area after the end of an image."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-12",
+            "start_char": 130,
+            "end_char": 156
+          },
+          "text": "There can be more than one"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-12",
+            "start_char": 157,
+            "end_char": 235
+          },
+          "text": "dependency entry, but in practice if the platform only supports two individual"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-12",
+            "start_char": 236,
+            "end_char": 313
+          },
+          "text": "images then there can be maximum one entry which reflects to the other image."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-13",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/PORTING.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/PORTING.md",
+      "source_sha256": "5b5c4deafab2d04131c744554698dc02dc088934b3463771a0e5de4aff64b7bb",
+      "excerpt": "* `MCUboot` requires a configuration file, which can be included as\n   mcuboot_config/mcuboot_config.h, which configures various options\n   (that begin with MCUBOOT_).",
+      "excerpt_sha256": "25295f36b43a700c3d59998cc8e5abbe37448898db33e3f7e8b490808c171bcd",
+      "source_start_char": 145,
+      "source_end_char": 312,
+      "context": "# Porting how-to\n\nThis document describes the requirements and necessary steps required to port\n`MCUboot` to a new target `OS`.\n\n# Requirements\n\n* `MCUboot` requires a configuration file, which can be included as\n   mcuboot_config/mcuboot_config.h, which configures various options\n   (that begin with MCUBOOT_).\n\n* `MCUboot` requires that the target provides a `flash` API with ability to\n  get the flash's minimum write size, and read/write/erase individual sectors.\n\n* `MCUboot` doesn't bundle a cryptographic library, which mean",
+      "classification": "build-prerequisite",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-13",
+            "start_char": 0,
+            "end_char": 67
+          },
+          "text": "* `MCUboot` requires a configuration file, which can be included as"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-13",
+            "start_char": 71,
+            "end_char": 136
+          },
+          "text": "mcuboot_config/mcuboot_config.h, which configures various options"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-13",
+            "start_char": 140,
+            "end_char": 167
+          },
+          "text": "(that begin with MCUBOOT_)."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-14",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/PORTING.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/PORTING.md",
+      "source_sha256": "5b5c4deafab2d04131c744554698dc02dc088934b3463771a0e5de4aff64b7bb",
+      "excerpt": "* `MCUboot` requires that the target provides a `flash` API with ability to\n  get the flash's minimum write size, and read/write/erase individual sectors.",
+      "excerpt_sha256": "f9ce31e9c45aaaa0932b004ca14c17129a1bd79a636feb7e2d0fe2d4375dfc4b",
+      "source_start_char": 314,
+      "source_end_char": 468,
+      "context": "t\n`MCUboot` to a new target `OS`.\n\n# Requirements\n\n* `MCUboot` requires a configuration file, which can be included as\n   mcuboot_config/mcuboot_config.h, which configures various options\n   (that begin with MCUBOOT_).\n\n* `MCUboot` requires that the target provides a `flash` API with ability to\n  get the flash's minimum write size, and read/write/erase individual sectors.\n\n* `MCUboot` doesn't bundle a cryptographic library, which means the target\n  OS must already have it bundled. The supported libraries at the moment are\n  either `Mbed TLS` or the set `tinycrypt` + `Mbed TLS` (where `Mb",
+      "classification": "hardware-api-prerequisite",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-14",
+            "start_char": 0,
+            "end_char": 75
+          },
+          "text": "* `MCUboot` requires that the target provides a `flash` API with ability to"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-14",
+            "start_char": 78,
+            "end_char": 154
+          },
+          "text": "get the flash's minimum write size, and read/write/erase individual sectors."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-15",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/PORTING.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/PORTING.md",
+      "source_sha256": "5b5c4deafab2d04131c744554698dc02dc088934b3463771a0e5de4aff64b7bb",
+      "excerpt": "* `MCUboot` doesn't bundle a cryptographic library, which means the target\n  OS must already have it bundled. The supported libraries at the moment are\n  either `Mbed TLS` or the set `tinycrypt` + `Mbed TLS` (where `Mbed TLS` is\n  used to provide functionality not existing in `tinycrypt`).",
+      "excerpt_sha256": "45a1434ad77b5263ebdd0a411b456e1a6abb42d3b2a948f41bdf948c4c98ed32",
+      "source_start_char": 470,
+      "source_end_char": 760,
+      "context": "hich configures various options\n   (that begin with MCUBOOT_).\n\n* `MCUboot` requires that the target provides a `flash` API with ability to\n  get the flash's minimum write size, and read/write/erase individual sectors.\n\n* `MCUboot` doesn't bundle a cryptographic library, which means the target\n  OS must already have it bundled. The supported libraries at the moment are\n  either `Mbed TLS` or the set `tinycrypt` + `Mbed TLS` (where `Mbed TLS` is\n  used to provide functionality not existing in `tinycrypt`).\n\n# Steps to port\n\n## Main app and calling the bootloader\n\nFrom the perspective of the target OS, the bootloader can be seen as a library,\nso an entry point must be provided. This is likely a typical `app` for the\ntarget",
+      "classification": "crypto-build-dependency",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Image dependency metadata has no approved independently updatable ECU mapping; do not split one device into invented ECUs.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-15",
+            "start_char": 0,
+            "end_char": 74
+          },
+          "text": "* `MCUboot` doesn't bundle a cryptographic library, which means the target"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-15",
+            "start_char": 77,
+            "end_char": 109
+          },
+          "text": "OS must already have it bundled."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-15",
+            "start_char": 110,
+            "end_char": 151
+          },
+          "text": "The supported libraries at the moment are"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-15",
+            "start_char": 154,
+            "end_char": 228
+          },
+          "text": "either `Mbed TLS` or the set `tinycrypt` + `Mbed TLS` (where `Mbed TLS` is"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-15",
+            "start_char": 231,
+            "end_char": 290
+          },
+          "text": "used to provide functionality not existing in `tinycrypt`)."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-16",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/readme-espressif.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/readme-espressif.md",
+      "source_sha256": "1890b3e5a76e2e5a0078082413db503789ce308f1d9d7a4c5579f5d6814f2ea6",
+      "excerpt": "*Current compatible ESP-IDF version for HAL sources is `v5.1.6`*",
+      "excerpt_sha256": "cdc618a8bd8ff984aad5e2647c7e7a6e5b6f0ed2ccadeae46de59a7b524023ae",
+      "source_start_char": 658,
+      "source_end_char": 722,
+      "context": "ironment including toolchains, must be set accordingly. A\nstandalone build version means that ESP-IDF and its toolchain are used as source. For 3rd parties\nframework, HAL path and toolchain must be set.\n\n---\n***Note***\n\n*Current compatible ESP-IDF version for HAL sources is `v5.1.6`*\n\n---\n\nDocumentation about the MCUboot bootloader design, operation and features can be found in the\n[design document](design.md).\n\n## [SoC support availability](#soc-support-availability)\n\nThe current port is available ",
+      "classification": "toolchain-version",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-16",
+            "start_char": 0,
+            "end_char": 64
+          },
+          "text": "*Current compatible ESP-IDF version for HAL sources is `v5.1.6`*"
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-17",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/serial_recovery.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/serial_recovery.md",
+      "source_sha256": "47de13170a90e2ef2b72145f43bae5434aec03a327b68c09756acf6fe87ca002",
+      "excerpt": "MCUboot implements a Simple Management Protocol (SMP) server.\nSMP is a basic transfer encoding for use with the MCUmgr management protocol. \nSee the Zephyr [Device Management](https://docs.zephyrproject.org/latest/services/device_mgmt/index.html#device-mgmt) documentation for more information about MCUmgr and SMP.",
+      "excerpt_sha256": "9342dc7d87227ef7d82d9b420b711f331b7a3d2dd94a9ad93db811fcb499517c",
+      "source_start_char": 952,
+      "source_end_char": 1267,
+      "context": "IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY\n  - KIND, either express or implied.  See the License for the\n  - specific language governing permissions and limitations\n  - under the License.\n-->\n\n# Serial recovery\n\nMCUboot implements a Simple Management Protocol (SMP) server.\nSMP is a basic transfer encoding for use with the MCUmgr management protocol. \nSee the Zephyr [Device Management](https://docs.zephyrproject.org/latest/services/device_mgmt/index.html#device-mgmt) documentation for more information about MCUmgr and SMP.\n\nMCUboot supports the following subset of the MCUmgr commands:\n* echo (OS group)\n* reset (OS group)\n* image list (IMG group)\n* image upload (IMG group)\n\nIt can also support system-specific MCUmgr commands depending on t",
+      "classification": "no-supported-requirement",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Descriptive implementation statement does not establish any supported campaign requirement.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-17",
+            "start_char": 0,
+            "end_char": 61
+          },
+          "text": "MCUboot implements a Simple Management Protocol (SMP) server."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-17",
+            "start_char": 62,
+            "end_char": 139
+          },
+          "text": "SMP is a basic transfer encoding for use with the MCUmgr management protocol."
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-17",
+            "start_char": 141,
+            "end_char": 315
+          },
+          "text": "See the Zephyr [Device Management](https://docs.zephyrproject.org/latest/services/device_mgmt/index.html#device-mgmt) documentation for more information about MCUmgr and SMP."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-18",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "MCUboot",
+      "url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/encrypted_images.md",
+      "revision": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Apache-2.0; upstream LICENSE/NOTICE retained with this candidate packet.",
+      "source_path": "docs/encrypted_images.md",
+      "source_sha256": "ba5235dafe9fb0f471e8f88fb4e7c6f7673cc854ec50faf3b873121956e7e1f1",
+      "excerpt": "It does not protect against the possibility of attaching a JTAG and\nreading the internal flash memory, or using some attack vector that\nenables dumping the internal flash in any way.",
+      "excerpt_sha256": "56386ba3c28aa3fb062802d0965a7fc4a8691ce82abb4bc37f393714a734ec86",
+      "source_start_char": 1774,
+      "source_end_char": 1956,
+      "context": "odel](#threat-model)\n\nThe encrypted image support is supposed to allow for confidentiality\nif the image is not residing on the device or is written to external\nstorage, eg a SPI flash being used for the secondary slot.\n\nIt does not protect against the possibility of attaching a JTAG and\nreading the internal flash memory, or using some attack vector that\nenables dumping the internal flash in any way.\n\nSince decrypting requires a private key (or secret if using symmetric\ncrypto) to reside inside the device, it is the responsibility of the\ndevice manufacturer to guarantee that this key is already in the device\nand not",
+      "classification": "threat-model-limitation",
+      "proposed_constraints": [],
+      "proposed_label_reason": "Build, image-format, flash, security or application-health semantics are outside requires/mutex/order/ignition-and-battery constraints.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-18",
+            "start_char": 0,
+            "end_char": 67
+          },
+          "text": "It does not protect against the possibility of attaching a JTAG and"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-18",
+            "start_char": 68,
+            "end_char": 135
+          },
+          "text": "reading the internal flash memory, or using some attack vector that"
+        },
+        {
+          "evidence": {
+            "document_id": "real-candidate-18",
+            "start_char": 136,
+            "end_char": 182
+          },
+          "text": "enables dumping the internal flash in any way."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human semantic review missing",
+        "No approved source-component/ECU inventory mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-19",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "Zephyr",
+      "url": "https://docs.zephyrproject.org/latest/services/device_mgmt/dfu.html",
+      "revision": null,
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Short attributed quotation; full source/license and immutable revision must be reviewed before admission.",
+      "source_path": null,
+      "source_sha256": null,
+      "excerpt": "You need to build and flash MCUboot itself on your device",
+      "excerpt_sha256": "484727c273c0418b27aa7b998a8f69b3633426f3a60a3cb400bdb8da9af5a7f7",
+      "source_start_char": null,
+      "source_end_char": null,
+      "context": "See linked DFU/bootloader documentation; no independently updatable ECU inventory supplied.",
+      "classification": "build-prerequisite",
+      "proposed_constraints": [],
+      "proposed_label_reason": "No supported installed ECU-version requirement follows from this statement.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-19",
+            "start_char": 0,
+            "end_char": 57
+          },
+          "text": "You need to build and flash MCUboot itself on your device"
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human review missing",
+        "Immutable source/context/license capture incomplete",
+        "No approved ECU mapping"
+      ]
+    },
+    {
+      "id": "real-candidate-20",
+      "origin": "real_document",
+      "review_status": "PROPOSED_UNREVIEWED",
+      "project": "PX4",
+      "url": "https://docs.px4.io/v1.18/en/advanced_config/bootloader_update",
+      "revision": "v1.18 documentation URL; immutable commit unresolved",
+      "publication_date": null,
+      "retrieved_at": "2026-11-06T18:13:54.614946+00:00",
+      "license_note": "Short attributed quotation; full source/license and immutable revision must be reviewed before admission.",
+      "source_path": null,
+      "source_sha256": null,
+      "excerpt": "The PX4 Bootloader is used to load firmware for Pixhawk boards (PX4FMU, PX4IO).",
+      "excerpt_sha256": "1e4064d1c7460f79221fca61d43e64b52558e8a292af688927e76e9d3125f082",
+      "source_start_char": null,
+      "source_end_char": null,
+      "context": "See linked DFU/bootloader documentation; no independently updatable ECU inventory supplied.",
+      "classification": "no-supported-requirement",
+      "proposed_constraints": [],
+      "proposed_label_reason": "No supported installed ECU-version requirement follows from this statement.",
+      "evidence_segments": [
+        {
+          "evidence": {
+            "document_id": "real-candidate-20",
+            "start_char": 0,
+            "end_char": 79
+          },
+          "text": "The PX4 Bootloader is used to load firmware for Pixhawk boards (PX4FMU, PX4IO)."
+        }
+      ],
+      "inventory_mapping": "UNRESOLVED_NOT_AN_EXECUTABLE_CASE",
+      "admission_blockers": [
+        "Independent human review missing",
+        "Immutable source/context/license capture incomplete",
+        "No approved ECU mapping"
+      ]
+    }
+  ]
+}

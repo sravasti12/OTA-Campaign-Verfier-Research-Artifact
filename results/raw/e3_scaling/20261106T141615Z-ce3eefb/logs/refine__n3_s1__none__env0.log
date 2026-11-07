@@ -1,0 +1,46 @@
+TLC2 Version 2.19 of 08 August 2024 (rev: 5a47802)
+Running breadth-first search Model-Checking with fp 0 and seed 42 with 1 worker on 8 cores with 3641MB heap and 64MB offheap memory [pid: 26748] (Windows 11 10.0 amd64, Oracle Corporation 18.0.2 x86_64, MSBDiskFPSet, DiskStateQueue).
+Parsing file C:\Users\KIIT\AppData\Local\Temp\claude\c48ca1428cc44ed6\74c1f06a-f71d-4630-8766-3e43d313d9aa\scratchpad\e3clean\results\raw\e3_scaling\20261106T141615Z-ce3eefb\tla\Refine_n3_s1.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\claude\c48ca1428cc44ed6\74c1f06a-f71d-4630-8766-3e43d313d9aa\scratchpad\e3clean\results\raw\e3_scaling\20261106T141615Z-ce3eefb\tla\OTACampaign.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\Naturals.tla
+Parsing file C:\Users\KIIT\AppData\Local\Temp\claude\c48ca1428cc44ed6\74c1f06a-f71d-4630-8766-3e43d313d9aa\scratchpad\e3clean\results\raw\e3_scaling\20261106T141615Z-ce3eefb\tla\OTAPair.tla
+Semantic processing of module Naturals
+Semantic processing of module OTACampaign
+Semantic processing of module OTAPair
+Semantic processing of module Refine_n3_s1
+Starting... (2026-11-06 19:50:29)
+Computing initial states...
+Finished computing initial states: 1 distinct state generated at 2026-11-06 19:50:30.
+Error: Action property line 135, col 17 to line 135, col 29 of module OTAPair is violated.
+Error: The behavior up to this point is:
+State 1: <Initial predicate>
+/\ corrupt = [ecu00 |-> FALSE, ecu01 |-> FALSE, ecu02 |-> FALSE]
+/\ active = [ecu00 |-> 1, ecu01 |-> 1, ecu02 |-> 1]
+/\ culprit = {}
+/\ stage = [ecu00 |-> "idle", ecu01 |-> "idle", ecu02 |-> "idle"]
+/\ faults = 0
+/\ campaign = "run"
+/\ inactive = [ecu00 |-> 0, ecu01 |-> 0, ecu02 |-> 0]
+
+State 2: <Download line 46, col 5 to line 48, col 73 of module OTACampaign>
+/\ corrupt = [ecu00 |-> FALSE, ecu01 |-> FALSE, ecu02 |-> FALSE]
+/\ active = [ecu00 |-> 1, ecu01 |-> 1, ecu02 |-> 1]
+/\ culprit = {}
+/\ stage = [ecu00 |-> "downloaded", ecu01 |-> "idle", ecu02 |-> "idle"]
+/\ faults = 0
+/\ campaign = "run"
+/\ inactive = [ecu00 |-> 0, ecu01 |-> 0, ecu02 |-> 0]
+
+State 3: <DownloadFail line 88, col 5 to line 94, col 46 of module OTACampaign>
+/\ corrupt = [ecu00 |-> FALSE, ecu01 |-> FALSE, ecu02 |-> FALSE]
+/\ active = [ecu00 |-> 1, ecu01 |-> 1, ecu02 |-> 1]
+/\ culprit = {"ecu01"}
+/\ stage = [ecu00 |-> "downloaded", ecu01 |-> "failed", ecu02 |-> "idle"]
+/\ faults = 1
+/\ campaign = "rollback"
+/\ inactive = [ecu00 |-> 0, ecu01 |-> 0, ecu02 |-> 0]
+
+14 states generated, 14 distinct states found, 11 states left on queue.
+The depth of the complete state graph search is 3.
+The average outdegree of the complete state graph is 10 (minimum is 10, the maximum 10 and the 95th percentile is 10).
+Finished in 00s at (2026-11-06 19:50:30)

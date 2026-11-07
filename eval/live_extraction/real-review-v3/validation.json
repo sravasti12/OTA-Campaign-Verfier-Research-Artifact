@@ -1,0 +1,380 @@
+{
+  "mode": "OFFLINE_SCHEMA_PROVENANCE_AND_FIXTURE_GATE_VALIDATION",
+  "new_provider_requests": 0,
+  "dataset_canonical_sha256": "2800892519dddf8ccbe7291db6109a7e41acfbde1cd5ed638d2b529eb57e9004",
+  "cases": [
+    {
+      "id": "real-v2-01",
+      "schema": "PASS",
+      "source_hash": "PASS",
+      "exact_evidence_offsets": "PASS",
+      "expected_gate": "ready_after_faithfulness",
+      "fixture_gate": "ready",
+      "gate_check": "PASS",
+      "fixture_calls": 2,
+      "live_calls": 0,
+      "human_approved": false
+    },
+    {
+      "id": "real-v2-02",
+      "schema": "PASS",
+      "source_hash": "PASS",
+      "exact_evidence_offsets": "PASS",
+      "expected_gate": "ready_after_faithfulness",
+      "fixture_gate": "ready",
+      "gate_check": "PASS",
+      "fixture_calls": 2,
+      "live_calls": 0,
+      "human_approved": false
+    },
+    {
+      "id": "real-v2-03",
+      "schema": "PASS",
+      "source_hash": "PASS",
+      "exact_evidence_offsets": "PASS",
+      "expected_gate": "blocked",
+      "fixture_gate": "blocked",
+      "gate_check": "PASS",
+      "fixture_calls": 1,
+      "live_calls": 0,
+      "human_approved": false
+    },
+    {
+      "id": "real-v2-04",
+      "schema": "PASS",
+      "source_hash": "PASS",
+      "exact_evidence_offsets": "PASS",
+      "expected_gate": "blocked",
+      "fixture_gate": "blocked",
+      "gate_check": "PASS",
+      "fixture_calls": 1,
+      "live_calls": 0,
+      "human_approved": false
+    },
+    {
+      "id": "real-v2-05",
+      "schema": "PASS",
+      "source_hash": "PASS",
+      "exact_evidence_offsets": "PASS",
+      "expected_gate": "ready_after_faithfulness",
+      "fixture_gate": "ready",
+      "gate_check": "PASS",
+      "fixture_calls": 2,
+      "live_calls": 0,
+      "human_approved": false
+    }
+  ],
+  "precise_exclusion_supported": true,
+  "exclusion_controls": [
+    {
+      "tx_target": "2.4.0",
+      "actual_z3_status": "infeasible",
+      "result": {
+        "status": "infeasible",
+        "conflict": {
+          "items": [
+            {
+              "kind": "constraint",
+              "id": "real-v2-02-rule",
+              "message": "requires requirement",
+              "ecu_ids": [
+                "receiver",
+                "tx"
+              ],
+              "source_document_id": "real-v2-02",
+              "source_text": "a Receiver with version string of 3.2.0 will NOT sync or bind with a TX Module with firmware version 2.4.0"
+            }
+          ],
+          "subset_minimal": true
+        },
+        "note": null
+      }
+    },
+    {
+      "tx_target": "2.4.0.0",
+      "actual_z3_status": "infeasible",
+      "result": {
+        "status": "infeasible",
+        "conflict": {
+          "items": [
+            {
+              "kind": "constraint",
+              "id": "real-v2-02-rule",
+              "message": "requires requirement",
+              "ecu_ids": [
+                "receiver",
+                "tx"
+              ],
+              "source_document_id": "real-v2-02",
+              "source_text": "a Receiver with version string of 3.2.0 will NOT sync or bind with a TX Module with firmware version 2.4.0"
+            }
+          ],
+          "subset_minimal": true
+        },
+        "note": null
+      }
+    },
+    {
+      "tx_target": "3.0.1",
+      "actual_z3_status": "feasible",
+      "result": {
+        "status": "feasible",
+        "plan": {
+          "campaign_id": "real-v2-02",
+          "steps": [
+            {
+              "ecu_id": "receiver",
+              "from_version": "3.1.2",
+              "to_version": "3.2.0",
+              "write_slot": "B",
+              "start_ms": 0,
+              "end_ms": 60000,
+              "activation_index": 1,
+              "constraint_ids": [
+                "real-v2-02-rule"
+              ]
+            },
+            {
+              "ecu_id": "tx",
+              "from_version": "2.3.0",
+              "to_version": "3.0.1",
+              "write_slot": "B",
+              "start_ms": 0,
+              "end_ms": 60000,
+              "activation_index": 2,
+              "constraint_ids": [
+                "real-v2-02-rule"
+              ]
+            }
+          ],
+          "states": [
+            {
+              "ecus": [
+                {
+                  "ecu_id": "receiver",
+                  "slot_a": {
+                    "version": "3.1.2",
+                    "valid": true
+                  },
+                  "slot_b": null,
+                  "active_slot": "A"
+                },
+                {
+                  "ecu_id": "tx",
+                  "slot_a": {
+                    "version": "2.3.0",
+                    "valid": true
+                  },
+                  "slot_b": null,
+                  "active_slot": "A"
+                }
+              ],
+              "battery_percent": 100.0,
+              "ignition": "off"
+            },
+            {
+              "ecus": [
+                {
+                  "ecu_id": "receiver",
+                  "slot_a": {
+                    "version": "3.1.2",
+                    "valid": true
+                  },
+                  "slot_b": {
+                    "version": "3.2.0",
+                    "valid": true
+                  },
+                  "active_slot": "B"
+                },
+                {
+                  "ecu_id": "tx",
+                  "slot_a": {
+                    "version": "2.3.0",
+                    "valid": true
+                  },
+                  "slot_b": null,
+                  "active_slot": "A"
+                }
+              ],
+              "battery_percent": 100.0,
+              "ignition": "off"
+            },
+            {
+              "ecus": [
+                {
+                  "ecu_id": "receiver",
+                  "slot_a": {
+                    "version": "3.1.2",
+                    "valid": true
+                  },
+                  "slot_b": {
+                    "version": "3.2.0",
+                    "valid": true
+                  },
+                  "active_slot": "B"
+                },
+                {
+                  "ecu_id": "tx",
+                  "slot_a": {
+                    "version": "2.3.0",
+                    "valid": true
+                  },
+                  "slot_b": {
+                    "version": "3.0.1",
+                    "valid": true
+                  },
+                  "active_slot": "B"
+                }
+              ],
+              "battery_percent": 100.0,
+              "ignition": "off"
+            }
+          ],
+          "makespan_ms": 60000,
+          "optimal": true,
+          "options": {
+            "max_parallel": null,
+            "deadline_ms": null,
+            "timeout_ms": 10000
+          }
+        },
+        "note": null
+      }
+    }
+  ],
+  "intermediate_state_control": {
+    "actual_z3_status": "feasible",
+    "activation_order": [
+      "receiver",
+      "tx"
+    ],
+    "result": {
+      "status": "feasible",
+      "plan": {
+        "campaign_id": "real-v2-02",
+        "steps": [
+          {
+            "ecu_id": "receiver",
+            "from_version": "3.2.0",
+            "to_version": "3.2.1",
+            "write_slot": "B",
+            "start_ms": 0,
+            "end_ms": 60000,
+            "activation_index": 1,
+            "constraint_ids": [
+              "real-v2-02-rule"
+            ]
+          },
+          {
+            "ecu_id": "tx",
+            "from_version": "2.3.0",
+            "to_version": "2.4.0",
+            "write_slot": "B",
+            "start_ms": 0,
+            "end_ms": 60000,
+            "activation_index": 2,
+            "constraint_ids": [
+              "real-v2-02-rule"
+            ]
+          }
+        ],
+        "states": [
+          {
+            "ecus": [
+              {
+                "ecu_id": "receiver",
+                "slot_a": {
+                  "version": "3.2.0",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "tx",
+                "slot_a": {
+                  "version": "2.3.0",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 100.0,
+            "ignition": "off"
+          },
+          {
+            "ecus": [
+              {
+                "ecu_id": "receiver",
+                "slot_a": {
+                  "version": "3.2.0",
+                  "valid": true
+                },
+                "slot_b": {
+                  "version": "3.2.1",
+                  "valid": true
+                },
+                "active_slot": "B"
+              },
+              {
+                "ecu_id": "tx",
+                "slot_a": {
+                  "version": "2.3.0",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 100.0,
+            "ignition": "off"
+          },
+          {
+            "ecus": [
+              {
+                "ecu_id": "receiver",
+                "slot_a": {
+                  "version": "3.2.0",
+                  "valid": true
+                },
+                "slot_b": {
+                  "version": "3.2.1",
+                  "valid": true
+                },
+                "active_slot": "B"
+              },
+              {
+                "ecu_id": "tx",
+                "slot_a": {
+                  "version": "2.3.0",
+                  "valid": true
+                },
+                "slot_b": {
+                  "version": "2.4.0",
+                  "valid": true
+                },
+                "active_slot": "B"
+              }
+            ],
+            "battery_percent": 100.0,
+            "ignition": "off"
+          }
+        ],
+        "makespan_ms": 60000,
+        "optimal": true,
+        "options": {
+          "max_parallel": null,
+          "deadline_ms": null,
+          "timeout_ms": 10000
+        }
+      },
+      "note": null
+    }
+  },
+  "limitations": [
+    "Fixture gates are constructed contract checks, not live extraction/faithfulness accuracy",
+    "Synthetic transition controls validate implementation support, not vendor firmware behavior",
+    "No case is human approved or admitted by this command"
+  ]
+}

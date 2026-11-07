@@ -1,0 +1,112 @@
+{
+  "stratum": "REAL-DOCUMENT DEVELOPMENT PILOT",
+  "dataset_canonical_sha256": "2800892519dddf8ccbe7291db6109a7e41acfbde1cd5ed638d2b529eb57e9004",
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "requests": 4,
+  "http_requests_sent": 4,
+  "maximum_requests": 10,
+  "automatic_retries": 0,
+  "attempted_cases": 3,
+  "scheduled_cases": 5,
+  "not_run_cases": 2,
+  "stop_reason": "Provider/schema/budget failure; no retry or fixture fallback",
+  "wall_elapsed_seconds": 212.907,
+  "semantic_counts": {
+    "tp": 1,
+    "fp": 0,
+    "fn": 1
+  },
+  "precision": {
+    "numerator": 1,
+    "denominator": 1,
+    "value": 1.0
+  },
+  "recall": {
+    "numerator": 1,
+    "denominator": 2,
+    "value": 0.5
+  },
+  "f1": {
+    "numerator": 2,
+    "denominator": 3,
+    "value": 0.6666666666666666
+  },
+  "semantic_case_exact_match": {
+    "numerator": 1,
+    "denominator": 3,
+    "value": 0.3333333333333333
+  },
+  "grounding_precision": {
+    "numerator": 1,
+    "denominator": 1,
+    "value": 1.0
+  },
+  "grounding_recall": {
+    "numerator": 1,
+    "denominator": 2,
+    "value": 0.5
+  },
+  "literal_citation_validity": {
+    "numerator": 1,
+    "denominator": 1,
+    "value": 1.0
+  },
+  "draft_exact_match": {
+    "numerator": 1,
+    "denominator": 3,
+    "value": 0.3333333333333333
+  },
+  "gate_correctness": {
+    "numerator": 1,
+    "denominator": 3,
+    "value": 0.3333333333333333
+  },
+  "complete_expected_outcome": {
+    "numerator": 0,
+    "denominator": 3,
+    "value": 0.0
+  },
+  "hallucination_over_extraction_proxy": {
+    "numerator": 0,
+    "denominator": 1,
+    "value": 0.0
+  },
+  "verifier_correctness": {
+    "numerator": 0,
+    "denominator": 1,
+    "value": 0.0
+  },
+  "verifier_false_rejection": {
+    "numerator": 1,
+    "denominator": 1,
+    "value": 1.0
+  },
+  "verifier_false_acceptance": {
+    "numerator": 0,
+    "denominator": 0,
+    "value": null
+  },
+  "http_status_counts": {
+    "200": 3,
+    "400": 1
+  },
+  "token_usage": {
+    "prompt_tokens": 4686,
+    "completion_tokens": 1651,
+    "total_tokens": 6337
+  },
+  "latency_ms_by_role": {
+    "extraction": [
+      1296.955,
+      1363.646,
+      2832.575
+    ],
+    "verification": [
+      1374.933
+    ]
+  },
+  "production_sources_unchanged": true,
+  "source_dataset_unchanged": true,
+  "all_cases_correct": false
+}

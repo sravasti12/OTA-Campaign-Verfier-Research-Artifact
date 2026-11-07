@@ -1,0 +1,22 @@
+{
+  "status": "APPROVED_BY_PROJECT_OWNER",
+  "recorded_at_utc": "2026-11-07T07:27:15.570937+00:00",
+  "timestamp_meaning": "Time explicit final-retest chat approval was recorded, not authenticated signature time",
+  "scope": "ONE FINAL FIVE-CASE REAL-DOCUMENT DEVELOPMENT RETEST",
+  "dataset_canonical_sha256": "2800892519dddf8ccbe7291db6109a7e41acfbde1cd5ed638d2b529eb57e9004",
+  "case_ids": [
+    "real-v2-01",
+    "real-v2-02",
+    "real-v2-03",
+    "real-v2-04",
+    "real-v2-05"
+  ],
+  "automotive_domain_expert_validation": false,
+  "maximum_api_requests": 10,
+  "automatic_retries": 0,
+  "maximum_completion_tokens_per_request": 4096,
+  "estimated_combined_token_budget": 63997,
+  "prior_corpus_approval_sha256": "42c3aaf1dbcac24810830799339437e33f5a3c53af0f850edca67543ee931f2f",
+  "approval_basis": "User explicitly approved the final bounded live retest using repaired instructions and offline-tested profile",
+  "stop_policy": "No retry. Stop on second provider/schema error, any authentication/rate error, or exhausted budget. A first other failure allows only independent remaining cases."
+}

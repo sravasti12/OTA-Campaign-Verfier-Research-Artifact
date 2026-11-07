@@ -1,0 +1,7 @@
+{
+  "case_id": "real-v2-03",
+  "next_role": "extraction",
+  "phase": "PACING",
+  "wait_seconds": 3.6,
+  "requests": 3
+}

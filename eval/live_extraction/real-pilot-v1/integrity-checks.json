@@ -1,0 +1,35 @@
+{
+  "checked_at_utc": "2026-11-07T07:13:50.054691+00:00",
+  "hash_entries_verified": {
+    "real-pilot-v1": 14,
+    "real-review-v3": 16,
+    "real-review-v2": 13,
+    "synthetic-pilot-v1": 20
+  },
+  "production_sources_unchanged": true,
+  "executed_runner_unchanged": true,
+  "new_provider_requests_after_stop": 0,
+  "maximum_http_requests": 10,
+  "actual_http_requests": 4,
+  "automatic_retries": 0,
+  "tests": {
+    "passed": 260,
+    "failed": 0,
+    "errors": 0,
+    "warnings": 13,
+    "seconds": 20.28
+  },
+  "pip_check": {
+    "exit_code": 0,
+    "output": "No broken requirements found."
+  },
+  "configured_secret_values_found_in_changed_text_and_run_artifacts": false,
+  "credential_scan_scope": "Changed report/runner/test files and this run directory; not a whole-repository credential audit",
+  "changed_files_sha256": {
+    "docs\\PHASE2C_REAL_DOCUMENT_PILOT.md": "82bda5983b0011c9e6116e87fcc0d9e02aee3d6758f572ef28e98607b1a7d3e2",
+    "docs\\PHASE2_EVALUATION_REPORT.md": "25166674563c4b9ef743353081ca2700c266516c975a30a43591306f1311f952",
+    "eval\\live_extraction\\real_pilot.py": "fb795f09319355e2be141f081246bd9a13c1e07b54cc58d03717a82840e06fa9",
+    "eval\\live_extraction\\analyze_real_pilot.py": "19157de9011ddaec19088d27bc1c61cd92413a2b8ff6044d3cf31a203830e2ac",
+    "tests\\test_real_pilot_metrics.py": "a753645b5a14565b660dcda62a64bf2f827e519d0f7cd049f75b09752c82c34e"
+  }
+}

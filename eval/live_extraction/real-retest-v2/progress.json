@@ -1,0 +1,7 @@
+{
+  "case_id": "real-v2-05",
+  "next_role": "verification",
+  "phase": "PACING",
+  "wait_seconds": 3.7,
+  "requests": 7
+}

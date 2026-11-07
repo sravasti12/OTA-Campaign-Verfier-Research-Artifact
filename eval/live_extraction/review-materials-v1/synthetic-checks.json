@@ -1,0 +1,105 @@
+{
+  "corpus_sha256": "7a8a5008b3005a870f377b0bf7ea536c51b48dfc6a9a3419ed167f770d713ff1",
+  "cases": [
+    {
+      "id": "clear-42",
+      "split": "development",
+      "human_review": "PENDING",
+      "draft_gate_codes": [],
+      "verdict_gate_codes": []
+    },
+    {
+      "id": "dependency_only-43",
+      "split": "development",
+      "human_review": "PENDING",
+      "draft_gate_codes": [],
+      "verdict_gate_codes": []
+    },
+    {
+      "id": "order_conflict-44",
+      "split": "development",
+      "human_review": "PENDING",
+      "draft_gate_codes": [],
+      "verdict_gate_codes": []
+    },
+    {
+      "id": "intermediate_trap-45",
+      "split": "development",
+      "human_review": "PENDING",
+      "draft_gate_codes": [],
+      "verdict_gate_codes": []
+    },
+    {
+      "id": "ambiguous-46",
+      "split": "development",
+      "human_review": "PENDING",
+      "draft_gate_codes": [
+        "ambiguous_requirement"
+      ],
+      "verdict_gate_codes": [
+        "ambiguous_requirement"
+      ]
+    },
+    {
+      "id": "unsupported-47",
+      "split": "development",
+      "human_review": "PENDING",
+      "draft_gate_codes": [
+        "unsupported_requirement"
+      ],
+      "verdict_gate_codes": [
+        "unsupported_requirement"
+      ]
+    },
+    {
+      "id": "heldout-clear-142",
+      "split": "heldout",
+      "human_review": "PENDING",
+      "draft_gate_codes": [],
+      "verdict_gate_codes": []
+    },
+    {
+      "id": "heldout-dependency_only-143",
+      "split": "heldout",
+      "human_review": "PENDING",
+      "draft_gate_codes": [],
+      "verdict_gate_codes": []
+    },
+    {
+      "id": "heldout-order_conflict-144",
+      "split": "heldout",
+      "human_review": "PENDING",
+      "draft_gate_codes": [],
+      "verdict_gate_codes": []
+    },
+    {
+      "id": "heldout-intermediate_trap-145",
+      "split": "heldout",
+      "human_review": "PENDING",
+      "draft_gate_codes": [],
+      "verdict_gate_codes": []
+    },
+    {
+      "id": "heldout-ambiguous-146",
+      "split": "heldout",
+      "human_review": "PENDING",
+      "draft_gate_codes": [
+        "ambiguous_requirement"
+      ],
+      "verdict_gate_codes": [
+        "ambiguous_requirement"
+      ]
+    },
+    {
+      "id": "heldout-unsupported-147",
+      "split": "heldout",
+      "human_review": "PENDING",
+      "draft_gate_codes": [
+        "unsupported_requirement"
+      ],
+      "verdict_gate_codes": [
+        "unsupported_requirement"
+      ]
+    }
+  ]
+}

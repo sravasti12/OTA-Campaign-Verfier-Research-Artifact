@@ -1,0 +1,521 @@
+{
+  "format": "real-review-v2",
+  "review_status": "UNREVIEWED",
+  "created_at_utc": "2026-11-07T06:47:27.365181+00:00",
+  "live_requests": 0,
+  "proposed_positive_cases": 2,
+  "admitted_cases": 0,
+  "cases": [
+    {
+      "id": "real-v2-01",
+      "title": "Flysky NB4+ update order",
+      "review_status": "UNREVIEWED",
+      "admitted": false,
+      "source_url": "https://www.flysky-cn.com/s/Noble-NB4-User-manual-20231219-EN.pdf",
+      "version": "Manual filename 20231219; NB4+; section 7.16, printed p62, PDF page67 (1-based)",
+      "source_file": "sources/flysky-nb4-manual.pdf",
+      "source_sha256": "c18b753b23361f2c71f8b642bcfc9eddf0b51c248f247b4cc7e9989641b63556",
+      "raw_source_excerpt": "Note: You must update the transmitter firmware before\nupdating the receiver firmware.",
+      "source_character_span": null,
+      "transcription": "Flysky PDF page67 text transcription from official PDF parser; layout wrap retained above, joined below",
+      "ingestion_transform": "Join explicit newline wraps with one space",
+      "ingested_document": {
+        "id": "real-v2-01",
+        "text": "Note: You must update the transmitter firmware before updating the receiver firmware."
+      },
+      "segments": [
+        {
+          "evidence": {
+            "document_id": "real-v2-01",
+            "start_char": 0,
+            "end_char": 85
+          },
+          "text": "Note: You must update the transmitter firmware before updating the receiver firmware."
+        }
+      ],
+      "proposed_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "real-v2-01-rule",
+              "source_document_id": "real-v2-01",
+              "source_text": "Note: You must update the transmitter firmware before updating the receiver firmware.",
+              "type": "order",
+              "before": "transmitter",
+              "after": "receiver"
+            },
+            "evidence": {
+              "document_id": "real-v2-01",
+              "start_char": 0,
+              "end_char": 85
+            }
+          }
+        ],
+        "issues": []
+      },
+      "expected_gate": "ready_after_faithfulness",
+      "ambiguities": "Public manufacturer documentation, not open-source firmware. Map transmitter to NB4+ and receiver to FGr4B. Complete update before the next update starts is a conservative interpretation of before; no download-only interpretation is used. Firmware versions/durations are not stated; do not invent them as source requirements. PDF soft-wrap is joined explicitly for ingestion.",
+      "inventory_roles": [
+        "transmitter",
+        "receiver"
+      ],
+      "request_scaffold": {
+        "campaign": {
+          "id": "real-v2-01",
+          "ecus": [
+            {
+              "id": "transmitter",
+              "current_version": "1",
+              "target_version": "1",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "receiver",
+              "current_version": "1",
+              "target_version": "1",
+              "flash_minutes": 1.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "transmitter",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "receiver",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 100.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "real-v2-01",
+            "text": "Note: You must update the transmitter firmware before updating the receiver firmware."
+          }
+        ]
+      },
+      "inventory_note": "All numeric inventory values (version 1, one minute, battery 100%, ignition off) are synthetic schema scaffolding, not vendor facts. Extraction-only proposal; no real planning/simulation conclusions.",
+      "automated_checks": {
+        "schema": "PASS",
+        "exact_ingested_segments": "PASS",
+        "source_substring": "PDF_TRANSCRIPTION_REQUIRES_HUMAN_VISUAL_REVIEW"
+      }
+    },
+    {
+      "id": "real-v2-02",
+      "title": "ExpressLRS explicit incompatible pair",
+      "review_status": "UNREVIEWED",
+      "admitted": false,
+      "source_url": "https://github.com/ExpressLRS/Docs/blob/805830b6d0bcd352ee7167ab16ab57d1c26fb421/docs/quick-start/receivers/firmware-version.md",
+      "version": "805830b6d0bcd352ee7167ab16ab57d1c26fb421",
+      "source_file": "sources/expresslrs-firmware-version.md",
+      "source_sha256": "3bd20055d979c6bd924a70b1761f30cc5f932b75177da02fe34f127b2a66b414",
+      "raw_source_excerpt": "a Receiver with version string of 3.2.0 will NOT sync or bind with a TX Module with firmware version 2.4.0",
+      "source_character_span": [
+        8693,
+        8799
+      ],
+      "transcription": "Exact substring of pinned UTF-8 source",
+      "ingestion_transform": "None",
+      "ingested_document": {
+        "id": "real-v2-02",
+        "text": "a Receiver with version string of 3.2.0 will NOT sync or bind with a TX Module with firmware version 2.4.0"
+      },
+      "segments": [
+        {
+          "evidence": {
+            "document_id": "real-v2-02",
+            "start_char": 0,
+            "end_char": 106
+          },
+          "text": "a Receiver with version string of 3.2.0 will NOT sync or bind with a TX Module with firmware version 2.4.0"
+        }
+      ],
+      "proposed_draft": {
+        "constraints": [
+          {
+            "constraint": {
+              "id": "real-v2-02-rule",
+              "source_document_id": "real-v2-02",
+              "source_text": "a Receiver with version string of 3.2.0 will NOT sync or bind with a TX Module with firmware version 2.4.0",
+              "type": "requires",
+              "ecu": "receiver",
+              "version_spec": "==3.2.0",
+              "needs": "tx",
+              "needs_version_spec": "!=2.4.0"
+            },
+            "evidence": {
+              "document_id": "real-v2-02",
+              "start_char": 0,
+              "end_char": 106
+            }
+          }
+        ],
+        "issues": []
+      },
+      "expected_gate": "ready_after_faithfulness",
+      "ambiguities": "Receiver and TX Module are separate embedded radio nodes, not automotive ECUs. This encodes ONLY the stated incompatible pair, not sufficient conditions for binding or every major-version combination. The negated-pair translation requires human approval; do not extrapolate a >=3 rule or create a flash order. The source bullet has no terminal period; the exact text is retained.",
+      "inventory_roles": [
+        "receiver",
+        "tx"
+      ],
+      "request_scaffold": {
+        "campaign": {
+          "id": "real-v2-02",
+          "ecus": [
+            {
+              "id": "receiver",
+              "current_version": "1",
+              "target_version": "1",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "tx",
+              "current_version": "1",
+              "target_version": "1",
+              "flash_minutes": 1.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "receiver",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "tx",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 100.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "real-v2-02",
+            "text": "a Receiver with version string of 3.2.0 will NOT sync or bind with a TX Module with firmware version 2.4.0"
+          }
+        ]
+      },
+      "inventory_note": "All numeric inventory values (version 1, one minute, battery 100%, ignition off) are synthetic schema scaffolding, not vendor facts. Extraction-only proposal; no real planning/simulation conclusions.",
+      "automated_checks": {
+        "schema": "PASS",
+        "exact_ingested_segments": "PASS",
+        "source_substring": "PASS"
+      }
+    },
+    {
+      "id": "real-v2-03",
+      "title": "ExpressLRS major-version relation outside schema",
+      "review_status": "UNREVIEWED",
+      "admitted": false,
+      "source_url": "https://github.com/ExpressLRS/Docs/blob/805830b6d0bcd352ee7167ab16ab57d1c26fb421/docs/quick-start/receivers/firmware-version.md",
+      "version": "805830b6d0bcd352ee7167ab16ab57d1c26fb421",
+      "source_file": "sources/expresslrs-firmware-version.md",
+      "source_sha256": "3bd20055d979c6bd924a70b1761f30cc5f932b75177da02fe34f127b2a66b414",
+      "raw_source_excerpt": "That first number in the Version string should match between a TX Module and a Receiver.",
+      "source_character_span": [
+        8473,
+        8561
+      ],
+      "transcription": "Exact substring of pinned UTF-8 source",
+      "ingestion_transform": "None",
+      "ingested_document": {
+        "id": "real-v2-03",
+        "text": "That first number in the Version string should match between a TX Module and a Receiver."
+      },
+      "segments": [
+        {
+          "evidence": {
+            "document_id": "real-v2-03",
+            "start_char": 0,
+            "end_char": 88
+          },
+          "text": "That first number in the Version string should match between a TX Module and a Receiver."
+        }
+      ],
+      "proposed_draft": {
+        "constraints": [],
+        "issues": [
+          {
+            "kind": "unsupported_requirement",
+            "evidence": {
+              "document_id": "real-v2-03",
+              "start_char": 0,
+              "end_char": 88
+            },
+            "source_text": "That first number in the Version string should match between a TX Module and a Receiver.",
+            "message": "The surrounding pinned document defines the first number as the major version. The schema supports one comparison against a constant, not equality of two variable major components. Do not fabricate numeric thresholds or expand to unlisted versions. The excerpt and positive pair share one source: not independent samples."
+          }
+        ]
+      },
+      "expected_gate": "blocked",
+      "ambiguities": "The surrounding pinned document defines the first number as the major version. The schema supports one comparison against a constant, not equality of two variable major components. Do not fabricate numeric thresholds or expand to unlisted versions. The excerpt and positive pair share one source: not independent samples.",
+      "inventory_roles": [
+        "receiver",
+        "tx"
+      ],
+      "request_scaffold": {
+        "campaign": {
+          "id": "real-v2-03",
+          "ecus": [
+            {
+              "id": "receiver",
+              "current_version": "1",
+              "target_version": "1",
+              "flash_minutes": 1.0
+            },
+            {
+              "id": "tx",
+              "current_version": "1",
+              "target_version": "1",
+              "flash_minutes": 1.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "receiver",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              },
+              {
+                "ecu_id": "tx",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 100.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "real-v2-03",
+            "text": "That first number in the Version string should match between a TX Module and a Receiver."
+          }
+        ]
+      },
+      "inventory_note": "All numeric inventory values (version 1, one minute, battery 100%, ignition off) are synthetic schema scaffolding, not vendor facts. Extraction-only proposal; no real planning/simulation conclusions.",
+      "automated_checks": {
+        "schema": "PASS",
+        "exact_ingested_segments": "PASS",
+        "source_substring": "PASS"
+      }
+    },
+    {
+      "id": "real-v2-04",
+      "title": "MCUboot scratch-memory requirement",
+      "review_status": "UNREVIEWED",
+      "admitted": false,
+      "source_url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/design.md",
+      "version": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "source_file": "sources/mcuboot-design.md",
+      "source_sha256": "95114751a65750f64a24d8d996f84e793514feb6b13d52fc6b1b30431d308210",
+      "raw_source_excerpt": "When swap-using-scratch algorithm is used, in addition to the slots of\nimage areas, the bootloader requires a scratch area to allow for reliable\nimage swapping.",
+      "source_character_span": [
+        10302,
+        10462
+      ],
+      "transcription": "Exact substring of pinned UTF-8 source",
+      "ingestion_transform": "Join explicit newline wraps with one space",
+      "ingested_document": {
+        "id": "real-v2-04",
+        "text": "When swap-using-scratch algorithm is used, in addition to the slots of image areas, the bootloader requires a scratch area to allow for reliable image swapping."
+      },
+      "segments": [
+        {
+          "evidence": {
+            "document_id": "real-v2-04",
+            "start_char": 0,
+            "end_char": 160
+          },
+          "text": "When swap-using-scratch algorithm is used, in addition to the slots of image areas, the bootloader requires a scratch area to allow for reliable image swapping."
+        }
+      ],
+      "proposed_draft": {
+        "constraints": [],
+        "issues": [
+          {
+            "kind": "unsupported_requirement",
+            "evidence": {
+              "document_id": "real-v2-04",
+              "start_char": 0,
+              "end_char": 160
+            },
+            "source_text": "When swap-using-scratch algorithm is used, in addition to the slots of image areas, the bootloader requires a scratch area to allow for reliable image swapping.",
+            "message": "Memory-layout prerequisite is outside requires/mutex/order/ignition+battery. Bootloader is an inventory placeholder on one device, not a new cross-ECU peer. Source newline wraps are joined for ingestion; original text is retained."
+          }
+        ]
+      },
+      "expected_gate": "blocked",
+      "ambiguities": "Memory-layout prerequisite is outside requires/mutex/order/ignition+battery. Bootloader is an inventory placeholder on one device, not a new cross-ECU peer. Source newline wraps are joined for ingestion; original text is retained.",
+      "inventory_roles": [
+        "bootloader"
+      ],
+      "request_scaffold": {
+        "campaign": {
+          "id": "real-v2-04",
+          "ecus": [
+            {
+              "id": "bootloader",
+              "current_version": "1",
+              "target_version": "1",
+              "flash_minutes": 1.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "bootloader",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 100.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "real-v2-04",
+            "text": "When swap-using-scratch algorithm is used, in addition to the slots of image areas, the bootloader requires a scratch area to allow for reliable image swapping."
+          }
+        ]
+      },
+      "inventory_note": "All numeric inventory values (version 1, one minute, battery 100%, ignition off) are synthetic schema scaffolding, not vendor facts. Extraction-only proposal; no real planning/simulation conclusions.",
+      "automated_checks": {
+        "schema": "PASS",
+        "exact_ingested_segments": "PASS",
+        "source_substring": "PASS"
+      }
+    },
+    {
+      "id": "real-v2-05",
+      "title": "MCUboot descriptive negative control",
+      "review_status": "UNREVIEWED",
+      "admitted": false,
+      "source_url": "https://github.com/mcu-tools/mcuboot/blob/6d3b3d2c38ab20c242e5b9abb04d050086383eb2/docs/serial_recovery.md",
+      "version": "6d3b3d2c38ab20c242e5b9abb04d050086383eb2",
+      "source_file": "sources/mcuboot-serial_recovery.md",
+      "source_sha256": "7bd73167ad720ad7b0639bb6727b1bd7e7177de7a878da0f0ae6e08c467e6e5b",
+      "raw_source_excerpt": "MCUboot implements a Simple Management Protocol (SMP) server.",
+      "source_character_span": [
+        952,
+        1013
+      ],
+      "transcription": "Exact substring of pinned UTF-8 source",
+      "ingestion_transform": "None",
+      "ingested_document": {
+        "id": "real-v2-05",
+        "text": "MCUboot implements a Simple Management Protocol (SMP) server."
+      },
+      "segments": [
+        {
+          "evidence": {
+            "document_id": "real-v2-05",
+            "start_char": 0,
+            "end_char": 61
+          },
+          "text": "MCUboot implements a Simple Management Protocol (SMP) server."
+        }
+      ],
+      "proposed_draft": {
+        "constraints": [],
+        "issues": []
+      },
+      "expected_gate": "ready_after_faithfulness",
+      "ambiguities": "Descriptive capability, not a requirement. Empty constraints AND empty issues expected; ready means extraction handoff only. Does not validate a complete real campaign, hardware or a real update schedule.",
+      "inventory_roles": [
+        "bootloader"
+      ],
+      "request_scaffold": {
+        "campaign": {
+          "id": "real-v2-05",
+          "ecus": [
+            {
+              "id": "bootloader",
+              "current_version": "1",
+              "target_version": "1",
+              "flash_minutes": 1.0
+            }
+          ],
+          "initial_state": {
+            "ecus": [
+              {
+                "ecu_id": "bootloader",
+                "slot_a": {
+                  "version": "1",
+                  "valid": true
+                },
+                "slot_b": null,
+                "active_slot": "A"
+              }
+            ],
+            "battery_percent": 100.0,
+            "ignition": "off"
+          },
+          "constraints": [],
+          "downgrade_authorizations": []
+        },
+        "documents": [
+          {
+            "id": "real-v2-05",
+            "text": "MCUboot implements a Simple Management Protocol (SMP) server."
+          }
+        ]
+      },
+      "inventory_note": "All numeric inventory values (version 1, one minute, battery 100%, ignition off) are synthetic schema scaffolding, not vendor facts. Extraction-only proposal; no real planning/simulation conclusions.",
+      "automated_checks": {
+        "schema": "PASS",
+        "exact_ingested_segments": "PASS",
+        "source_substring": "PASS"
+      }
+    }
+  ]
+}

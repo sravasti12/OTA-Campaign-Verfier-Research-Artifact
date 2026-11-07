@@ -1,0 +1,17 @@
+{
+  "mode": "OFFLINE_SAVED_RESPONSE_REPLAY_AND_CONSTRUCTED_CONTROLS",
+  "new_llm_requests": 0,
+  "baseline_recovery_hashes_verified": 20,
+  "tests": {
+    "passed": 196,
+    "failed": 0,
+    "errors": 0,
+    "warnings": 13,
+    "seconds": 18.56,
+    "warning": "LangSmith asyncio.iscoroutinefunction deprecation",
+    "command": ".venv/Scripts/python.exe -m pytest -q --basetemp=.ota_state/reliability-v2-final tests/test_pilot_reliability.py tests/test_real_review_v2.py tests/test_llm_pipeline.py tests/test_llm_evidence.py tests/test_llm_client.py tests/test_live_pilot_metrics.py tests/test_extraction_evaluation.py tests/test_graph.py tests/test_benchmark.py tests/test_plan_validation.py tests/test_review_materials.py"
+  },
+  "pip_check": "No broken requirements found.",
+  "live_accuracy_improvement": "NOT_MEASURED",
+  "case_admission": "ALL_UNREVIEWED"
+}

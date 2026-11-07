@@ -1,0 +1,162 @@
+{
+  "stratum": "SYNTHETIC DEVELOPMENT PILOT",
+  "model": "openai/gpt-oss-20b",
+  "dataset_sha256": "5908bf34ff185eaaa3a7000b889e4273e6f806b9619af3d71923aead4fd91c52",
+  "requests": 4,
+  "http_requests_sent": 4,
+  "maximum_requests": 6,
+  "scheduled_case_ids": [
+    "clear-42",
+    "order_conflict-44",
+    "unsupported-47"
+  ],
+  "attempted_cases": 3,
+  "not_run_cases": 0,
+  "stop_reason": null,
+  "completed_without_provider_or_schema_failure": true,
+  "all_cases_correct": false,
+  "wall_elapsed_seconds": 211.356,
+  "metrics": {
+    "semantic_counts": {
+      "true_positives": 5,
+      "false_positives": 0,
+      "false_negatives": 0
+    },
+    "precision": {
+      "numerator": 5,
+      "denominator": 5,
+      "value": 1.0
+    },
+    "recall": {
+      "numerator": 5,
+      "denominator": 5,
+      "value": 1.0
+    },
+    "f1": {
+      "numerator": 10,
+      "denominator": 10,
+      "value": 1.0
+    },
+    "supported_semantic_exact_match": {
+      "numerator": 2,
+      "denominator": 2,
+      "value": 1.0
+    },
+    "over_extraction_hallucination_proxy": {
+      "numerator": 0,
+      "denominator": 5,
+      "value": 0.0
+    },
+    "existing_extraction_metrics": {
+      "per_constraint_type": {
+        "requires": {
+          "true_positives": 1,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "mutex": {
+          "true_positives": 1,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "precondition": {
+          "true_positives": 1,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0
+        },
+        "order": {
+          "true_positives": 2,
+          "false_positives": 0,
+          "false_negatives": 0,
+          "precision": 1.0,
+          "recall": 1.0
+        }
+      },
+      "evidence_span_accuracy": {
+        "numerator": 3,
+        "denominator": 5,
+        "value": 0.6
+      },
+      "evidence_span_precision": {
+        "numerator": 3,
+        "denominator": 5,
+        "value": 0.6
+      },
+      "evidence_span_recall": {
+        "numerator": 3,
+        "denominator": 5,
+        "value": 0.6
+      },
+      "schema_rejection": {
+        "numerator": 0,
+        "denominator": 3,
+        "value": 0.0
+      },
+      "missing_extraction_responses": 0,
+      "faithfulness_false_acceptance": {
+        "numerator": 0,
+        "denominator": 0,
+        "value": null
+      },
+      "unsupported_or_ambiguous_acceptance": {
+        "numerator": 0,
+        "denominator": 1,
+        "value": 0.0
+      },
+      "valid_case_blocking": {
+        "numerator": 2,
+        "denominator": 2,
+        "value": 1.0
+      }
+    },
+    "real_document_metrics": null,
+    "stratum": "SYNTHETIC DEVELOPMENT PILOT",
+    "attempted_cases": 3,
+    "scheduled_cases": 3,
+    "accuracy_scope": "Attempted cases only; NOT_RUN cases remain in results.",
+    "complete_case_outcome_accuracy": {
+      "numerator": 1,
+      "denominator": 3,
+      "value": 0.3333333333333333
+    },
+    "correct_cited_unsupported_abstention": {
+      "numerator": 1,
+      "denominator": 1,
+      "value": 1.0
+    },
+    "semantic_false_acceptance": {
+      "numerator": 0,
+      "denominator": 0,
+      "value": null
+    },
+    "latency_ms_by_role": {
+      "extraction": [
+        3335.475,
+        2252.914,
+        1238.874
+      ],
+      "verification": [
+        2141.561
+      ]
+    },
+    "provider_responses": {
+      "200": 4
+    },
+    "token_usage": {
+      "prompt_tokens": 7123,
+      "completion_tokens": 5047,
+      "total_tokens": 12170
+    }
+  },
+  "production_sources_unchanged": true,
+  "corpus_unchanged": true,
+  "real_document_approval": false,
+  "real_document_requests": 0,
+  "explanation_requests": 0
+}

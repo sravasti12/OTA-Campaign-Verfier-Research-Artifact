@@ -1,0 +1,55 @@
+{
+  "format": "human-label-signoff-v1",
+  "corpus_sha256": "7a8a5008b3005a870f377b0bf7ea536c51b48dfc6a9a3419ed167f770d713ff1",
+  "status": "PENDING",
+  "reviewer": null,
+  "reviewed_at": null,
+  "independent_review_limitations": null,
+  "scope": "synthetic development pilot only; heldout cases require separate admission",
+  "case_reviews": [
+    {
+      "id": "clear-42",
+      "approved": false,
+      "reviewer": null,
+      "date": null,
+      "adjudication": null
+    },
+    {
+      "id": "dependency_only-43",
+      "approved": false,
+      "reviewer": null,
+      "date": null,
+      "adjudication": null
+    },
+    {
+      "id": "order_conflict-44",
+      "approved": false,
+      "reviewer": null,
+      "date": null,
+      "adjudication": null
+    },
+    {
+      "id": "intermediate_trap-45",
+      "approved": false,
+      "reviewer": null,
+      "date": null,
+      "adjudication": null
+    },
+    {
+      "id": "ambiguous-46",
+      "approved": false,
+      "reviewer": null,
+      "date": null,
+      "adjudication": null
+    },
+    {
+      "id": "unsupported-47",
+      "approved": false,
+      "reviewer": null,
+      "date": null,
+      "adjudication": null
+    }
+  ],
+  "methodology_approved": false,
+  "request_budget_approved": false
+}

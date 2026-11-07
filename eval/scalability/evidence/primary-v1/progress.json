@@ -1,0 +1,1 @@
+{"elapsed_seconds":6171.7274418000015,"findings":[],"finished":1240,"last_trial":"measured-independent-n100-s11-primary-t10000-r4-sequential","scheduled":1240,"statuses":{"NO_BASELINE_SCHEDULE":180,"WATCHDOG_TIMEOUT":16,"feasible":660,"infeasible":192,"unknown":192}}

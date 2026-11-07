@@ -1,2 +1,11 @@
 # Raw evidence is hashed in its manifest, so git must not rewrite its line endings.
 results/raw/** -text
+
+# Immutable, SHA-256-indexed LLM corpora, predictions, source snapshots and exports.
+# Preserve evidence packages; the fingerprinted source exception is documented below.
+eval/live_extraction/*-v[0-9]*/** -text
+examples/engineering_evidence_v1/** -text
+
+# Live evidence also binds exact production-source SHA-256 fingerprints.
+# Preserve that one package's bytes across Windows/Linux; do not normalize and reseal history.
+src/ota_verifier/** -text whitespace=cr-at-eol

@@ -1,0 +1,109 @@
+{
+  "case_id": "real-v2-03",
+  "status": "ATTEMPTED",
+  "run": {
+    "status": "blocked",
+    "request": {
+      "campaign": {
+        "id": "real-v2-03",
+        "ecus": [
+          {
+            "id": "receiver",
+            "current_version": "1",
+            "target_version": "1",
+            "flash_minutes": 1.0
+          },
+          {
+            "id": "tx",
+            "current_version": "1",
+            "target_version": "1",
+            "flash_minutes": 1.0
+          }
+        ],
+        "initial_state": {
+          "ecus": [
+            {
+              "ecu_id": "receiver",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            },
+            {
+              "ecu_id": "tx",
+              "slot_a": {
+                "version": "1",
+                "valid": true
+              },
+              "slot_b": null,
+              "active_slot": "A"
+            }
+          ],
+          "battery_percent": 100.0,
+          "ignition": "off"
+        },
+        "constraints": [],
+        "downgrade_authorizations": []
+      },
+      "documents": [
+        {
+          "id": "real-v2-03",
+          "text": "A Version is defined or formatted as \"Major.Minor.Patch\"\n\n        - major = major new feature and/or incompatible changes\n        - minor = minor features or enhancements and/or new targets\n        - patch = bug-fixes\n    \n    That first number in the Version string should match between a TX Module and a Receiver."
+        }
+      ]
+    },
+    "input_hash": "86379d523dbcc413189e8c9d24f1a34f5188d16de4d1f8c6c4fb769ea4c9fee2",
+    "document_hashes": [
+      {
+        "document_id": "real-v2-03",
+        "sha256": "b7b5b2a6a66909db633e5fc25dd888bde506ade163e34b732f47b2702a9c2fb7"
+      }
+    ],
+    "draft": null,
+    "verification": null,
+    "issues": [
+      {
+        "code": "llm_boundary_error",
+        "message": "Provider request failed (HTTP 400); check credentials, limits, model, and schema support",
+        "constraint_id": null,
+        "evidence": null
+      }
+    ],
+    "calls": [],
+    "campaign": null
+  },
+  "score": {
+    "case_id": "real-v2-03",
+    "semantic": {
+      "true_positives": 0,
+      "false_positives": 0,
+      "false_negatives": 0,
+      "precision": null,
+      "recall": null
+    },
+    "semantic_exact": false,
+    "false_positive_signatures": [],
+    "false_negative_signatures": [],
+    "gold_constraints": 0,
+    "emitted_constraints": 0,
+    "correct_bindings": 0,
+    "literal_valid_citations": 0,
+    "exact_issue_set": false,
+    "exact_draft": false,
+    "gate_correct": true,
+    "complete_expected_outcome": false,
+    "expected_gate": "blocked",
+    "actual_gate": "blocked",
+    "verifier_called": false,
+    "verifier_correct": null,
+    "verifier_reference_valid": null,
+    "expected_issue_kinds": [
+      "unsupported_requirement"
+    ],
+    "actual_issue_kinds": null
+  },
+  "planning": null,
+  "planning_scope": "Synthetic inventory scaffold; real-source extraction only, not vendor update schedule"
+}
