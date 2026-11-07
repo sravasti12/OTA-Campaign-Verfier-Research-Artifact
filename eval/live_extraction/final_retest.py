@@ -119,7 +119,11 @@ def execute(output: Path) -> None:
     assert sha(output / 'dataset.json') == manifest['dataset_file_sha256']
     assert sha(output / 'approval.json') == manifest['approval_sha256']
     assert manifest['prompt_hashes'] == {'extraction': content_hash(EXTRACT), 'verification': content_hash(VERIFY)}
-    assert manifest['source_hashes'] == {str(p.relative_to(ROOT)): sha(p) for p in (ROOT / 'src/ota_verifier').rglob('*.py')}
+    from portable_source_hashes import verify_portable_sources
+    assert verify_portable_sources(
+        ROOT,
+        ROOT / 'eval/live_extraction/real-retest-v2/portable_source_hashes.json'
+    )
     data = json.loads((output / 'dataset.json').read_text(encoding='utf-8'))
     assert content_hash(canonical_json(data)) == APPROVED_HASH
     settings = configuration()
