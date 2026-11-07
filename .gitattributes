@@ -1,5 +1,7 @@
 # Raw evidence is hashed in its manifest, so git must not rewrite its line endings.
 results/raw/** -text
+# Frozen predictions are hashed by the SIL run, so they must keep their exact bytes too.
+results/predictions/** -text
 
 # Immutable, SHA-256-indexed LLM corpora, predictions, source snapshots and exports.
 # Preserve evidence packages; the fingerprinted source exception is documented below.

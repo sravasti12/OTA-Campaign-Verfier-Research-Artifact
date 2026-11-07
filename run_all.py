@@ -14,6 +14,7 @@ import re
 import shutil
 import subprocess
 import sys
+import traceback
 from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
@@ -71,7 +72,7 @@ def environment() -> dict[str, object]:
     """Record what is needed to interpret and repeat a run."""
     freeze = subprocess.run((sys.executable, '-m', 'pip', 'freeze', '--exclude-editable'),
                             text=True, capture_output=True, check=False)
-    return {'commit': git('rev-parse', 'HEAD'), 'dirty_files': git('status', '--porcelain', '--', '.', ':(exclude)results/raw', ':(exclude)results/scaling.csv', ':(exclude)results/confusion.csv').splitlines(),
+    return {'commit': git('rev-parse', 'HEAD'), 'dirty_files': git('status', '--porcelain', '--', '.', ':(exclude)results/raw').splitlines(),
             'seed': SEED, 'python': platform.python_version(), 'platform': platform.platform(),
             'machine': platform.machine(), 'logical_cpus': os.cpu_count(), 'java': java_version(),
             'packages': freeze.stdout.splitlines()}
@@ -150,12 +151,15 @@ def artifact_hashes(run_dir: Path) -> dict[str, str]:
     return hashes
 
 
-def write_manifest(run_dir: Path, suite: str, stages: list[Stage]) -> str:
-    """Write the run record and return the overall status."""
+def write_manifest(run_dir: Path, suite: str, stages: list[Stage], env: dict[str, object] | None = None) -> str:
+    """Write the run record and return the overall status.
+
+    `env` should be captured before the run starts, so the run's own outputs never count as uncommitted files.
+    """
     statuses = {stage.status for stage in stages}
     overall = 'failed' if 'failed' in statuses else 'incomplete' if 'skipped' in statuses else 'passed'
     manifest = {'suite': suite, 'status': overall, 'created_utc': datetime.now(timezone.utc).isoformat(),
-                'environment': environment(), 'stages': [asdict(stage) for stage in stages],
+                'environment': env if env is not None else environment(), 'stages': [asdict(stage) for stage in stages],
                 'artifacts_sha256': artifact_hashes(run_dir)}
     (run_dir / 'manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
     return overall
@@ -182,7 +186,10 @@ def run_experiment(name: str, run_dir: Path) -> list[Stage]:
     spec = importlib.util.spec_from_file_location(name, EXPERIMENTS[name])
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
-    problems = module.run(run_dir, ROOT / str(pin['path']), ROOT)
+    try:
+        problems = module.run(run_dir, ROOT / str(pin['path']), ROOT)
+    except Exception:  # Record the crash in the manifest instead of losing the run record.
+        return [Stage(name, 'failed', traceback.format_exc())]
     return [Stage(name, 'failed' if problems else 'passed', '; '.join(problems))]
 
 
@@ -196,9 +203,13 @@ def main(argv: list[str] | None = None) -> int:
     if args.smoke == bool(args.experiment):
         parser.error('choose exactly one of --smoke or --experiment')
     suite = args.experiment or 'smoke'
+    env = environment()
     run_dir = new_run_dir(suite)
+    # Written first, so a run killed from outside still leaves a record of what was running.
+    (run_dir / 'started.json').write_text(json.dumps({'suite': suite, 'started_utc': datetime.now(timezone.utc).isoformat(),
+                                                      'environment': env}, indent=2) + '\n', encoding='utf-8')
     stages = run_experiment(suite, run_dir) if args.experiment else smoke(run_dir, args.require_tlc)
-    overall = write_manifest(run_dir, suite, stages)
+    overall = write_manifest(run_dir, suite, stages, env)
     for stage in stages:
         print(f'{stage.status:8} {stage.name} {stage.detail}'.rstrip())
     print(f'{overall}: {run_dir.relative_to(ROOT).as_posix()}')

@@ -71,7 +71,11 @@ def compare() -> dict[str, Any]:
     assert all(sha(old / name) == digest for name, digest in original_index.items())
     assert sha(old / 'dataset.json') == sha(new / 'dataset.json')
     manifest = json.loads((new / 'manifest.json').read_text())
-    assert manifest['source_hashes'] == {str(p.relative_to(ROOT)): sha(p) for p in (ROOT / 'src/ota_verifier').rglob('*.py')}
+    from portable_source_hashes import verify_portable_sources
+    assert verify_portable_sources(
+        ROOT,
+        ROOT / 'eval/live_extraction/real-retest-v2/portable_source_hashes.json'
+    )
     assert sha(new / 'runner.py') == manifest['runner_sha256']
     before, after = measurements(old), measurements(new)
     paired = []
