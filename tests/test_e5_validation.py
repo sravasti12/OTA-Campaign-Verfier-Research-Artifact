@@ -139,3 +139,39 @@ def test_extract_results_reads_wrapped_printt_output() -> None:
 
 def test_harness_constants_are_for_both_versions() -> None:
     assert set(harness.GOOD_HASH) == {1, 2}
+
+
+def comparison_row(predicted: tuple = (), observed: tuple = (), edges: int = 1, actions: list | None = None) -> dict:
+    steps = actions or [['Commit', '']]
+    prediction = dict(campaign='c', design='d', policy='p', script=0, faults=[], violated=list(predicted),
+                      final='aborted', active={'a': 1}, actions=steps)
+    seen = dict(violated=list(observed), actions=steps, campaign='aborted', running={'a': 1})
+    return e5.compare(prediction, seen, edges)
+
+
+def test_vacuous_s1_is_left_out_of_the_confusion_table() -> None:
+    assert 'S1' not in {row['group'] for row in e5.confusion([comparison_row(edges=0)], 'property')}
+    assert 'S1' in {row['group'] for row in e5.confusion([comparison_row(edges=1)], 'property')}
+
+
+def test_distinct_drops_repeated_runs_but_keeps_different_verdicts_and_paths() -> None:
+    assert len(e5.distinct([comparison_row(), comparison_row(), comparison_row(observed=('S3',))])) == 2
+    assert len(e5.distinct([comparison_row(actions=[['PowerLoss', '']]), comparison_row()])) == 2
+
+
+def test_observation_keeps_the_campaign_name(tmp_path: Path) -> None:
+    import json
+    import shutil
+    shutil.copytree(ROOT / 'sil', tmp_path / 'sil', ignore=shutil.ignore_patterns('__pycache__'))
+    folder = tmp_path / 'results' / 'predictions' / 'e5'
+    folder.mkdir(parents=True)
+    prediction = dict(campaign='small', design='none', policy='rolling', script=0, faults=[], violated=[],
+                      final='committed', active={'gateway': 2, 'brake': 2, 'infotainment': 2},
+                      actions=[list(step) for step in common.nominal_steps(list(ECUS), 'rolling')])
+    (folder / 'predictions.jsonl').write_text(json.dumps(prediction) + '\n', encoding='utf-8')
+    run_dir = tmp_path / 'run'
+    run_dir.mkdir()
+    assert e5.run(run_dir, Path('unused'), tmp_path) == []
+    line = json.loads((run_dir / 'observations.jsonl').read_text(encoding='utf-8'))
+    assert line['campaign_name'] == 'small' and line['campaign'] == 'committed'
+    assert (tmp_path / 'results' / 'confusion.csv').is_file()

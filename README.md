@@ -45,6 +45,31 @@ certification evidence.*
 [Three-minute demo](docs/demo_walkthrough.md) | [Screen recording](docs/assets/demo.webm) |
 [Architecture](docs/architecture.md) | [Release validation](docs/phase11.md)
 
+## Research artifact: formal checking of multi-ECU campaigns
+
+The journal paper's evidence is separate from the planner, LLM and MCUboot work below. It uses only these files:
+
+| Part | Code | Results | Write-up |
+| --- | --- | --- | --- |
+| TLA+ campaign model, 4 safety and 1 liveness property, 3 flawed designs | `specs/tla/OTACampaign.tla`, `experiments/e0_small_campaign.py` | `results/raw/e0_small_campaign/` | [SMALL_CAMPAIGN_RESULTS](docs/SMALL_CAMPAIGN_RESULTS.md) |
+| Scaling (5 to 50 ECUs) and the pair abstraction | `experiments/e3_scaling.py`, `specs/tla/OTAPair.tla` | `results/scaling.csv`, `results/raw/e3_scaling/` | [SCALING_RESULTS](docs/SCALING_RESULTS.md), [soundness](docs/PAIR_ABSTRACTION_SOUNDNESS.md) |
+| Model against software-in-the-loop (SIL) simulator | `experiments/e5_predict.py`, `experiments/e5_sil.py`, `sil/` | `results/predictions/e5/`, `results/raw/e5_sil/`, `results/confusion.csv` | in progress |
+| Raspberry Pi testbed | none yet | none: **not built** | [build plan](docs/RASPBERRY_PI_TESTBED.md) |
+
+Reproduce with Python 3.11 or later and Java. CI uses Java 17, and the recorded runs used Java 18.
+
+```bash
+python tools/fetch_tools.py
+python run_all.py --experiment e0_small_campaign
+python run_all.py --experiment e3_scaling      # about 3 hours on a laptop
+python experiments/plot_scaling.py
+python experiments/summarize_scaling.py
+python run_all.py --experiment e5_predict
+python run_all.py --experiment e5_sil
+```
+
+Each run writes a new folder in `results/raw/` with a manifest recording the commit, uncommitted files, seed and environment. Rules are in [results/README.md](results/README.md), and open problems in [RESULTS_AUDIT](docs/RESULTS_AUDIT.md).
+
 ## Engineering strengths
 
 - **Intermediate-state reasoning:** one compatibility rule serves Z3 planning and invariant checking, catching campaigns whose endpoints are compatible but whose activation path is not.
