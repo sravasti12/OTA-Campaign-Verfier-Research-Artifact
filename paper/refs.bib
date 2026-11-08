@@ -1,0 +1,316 @@
+% Every entry matches a Crossref or arXiv record in paper/citations_verified.json (run paper/verify_citations.py),
+% except the misc entries with a URL, which were checked against the page given. See related_work.md.
+
+% ---- Model checking and TLA+ ----
+@inproceedings{yu1999,
+  author    = {Yuan Yu and Panagiotis Manolios and Leslie Lamport},
+  title     = {Model Checking {TLA+} Specifications},
+  booktitle = {Correct Hardware Design and Verification Methods (CHARME)},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {1703},
+  publisher = {Springer},
+  pages     = {54--66},
+  year      = {1999},
+  doi       = {10.1007/3-540-48153-2_6}
+}
+
+@article{lamport1994,
+  author  = {Leslie Lamport},
+  title   = {The Temporal Logic of Actions},
+  journal = {ACM Transactions on Programming Languages and Systems},
+  volume  = {16},
+  number  = {3},
+  pages   = {872--923},
+  year    = {1994},
+  doi     = {10.1145/177492.177726}
+}
+
+@article{konnov2019,
+  author  = {Igor Konnov and Jure Kukovec and Thanh-Hai Tran},
+  title   = {{TLA+} Model Checking Made Symbolic},
+  journal = {Proceedings of the ACM on Programming Languages},
+  volume  = {3},
+  number  = {OOPSLA},
+  pages   = {1--30},
+  year    = {2019},
+  doi     = {10.1145/3360549}
+}
+
+@inproceedings{cousineau2012,
+  author    = {Denis Cousineau and Damien Doligez and Leslie Lamport and Stephan Merz and Daniel Ricketts and Hern{\'a}n Vanzetto},
+  title     = {{TLA+} Proofs},
+  booktitle = {FM 2012: Formal Methods},
+  series    = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  pages     = {147--154},
+  year      = {2012},
+  doi       = {10.1007/978-3-642-32759-9_14}
+}
+
+@article{newcombe2015,
+  author  = {Chris Newcombe and Tim Rath and Fan Zhang and Bogdan Munteanu and Marc Brooker and Michael Deardeuff},
+  title   = {How {Amazon Web Services} Uses Formal Methods},
+  journal = {Communications of the ACM},
+  volume  = {58},
+  number  = {4},
+  pages   = {66--73},
+  year    = {2015},
+  doi     = {10.1145/2699417}
+}
+
+@inproceedings{clarke1989,
+  author    = {E. M. Clarke and D. E. Long and K. L. McMillan},
+  title     = {Compositional Model Checking},
+  booktitle = {Proceedings of the Fourth Annual Symposium on Logic in Computer Science (LICS)},
+  publisher = {IEEE Computer Society Press},
+  pages     = {353--362},
+  year      = {1989},
+  doi       = {10.1109/LICS.1989.39190}
+}
+
+@article{clarke1994,
+  author  = {Edmund M. Clarke and Orna Grumberg and David E. Long},
+  title   = {Model Checking and Abstraction},
+  journal = {ACM Transactions on Programming Languages and Systems},
+  volume  = {16},
+  number  = {5},
+  pages   = {1512--1542},
+  year    = {1994},
+  doi     = {10.1145/186025.186051}
+}
+
+@article{abadi1991,
+  author  = {Mart{\'\i}n Abadi and Leslie Lamport},
+  title   = {The Existence of Refinement Mappings},
+  journal = {Theoretical Computer Science},
+  volume  = {82},
+  number  = {2},
+  pages   = {253--284},
+  year    = {1991},
+  doi     = {10.1016/0304-3975(91)90224-P}
+}
+
+@inproceedings{emerson1995,
+  author    = {E. Allen Emerson and Kedar S. Namjoshi},
+  title     = {Reasoning About Rings},
+  booktitle = {Proceedings of the 22nd ACM SIGPLAN-SIGACT Symposium on Principles of Programming Languages (POPL)},
+  publisher = {ACM},
+  pages     = {85--94},
+  year      = {1995},
+  doi       = {10.1145/199448.199468}
+}
+
+@misc{cirstea2024,
+  author       = {Horatiu Cirstea and Markus A. Kuppe and Benjamin Loillier and Stephan Merz},
+  title        = {Validating Traces of Distributed Programs Against {TLA+} Specifications},
+  howpublished = {arXiv:2404.16075},
+  year         = {2024}
+}
+
+@misc{howard2024,
+  author       = {Heidi Howard and Markus A. Kuppe and Edward Ashton and Amaury Chamayou and Natacha Crooks},
+  title        = {Smart Casual Verification of the {Confidential Consortium Framework}},
+  howpublished = {arXiv:2406.17455},
+  year         = {2024}
+}
+
+@misc{schmid2021,
+  author       = {Tobias Schmid and Stefanie Schraufstetter and Jonas Fritzsch and Dominik Hellhake and Greta Koelln and Stefan Wagner},
+  title        = {Formal Verification of a Fail-Operational Automotive Driving System},
+  howpublished = {arXiv:2101.07307},
+  year         = {2021}
+}
+
+% ---- Secure software update frameworks and their analyses ----
+@inproceedings{samuel2010,
+  author    = {Justin Samuel and Nick Mathewson and Justin Cappos and Roger Dingledine},
+  title     = {Survivable Key Compromise in Software Update Systems},
+  booktitle = {Proceedings of the 17th ACM Conference on Computer and Communications Security (CCS)},
+  publisher = {ACM},
+  pages     = {61--72},
+  year      = {2010},
+  doi       = {10.1145/1866307.1866315}
+}
+
+@misc{kuppusamy2016,
+  author       = {Trishank Karthik Kuppusamy and Akan Brown and Sebastien Awwad and Damon McCoy and Russ Bielawski and Cameron Mott and Sam Lauzon and Andr{\'e} Weimerskirch and Justin Cappos},
+  title        = {{Uptane}: Securing Software Updates for Automobiles},
+  howpublished = {14th escar Europe. \url{https://uptane.org/papers/kuppusamy_escar_16.pdf}},
+  year         = {2016},
+}
+
+@article{kuppusamy2018,
+  author  = {Trishank Karthik Kuppusamy and Lois Anne DeLong and Justin Cappos},
+  title   = {{Uptane}: Security and Customizability of Software Updates for Vehicles},
+  journal = {IEEE Vehicular Technology Magazine},
+  volume  = {13},
+  number  = {1},
+  pages   = {66--73},
+  year    = {2018},
+  doi     = {10.1109/MVT.2017.2778751}
+}
+
+@inproceedings{lorch2024,
+  author    = {Robert Lorch and Daniel Larraz and Cesare Tinelli and Omar Chowdhury},
+  title     = {A Comprehensive, Automated Security Analysis of the {Uptane} Automotive Over-the-Air Update Framework},
+  booktitle = {Proceedings of the 27th International Symposium on Research in Attacks, Intrusions and Defenses (RAID)},
+  publisher = {ACM},
+  pages     = {594--612},
+  year      = {2024},
+  doi       = {10.1145/3678890.3678927}
+}
+
+@inproceedings{kirk2021,
+  author    = {Rhys Kirk and Hoang Nga Nguyen and Jeremy Bryans and Siraj Shaikh and David Evans and David Price},
+  title     = {Formalising {UPTANE} in {CSP} for Security Testing},
+  booktitle = {IEEE 21st International Conference on Software Quality, Reliability and Security Companion (QRS-C)},
+  publisher = {IEEE},
+  pages     = {816--824},
+  year      = {2021},
+  doi       = {10.1109/QRS-C55045.2021.00124}
+}
+
+@article{kirk2023,
+  author  = {Rhys Kirk and Hoang Nga Nguyen and Jeremy Bryans and Siraj Ahmed Shaikh and Charles Wartnaby},
+  title   = {A Formal Framework for Security Testing of Automotive Over-the-Air Update Systems},
+  journal = {Journal of Logical and Algebraic Methods in Programming},
+  volume  = {130},
+  pages   = {100812},
+  year    = {2023},
+  doi     = {10.1016/j.jlamp.2022.100812}
+}
+
+@inproceedings{boureanu2023,
+  author    = {Ioana Boureanu},
+  title     = {Formally Verifying the Security and Privacy of an Adopted Standard for Software-Update in Cars: Verifying {Uptane} 2.0},
+  booktitle = {IEEE International Conference on Systems, Man, and Cybernetics (SMC)},
+  publisher = {IEEE},
+  pages     = {1301--1306},
+  year      = {2023},
+  doi       = {10.1109/SMC53992.2023.10394216}
+}
+
+@inproceedings{mahmood2020,
+  author    = {Shahid Mahmood and Alexy Fouillade and Hoang Nga Nguyen and Siraj A. Shaikh},
+  title     = {A Model-Based Security Testing Approach for Automotive Over-The-Air Updates},
+  booktitle = {IEEE International Conference on Software Testing, Verification and Validation Workshops (ICSTW)},
+  publisher = {IEEE},
+  pages     = {6--13},
+  year      = {2020},
+  doi       = {10.1109/ICSTW50294.2020.00019}
+}
+
+@article{mahmood2022,
+  author  = {Shahid Mahmood and Hoang Nga Nguyen and Siraj Ahmed Shaikh},
+  title   = {Systematic Threat Assessment and Security Testing of Automotive Over-the-Air ({OTA}) Updates},
+  journal = {Vehicular Communications},
+  volume  = {35},
+  pages   = {100468},
+  year    = {2022},
+  doi     = {10.1016/j.vehcom.2022.100468}
+}
+
+@article{hagen2026,
+  author  = {Martin Slind Hagen and Emil Lundqvist and Alex Phu and Yenan Wang and Kim Strandberg and Elad Michael Schiller},
+  title   = {Towards a Formal Verification of Secure Vehicle Software Updates},
+  journal = {Computers \& Security},
+  volume  = {161},
+  pages   = {104751},
+  year    = {2026},
+  doi     = {10.1016/j.cose.2025.104751},
+  note    = {Preprint arXiv:2511.15479}
+}
+
+@inproceedings{idrees2011,
+  author    = {Muhammad Sabir Idrees and Hendrik Schweppe and Yves Roudier and Marko Wolf and Dirk Scheuermann and Olaf Henniger},
+  title     = {Secure Automotive On-Board Protocols: A Case of Over-the-Air Firmware Updates},
+  booktitle = {Communication Technologies for Vehicles (Nets4Cars/Nets4Trains)},
+  series    = {Lecture Notes in Computer Science},
+  publisher = {Springer},
+  pages     = {224--238},
+  year      = {2011},
+  doi       = {10.1007/978-3-642-19786-4_20}
+}
+
+@inproceedings{pedroza2011,
+  author    = {Gabriel Pedroza and Muhammad Sabir Idrees and Ludovic Apvrille and Yves Roudier},
+  title     = {A Formal Methodology Applied to Secure Over-the-Air Automotive Applications},
+  booktitle = {IEEE Vehicular Technology Conference (VTC Fall)},
+  publisher = {IEEE},
+  pages     = {1--5},
+  year      = {2011},
+  doi       = {10.1109/VETECF.2011.6093061}
+}
+
+@inproceedings{ponsard2021,
+  author    = {Christophe Ponsard and Denis Darquennes},
+  title     = {Towards Formal Security Verification of Over-the-Air Update Protocol: Requirements, Survey and {UpKit} Case Study},
+  booktitle = {Proceedings of the 7th International Conference on Information Systems Security and Privacy (ICISSP)},
+  publisher = {SCITEPRESS},
+  pages     = {800--808},
+  year      = {2021},
+  doi       = {10.5220/0010431408000808}
+}
+
+@inproceedings{mukherjee2021,
+  author    = {Anway Mukherjee and Ryan Gerdes and Tam Chantem},
+  title     = {Trusted Verification of Over-the-Air ({OTA}) Secure Software Updates on {COTS} Embedded Systems},
+  booktitle = {Third International Workshop on Automotive and Autonomous Vehicle Security (AutoSec)},
+  publisher = {Internet Society},
+  year      = {2021},
+  doi       = {10.14722/autosec.2021.23028}
+}
+
+@misc{shoker2023,
+  author       = {Ali Shoker and Fernando Alves and Paulo Esteves-Verissimo},
+  title        = {{ScalOTA}: Scalable Secure Over-the-Air Software Updates for Vehicles},
+  howpublished = {arXiv:2307.02032},
+  year         = {2023}
+}
+
+@misc{mostafa2025,
+  author       = {Mostafa A. Mostafa and Mohamed K. Mohamed and Radwa W. Ezzat},
+  title        = {Enhancing {AUTOSAR}-Based Firmware Over-the-Air Updates in the Automotive Industry with a Practical Implementation on a Steering System},
+  howpublished = {arXiv:2503.05839},
+  year         = {2025}
+}
+
+@article{li2024,
+  author  = {Beibei Li and Wei Hu and Lemei Da and Yibing Wu and Xinxin Wang and Yiwei Li and Chaoxuan Yuan},
+  title   = {Over-the-Air Upgrading for Enhancing Security of Intelligent Connected Vehicles: A Survey},
+  journal = {Artificial Intelligence Review},
+  volume  = {57},
+  number  = {11},
+  pages   = {314},
+  year    = {2024},
+  doi     = {10.1007/s10462-024-10968-z}
+}
+
+@misc{liotou2026,
+  author       = {Eirini Liotou and Dimitra Tzelalidou and Gerasimos Christodoulou},
+  title        = {The Rise of the Software-Defined Vehicle: Architectures, Enabling Technologies, and Future Opportunities},
+  howpublished = {arXiv:2605.30001},
+  year         = {2026}
+}
+
+% ---- Regulation, standards and tools (web) ----
+@misc{unr156,
+  author       = {{United Nations Economic Commission for Europe}},
+  title        = {{UN} Regulation No 156 -- Uniform Provisions Concerning the Approval of Vehicles with Regards to Software Update and Software Updates Management System},
+  howpublished = {Official Journal of the European Union, L 82, 9.3.2021, pp. 60--74. \url{http://data.europa.eu/eli/reg/2021/388/oj}},
+  year         = {2021},
+}
+
+@misc{iso24089,
+  author       = {{ISO}},
+  title        = {{ISO} 24089:2023 Road Vehicles -- Software Update Engineering},
+  howpublished = {\url{https://www.iso.org/standard/77796.html}},
+  year         = {2023},
+  note         = {Accessed for scope only}
+}
+
+@misc{tlaplus,
+  title        = {{TLA+} Tools, Release v1.7.4 ({TLC} 2.19)},
+  howpublished = {\url{https://github.com/tlaplus/tlaplus}},
+  note         = {SHA-256 of tla2tools.jar recorded in tools/versions.json}
+}

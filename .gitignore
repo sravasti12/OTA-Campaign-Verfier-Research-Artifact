@@ -39,3 +39,6 @@ eval/live_extraction/real-review-v2/sources/flysky-nb4-manual.pdf
 eval/live_extraction/real-review-v3/sources/flysky-nb4-manual.pdf
 eval/live_extraction/real-review-v3/rendered-pages/flysky-page-7.png
 eval/live_extraction/real-review-v3/rendered-pages/flysky-page-67.png
+
+# Paper build output (rebuild with tectonic)
+paper/build/

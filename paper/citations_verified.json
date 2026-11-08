@@ -1,0 +1,745 @@
+{
+ "fetched_utc": "2026-11-08T18:10:50.071846+00:00",
+ "crossref": {
+  "konnov2019": {
+   "doi": "10.1145/3360549",
+   "title": "TLA+ model checking made symbolic",
+   "container": "Proceedings of the ACM on Programming Languages",
+   "event": null,
+   "issued": [
+    [
+     2019,
+     10,
+     10
+    ]
+   ],
+   "volume": "3",
+   "issue": "OOPSLA",
+   "page": "1-30",
+   "article_number": null,
+   "publisher": "Association for Computing Machinery (ACM)",
+   "type": "journal-article",
+   "authors": [
+    "Igor Konnov",
+    "Jure Kukovec",
+    "Thanh-Hai Tran"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "clarke1989": {
+   "doi": "10.1109/lics.1989.39190",
+   "title": "Compositional model checking",
+   "container": "[1989] Proceedings. Fourth Annual Symposium on Logic in Computer Science",
+   "event": "[1989] Proceedings. Fourth Annual Symposium on Logic in Computer Science",
+   "issued": [
+    [
+     null
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "353-362",
+   "article_number": null,
+   "publisher": "IEEE Comput. Soc. Press",
+   "type": "proceedings-article",
+   "authors": [
+    "E.M. Clarke",
+    "D.E. Long",
+    "K.L. McMillan"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "hagen2025": {
+   "doi": "10.1016/j.cose.2025.104751",
+   "title": "Towards a formal verification of secure vehicle software updates",
+   "container": "Computers &amp; Security",
+   "event": null,
+   "issued": [
+    [
+     2026,
+     2
+    ]
+   ],
+   "volume": "161",
+   "issue": null,
+   "page": "104751",
+   "article_number": "104751",
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "authors": [
+    "Martin Slind Hagen",
+    "Emil Lundqvist",
+    "Alex Phu",
+    "Yenan Wang",
+    "Kim Strandberg",
+    "Elad Michael Schiller"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "lorch2024": {
+   "doi": "10.1145/3678890.3678927",
+   "title": "A Comprehensive, Automated Security Analysis of the Uptane Automotive Over-the-Air Update Framework",
+   "container": "The 27th International Symposium on Research in Attacks, Intrusions and Defenses",
+   "event": "RAID '24: The 27th International Symposium on Research in Attacks, Intrusions and Defenses",
+   "issued": [
+    [
+     2024,
+     9,
+     30
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "594-612",
+   "article_number": null,
+   "publisher": "ACM",
+   "type": "proceedings-article",
+   "authors": [
+    "Robert Lorch",
+    "Daniel Larraz",
+    "Cesare Tinelli",
+    "Omar Chowdhury"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "kuppusamy2018": {
+   "doi": "10.1109/mvt.2017.2778751",
+   "title": "Uptane: Security and Customizability of Software Updates for Vehicles",
+   "container": "IEEE Vehicular Technology Magazine",
+   "event": null,
+   "issued": [
+    [
+     2018,
+     3
+    ]
+   ],
+   "volume": "13",
+   "issue": "1",
+   "page": "66-73",
+   "article_number": null,
+   "publisher": "Institute of Electrical and Electronics Engineers (IEEE)",
+   "type": "journal-article",
+   "authors": [
+    "Trishank Karthik Kuppusamy",
+    "Lois Anne DeLong",
+    "Justin Cappos"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "kirk2021": {
+   "doi": "10.1109/qrs-c55045.2021.00124",
+   "title": "Formalising UPTANE in CSP for Security Testing",
+   "container": "2021 IEEE 21st International Conference on Software Quality, Reliability and Security Companion (QRS-C)",
+   "event": "2021 IEEE 21st International Conference on Software Quality, Reliability and Security Companion (QRS-C)",
+   "issued": [
+    [
+     2021,
+     12
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "816-824",
+   "article_number": null,
+   "publisher": "IEEE",
+   "type": "proceedings-article",
+   "authors": [
+    "Rhys Kirk",
+    "Hoang Nga Nguyen",
+    "Jeremy Bryans",
+    "Siraj Shaikh",
+    "David Evans",
+    "David Price"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "kirk2023": {
+   "doi": "10.1016/j.jlamp.2022.100812",
+   "title": "A formal framework for security testing of automotive over-the-air update systems",
+   "container": "Journal of Logical and Algebraic Methods in Programming",
+   "event": null,
+   "issued": [
+    [
+     2023,
+     1
+    ]
+   ],
+   "volume": "130",
+   "issue": null,
+   "page": "100812",
+   "article_number": "100812",
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "authors": [
+    "Rhys Kirk",
+    "Hoang Nga Nguyen",
+    "Jeremy Bryans",
+    "Siraj Ahmed Shaikh",
+    "Charles Wartnaby"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "ponsard2021": {
+   "doi": "10.5220/0010431408000808",
+   "title": "Towards Formal Security Verification of Over-the-Air Update Protocol: Requirements, Survey and UpKit Case Study",
+   "container": "Proceedings of the 7th International Conference on Information Systems Security and Privacy",
+   "event": "5th International Workshop on FORmal methods for Security Engineering",
+   "issued": [
+    [
+     2021
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "800-808",
+   "article_number": null,
+   "publisher": "SCITEPRESS - Science and Technology Publications",
+   "type": "proceedings-article",
+   "authors": [
+    "Christophe Ponsard",
+    "Denis Darquennes"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "samuel2010": {
+   "doi": "10.1145/1866307.1866315",
+   "title": "Survivable key compromise in software update systems",
+   "container": "Proceedings of the 17th ACM conference on Computer and communications security",
+   "event": "CCS '10: 17th ACM Conference on Computer and Communications Security 2010",
+   "issued": [
+    [
+     2010,
+     10,
+     4
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "61-72",
+   "article_number": null,
+   "publisher": "ACM",
+   "type": "proceedings-article",
+   "authors": [
+    "Justin Samuel",
+    "Nick Mathewson",
+    "Justin Cappos",
+    "Roger Dingledine"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "lamport1994": {
+   "doi": "10.1145/177492.177726",
+   "title": "The temporal logic of actions",
+   "container": "ACM Transactions on Programming Languages and Systems",
+   "event": null,
+   "issued": [
+    [
+     1994,
+     5
+    ]
+   ],
+   "volume": "16",
+   "issue": "3",
+   "page": "872-923",
+   "article_number": null,
+   "publisher": "Association for Computing Machinery (ACM)",
+   "type": "journal-article",
+   "authors": [
+    "Leslie Lamport"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "clarke1994": {
+   "doi": "10.1145/186025.186051",
+   "title": "Model checking and abstraction",
+   "container": "ACM Transactions on Programming Languages and Systems",
+   "event": null,
+   "issued": [
+    [
+     1994,
+     9
+    ]
+   ],
+   "volume": "16",
+   "issue": "5",
+   "page": "1512-1542",
+   "article_number": null,
+   "publisher": "Association for Computing Machinery (ACM)",
+   "type": "journal-article",
+   "authors": [
+    "Edmund M. Clarke",
+    "Orna Grumberg",
+    "David E. Long"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "newcombe2015": {
+   "doi": "10.1145/2699417",
+   "title": "How Amazon web services uses formal methods",
+   "container": "Communications of the ACM",
+   "event": null,
+   "issued": [
+    [
+     2015,
+     3,
+     23
+    ]
+   ],
+   "volume": "58",
+   "issue": "4",
+   "page": "66-73",
+   "article_number": null,
+   "publisher": "Association for Computing Machinery (ACM)",
+   "type": "journal-article",
+   "authors": [
+    "Chris Newcombe",
+    "Tim Rath",
+    "Fan Zhang",
+    "Bogdan Munteanu",
+    "Marc Brooker",
+    "Michael Deardeuff"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "cousineau2012": {
+   "doi": "10.1007/978-3-642-32759-9_14",
+   "title": "TLA +  Proofs",
+   "container": "Lecture Notes in Computer Science",
+   "event": null,
+   "issued": [
+    [
+     2012
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "147-154",
+   "article_number": null,
+   "publisher": "Springer Berlin Heidelberg",
+   "type": "book-chapter",
+   "authors": [
+    "Denis Cousineau",
+    "Damien Doligez",
+    "Leslie Lamport",
+    "Stephan Merz",
+    "Daniel Ricketts",
+    "Hernán Vanzetto"
+   ],
+   "editors": [],
+   "series": [
+    "FM 2012: Formal Methods"
+   ],
+   "isbn": [
+    "9783642327582",
+    "9783642327599"
+   ]
+  },
+  "abadi1991": {
+   "doi": "10.1016/0304-3975(91)90224-p",
+   "title": "The existence of refinement mappings",
+   "container": "Theoretical Computer Science",
+   "event": null,
+   "issued": [
+    [
+     1991,
+     5
+    ]
+   ],
+   "volume": "82",
+   "issue": "2",
+   "page": "253-284",
+   "article_number": null,
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "authors": [
+    "Martín Abadi",
+    "Leslie Lamport"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "otasurvey2024": {
+   "doi": "10.1007/s10462-024-10968-z",
+   "title": "Over-the-air upgrading for enhancing security of intelligent connected vehicles: a survey",
+   "container": "Artificial Intelligence Review",
+   "event": null,
+   "issued": [
+    [
+     2024,
+     10,
+     3
+    ]
+   ],
+   "volume": "57",
+   "issue": "11",
+   "page": null,
+   "article_number": "314",
+   "publisher": "Springer Science and Business Media LLC",
+   "type": "journal-article",
+   "authors": [
+    "Beibei Li",
+    "Wei Hu",
+    "Lemei Da",
+    "Yibing Wu",
+    "Xinxin Wang",
+    "Yiwei Li",
+    "Chaoxuan Yuan"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "yu1999": {
+   "doi": "10.1007/3-540-48153-2_6",
+   "title": "Model Checking TLA+ Specifications",
+   "container": "Lecture Notes in Computer Science",
+   "event": null,
+   "issued": [
+    [
+     1999
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "54-66",
+   "article_number": null,
+   "publisher": "Springer Berlin Heidelberg",
+   "type": "book-chapter",
+   "authors": [
+    "Yuan Yu",
+    "Panagiotis Manolios",
+    "Leslie Lamport"
+   ],
+   "editors": [],
+   "series": [
+    "Correct Hardware Design and Verification Methods"
+   ],
+   "isbn": [
+    "9783540665595",
+    "9783540481539"
+   ]
+  },
+  "emerson1995": {
+   "doi": "10.1145/199448.199468",
+   "title": "Reasoning about rings",
+   "container": "Proceedings of the 22nd ACM SIGPLAN-SIGACT symposium on Principles of programming languages  - POPL '95",
+   "event": "the 22nd ACM SIGPLAN-SIGACT symposium",
+   "issued": [
+    [
+     1995
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "85-94",
+   "article_number": null,
+   "publisher": "ACM Press",
+   "type": "proceedings-article",
+   "authors": [
+    "E. Allen Emerson",
+    "Kedar S. Namjoshi"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "pedroza2011": {
+   "doi": "10.1109/vetecf.2011.6093061",
+   "title": "A Formal Methodology Applied to Secure Over-the-Air Automotive Applications",
+   "container": "2011 IEEE Vehicular Technology Conference (VTC Fall)",
+   "event": "2011 IEEE Vehicular Technology Conference (VTC Fall)",
+   "issued": [
+    [
+     2011,
+     9
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "1-5",
+   "article_number": null,
+   "publisher": "IEEE",
+   "type": "proceedings-article",
+   "authors": [
+    "Gabriel Pedroza",
+    "Muhammad Sabir Idrees",
+    "Ludovic Apvrille",
+    "Yves Roudier"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "mukherjee2021": {
+   "doi": "10.14722/autosec.2021.23028",
+   "title": "Trusted Verification of Over-the-Air (OTA) Secure Software Updates on COTS Embedded Systems",
+   "container": "Proceedings Third International Workshop on Automotive and Autonomous Vehicle Security",
+   "event": "Third International Workshop on Automotive and Autonomous Vehicle Security",
+   "issued": [
+    [
+     2021
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": null,
+   "article_number": null,
+   "publisher": "Internet Society",
+   "type": "proceedings-article",
+   "authors": [
+    "Anway Mukherjee",
+    "Ryan Gerdes",
+    "Tam Chantem"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "idrees2011": {
+   "doi": "10.1007/978-3-642-19786-4_20",
+   "title": "Secure Automotive On-Board Protocols: A Case of Over-the-Air Firmware Updates",
+   "container": "Lecture Notes in Computer Science",
+   "event": null,
+   "issued": [
+    [
+     2011
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "224-238",
+   "article_number": null,
+   "publisher": "Springer Berlin Heidelberg",
+   "type": "book-chapter",
+   "authors": [
+    "Muhammad Sabir Idrees",
+    "Hendrik Schweppe",
+    "Yves Roudier",
+    "Marko Wolf",
+    "Dirk Scheuermann",
+    "Olaf Henniger"
+   ],
+   "editors": [],
+   "series": [
+    "Communication Technologies for Vehicles"
+   ],
+   "isbn": [
+    "9783642197857",
+    "9783642197864"
+   ]
+  },
+  "boureanu2023": {
+   "doi": "10.1109/smc53992.2023.10394216",
+   "title": "Formally Verifying the Security and Privacy of an Adopted Standard for Software-Update in Cars: Verifying Uptane 2.0",
+   "container": "2023 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+   "event": "2023 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+   "issued": [
+    [
+     2023,
+     10,
+     1
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "1301-1306",
+   "article_number": null,
+   "publisher": "IEEE",
+   "type": "proceedings-article",
+   "authors": [
+    "Ioana Boureanu"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "mahmood2020": {
+   "doi": "10.1109/icstw50294.2020.00019",
+   "title": "A Model-Based Security Testing Approach for Automotive Over-The-Air Updates",
+   "container": "2020 IEEE International Conference on Software Testing, Verification and Validation Workshops (ICSTW)",
+   "event": "2020 IEEE International Conference on Software Testing, Verification and Validation Workshops (ICSTW)",
+   "issued": [
+    [
+     2020,
+     10
+    ]
+   ],
+   "volume": null,
+   "issue": null,
+   "page": "6-13",
+   "article_number": null,
+   "publisher": "IEEE",
+   "type": "proceedings-article",
+   "authors": [
+    "Shahid Mahmood",
+    "Alexy Fouillade",
+    "Hoang Nga Nguyen",
+    "Siraj A. Shaikh"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  },
+  "mahmood2022": {
+   "doi": "10.1016/j.vehcom.2022.100468",
+   "title": "Systematic threat assessment and security testing of automotive over-the-air (OTA) updates",
+   "container": "Vehicular Communications",
+   "event": null,
+   "issued": [
+    [
+     2022,
+     6
+    ]
+   ],
+   "volume": "35",
+   "issue": null,
+   "page": "100468",
+   "article_number": "100468",
+   "publisher": "Elsevier BV",
+   "type": "journal-article",
+   "authors": [
+    "Shahid Mahmood",
+    "Hoang Nga Nguyen",
+    "Siraj Ahmed Shaikh"
+   ],
+   "editors": [],
+   "series": null,
+   "isbn": null
+  }
+ },
+ "arxiv": {
+  "cirstea2024": {
+   "id": "2404.16075",
+   "title": "Validating Traces of Distributed Programs Against TLA+ Specifications",
+   "published": "2024-04-24",
+   "updated": "2024-09-17",
+   "authors": [
+    "Horatiu Cirstea",
+    "Markus A. Kuppe",
+    "Benjamin Loillier",
+    "Stephan Merz"
+   ],
+   "journal_ref": null,
+   "doi": null,
+   "summary": "TLA+ is a formal language for specifying systems, including distributed algorithms, that is supported by powerful verification tools. In this work we present a framework for relating traces of distributed programs to high-level specifications written in TLA+. The problem is reduced to a constrained model checking problem, realized using the TLC model checker. Our framework consists of an API for instrumenting Java programs in order to record traces of executions, of a collection of TLA+ operators that are used for relating those traces to specifications, and of scripts for running the model checker. Crucially, traces only contain updates to specification variables rather than full values, and developers may choose to trace only certain variables. We have applied our approach to several distributed programs, detecting discrepancies between the specifications and the implementations in all cases. We discuss reasons for these discrepancies, best practices for instrumenting programs, and how to interpret the verdict produced by TLC."
+  },
+  "howard2024": {
+   "id": "2406.17455",
+   "title": "Smart Casual Verification of the Confidential Consortium Framework",
+   "published": "2024-06-25",
+   "updated": "2024-10-16",
+   "authors": [
+    "Heidi Howard",
+    "Markus A. Kuppe",
+    "Edward Ashton",
+    "Amaury Chamayou",
+    "Natacha Crooks"
+   ],
+   "journal_ref": null,
+   "doi": null,
+   "summary": "The Confidential Consortium Framework (CCF) is an open-source platform for developing trustworthy and reliable cloud applications. CCF powers Microsoft's Azure Confidential Ledger service and as such it is vital to build confidence in the correctness of CCF's design and implementation. This paper reports our experiences applying smart casual verification to validate the correctness of CCF's novel distributed protocols, focusing on its unique distributed consensus protocol and its custom client consistency model. We use the term smart casual verification to describe our hybrid approach, which combines the rigor of formal specification and model checking with the pragmatism of automated testing, in our case binding the formal specification in TLA+ to the C++ implementation. While traditional formal methods approaches require substantial buy-in and are often one-off efforts by domain experts, we have integrated our smart casual verification approach into CCF's CI pipeline, allowing contributors to continuously validate CCF as it evolves. We describe the challenges we faced in applying smart casual verification to a complex existing codebase and how we overcame them to find six subtle bugs in the design and implementation before they could impact production"
+  },
+  "schmid2021": {
+   "id": "2101.07307",
+   "title": "Formal Verification of a Fail-Operational Automotive Driving System",
+   "published": "2021-01-18",
+   "updated": "2021-01-18",
+   "authors": [
+    "Tobias Schmid",
+    "Stefanie Schraufstetter",
+    "Jonas Fritzsch",
+    "Dominik Hellhake",
+    "Greta Koelln",
+    "Stefan Wagner"
+   ],
+   "journal_ref": null,
+   "doi": null,
+   "summary": "A fail-operational system for highly automated driving must complete the driving task even in the presence of a failure. This requires redundant architectures and a mechanism to reconfigure the system in case of a failure. Therefore, an arbitration logic is used. For functional safety, the switch-over to a fall-back level must be conducted in the presence of any electric and electronic failure. To provide evidence for a safety argumentation in compliance with ISO 26262, verification of the arbitration logic is necessary. The verification process provides confirmation of the correct failure reactions and that no unintended system states are attainable. Conventional safety analyses, such as the failure mode and effect analysis, have its limits in this regard. We present an analytical approach based on formal verification, in particular model checking, to verify the fail-operational behaviour of a driving system. For that reason, we model the system behaviour and the relevant architecture and formally specify the safety requirements. The scope of the analysis is defined according to the requirements of ISO 26262. We verify a fail-operational arbitration logic for highly automated driving in compliance with the industry standard. Our results show that formal methods for safety evaluation in automotive fail-operational driving systems can be successfully applied. We were able to detect failures, which would have been overlooked by other analyses and thus contribute to the development of safety critical functions."
+  },
+  "shoker2023": {
+   "id": "2307.02032",
+   "title": "ScalOTA: Scalable Secure Over-the-Air Software Updates for Vehicles",
+   "published": "2023-07-05",
+   "updated": "2023-07-05",
+   "authors": [
+    "Ali Shoker",
+    "Fernando Alves",
+    "Paulo Esteves-Verissimo"
+   ],
+   "journal_ref": null,
+   "doi": null,
+   "summary": "Over-the-Air (OTA) software updates are becoming essential for electric/electronic vehicle architectures in order to reduce recalls amid the increasing software bugs and vulnerabilities. Current OTA update architectures rely heavily on direct cellular repository-to-vehicle links, which makes the repository a communication bottleneck, and increases the cellular bandwidth utilization cost as well as the software download latency. In this paper, we introduce ScalOTA, an end-to-end scalable OTA software update architecture and secure protocol for modern vehicles. For the first time, we propose using a network of update stations, as part of Electric Vehicle charging stations, to boost the download speed through these stations, and reduce the cellular bandwidth overhead significantly. Our formalized OTA update protocol ensures proven end-to-end chain-of-trust including all stakeholders: manufacturer, suppliers, update stations, and all layers of in-vehicle Electric Control Units (ECUs). The empirical evaluation shows that ScalOTA reduces the bandwidth utilization and download latency up to an order of magnitude compared with current OTA update systems."
+  },
+  "hagen2025arxiv": {
+   "id": "2511.15479",
+   "title": "Towards a Formal Verification of Secure Vehicle Software Updates",
+   "published": "2025-11-19",
+   "updated": "2025-11-19",
+   "authors": [
+    "Martin Slind Hagen",
+    "Emil Lundqvist",
+    "Alex Phu",
+    "Yenan Wang",
+    "Kim Strandberg",
+    "Elad Michael Schiller"
+   ],
+   "journal_ref": "Computers & Security, 2025, 104751, ISSN 0167-4048",
+   "doi": "10.1016/j.cose.2025.104751",
+   "summary": "With the rise of software-defined vehicles (SDVs), where software governs most vehicle functions alongside enhanced connectivity, the need for secure software updates has become increasingly critical. Software vulnerabilities can severely impact safety, the economy, and society. In response to this challenge, Strandberg et al. [escar Europe, 2021] introduced the Unified Software Update Framework (UniSUF), designed to provide a secure update framework that integrates seamlessly with existing vehicular infrastructures. Although UniSUF has previously been evaluated regarding cybersecurity, these assessments have not employed formal verification methods. To bridge this gap, we perform a formal security analysis of UniSUF. We model UniSUF's architecture and assumptions to reflect real-world automotive systems and develop a ProVerif-based framework that formally verifies UniSUF's compliance with essential security requirements - confidentiality, integrity, authenticity, freshness, order, and liveness - demonstrating their satisfiability through symbolic execution. Our results demonstrate that UniSUF adheres to the specified security guarantees, ensuring the correctness and reliability of its security framework."
+  },
+  "autosarfota2025": {
+   "id": "2503.05839",
+   "title": "Enhancing AUTOSAR-Based Firmware Over-the-Air Updates in the Automotive Industry with a Practical Implementation on a Steering System",
+   "published": "2025-03-06",
+   "updated": "2025-03-18",
+   "authors": [
+    "Mostafa A. Mostafa",
+    "Mohamed K. Mohamed",
+    "Radwa W. Ezzat"
+   ],
+   "journal_ref": null,
+   "doi": null,
+   "summary": "The automotive industry is increasingly reliant on software to manage complex vehicle functionalities, making efficient and secure firmware updates essential. Traditional firmware update methods, requiring physical connections through On-Board Diagnostics (OBD) ports, are inconvenient, costly, and time-consuming. Firmware Over-the-Air (FOTA) technology offers a revolutionary solution by enabling wireless updates, reducing operational costs, and enhancing the user experience. This project aims to design and implement an advanced FOTA system tailored for modern vehicles, incorporating the AUTOSAR architecture for scalability and standardization, and utilizing delta updating to minimize firmware update sizes, thereby improving bandwidth efficiency and reducing flashing times. To ensure security, the system integrates the UDS 0x27 protocol for authentication and data integrity during the update process. Communication between Electronic Control Units (ECUs) is achieved using the CAN protocol, while the ESP8266 module and the master ECU communicate via SPI for data transfer. The system's architecture includes key components such as a bootloader, boot manager, and bootloader updater to facilitate seamless firmware updates. The functionality of the system is demonstrated through two applications: a blinking LED and a Lane Keeping Assist (LKA) system, showcasing its versatility in handling critical automotive features. This project represents a significant step forward in automotive technology, offering a user-centric, efficient, and secure solution for automotive firmware management."
+  },
+  "sdvsurvey2026": {
+   "id": "2605.30001",
+   "title": "The Rise of the Software-Defined Vehicle: Architectures, Enabling Technologies, and Future Opportunities",
+   "published": "2026-05-28",
+   "updated": "2026-08-09",
+   "authors": [
+    "Eirini Liotou",
+    "Dimitra Tzelalidou",
+    "Gerasimos Christodoulou"
+   ],
+   "journal_ref": null,
+   "doi": null,
+   "summary": "The transition toward Software-Defined Vehicles (SDVs) represents a major paradigm shift in vehicle design, transforming traditional hardware-centric systems into software-centric platforms capable of dynamic adaptation and continuous functional evolution. SDVs enable advanced capabilities such as Over-the-Air (OTA) updates, intelligent automation, and connected services driven by AI. This paper presents a comprehensive survey of the architectures, enabling technologies, and operational frameworks that define modern SDVs. It examines the evolution of vehicle architectures from distributed electronic control unit (ECU) systems to domain-based, zonal, and centralized computing platforms. Key enabling technologies are reviewed, including service-oriented software architectures, middleware, automation pipelines, artificial intelligence mechanisms, and cloud-based infrastructures. A structured taxonomy is introduced to organize SDV technologies into functional hardware, E/E architectures, software frameworks, automation mechanisms, and distributed infrastructure domains. The study also investigates the Software-Defined Internet of Vehicles (SDIoV) paradigm, integrating Software-Defined Networking (SDN) with edge and fog computing to support scalable vehicular communication and data processing. Furthermore, key technical challenges related to cybersecurity, interoperability, data management, and system scalability are discussed, along with emerging research directions and future development trends."
+  }
+ },
+ "search": {}
+}

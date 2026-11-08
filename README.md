@@ -53,7 +53,8 @@ The journal paper's evidence is separate from the planner, LLM and MCUboot work 
 | --- | --- | --- | --- |
 | TLA+ campaign model, 4 safety and 1 liveness property, 3 flawed designs | `specs/tla/OTACampaign.tla`, `experiments/e0_small_campaign.py` | `results/raw/e0_small_campaign/` | [SMALL_CAMPAIGN_RESULTS](docs/SMALL_CAMPAIGN_RESULTS.md) |
 | Scaling (5 to 50 ECUs) and the pair abstraction | `experiments/e3_scaling.py`, `specs/tla/OTAPair.tla` | `results/scaling.csv`, `results/raw/e3_scaling/` | [SCALING_RESULTS](docs/SCALING_RESULTS.md), [soundness](docs/PAIR_ABSTRACTION_SOUNDNESS.md) |
-| Model against software-in-the-loop (SIL) simulator | `experiments/e5_predict.py`, `experiments/e5_sil.py`, `sil/` | `results/predictions/e5/`, `results/raw/e5_sil/`, `results/confusion.csv` | in progress |
+| Model against software-in-the-loop (SIL) simulator | `experiments/e5_predict.py`, `experiments/e5_sil.py`, `sil/` | `results/predictions/e5/`, `results/raw/e5_sil/20261108T074756Z-e593539/`, `results/confusion.csv` | [Paper draft](paper/OTA_Campaign_Safety_DRAFT_IEEE.pdf), Section VII |
+| Paper: every number and table | `paper/make_paper_data.py`, citations `paper/verify_citations.py` | `paper/generated/` | Build: `tools/bin/tectonic/tectonic.exe -X compile paper/main.tex --outdir paper/build` |
 | Raspberry Pi testbed | none yet | none: **not built** | [build plan](docs/RASPBERRY_PI_TESTBED.md) |
 
 Reproduce with Python 3.11 or later and Java. CI uses Java 17, and the recorded runs used Java 18.
