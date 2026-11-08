@@ -171,7 +171,23 @@ L1 & Under weak fairness and at most $F$ faults, the campaign reaches committed 
 \section{Model Checking the Designs}
 \label{sec:flaws}
 
-We checked a three-ECU campaign (gateway, brake, infotainment; brake requires gateway) for all four designs and five properties at fault budgets 0, 1 and~2, plus three sanity checks: TLC was asked to find a commit, an abort and a real rollback in the correct design, so that a pass cannot come from a model that does nothing. All \EzeroChecks{} checks matched verdicts recorded before the first run (at budget~2). The correct design was fully explored with \EzeroStatesZero{}, \EzeroStatesOne{} and \EzeroStatesTwo{} distinct states at budgets 0, 1 and~2. Table~\ref{tab:e0} gives the verdicts.
+We checked a three-ECU campaign (gateway, brake, infotainment; brake requires gateway) for all four designs and five properties at fault budgets 0, 1 and~2, plus three sanity checks: TLC was asked to find a commit, an abort and a real rollback in the correct design, so that a pass cannot come from a model that does nothing. All \EzeroChecks{} checks matched verdicts recorded before the first run (at budget~2). The correct design was fully explored with \EzeroStatesZero{}, \EzeroStatesOne{} and \EzeroStatesTwo{} distinct states at budgets 0, 1 and~2. Table~\ref{tab:e0} gives the verdicts, and Table~\ref{tab:space} the size of every design's state space. All designs coincide without faults, apart from TLC counting \texttt{SkipVerify}'s verification step twice. With faults, \texttt{SkipVerify} has the largest space, because a corrupt download continues instead of starting rollback. The other flawed designs have smaller spaces than the correct one.
+
+\begin{table}[t]
+\caption{State space of the three-ECU campaign: distinct / generated states, from a safety property that holds (so the space is explored completely)}
+\label{tab:space}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+& \multicolumn{2}{c}{0 faults} & \multicolumn{2}{c}{1 fault} & \multicolumn{2}{c}{2 faults} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}\cmidrule(l){6-7}
+Design & Dist. & Gen. & Dist. & Gen. & Dist. & Gen. \\
+\midrule
+\input{generated/e0_space.tex}
+\end{tabular}
+\end{table}
 
 \begin{table}[t]
 \caption{Verdicts on the three-ECU campaign at fault budget 2. Parentheses: smallest budget at which the violation appears}
@@ -300,9 +316,23 @@ Design & Both hold & Both violated & Unsound & Spurious \\
 \end{table}
 
 \textbf{Mechanical checks.} These test the proof's lemmas on finite instances. They support the proof but do not replace it.
-(i)~Refinement: TLC checked that the full model refines the pair model through $\alpha$ for every ECU pair, in \RefineHold{} of \RefineRuns{} runs on small generated campaigns over all four designs.
+(i)~Refinement: TLC checked that the full model refines the pair model through $\alpha$ for every ECU pair, in \RefineHold{} of \RefineRuns{} runs on small generated campaigns over all four designs (Table~\ref{tab:refine}).
 (ii)~Negative control: with \emph{EnvFail} disabled, the same check was \ControlVerdict, so the check can detect a broken abstraction.
 (iii)~Agreement: on \AgreeSizes{} ECUs at a fault budget of 2, pair predictions matched full-model verdicts in all \AgreeRuns{} comparisons (\AgreeHolds{} both hold, \AgreeViolated{} both violated), with \AgreeUnsound{} unsound and \AgreeSpurious{} spurious results (Table~\ref{tab:agree}). That zero applies only to these instances.
+
+\begin{table}[t]
+\caption{Refinement checks of the full model against the pair model, all four designs, three graphs per size, fault budget \ScaleFaultBudget}
+\label{tab:refine}
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{@{}rrrrrr@{}}
+\toprule
+ECUs & Runs & Pairs/run & Distinct states & Max time (s) & Holds \\
+\midrule
+\input{generated/refinement.tex}
+\end{tabular}
+\end{table}
 
 \section{Validation Against a Software-in-the-Loop Simulator}
 \label{sec:validation}
@@ -370,6 +400,22 @@ Over \SilRuns{} runs, there were \SilAllMatchViol{} matched violations, \SilAllM
 
 The correct design produced no violation in any run, and every flawed design produced violations that the model had predicted (Table~\ref{tab:silbreak}). All \SilSOneViol{} S1 violations came from design \texttt{\SilSOneDesigns} under schedule ``\SilSOnePolicies''. That is the only schedule in which a dependency can still be in its trial period, and so able to fail, after its dependent has activated. This is why \texttt{LocalRollback}'s S1 flaw needs a particular schedule to show.
 
+Table~\ref{tab:silfaults} groups the runs by the first fault injected. The correct design violated nothing under any fault kind. \texttt{SkipVerify} failed only after a corrupt download, which is the one fault its flaw concerns. \texttt{EarlyErase} failed even with no fault, as the model predicts (Table~\ref{tab:e0}). Each design column counts runs out of a quarter of the Runs column, since every script runs once per design.
+
+\begin{table}[t]
+\caption{SIL runs by the first fault injected, and how many runs of each design violated at least one property (as observed on disk, and as predicted)}
+\label{tab:silfaults}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}lrrrrr@{}}
+\toprule
+First fault & Runs & Correct & LocalRb. & EarlyErase & SkipVer. \\
+\midrule
+\input{generated/sil_faults.tex}
+\end{tabular}
+\end{table}
+
 \textbf{How to read this.} Agreement is the expected outcome when two implementations of one design follow the same schedule. The comparison shows that the model and an executable, process-level implementation agree on these campaigns and faults, including after real process kills and real hash checks. It does not show that the model captures failure modes the SIL cannot produce, such as torn writes, because the SIL injects only the model's fault kinds. A power cut during a write is the one fault that is lower-level in the SIL than in the model, where it maps to a power loss at that step.
 
 \section{Discussion and Threats to Validity}
@@ -396,6 +442,24 @@ A dual-bank layout makes each ECU recoverable, but not the vehicle. A small \tla
 
 \section*{Artifact}
 Model, scripts, raw results with manifests (commit, uncommitted files, seed, environment and SHA-256 of every output) and the generator for every number in this paper: \url{https://github.com/sravasti12/OTA-Campaign-Verfier-Research-Artifact}.
+
+\appendices
+\section{Every Direct Scaling Run}
+Table~\ref{tab:runs} lists each run summarized in Table~\ref{tab:scale}. In all \DepthRuns{} finished runs, the depth of the breadth-first search was exactly $4N+3$ for $N$ ECUs (checked by the generator: \DepthRule), consistent with each ECU contributing its four nominal steps (download, verify, activate, confirm). The graph changes how many states there are, not how deep the search goes.
+
+\begin{table}[h]
+\caption{Direct checking of S1--S4, every graph, fault budget \ScaleFaultBudget}
+\label{tab:runs}
+\centering
+\scriptsize
+\setlength{\tabcolsep}{2pt}
+\begin{tabular}{@{}rrrlrrrrr@{}}
+\toprule
+$N$ & Seed & Edges & Status & Distinct & Generated & Depth & Time (s) & MB \\
+\midrule
+\input{generated/scaling_runs.tex}
+\end{tabular}
+\end{table}
 
 \bibliographystyle{IEEEtran}
 \bibliography{refs}
