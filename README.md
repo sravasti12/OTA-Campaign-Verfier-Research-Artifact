@@ -126,9 +126,3 @@ This repository grew out of a broader OTA planning project, and its history is k
 - the Streamlit app
 
 They are described in [PROJECT_README.md](PROJECT_README.md).
-
-## Citation
-
-The paper has not been submitted yet. Until it has a venue, cite the artifact as:
-
-> S. Bose, "Checking the Functional Safety of Multi-ECU Over-the-Air Update Campaigns: Research Artifact," 2026. https://github.com/sravasti12/OTA-Campaign-Verfier-Research-Artifact
