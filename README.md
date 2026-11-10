@@ -4,7 +4,7 @@ This repository is the research artifact for the paper:
 
 > **Checking the Functional Safety of Multi-ECU Over-the-Air Update Campaigns: A TLA+ Model, a Pair Abstraction and Software-in-the-Loop Validation**
 > Sravasti Bose, independent researcher, Kolkata, India.
-> Draft, not yet submitted. PDF: [paper/OTA_Campaign_Safety_DRAFT_IEEE.pdf](paper/OTA_Campaign_Safety_DRAFT_IEEE.pdf)
+> Draft. PDF: [paper/OTA_Campaign_Safety_DRAFT_IEEE.pdf](paper/OTA_Campaign_Safety_DRAFT_IEEE.pdf)
 
 It holds the formal model, the experiment scripts, every raw result with its run manifest, the software-in-the-loop (SIL) simulator, and the script that generates every number and table in the paper.
 
